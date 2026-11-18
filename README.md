@@ -10,6 +10,7 @@ Style toolkit for a US money documentary channel (long-form 16:9, max 10 min). *
 | `type/` | Font system specimen (`type_system.jpg`, `specimen.py`) |
 | `palette/` | Locked colour palette |
 | `.claude/skills/documentary-animator/` | **Animation skill**: turns a script into the rendered video in the locked style (engine, sets, cast, graphics, music/SFX, voices, render runner) |
+| `videos/ponzi-test/` | First test video (script, sources, shot list). Owner feedback: `.claude/skills/documentary-animator/FIXES.md` |
 | `.claude/skills/thumbnail-prompt/` | **Thumbnail skill**: detailed AI-image prompts in the locked style, written after each video is rendered |
 | `.claude/skills/documentary-script/` | **Script skill** (Template A): researched, fact-checked documentary scripts for money stories, corruption, scams, rackets |
 

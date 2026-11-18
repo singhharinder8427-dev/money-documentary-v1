@@ -12,6 +12,11 @@ fonts, sets or looks without the owner's say-so.
 Built on the drawing kit and pipeline of the **"Claude 2D Animation Long Form" skill, made by aivxer** (keep this
 credit), heavily modified for this channel.
 
+## Before anything else: read `FIXES.md`
+`FIXES.md` (in this folder) holds the owner's feedback from the first test render. Until every item there is done
+and the owner has approved the result, apply those instructions on every video. Standing rules from it:
+**music level stays as it is; sound effects quieter; typed text always uses a real typewriter sound.**
+
 ## Hard rules
 
 1. **Ask before every render:** for each new video ask the owner: *render on your Windows PC or in the cloud?*
