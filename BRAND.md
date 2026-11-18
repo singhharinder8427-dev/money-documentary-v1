@@ -4,7 +4,7 @@ Owner-approved, 18 Nov 2026. Change only with the owner's say-so.
 
 ## Channel
 - Long-form 16:9 money videos for a **US audience**: money lessons + real money stories. Max **10 minutes**.
-- Delivery: **1920x1080, 30 fps, 24 Mbps**, rendered on the owner's PC.
+- Delivery: **1920x1080, 30 fps, 24 Mbps**; render on PC or in the cloud - ask the owner for every video.
 
 ## Colours (locked)
 | Colour | Hex | Job |
