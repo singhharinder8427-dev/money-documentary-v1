@@ -8,6 +8,7 @@ Style toolkit for a US money documentary channel (long-form 16:9, max 10 min). *
 | `environments/` | Five night scenes (`env*.jpg`) + `envs.py`; uses the original kit in `environments/kit.py` |
 | `type/` | Font system specimen (`type_system.jpg`, `specimen.py`) |
 | `palette/` | Locked colour palette |
+| `.claude/skills/thumbnail-prompt/` | **Thumbnail skill**: detailed AI-image prompts in the locked style, written after each video is rendered |
 | `.claude/skills/documentary-script/` | **Script skill** (Template A): researched, fact-checked documentary scripts for money stories, corruption, scams, rackets |
 
 ## Re-run

@@ -47,5 +47,13 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
   ~0:45) -> Ch 1 origin -> Ch 2 the opening -> Ch 3 the plan -> midpoint twist -> Ch 4 the fallout -> Ch 5 your
   wallet -> callback ending. 10 min default, ~1,500 words at 155 wpm.
 
+## Thumbnails (locked) - `.claude/skills/thumbnail-prompt/`
+- Made by the owner in an AI image tool from **detailed prompts written at the end of every video** (after render),
+  2-3 options per video.
+- Every prompt names the locked palette (hex + jobs, no green) and describes **our character style**; real people
+  drawn in our style with their signature traits.
+- Formula: top text band (white + one gold/orange word), one big expressive face, one glowing story object,
+  dark blurred story background, dramatic rim light.
+
 ## Not decided yet
-- Thumbnails, daytime scenes for lessons, voices + lip-sync, music/sound mood, final channel name, rendering pipeline.
+- daytime scenes for lessons, voices + lip-sync, music/sound mood, final channel name, rendering pipeline.
