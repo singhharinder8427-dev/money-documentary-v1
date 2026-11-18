@@ -254,7 +254,12 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
         cap.moveTo(-R - 10, -R - 10); cap.lineTo(R + 10, -R - 10); cap.lineTo(R + 10, top + 30); cap.cubicTo(R - 20, top, -R + 20, top, -R - 10, top + 30); cap.close()
         c.drawPath(cap, fp(hcol)); c.drawPath(cap, ink(lw * (0.7 if hair == 'buzz' else 0.9))); c.restore()
     c.drawPath(head, ink(lw))
-    if hat:
+    if hat and spec.get('hat_style') == 'boater':   # flat straw boater (1920s)
+        oval(c, -R - 38, -70, R + 38, -44, spec.get('hat_col', '#E8C77A'), lw)
+        cr = skia.Path(); cr.addRRect(skia.RRect.MakeRectXY(skia.Rect(-R + 8, -R - 18, R - 8, -54), 8, 8)); shape(c, cr, spec.get('hat_col', '#E8C77A'), lw)
+        c.save(); c.clipPath(cr, doAntiAlias=True); c.drawRect(skia.Rect(-R, -82, R, -60), fp(spec.get('hat_band', '#14213D'))); c.restore(); c.drawPath(cr, ink(lw))
+        for k in range(-3, 4): c.drawLine(k * 22, -R - 14, k * 22 + 4, -84, ink(lw * .3, (180, 140, 70)))
+    elif hat:
         crown = skia.Path(); crown.moveTo(-R + 6, -56); crown.cubicTo(-R - 2, -R - 82, R + 2, -R - 82, R - 6, -56); crown.close()
         shape(c, crown, spec.get('hat_col', '#2E2E38'), lw); c.save(); c.clipPath(crown, doAntiAlias=True)
         c.drawRect(skia.Rect(-R, -86, R, -56), fp(spec.get('hat_band', '#7E1C24'))); c.drawLine(-R, -86, R, -86, ink(lw * .7)); c.restore()

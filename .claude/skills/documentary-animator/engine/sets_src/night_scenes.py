@@ -184,6 +184,7 @@ def desk():
     frame_out(surf, 'env3_desk.png')
 
 # ============ 4. MONEY STREET AT NIGHT (bank, cash advance, pawn, billboard, lamp, walker)
+STREET_ERA = 'modern'
 def street():
     surf = skia.Surface(W, H); c = surf.getCanvas(); rnd = random.Random(2)
     c.drawRect(skia.Rect(0, 0, W, H), sp(linear(0, 0, 0, 700, [hx('#0A1136'), hx('#24338A')])))
@@ -192,6 +193,8 @@ def street():
     blur_begin(c, 5); city(c, 0, 250, W, 640, seed=11, base='#1A2A5C'); c.restore()
     # storefront row
     shops = [(0, 420, 'BANK', NAVY2, GOLD_), (420, 760, 'CASH ADVANCE', '#3A2A4A', ORNG), (760, 1100, 'PAWN', '#4A3626', GOLD_), (1100, 1460, 'DELI', '#2B4A5A', WHITE), (1460, 1920, 'MORTGAGES', '#2A3D68', GOLD_)]
+    if STREET_ERA == '1920':   # period version: no modern signs
+        shops = [(0, 420, 'BANK', NAVY2, GOLD_), (420, 760, 'TAILOR', '#3A2A4A', WHITE), (760, 1100, 'SECURITIES EXCHANGE CO.', '#4A3626', GOLD_), (1100, 1460, 'DELI', '#2B4A5A', WHITE), (1460, 1920, 'HOTEL', '#2A3D68', GOLD_)]
     for x0, x1, name, body, signc in shops:
         rect(c, x0, 300, x1, 820, body, 6)
         for wy in range(410, 520, 62):
@@ -199,9 +202,9 @@ def street():
         rect(c, x0 + 30, 318, x1 - 30, 388, '#0A0F1E', 5, r=8); txt(c, name, (x0 + x1) / 2, 370, min(52, (x1 - x0 - 80) / (len(name) * 0.62)), signc, MRK, 'center', skew=0)
         rect(c, x0 + 40, 630, x1 - 140, 820, '#FFE7B0', 5); rect(c, x1 - 120, 650, x1 - 40, 820, '#3B2A1E', 5)
     for k in range(4): rect(c, 40 + k * 95, 560, 70 + k * 95, 820, '#E5E5E5', 4)   # bank columns
-    rect(c, 1500, 640, 1760, 760, WHITE, 4); txt(c, 'RATES 7.2%', 1630, 715, 48, ORNG, MRK, 'center', skew=0)
+    if STREET_ERA != '1920': rect(c, 1500, 640, 1760, 760, WHITE, 4); txt(c, 'RATES 7.2%', 1630, 715, 48, ORNG, MRK, 'center', skew=0)
     # billboard on the roof
-    rect(c, 1000, 120, 1600, 290, '#0A0F1E', 6); txt(c, 'YOUR MONEY, EXPLAINED', 1300, 225, 52, GOLD_, MRK, 'center', skew=0); line(c, 1100, 290, 1100, 300, 8); line(c, 1500, 290, 1500, 300, 8)
+    if STREET_ERA != '1920': rect(c, 1000, 120, 1600, 290, '#0A0F1E', 6); txt(c, 'YOUR MONEY, EXPLAINED', 1300, 225, 52, GOLD_, MRK, 'center', skew=0); line(c, 1100, 290, 1100, 300, 8); line(c, 1500, 290, 1500, 300, 8)
     # pavement, road, cars
     rect(c, -10, 820, W + 10, 900, '#4A4E5E', 5); [line(c, x, 820, x - 30, 900, 3, (40, 42, 54)) for x in range(0, W, 120)]
     rect(c, -10, 900, W + 10, H + 10, '#22252F', 0)

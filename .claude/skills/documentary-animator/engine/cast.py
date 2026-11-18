@@ -22,6 +22,12 @@ ARCHETYPES = {
  'retiree': dict(skin='#EFCFB2', skin_d='#D4AF8F', suit='#6B5A46', suit_d='#52432F', shirt='#F4EFE2', outfit='sweater', hair='bald', hair_col='#D9D9DE', glasses=True),
 }
 CAST = {**LOCKED, **ARCHETYPES}
+# Real people (our style, signature traits only - always shown with a name tag)
+REAL = {
+ 'ponzi': dict(skin='#E9C09A', skin_d='#CDA27C', suit='#D9CFB8', suit_d='#BFB397', shirt='#FFFFFF', tie='#14213D', hair='slick', hair_col='#1A1414',
+               moustache=True, moustache_col='#1A1414', hat_style='boater', hat_col='#E8C77A', hat_band='#14213D', hanky='#FFFFFF'),   # wear with hat=True
+}
+CAST.update(REAL)
 NAMES = {'ceo': 'THE CEO', 'analyst': 'THE ANALYST', 'worker': 'THE WORKER', 'banker': 'THE BANKER', 'investor': 'THE INVESTOR',
          'saver': 'THE SAVER', 'grad': 'THE GRAD', 'scammer': 'THE SCAMMER', 'agent': 'THE AGENT', 'reporter': 'THE REPORTER', 'retiree': 'THE RETIREE'}
 

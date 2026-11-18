@@ -13,6 +13,11 @@ def _enc_args():
     if enc == 'libx264': return ['-c:v', 'libx264', '-preset', 'medium', *rate, '-pix_fmt', 'yuv420p']
     return ['-c:v', enc, *rate, '-pix_fmt', 'yuv420p']
 
+def _clamp(focus, z):
+    """Keep the camera inside the 1920x1080 world so no black edges show."""
+    hx, hy = W / (2 * z), H / (2 * z)
+    return (min(max(focus[0], hx), W - hx), min(max(focus[1], hy), H - hy))
+
 def render_shot(out, dur, draw, zoom=(1.0, 1.07), focus=(960, 540), rot=(0.0, 0.0), whip_in=False, whip_out=False, shake=None):
     """Render one shot to `out` (mp4).
     draw(c, t): draws the frame at local time t (seconds) in 1920x1080 world space.
@@ -28,7 +33,7 @@ def render_shot(out, dur, draw, zoom=(1.0, 1.07), focus=(960, 540), rot=(0.0, 0.
         if whip_in and f < 4: wx = (4 - f) ** 2 * 52; sig = (4 - f) * 18
         dx, dy = shake(t) if shake else (0, 0)
         c.clear(C((0, 0, 0))); c.save(); c.translate(W / 2 + wx + dx, H / 2 + dy); z = lerp(zoom[0], zoom[1], e); c.scale(z, z)
-        c.rotate(lerp(rot[0], rot[1], e)); c.translate(-focus[0], -focus[1]); draw(c, t); c.restore()
+        fx, fy = _clamp(focus, z); c.rotate(lerp(rot[0], rot[1], e)); c.translate(-fx, -fy); draw(c, t); c.restore()
         if sig:
             img = surf.makeImageSnapshot(); c.clear(C((0, 0, 0))); bp = skia.Paint(); bp.setImageFilter(skia.ImageFilters.Blur(sig, 0.01, skia.TileMode.kClamp))
             c.drawImage(img, 0, 0, skia.SamplingOptions(), bp)
@@ -39,7 +44,7 @@ def render_shot(out, dur, draw, zoom=(1.0, 1.07), focus=(960, 540), rot=(0.0, 0.
 
 def still(draw, t, path, zoom=1.0, focus=(960, 540)):
     """One test frame (for contact sheets before the long render)."""
-    surf = skia.Surface(W, H); c = surf.getCanvas(); c.clear(C((0, 0, 0))); c.save(); c.translate(W / 2, H / 2); c.scale(zoom, zoom); c.translate(-focus[0], -focus[1])
+    surf = skia.Surface(W, H); c = surf.getCanvas(); c.clear(C((0, 0, 0))); c.save(); c.translate(W / 2, H / 2); c.scale(zoom, zoom); fx, fy = _clamp(focus, zoom); c.translate(-fx, -fy)
     draw(c, t); c.restore(); surf.makeImageSnapshot().save(path, skia.kPNG); return path
 
 def contact_sheet(paths, out, cols=3):

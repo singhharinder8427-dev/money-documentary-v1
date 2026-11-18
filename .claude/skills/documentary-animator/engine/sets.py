@@ -67,6 +67,7 @@ SETS = {
  'night/trading':  dict(fn=NS.trading, plane=-2, extras='before', spots={'left': (760, 1180, 1.35), 'right': (1260, 1150, 1.25)}),
  'night/desk':     dict(fn=NS.desk,    plane=None, extras='all', spots={}),          # top-down desk: hands + documents, no standing actors
  'night/street':   dict(fn=NS.street,  plane=0, extras='none', spots={'walk': (900, 905, .6), 'bank_door': (220, 880, .52), 'pawn': (540, 880, .52), 'pawn2': (650, 880, .52)}),
+ 'night/street1920': dict(fn=lambda: (setattr(NS, 'STREET_ERA', '1920'), NS.street(), setattr(NS, 'STREET_ERA', 'modern')), plane=0, extras='none', spots={'walk': (900, 905, .6), 'queue_start': (120, 880, .5)}),
  'night/kitchen':  dict(fn=NS.kitchen, plane=0, extras='none', spots={'left': (640, 1060, 1.05), 'right': (1180, 1060, 1.05)}),
  'day/living':     dict(fn=DS.living_room, spots={'left': (600, 975, .98), 'right': (860, 985, .98)}),
  'day/kitchen':    dict(fn=DS.kitchen, spots={'center': (600, 1000, 1.0)}),
