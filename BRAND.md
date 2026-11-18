@@ -42,5 +42,10 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
 | Text cards, documents, quotes | **Special Elite** (typewriter, typed word by word, gold cursor) |
 | Labels, name tags, sticky notes, place tags | **Barlow Condensed** |
 
+## Script structure (locked) - `.claude/skills/documentary-script/`
+- **Template A** for every documentary (money stories, corruption, scams, rackets, fraud): hook (<= 45 s, title at
+  ~0:45) -> Ch 1 origin -> Ch 2 the opening -> Ch 3 the plan -> midpoint twist -> Ch 4 the fallout -> Ch 5 your
+  wallet -> callback ending. 10 min default, ~1,500 words at 155 wpm.
+
 ## Not decided yet
 - Thumbnails, daytime scenes for lessons, voices + lip-sync, music/sound mood, final channel name, rendering pipeline.
