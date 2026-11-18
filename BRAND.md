@@ -34,6 +34,18 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
 - **Paper grain on the background only.**
 - Note: the five sample images still show the earlier round-head characters; the final character style is in `characters/`.
 
+## Daytime scenes (locked: style A "printed illustration") - `daytime/`
+- Used for **lessons / "your money" parts**; night scenes stay for the story and drama parts.
+- The world is a **2-colour print**: navy ink outlines on cream paper `#F6EFE2`, light navy tint `#D6DEEC` under
+  shade, **small soft navy halftone dots** `#465C8C` for shading (lightened on the owner's request), solid mid-navy
+  for navy objects, **gold `#FCA311` as the only spot colour**. No smooth gradients, no bloom, no green.
+- Sunlight = clean cream areas cutting through the dotted shade.
+- **Characters stay full-colour and glossy** on top (drawn after the print pass), with a soft contact shadow.
+- Our own details instead of the reference channel's: no checkerboard floors (bank = cream marble + gold medallion),
+  autumn-gold trees and dried pampas grass instead of green plants.
+- Sample sets: living room, kitchen (morning), bank lobby, Main Street, lesson room (whiteboard + counter).
+- Animation tip: render each shot's background once as a still, animate characters/props over it.
+
 ## Fonts (locked) - `type/`
 | Use | Font |
 |---|---|
@@ -56,4 +68,4 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
   dark blurred story background, dramatic rim light.
 
 ## Not decided yet
-- daytime scenes for lessons, voices + lip-sync, music/sound mood, final channel name, rendering pipeline.
+- voices + lip-sync, music/sound mood, final channel name, rendering pipeline.

@@ -5,6 +5,7 @@ Style toolkit for a US money documentary channel (long-form 16:9, max 10 min). *
 | Folder | What |
 |---|---|
 | `characters/` | Final character style: `kit.py` (drawing kit), `draw_cast.py` (the 5-person cast), `cast_final.jpg` |
+| `daytime/` | **Locked daytime look** (printed illustration): 5 scenes (`day*.jpg`), `print_look.py` (run this) + `day_envs.py` + `kit.py` |
 | `environments/` | Five night scenes (`env*.jpg`) + `envs.py`; uses the original kit in `environments/kit.py` |
 | `type/` | Font system specimen (`type_system.jpg`, `specimen.py`) |
 | `palette/` | Locked colour palette |
