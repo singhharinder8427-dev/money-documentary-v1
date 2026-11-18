@@ -97,6 +97,7 @@ Work in `videos/<slug>/` (the video folder). The runner is `make_video.py` in th
   resolves on a final chord and a soft bed plays under the end screen.
 - **Lesson part:** always a red-flags / how-to-spot-it board where the points pop in one by one with the narrator.
 - **Use the story animations** (`anim`) often: a hand slam, a stamp, a chart or a prop every 20-30 s.
+- Name tags, place tags and labels go in the shot's `hud` (screen space) so camera moves never crop them.
 - Real people: `widgets.lower_third(name, role)` the first time they appear. Places / dates: `widgets.place_tag`.
 
 ## Engine reference (`engine/`)

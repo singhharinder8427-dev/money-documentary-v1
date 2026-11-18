@@ -43,14 +43,14 @@ def cmd_voices():
 def cmd_stills():
     tl, sh = shot_list(); pick = [x for x in sh if x.get('check', True)]
     pick = pick[:: max(1, len(pick) // 9)][:9]
-    paths = [render.still(x['draw'], x['dur'] * .6, str(OUT / f"still_{x['name']}.png"), x.get('zoom', (1, 1.07))[0], x.get('focus', (960, 540))) for x in pick]
+    paths = [render.still(x['draw'], x['dur'] * .6, str(OUT / f"still_{x['name']}.png"), x.get('zoom', (1, 1.07))[0], x.get('focus', (960, 540)), x.get('hud')) for x in pick]
     print(render.contact_sheet(paths, str(OUT / 'stills.jpg')))
 
 def _render_one(i):
     tl, sh = shot_list(); x = sh[i]; f = str(OUT / f"shot_{x['name']}.mp4")
     if os.path.exists(f) and not os.environ.get('FORCE'): return f
     return render.render_shot(f, x['dur'], x['draw'], x.get('zoom', (1.0, 1.07)), x.get('focus', (960, 540)), x.get('rot', (0, 0)),
-                              x.get('whip_in', False), x.get('whip_out', False), x.get('shake'))
+                              x.get('whip_in', False), x.get('whip_out', False), x.get('shake'), x.get('hud'))
 def cmd_render():
     tl, sh = shot_list(); print(f'{len(sh)} shots, {sum(x["dur"] for x in sh):.1f} s')
     from concurrent.futures import ProcessPoolExecutor
