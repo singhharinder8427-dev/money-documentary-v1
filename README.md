@@ -1,1 +1,20 @@
 # money-documentary-v1
+
+Style toolkit for a US money documentary channel (long-form 16:9, max 10 min). **Start with [BRAND.md](BRAND.md)**: the locked decisions.
+
+| Folder | What |
+|---|---|
+| `characters/` | Final character style: `kit.py` (drawing kit), `draw_cast.py` (the 5-person cast), `cast_final.jpg` |
+| `environments/` | Five night scenes (`env*.jpg`) + `envs.py`; uses the original kit in `environments/kit.py` |
+| `type/` | Font system specimen (`type_system.jpg`, `specimen.py`) |
+| `palette/` | Locked colour palette |
+
+## Re-run
+```bash
+pip install skia-python numpy pillow    # on Linux also: apt-get install libegl1
+./fetch_fonts.sh                        # free fonts into ./fonts
+cd characters && python3 draw_cast.py   # writes the cast image
+```
+Scripts expect `../fonts/` (environments) and the Inter font for name tags; adjust paths if needed.
+
+Credit: the character/lighting kit is based on the "Claude 2D Animation Long Form" skill **made by aivxer**.
