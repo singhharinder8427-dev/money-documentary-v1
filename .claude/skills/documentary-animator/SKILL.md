@@ -64,8 +64,16 @@ Work in `videos/<slug>/` (the video folder). The runner is `make_video.py` in th
    `CHARACTER_VOICES`). Without a narration file, narrator lines get a temporary Kokoro voice so work can start.
    Watch the log for `NOT MATCHED` lines and Kokoro OOV warnings (add the word to `lex_extra.txt`).
 4. **Shot list** - copy `template/shots.py` to the video folder and write **one picture per sentence** (rules below).
-5. **Stills** - `make_video.py stills`: contact sheet of the busiest frames. Look at it; fix cut-off labels,
-   overlaps, characters too low or behind things, before the long render.
+5. **Creative quality check (mandatory, by Claude)** - render 3 frames per shot (start / middle / end) into ONE
+   compact sheet and review every shot against this checklist; fix everything before the owner renders:
+   - **Mistakes:** cut-off text or props, overlaps, empty first frames, characters hidden or too small, tables/props
+     not readable, wrong colours (orange only for losses, no green), facts on screen that the script doesn't support.
+   - **Repetition:** no two shots in a row with the same composition; a new picture every 2-3 s (hook especially).
+   - **Look:** dots subtle (not dominant), vignette on scene shots, framed stage for diagrams/documents.
+   - **Creativity:** for every shot ask "would adding something make this more interesting, immersive or
+     eye-catching?" (a story-specific prop, a light sweep, a hand action, a detail close-up, a camera move) - add it.
+   - Keep usage low: one compact sheet per round; after fixes re-check only the changed shots.
+   Then tell the owner what was found and changed.
 6. **Ask PC or cloud**, then **render** - `make_video.py render` (one MP4 per shot, all CPU cores).
    On the PC the owner runs the same commands; give them the exact commands in separate `bash` blocks.
 7. **Audio** - `make_video.py audio`: cleaned voices (narrator vs character chain, character level-matched to the
