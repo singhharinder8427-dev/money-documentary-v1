@@ -100,5 +100,27 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
 - **Mix:** music well under the voice with automatic ducking whenever someone speaks; the final mix is levelled to
   YouTube's standard loudness (about -14 LUFS).
 
+## Rendering pipeline (locked) - based on the aivxer "Claude 2D Animation Long Form" skill (made by aivxer)
+- **Ask every time:** for each new video, ask the owner whether to render on their **Windows PC** or **in the cloud**.
+  Never assume.
+- **Output:** 1920x1080, 30 fps, H.264 at **24 Mbps** (`-b:v 24M -maxrate 24M -bufsize 48M`), AAC 256 kbps,
+  videos up to 10 minutes.
+- **Steps:**
+  1. Script (`documentary-script` skill, Template A) -> `script.json` with beats, speakers, cards, counters.
+  2. Shot list: one picture per sentence, using the locked night sets (story parts) and day sets (lesson parts).
+  3. Voices: narrator = owner's ElevenLabs file; characters = Kokoro clips, one fixed voice per character.
+  4. Timeline: every shot and line timed from the measured voice lengths.
+  5. Test stills: 6-9 of the busiest frames on one contact sheet, fixed before the long render.
+  6. Render: every frame drawn in Python (skia) with the locked kit, piped into ffmpeg, one MP4 per shot, joined
+     without re-encoding. Static backgrounds are drawn once (night/day print pass) and reused; characters and
+     props animate on top.
+  7. Audio: voice clean-up, code-made music + SFX from the mood map, ducking, -14 LUFS, muxed onto the video.
+  8. Check: transcribe the final audio with a free speech-to-text model against the script; one frame per shot
+     on a contact sheet; the owner watches once for timing.
+  9. Thumbnail prompts (`thumbnail-prompt` skill) after the render.
+- **Changes from the uploaded skill:** our cast, fonts, night/day print looks and text cards instead of its round
+  heads, handwritten fonts, glow and white handwriting cards; 24 Mbps instead of its quality setting; our mood map
+  instead of its single jazzy track; ElevenLabs narration + Kokoro characters handled as separate files.
+
 ## Not decided yet
-- final channel name, rendering pipeline.
+- final channel name.
