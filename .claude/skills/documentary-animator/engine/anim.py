@@ -166,3 +166,25 @@ def end_screen(c, t):
         c.drawRRect(skia.RRect.MakeRectXY(skia.Rect(x0, y0, x0 + 740, y0 + 416), 22, 22), ink(10, '#9DB0DA', int(255 * k)))
     k = pop(K(t, .6, .4))
     if k > 0: c.save(); c.translate(W / 2, 880); c.scale(k, k); circ(c, 0, 0, 90, None, 10, v='#9DB0DA'); c.restore()
+
+def police_car(c, x, y, t, s=1.0, spot_target=None, siren=True):
+    """1920s police car (boxy, running boards, roof spotlight). spot_target=(x, y): the roof spotlight sweeps onto
+    that point (e.g. Ponzi at the arrest). Siren lamp blinks navy-blue / orange (no green)."""
+    c.save(); c.translate(x, y); c.scale(s, s)
+    for wx in (-200, 190): circ(c, wx, 0, 62, '#1E1F2A', 7); circ(c, wx, 0, 26, '#9AA3B5', 5)
+    rect(c, -300, -120, 300, -10, '#1B1D26', 7, r=18); rect(c, -330, -30, 330, -6, '#2E2E38', 5, r=6)          # body + running board
+    rect(c, -190, -270, 170, -118, '#1B1D26', 7, r=14); rect(c, -160, -245, -20, -140, '#9FB8F0', 5, r=6); rect(c, 10, -245, 140, -140, '#9FB8F0', 5, r=6)
+    rect(c, 190, -100, 300, -40, '#1B1D26', 6, r=10); circ(c, 300, -70, 22, '#FFF6DC', 4)                     # bonnet + headlamp
+    rect(c, -120, -110, 80, -60, '#E5E5E5', 4, r=6); Wd.text(c, 'POLICE', -20, -72, 38, NAVY, F_LABEL, 'center')
+    rect(c, -40, -300, 20, -270, '#2E2E38', 5, r=6)                                                              # spotlight on the roof
+    if siren:
+        on = int(t * 4) % 2 == 0; col = '#6F8FE0' if on else ORANGE
+        circ(c, 120, -282, 18, col, 4); c.drawCircle(120, -282, 70, fp(col, 90, blur=26))
+    c.restore()
+    if spot_target is not None:                                                                                 # sweeping beam
+        sx, sy = x - 10 * s, y - 290 * s; k = ease(min(max(t / 1.2, 0), 1))
+        tx = lerp(spot_target[0] + 600, spot_target[0], k); ty = spot_target[1]
+        p = skia.Path(); ang = math.atan2(ty - sy, tx - sx); L = math.hypot(tx - sx, ty - sy); wid = 150
+        p.moveTo(sx, sy); p.lineTo(tx + math.cos(ang + math.pi / 2) * wid, ty + math.sin(ang + math.pi / 2) * wid)
+        p.lineTo(tx - math.cos(ang + math.pi / 2) * wid, ty - math.sin(ang + math.pi / 2) * wid); p.close()
+        c.drawPath(p, fp('#FFF2C8', 70, blur=18, blend=skia.BlendMode.kPlus)); c.drawCircle(tx, ty, wid * 1.1, fp('#FFF2C8', 80, blur=30, blend=skia.BlendMode.kPlus))

@@ -26,3 +26,6 @@
 7. **Madoff ~$65 billion** = the fictitious balances on statements; the script says "statements showed ... most of it never existed" (actual losses were lower).
 8. **Dramatised lines:** GUARD/PONZI ("Remember it. One day you'll read about me."), INVESTOR/PONZI ("my secret"), McMASTERS/EDITOR - consistent with the record (McMasters' story said Ponzi was at least $2M in debt), but the exact words are dramatised. The editor is not named on screen.
 9. Per-American conversion of the FBI figure left out on purpose (reported losses only); add "about $19 per American" (6.57B ÷ ~340M) only if wanted.
+
+## Credits for the description
+- Typewriter sound: Konrad Gutkowski / Work With Sounds (CC BY 4.0)

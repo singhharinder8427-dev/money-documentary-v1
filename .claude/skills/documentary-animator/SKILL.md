@@ -81,8 +81,10 @@ Work in `videos/<slug>/` (the video folder). The runner is `make_video.py` in th
 8. **Final** - `make_video.py final` -> `out/final.mp4` + `out/frames.jpg` (one frame every 7 s). Check the sheet.
 9. **Check** - `make_video.py check`: transcript of the mix vs the script (aim > 0.9). Claude cannot hear or watch:
    tell the owner to watch once for timing.
-10. **Thumbnails** - write 2-3 prompts with the `thumbnail-prompt` skill.
-11. **Deliver** - send the MP4 (or the PC commands), with: length, what is in it, facts not checked, dramatised
+10. **Credits** - the typewriter key sounds are a real recording (CC BY 4.0): put the line from
+   `assets/typewriter/ATTRIBUTION.md` in every video's description.
+11. **Thumbnails** - write 2-3 prompts with the `thumbnail-prompt` skill.
+12. **Deliver** - send the MP4 (or the PC commands), with: length, what is in it, facts not checked, dramatised
     lines, and anything to watch for.
 
 ## Shot rules (retention)

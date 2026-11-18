@@ -23,9 +23,9 @@ def _parts(a):
 def day_print(a):
     """Locked daytime look: navy ink on cream paper, light navy tint in shade, small soft navy dots, gold spot colour."""
     r, g, b, L, sat, gold, _ = _parts(a); scr = screen()
-    t = np.clip((0.86 - L) / 0.62, 0, 1); dots = (np.clip((t - 0.18) / 0.82, 0, 1) * 0.62) > (1 - scr)
+    t = np.clip((0.86 - L) / 0.62, 0, 1); dots = (np.clip((t - 0.18) / 0.82, 0, 1) * 0.42) > (1 - scr)   # owner: dots subtler
     out = np.where((t > 0.08)[..., None], C('#D6DEEC'), C('#F6EFE2'))
-    out = np.where(dots[..., None], C('#465C8C'), out)
+    out = np.where(dots[..., None], C('#8193BC'), out)
     out = np.where((t > 0.82)[..., None], C('#14213D'), out)
     navyfill = (b > r + 18) & (L < 0.42) & (L > 0.08)
     out = np.where(navyfill[..., None], np.where((L > 0.2)[..., None], C('#34497A'), C('#263862')), out)
@@ -38,14 +38,14 @@ def night_print(U, Lm):
     navyfill = (b > r + 18) & (L < 0.42) & (L > 0.08)
     lines = np.asarray(PI.fromarray((((L < 0.14) | ((sat < 0.08) & (L < 0.42))) * 255).astype(np.uint8)).filter(PF.MaxFilter(3)), float) > 0
     Ld = np.clip(L * 1.9, 0, 1)
-    t = np.clip((0.92 - Ld) / 0.7, 0, 1); dots = (np.clip((t - 0.15) / 0.85, 0, 1) * 0.62) > (1 - scr)
+    t = np.clip((0.92 - Ld) / 0.7, 0, 1); dots = (np.clip((t - 0.15) / 0.85, 0, 1) * 0.42) > (1 - scr)   # owner: dots subtler
     day = np.where((t > 0.1)[..., None], C('#E9E0CC'), C('#F8EDD3')); day = np.where((t > 0.55)[..., None], C('#C9C3B8'), day)
-    day = np.where(dots[..., None], C('#465C8C'), day)
+    day = np.where(dots[..., None], C('#8193BC'), day)
     day = np.where(navyfill[..., None], np.where((L > 0.2)[..., None], C('#4A6196'), C('#34497A')), day)
     day = np.where(lines[..., None], C('#14213D'), day)
     step = np.clip(np.floor(np.clip((L - 0.08) / 0.62, 0, 0.999) * 4), 0, 3).astype(int)
-    shades = np.array([C('#0D1630'), C('#1B2A52'), C('#2B3F70'), C('#3E5689')])
-    dk = shades[step]; dk = np.where((dots & (step < 2))[..., None], dk + 10, dk); dk = np.where(lines[..., None], C('#9FB3DE'), dk)
+    shades = np.array([C('#0D1630'), C('#1B2A52'), C('#2E4374'), C('#4A62A0')])   # brightest step lifted: tables / paper stay readable in the dark
+    dk = shades[step]; dk = np.where((dots & (step < 2))[..., None], dk + 6, dk); dk = np.where(lines[..., None], C('#9FB3DE'), dk)
     dk = np.where(gold[..., None], C('#B9800F'), dk); day = np.where(gold[..., None], np.where((L > .55)[..., None], C('#FCA311'), C('#D68408')), day)
     dk = np.where(orng[..., None], C('#B8470A'), dk); day = np.where(orng[..., None], C('#F35B04'), day)
     lit = np.clip(Lm * 1.35, 0, 1) > (0.12 + 0.5 * scr)

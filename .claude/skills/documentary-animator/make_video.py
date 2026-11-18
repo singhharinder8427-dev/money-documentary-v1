@@ -74,7 +74,9 @@ def cmd_audio():
         if e['kind'] == 'outro': A.add(sfx, A.sound_logo(), e['t0'] + .05)
     for l in tl.lines:                                                                # text cards type, counters tick
         t0, d = tl.cues[l['id']]
-        if l.get('card'): ws = l['text'].split(); n = len(ws); A.add(sfx, A.typing([d * .85 * i / max(n, 1) for i in range(n)], ws), t0, .7)
+        if l.get('card'):
+            from engine.widgets import type_times
+            A.add(sfx, A.typing(type_times(l['text'], d), l['text']), t0, .55)   # one key per letter, synced to the card
         if l.get('counter'):
             A.add(sfx, A.counter_ticks(1.4), t0 + .2, .6); A.add(sfx, A.low_tone() if l['counter'].get('colour') == 'orange' else A.ding(), t0 + 1.6, .7)
     out = A.mix(voice[:int(total * A.SR)], mus, sfx[:int(total * A.SR)], str(OUT / 'mix.wav')); print(out)
