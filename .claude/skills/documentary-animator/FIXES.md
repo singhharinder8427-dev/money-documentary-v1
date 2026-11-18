@@ -40,6 +40,26 @@ next render** (the full-length Ponzi video). Do not re-render the test video.
     phone screens.
 14. **Lesson board:** the presenter stood far left and small - put them closer to the board and bigger.
 
+## Keep / add (owner's notes after watching)
+15. **Keep the red-flags board - the owner loved it.** Make it a standard segment of the lesson part (Ch5) in every
+    video: a whiteboard (or the framed style) where the warning signs / takeaways **pop in one by one, timed to the
+    narrator**, each with a soft pop (quiet). Reuse as "Red flags", "How to spot it", "What to do", etc.
+16. **Make the ending obvious.** The test ended so suddenly the owner couldn't tell it was over. The music resolves on a
+    clear final note (no fade to nothing), the final question card holds longer with a soft sting, then a short outro
+    card in the channel look, then an end-screen section (~15-20 s) laid out for YouTube's "next video" + "subscribe"
+    elements, quiet music under it.
+17. **More relevant animation - it will make our videos stand out.** Add to the toolkit and use them often:
+    - Hands + desk (top-down): a hand **slams a stack of cash / notes / a document on the table** (thud, papers bounce,
+      small camera shake, dust puffs); a hand stamps a document; hands slide papers, count bills, tap a key line;
+      coins dropped that bounce and spin.
+    - Charts + numbers: line charts that draw on / crash (orange arrow for losses), bar charts that grow, pie charts,
+      money stacks growing / shrinking, a **pyramid diagram** (new money at the bottom paying the top - ideal for
+      Ponzi), scales tipping.
+    - Story props: tear-off calendar countdown ("45 DAYS"), receipts unrolling, ledger pages flipping, envelopes
+      opening, newspapers spinning in, phone ringing with ring lines, handcuffs closing, map with a dotted route
+      (e.g. Europe -> United States).
+    - Always in the locked style (navy, gold = money, orange = losses only, the framed look from item 8), quiet SFX.
+
 ## Next
 - Make the **full-length Ponzi video** (full Template A script, ~10 min) with the `documentary-script` skill, then
   animate it with all fixes above applied. Ask the owner PC or cloud before rendering.
