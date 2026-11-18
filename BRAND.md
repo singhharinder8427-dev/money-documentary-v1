@@ -122,5 +122,9 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
   heads, handwritten fonts, glow and white handwriting cards; 24 Mbps instead of its quality setting; our mood map
   instead of its single jazzy track; ElevenLabs narration + Kokoro characters handled as separate files.
 
+## Channel name
+- **Working name: "Paper Trillions"** - an **internal placeholder only**, used in our files while we build and test.
+- Too close to the reference channel's name to publish: **choose the real name before the first video goes public.**
+
 ## Not decided yet
-- final channel name.
+- final public channel name (before the first video goes public).
