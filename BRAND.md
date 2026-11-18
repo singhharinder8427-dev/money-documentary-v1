@@ -73,5 +73,13 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
 - Formula: top text band (white + one gold/orange word), one big expressive face, one glowing story object,
   dark blurred story background, dramatic rim light.
 
+## Voices (locked) - test in the first short render
+- **Narrator:** ElevenLabs (owner makes it from `voice_script.md`).
+- **Characters:** a free local voice model (**Kokoro**, runs on the owner's PC), one fixed voice per recurring
+  character so they sound the same in every video; clips made automatically from the speaker labels in `script.json`.
+- Character clips get a light loudness/tone match to the ElevenLabs narration so the switch sounds smooth.
+- Lip-sync: mouths move from each clip's loudness (same for both voice sources).
+- Voice picks per character are chosen during the first short test render, not before.
+
 ## Not decided yet
-- voices + lip-sync, music/sound mood, final channel name, rendering pipeline.
+- music/sound mood, final channel name, rendering pipeline.
