@@ -88,8 +88,8 @@ def build(tl):
     add('n010', shots.closeup('night/office', gd, focus=(500, 500), overlay=lambda c, t: A.prison_bars(c, 9), t0=at('n010')), zoom=(1.0, 1.03))
     p11 = say(Actor('ponzi', 960, 1390, 2.15, face=-.4, rim=NR, hat=False).expression(0, mouth='smirk', eyes='half', sparkle=1.0).pose(.2, ('down', 'count')), 'n011')
     add('n011', shots.closeup('night/office', p11, focus=(1300, 500), overlay=lambda c, t: A.prison_bars(c, 9), t0=at('n011')), zoom=(1.0, 1.05))
-    add('n012', shots.plain(lambda c, t: (Wd.paper_card(c, 960, 520, 'Prison record', ['Canada, 1908', 'Remember this.'], 1, w=900, h=520, rot=-2), A.prison_bars(c, t - .3))),
-        zoom=(1, 1.05), shake=lambda t: A.prison_bars(skia.Surface(4, 4).getCanvas(), t - .3), sfx=[(.65, 'stamp')])
+    add('n012', shots.plain(lambda c, t: (Wd.paper_card(c, 960, 520, 'Prison record', ['Canada, 1908', 'Remember this.'], t, w=900, h=520, rot=-2), Wd.stamp(c, 'Filed', 1240, 380, t - 1.0, GOLD, rot=-10, size=100))),
+        zoom=(1, 1.08), shake=stamp_shake(1.0), sfx=[(.1, 'paper'), (1.0, 'stamp')])
     p13 = Actor('ponzi', 930, 950, 1.08, face=0, rim=NR, hat=False).pose(.2, ('chin', 'down')).expression(0, eyes='half', mouth='flat', brow=.3).expression(T('n013') - 1, eyes='wide', mouth='o')
     add('n013', shots.wide('night/office', [p13], overlay=lambda c, t: A.envelope(c, 1230, 610, -1 if t < T('n013') - .6 else 0) if False else Wd.paper_card(c, 1240, 640, 'Letter', ['Air mail'], (t - .8), w=300, h=200, rot=8), t0=at('n013')),
         zoom=(1.1, 1.25), focus=(1000, 620))
@@ -124,7 +124,7 @@ def build(tl):
     # ================= CH3 =================
     q22 = queue(n=6, x0=930)
     add('n022', shots.wide('night/street1920', q22, t0=at('n022')), hud=lambda c, t: Wd.place_tag(c, 'Boston', t / .4, 'January 1920'), zoom=(2.0, 2.2), focus=(930, 520))
-    add('n023', shots.plain(lambda c, t: A.pyramid(c, 960, 930, t, 3, step=T('n023') / 4)), zoom=(1, 1.04), sfx=[(.4, 'pop'), (1.0, 'pop'), (1.6, 'pop')])
+    add('n023', shots.plain(lambda c, t: A.pyramid(c, 960, 930, t + .35, 3, step=T('n023') / 4)), zoom=(1, 1.04), sfx=[(.4, 'pop'), (1.0, 'pop'), (1.6, 'pop')])
     add('n024', shots.plain(lambda c, t: A.pyramid(c, 960, 930, 9 + t, 5, wobble=min(t / T('n024'), 1) * .8)), zoom=(1.04, 1.1), rot=(0, 1.5))
     p25 = Actor('ponzi', 930, 950, 1.08, face=-.1, rim=NR, hat=True).pose(.1, ('cheer', 'hip')).expression(0, mouth='open', eyes='closed')
     add('n025', shots.wide('night/office', [p25], overlay=lambda c, t: (Wd.falling_money(c, t, n=16, area=(250, 0, 1650, 950)), Wd.counter(c, 960, 180, 0, 10000000, (t - .2) / 1.6, label='poured in')), t0=at('n025')),
@@ -219,6 +219,63 @@ def build(tl):
     # ================= ENDING =================
     q46 = queue(phones=True, n=14, x0=1180, s=.42, y=880)
     add('n046', shots.wide('night/street', q46, overlay=lambda c, t: held(c, q46, 'phone', t), t0=at('n046')), zoom=(1.9, 2.05), focus=((560, 720), (800, 720)), whip_in=True, sfx=[(0, 'whoosh')])
+    # ================= ROUND 2: a NEW picture every 2-3 s (owner) - split static shots, add story details =================
+    def slot(lid): return tl.dur(lid, nxt(lid))
+    def part(base, d, name, **over):
+        x = dict(base); x.update(over); x['name'] = name; x['dur'] = d; x['sfx'] = [e for e in x.get('sfx', ()) if e[0] < d]; return x
+    def two(lid, d1, a, b):
+        tot = slot(lid); d1 = min(d1, tot - 1.0); return [part(a, d1, lid + 'a'), part(b, tot - d1, lid + 'b')]
+    def bshot(draw, **kw): return dict(draw=draw, **kw)
+    by = {x['name']: x for x in S}; R = {}
+    sign = shots.wide('night/street1920', queue(n=4), t0=at('n001'))
+    R['n001'] = two('n001', 2.0, bshot(sign, zoom=(2.7, 2.9), focus=(930, 360), sfx=[(.1, 'whoosh')]), by['n001'])
+    sv2c = Actor('saver', 960, 1390, 2.15, face=.5, rim=NR).pose(0, ('down', 'hold')).expression(0, eyes='wide', mouth='flat', brow=.6, brow_tilt=-.4)
+    def saver_cash(c, t): hx, hy = kit.hand_pos(960, 1390, 2.15, ('down', 'hold'), 1); Wd.bill(c, hx + 10, hy - 10, -12, 1.4)
+    R['n002'] = two('n002', 2.1, by['n002'], bshot(shots.closeup('night/street1920', sv2c, focus=(500, 640), overlay=saver_cash, t0=at('n002') + 2.1), zoom=(1.0, 1.05)))
+    def secret(c, t): Wd.paper_card(c, 960, 540, 'Prison record', ['Canada, 1908', 'Charge: forgery'], t, w=880, h=560, rot=-3); Wd.stamp(c, 'Secret', 1250, 420, t - .9, ORANGE, rot=-10, size=110)
+    R['n004'] = two('n004', 2.8, by['n004'], bshot(shots.plain(secret), zoom=(1, 1.05), shake=stamp_shake(.9), sfx=[(.1, 'paper'), (.9, 'stamp')]))
+    chat = [('Guaranteed 50% in 45 days!', 'in'), ('Is it safe?', 'out'), ('Zero risk. Act fast.', 'in')]
+    R['n005'] = two('n005', 3.0, by['n005'], bshot(shots.plain(lambda c, t: A.phone_screen(c, 960, 560, t, chat, s=1.0, every=.9)), zoom=(1.0, 1.06), sfx=[(.2, 'pop'), (1.1, 'pop'), (2.0, 'pop')]))
+    p9 = Actor('ponzi', 960, 1390, 2.15, face=-.3, rim=NR, hat=False).expression(0, eyes='half', mouth='smirk')
+    R['n009'] = two('n009', 3.6, by['n009'], bshot(shots.closeup('night/office', p9, focus=(600, 500), overlay=lambda c, t: A.prison_bars(c, t - .3), t0=at('n009') + 3.6),
+                                                   zoom=(1.0, 1.04), shake=lambda t: A.prison_bars(skia.Surface(4, 4).getCanvas(), t - .3), sfx=[(.65, 'stamp')]))
+    R['n013'] = two('n013', 3.2, by['n013'], bshot(shots.plain(lambda c, t: (A.envelope(c, 960, 620, -1), Wd.stamp(c, 'Air mail', 1150, 520, t - .5, GOLD, rot=-12, size=80),
+                                                                            Wd.pop_label(c, 'from abroad', 960, 960, (t - 1.2) / .4, WHITE, 70, rot=0))), zoom=(1.0, 1.08), sfx=[(.5, 'stamp')]))
+    p22 = Actor('ponzi', 930, 950, 1.08, face=0, rim=NR, hat=True).pose(.2, ('cheer', 'present')).expression(0, mouth='open', eyes='closed')
+    R['n022'] = two('n022', 2.6, by['n022'], bshot(shots.wide('night/office', [p22], t0=at('n022') + 2.6), zoom=(1.1, 1.2), focus=(930, 560)))
+    p28c = Actor('ponzi', 960, 1390, 2.15, face=-.5, rim=NR, hat=True).pose(.1, ('present', 'down')).expression(0, mouth='smile', eyes='closed', sparkle=1.0)
+    def pay(c, t): hx, hy = kit.hand_pos(960, 1390, 2.15, ('present', 'down'), -1); Wd.bill(c, hx - 30, hy - 20, 15, 1.5)
+    R['n028'] = two('n028', 2.6, by['n028'], bshot(shots.closeup('night/street1920', p28c, focus=(1000, 640), overlay=pay, t0=at('n028') + 2.6), zoom=(1.0, 1.05)))
+    cuffed = Actor('ponzi', 1150, 868, .38, face=-.5, rim=NR, hat=True).pose(0, ('cross', 'cross')).expression(0, eyes='wide', mouth='o', brow=.8, sweat=0)
+    cop = Actor('agent', 1235, 870, .38, face=-.4, rim=NR, spec=GUARD).pose(0, ('down', 'push'))
+    arrest = shots.wide('night/street1920', [cuffed, cop], overlay=lambda c, t: A.police_car(c, 560, 930, t, .55, spot_target=(1160, 800)), t0=at('n036'))
+    R['n036'] = two('n036', 3.0, bshot(arrest, zoom=(1.45, 1.6), focus=(900, 660), sfx=[(.2, 'whoosh')]), by['n036'])
+    R['n037'] = two('n037', 3.6, by['n037'], bshot(shots.plain(lambda c, t: (A.coin_rain(c, t), Wd.pop_label(c, 'back: under 30¢ per $1', 960, 540, (t - .3) / .4, WHITE, 90, rot=0))), zoom=(1, 1.04), sfx=[(.2, 'falling')]))
+    R['n038'] = two('n038', 3.3, by['n038'], bshot(shots.plain(lambda c, t: (A.newspaper(c, 960, 560, t, 'The Boston Post', 'Wins the Pulitzer Prize', 'Public Service, 1921'),
+                                                                            Wd.stamp(c, 'Pulitzer', 1300, 330, t - .9, GOLD, rot=8, size=90))), zoom=(1, 1.05), sfx=[(.05, 'whoosh'), (.9, 'stamp')]))
+    R['n039'] = two('n039', 3.6, bshot(lambda c, t: A.map_route(c, t, dur=2.6, a=(1450, 520), b=(470, 470), label_a='United States', label_b='Italy, 1934'), zoom=(1, 1.04)), by['n039'])
+    def statement(c, t):
+        A.hand_slam(c, 960, 540, t, 'paper', 'Account statement', ['Balance: $65,000,000,000', 'Real money: most never existed'], hit=.3)
+        Wd.stamp(c, 'Fake', 1250, 400, t - 1.4, ORANGE, rot=-10, size=120)
+    R['n041'] = two('n041', 5.5, by['n041'], bshot(shots.plain(statement), zoom=(1, 1.05), shake=lambda t: A.hand_slam(skia.Surface(4, 4).getCanvas(), 0, 0, t, hit=.3) if t < 1 else stamp_shake(1.4)(t),
+                                                   sfx=[(.3, 'stamp'), (1.4, 'stamp')]))
+    svc = Actor('saver', 960, 1390, 2.15, face=.4, light=1, rim=DR).pose(0, ('phone', 'down')).expression(0, eyes='wide', mouth='o', brow=.7, sweat=0)
+    R['n042'] = two('n042', 4.5, by['n042'], bshot(shots.closeup('day/living', svc, focus=(700, 560), t0=at('n042') + 4.5), zoom=(1.0, 1.05)))
+    chat2 = [('Guaranteed 50% in 45 days!', 'in'), ('Sounds familiar...', 'out')]
+    R['n046'] = two('n046', 2.6, by['n046'], bshot(shots.plain(lambda c, t: A.phone_screen(c, 960, 560, t, chat2, s=1.0, every=1.0)), zoom=(1.05, 1.12), sfx=[(.2, 'pop'), (1.2, 'pop')]))
+    # --- quality-check fixes (Claude QC, round 2)
+    R['n002'][0] = part(by['n002'], R['n002'][0]['dur'], 'n002a', zoom=(3.4, 3.6), focus=((560, 790), (700, 790)))            # tight on the cash in their hands
+    g38 = lambda c, t: (Wd.paper_card(c, 960, 560, 'United States v. Ponzi', ['Mail fraud', 'Plea: guilty', 'Five years'], 1, w=1000, h=640, rot=-2), Wd.stamp(c, 'Guilty', 1200, 420, t - .6, ORANGE, rot=-10, size=110))
+    R['n038'][0] = part(by['n038'], R['n038'][0]['dur'], 'n038a', draw=shots.plain(g38), sfx=[(.6, 'stamp')])                  # Pulitzer only once (next shot)
+    R['n038'][1]['draw'] = shots.plain(lambda c, t: (A.newspaper(c, 960, 560, t, 'The Boston Post', 'Wins the Pulitzer Prize', 'Public Service, 1921'), Wd.stamp(c, 'Pulitzer', 1330, 760, t - .9, GOLD, rot=8, size=90)))
+    rio = lambda c, t: (Wd.paper_card(c, 760, 560, 'Rio de Janeiro', ['1949', 'Charity ward'], t, w=760, h=520, rot=-3), Wd.counter(c, 1460, 560, 0, 75, (t - .9) / .9, label='left behind', size=110))
+    R['n039'][1] = part(by['n039'], R['n039'][1]['dur'], 'n039b', draw=shots.plain(rio), sfx=[(.1, 'paper'), (1.8, 'coin')])
+    def statement2(c, t):
+        Wd.paper_card(c, 960, 540, 'Account statement', ['Balance: $65,000,000,000', 'Most of it never existed'], t, w=1180, h=600, rot=-2, slam=True)
+        Wd.stamp(c, 'Fake', 1350, 380, t - 1.3, ORANGE, rot=-10, size=120)
+    R['n041'][1]['draw'] = shots.plain(statement2); R['n041'][1]['shake'] = stamp_shake(1.3); R['n041'][1]['sfx'] = [(.45, 'stamp'), (1.3, 'stamp')]
+    S[:] = [y for x in S for y in R.get(x['name'], [x])]
+
     S.append(dict(name='n047', dur=tl.dur('n047', 'outro'), draw=shots.card('text', T('n047'), text=tl.by_id['n047']['text'], gold_words=['line?']), zoom=(1, 1.02)))
     S.append(dict(name='outro', dur=tl.dur('outro', 'endscreen'), draw=lambda c, t: A.outro(c, t), zoom=(1, 1.02)))
     S.append(dict(name='endscreen', dur=tl.dur('endscreen', 'end'), draw=lambda c, t: A.end_screen(c, t), zoom=(1, 1)))

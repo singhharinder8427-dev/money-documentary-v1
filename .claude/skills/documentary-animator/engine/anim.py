@@ -188,3 +188,30 @@ def police_car(c, x, y, t, s=1.0, spot_target=None, siren=True):
         p.moveTo(sx, sy); p.lineTo(tx + math.cos(ang + math.pi / 2) * wid, ty + math.sin(ang + math.pi / 2) * wid)
         p.lineTo(tx - math.cos(ang + math.pi / 2) * wid, ty - math.sin(ang + math.pi / 2) * wid); p.close()
         c.drawPath(p, fp('#FFF2C8', 70, blur=18, blend=skia.BlendMode.kPlus)); c.drawCircle(tx, ty, wid * 1.1, fp('#FFF2C8', 80, blur=30, blend=skia.BlendMode.kPlus))
+
+def phone_screen(c, x, y, t, messages, s=1.0, every=.7, title='Investments'):
+    """Big modern phone with chat bubbles popping in one by one (navy / gold bubbles - never green).
+    messages: list of (text, side) with side 'in' (left, navy) or 'out' (right, gold)."""
+    c.save(); c.translate(x, y); c.scale(s, s)
+    c.drawRRect(skia.RRect.MakeRectXY(skia.Rect(-250, -470, 270, 490), 60, 60), fp((0, 0, 0), 90, blur=20))
+    rect(c, -260, -480, 260, 480, '#1B1D26', 8, r=56); rect(c, -232, -420, 232, 420, '#EEF1F7', 4, r=20)
+    rect(c, -232, -420, 232, -330, NAVY, 0, r=20); Wd.text(c, title.upper(), 0, -362, 40, WHITE, F_LABEL, 'center'); rect(c, -60, -455, 60, -440, '#2E2E38', 0, r=6)
+    y0 = -290
+    for i, (msg, side) in enumerate(messages):
+        k = pop(K(t, .2 + i * every, .3))
+        if k <= 0: break
+        lines = Wd.wrap(msg.split(), F_LABEL2, 40, 300); hgt = 30 + 46 * len(lines); wdt = max(Wd._font(F_LABEL2, 40).measureText(' '.join(l)) for l in lines) + 44
+        bx = -210 if side == 'in' else 210 - wdt; col = NAVY3 if side == 'in' else GOLD; tc = WHITE if side == 'in' else NAVY
+        c.save(); c.translate(bx + (0 if side == 'in' else wdt), y0); c.scale(k, k); c.translate(-(0 if side == 'in' else wdt), 0)
+        rect(c, 0, 0, wdt, hgt, col, 4, r=22)
+        for j, l in enumerate(lines): Wd.text(c, ' '.join(l), 22, 50 + j * 46, 40, tc, F_LABEL2)
+        c.restore(); y0 += hgt + 26
+    c.restore()
+
+def coin_rain(c, t, n=26, area=(300, -100, 1620, 1100), seed=5):
+    """Gold coins tumbling down (money disappearing)."""
+    r = random.Random(seed)
+    for _ in range(n):
+        x0, sp, ph = r.uniform(area[0], area[2]), r.uniform(300, 600), r.uniform(0, 3)
+        y = area[1] + ((t + ph) * sp) % (area[3] - area[1]); x = x0 + math.sin((t + ph) * 3) * 30
+        c.save(); c.translate(x, y); c.scale(abs(math.cos((t + ph) * 4)) * .8 + .2, 1); Wd.coin(c, 0, 0, 34); c.restore()
