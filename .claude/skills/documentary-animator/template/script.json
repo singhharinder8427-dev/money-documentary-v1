@@ -1,0 +1,7 @@
+{"title": "Example", "title_after": "n003",
+ "lines": [
+  {"id": "n001", "beat": "HOOK", "chapter": null, "speaker": "NARRATOR", "text": "Four point eight billion dollars vanished in one night.", "card": false,
+   "counter": {"from": 0, "to": 4800000000, "unit": "$", "colour": "orange"}, "dramatised": false, "sources": ["S1"], "shot_hint": "CEO office, counter"},
+  {"id": "n002", "beat": "HOOK", "chapter": null, "speaker": "CEO", "text": "Relax. Nobody checks the second key.", "card": false, "counter": null, "dramatised": true, "sources": [], "shot_hint": "CEO smirks"},
+  {"id": "n003", "beat": "HOOK", "chapter": null, "speaker": "NARRATOR", "text": "Someone did.", "card": true, "counter": null, "dramatised": false, "sources": [], "shot_hint": "text card"}
+ ]}

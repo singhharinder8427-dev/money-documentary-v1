@@ -2,3 +2,6 @@ fonts/
 __pycache__/
 *.png
 !palette/*.png
+.cache/
+videos/*/out/
+videos/*/voices/
