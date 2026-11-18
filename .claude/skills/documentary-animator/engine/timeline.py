@@ -10,7 +10,7 @@ BEAT_MOOD = {'HOOK': 'suspense', 'CH1': 'suspense', 'CH2': 'suspense', 'CH3': 's
 GAP, LEAD, CARD = 0.26, 0.3, 1.5
 
 def load_script(path): return json.load(open(path))['lines'] if path.endswith('.json') else path
-def build(lines, clips, shot_breaks=(), title_after=None, title_dur=2.5, chapter_dur=2.2):
+def build(lines, clips, shot_breaks=(), title_after=None, title_dur=2.5, chapter_dur=2.2, ending=True, hold=1.8, outro_dur=3.0, end_screen=18.0):
     """lines: script lines (dicts). clips: {id: (wav, seconds)} for every voiced line.
     shot_breaks: ids that start a new shot (+0.3 s lead). title_after: id of the last hook line (title card follows).
     Chapter cards are inserted automatically when the chapter name changes. Returns a Timeline."""
@@ -24,7 +24,12 @@ def build(lines, clips, shot_breaks=(), title_after=None, title_dur=2.5, chapter
         d = clips[ln['id']][1] if ln['id'] in clips else CARD
         cues[ln['id']] = (t, d); t += d + GAP
         if ln['id'] == title_after: events.append(dict(kind='title', t0=t, t1=t + title_dur)); t += title_dur + LEAD
-    tl = Timeline(lines, clips, cues, events, t + 1.0); tl.breaks = set(shot_breaks); return tl
+    if ending:   # owner: the end must be obvious - hold the final card, outro card, then the end screen
+        t += hold; events.append(dict(kind='outro', t0=t, t1=t + outro_dur)); t += outro_dur
+        events.append(dict(kind='endscreen', t0=t, t1=t + end_screen)); t += end_screen
+        tl = Timeline(lines, clips, cues, events, t)
+    else: tl = Timeline(lines, clips, cues, events, t + 1.0)
+    tl.breaks = set(shot_breaks); return tl
 
 class Timeline:
     def __init__(self, lines, clips, cues, events, total):
@@ -34,7 +39,7 @@ class Timeline:
     def at(self, marker):
         """Time of a shot boundary: a line id (a shot starting there begins 0.3 s early), 'title', 'chapter:N' or 'end'."""
         if marker == 'end': return self.total
-        if marker == 'title': return next(e['t0'] for e in self.events if e['kind'] == 'title')
+        if marker in ('title', 'outro', 'endscreen'): return next(e['t0'] for e in self.events if e['kind'] == marker)
         if marker.startswith('chapter:'): return next(e['t0'] for e in self.events if e['kind'] == 'chapter' and str(e['n']) == marker[8:])
         return self.cues[marker][0] - (LEAD if marker in self.breaks else 0.0)
     def dur(self, a, b):
@@ -44,11 +49,12 @@ class Timeline:
     def mood_segments(self):
         """Music mood per stretch, from the beats; title + chapter cards are silent (sound logo / boom on top)."""
         segs = []; items = [(self.cues[l['id']][0], BEAT_MOOD.get(l.get('beat', 'CH1'), 'suspense')) for l in self.lines]
-        items += [(e['t0'], 'silence') for e in self.events]; items.sort()
+        items += [(e['t0'], {'outro': 'endscreen', 'endscreen': 'endscreen'}.get(e['kind'], 'silence')) for e in self.events]; items.sort()
         ends = {e['t0']: e['t1'] for e in self.events}
         for i, (t0, m) in enumerate(items):
             t1 = items[i + 1][0] if i + 1 < len(items) else self.total
             if m == 'silence': t1 = ends.get(t0, t1)
+            if m == 'endscreen' and segs and segs[-1][2] == 'endscreen': segs[-1] = (segs[-1][0], t1, m); continue
             if segs and segs[-1][2] == m and abs(segs[-1][1] - t0) < .6: segs[-1] = (segs[-1][0], t1, m)
             else: segs.append((t0, t1, m))
         return segs

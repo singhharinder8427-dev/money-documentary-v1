@@ -68,32 +68,62 @@ def music_lesson(dur, bpm=100):
 def music_twist(dur):
     out = np.zeros(int(dur * SR)); add(out, boom(), 0.0, 1.0); add(out, lp(drone(note_hz(33), max(dur - 1, .5)), 250) * .2, 1.0); return out
 def music_ending(dur):
-    y = music_suspense(dur, soft=True); t = secs(dur)[:len(y)]; fade = np.clip((dur - 2.5 - t) / 2.0, 0, 1); return y * fade
-MOODS = {'suspense': music_suspense, 'lesson': music_lesson, 'twist': music_twist, 'ending': music_ending, 'silence': lambda d: np.zeros(int(d * SR))}
+    """Theme returns softer, then RESOLVES on a clear final chord that rings out (owner: the end must feel like an end)."""
+    y = music_suspense(dur, soft=True); t = secs(dur)[:len(y)]; y = y * np.clip((dur - 2.6 - t) / 1.0, 0, 1)
+    out = np.zeros(len(y) + 4 * SR); out[:len(y)] = y; t0 = max(dur - 2.6, 0)
+    for n_, g in ((45, .5), (57, .35), (60, .3), (64, .3), (69, .25)):        # A minor, low A to high A
+        add(out, piano(note_hz(n_), 4.0), t0, g)
+    add(out, kick(.8) * .5, t0); add(out, lp(drone(note_hz(33), 3.5), 200) * .25, t0)
+    return out[:int((dur + 2.0) * SR)]
+def music_endscreen(dur):
+    """Soft, warm bed under the outro + end screen."""
+    out = np.zeros(int(dur * SR) + 2 * SR); bar = 60 / 84 * 4
+    for b in range(int(dur / bar) + 1):
+        bass, ch = C_PROG[b % 4]; t0 = b * bar
+        add(out, piano(note_hz(bass), bar * 1.2), t0, .16)
+        for i, n_ in enumerate(ch): add(out, piano(note_hz(n_ + 12), 1.6), t0 + i * bar / 3, .07)
+    y = out[:int(dur * SR)]; t = secs(dur)[:len(y)]; return y * np.clip(t / 1.0, 0, 1) * np.clip((dur - t) / 2.5, 0, 1)
+MOODS = {'suspense': music_suspense, 'lesson': music_lesson, 'twist': music_twist, 'ending': music_ending, 'endscreen': music_endscreen, 'silence': lambda d: np.zeros(int(d * SR))}
 
 def music(segments, total, xfade=1.0, files=None):
     """segments: [(t0, t1, mood), ...] covering the video. files: optional {mood: 'track.wav'} to use real tracks instead."""
     out = np.zeros(int(total * SR) + SR)
     for t0, t1, mood in segments:
-        d = t1 - t0 + (xfade if mood not in ('twist', 'silence') else 0)
+        d = t1 - t0 + (xfade if mood not in ('twist', 'silence', 'ending') else 0)
         if files and mood in files:
             y, sr = sf.read(files[mood]); y = y.mean(1) if y.ndim > 1 else y
             if sr != SR: y = resample_poly(y, SR, sr)
             y = np.tile(y, int(np.ceil(d * SR / len(y))))[:int(d * SR)]
         else: y = MOODS[mood](d)
         n = len(y); fi = np.minimum(np.arange(n) / (xfade * SR), 1) if mood not in ('twist', 'silence') else np.ones(n)
-        fo = np.minimum((n - np.arange(n)) / (xfade * SR), 1); add(out, y * fi * fo, t0)
+        fo = np.minimum((n - np.arange(n)) / (xfade * SR), 1) if mood != 'ending' else np.ones(n); add(out, y * fi * fo, t0)
     return out[:int(total * SR)]
 
 # ======================= sound effects (fixed set)
-def type_key():
-    n = int(.06 * SR); y = bp(noise(n), 1800, 6000) * env(n, .0005, .006) * .8 + np.sin(2 * np.pi * rng.uniform(150, 210) * np.arange(n) / SR) * env(n, .001, .02) * .5
-    return y * rng.uniform(.7, 1.0)
-def typing(words_times):
-    """Typewriter clicks for a text card: list of word reveal times (s, relative). Returns (clip, 0)."""
-    end = (max(words_times) if words_times else 0) + .3; out = np.zeros(int(end * SR) + 1)
-    for t in words_times:
-        for j in range(rng.integers(2, 5)): add(out, type_key(), t + j * .045, 1.0)
+def type_key(strength=1.0):
+    """One typewriter keystroke: sharp key strike + metallic typebar clack + small platen thump (varied every key)."""
+    n = int(.09 * SR); t = np.arange(n) / SR; v = rng.uniform(.85, 1.15)
+    strike = bp(noise(n), 2500, 9000) * np.exp(-t / .0025) * .9
+    clack = sum(a * np.sin(2 * np.pi * f * v * t + rng.uniform(0, 6)) * np.exp(-t / d) for f, a, d in ((1850, .5, .018), (3150, .35, .012), (4700, .2, .008)))
+    thump = np.sin(2 * np.pi * rng.uniform(110, 150) * t) * np.exp(-t / .02) * .45
+    y = (strike + clack + thump) * env(n, .0004, .05); return y * rng.uniform(.75, 1.0) * strength
+def carriage_ding():
+    """End of a typed line: small bell + carriage return ratchet."""
+    out = np.zeros(int(.9 * SR)); t = secs(.9)
+    bell = (np.sin(2 * np.pi * 2093 * t) + .4 * np.sin(2 * np.pi * 5230 * t)) * np.exp(-t / .35) * .25
+    add(out, bell, 0)
+    for k in range(7): add(out, type_key(.35), .12 + k * .028)
+    return out
+def typing(words_times, words=None):
+    """Typewriter for a text card: one keystroke per letter, spread over the word's reveal time, and a carriage
+    ding at the end. words_times = reveal time of each word (s, relative); words = the words (for letter counts)."""
+    if not words_times: return np.zeros(1)
+    end = max(words_times) + 1.2; out = np.zeros(int(end * SR) + 1)
+    for i, t in enumerate(words_times):
+        nxt = words_times[i + 1] if i + 1 < len(words_times) else t + .35
+        k = len(words[i]) if words else 4; gap = max(min((nxt - t) / max(k, 1), .09), .045)
+        for j in range(k): add(out, type_key(1.0 if j == 0 else .8), t + j * gap + rng.uniform(-.006, .006))
+    add(out, carriage_ding(), max(words_times) + .35)
     return out
 def stamp_thud():
     n = int(.4 * SR); t = np.arange(n) / SR; f = 50 + 70 * np.exp(-t * 20)
@@ -131,7 +161,7 @@ def sound_logo():
     """2-second sound logo for every title card: typewriter clacks + coin ring."""
     out = np.zeros(int(2.0 * SR)); [add(out, type_key() * 1.3, .05 + i * .11) for i in range(3)]; add(out, stamp_thud() * .25, .38); add(out, coin() * 1.4, .42); add(out, ding() * .5, .45)
     return out
-SFX = dict(type_key=type_key, stamp=stamp_thud, tick=tick, ding=ding, low_tone=low_tone, falling=falling_tone, whoosh=whoosh,
+SFX = dict(type_key=type_key, ding_carriage=carriage_ding, stamp=stamp_thud, tick=tick, ding=ding, low_tone=low_tone, falling=falling_tone, whoosh=whoosh,
            paper=paper_slide, coin=coin, cash=cash, pop=pop, shutter=shutter, boom=boom, logo=sound_logo)
 
 # ======================= voices
@@ -155,7 +185,7 @@ def voice_chain(x, kind='narrator', ref_rms=None):
 def rms(x): v = x[np.abs(x) > 1e-3]; return float(np.sqrt(np.mean(v ** 2))) if len(v) else 0.0
 
 # ======================= final mix
-def mix(voice, music_track, sfx, out_wav, music_gain=0.32, sfx_gain=0.55, duck=0.6, loudnorm=True):
+def mix(voice, music_track, sfx, out_wav, music_gain=0.32, sfx_gain=0.30, duck=0.6, loudnorm=True):   # music level approved; SFX lowered (owner)
     """voice / music / sfx: mono float arrays at 48 kHz (same length or shorter). Music ducks under speech."""
     n = max(len(voice), len(music_track), len(sfx)); V, Mu, S = (np.pad(a, (0, n - len(a))) for a in (voice, music_track, sfx))
     w = int(.15 * SR); ve = np.sqrt(np.convolve(V ** 2, np.ones(w) / w, mode='same')); ve = ve / (ve.max() + 1e-9)

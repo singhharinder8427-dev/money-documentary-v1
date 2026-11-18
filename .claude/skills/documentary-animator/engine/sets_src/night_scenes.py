@@ -199,6 +199,10 @@ def street():
         rect(c, x0, 300, x1, 820, body, 6)
         for wy in range(410, 520, 62):
             for wx in range(int(x0 + 30), int(x1 - 60), 80): rect(c, wx, wy, wx + 46, wy + 46, '#FFD27A' if rnd.random() < .55 else '#2B3A66', 4)
+        if STREET_ERA == '1920' and name.startswith('SECURITIES'):   # the hero building: big gold sign + lit doorway
+            rect(c, x0 + 14, 300, x1 - 14, 400, GOLD_, 6, r=10); txt(c, 'SECURITIES', (x0 + x1) / 2, 346, 46, NAVY, MRK, 'center', skew=0); txt(c, 'EXCHANGE CO.', (x0 + x1) / 2, 388, 38, NAVY, MRK, 'center', skew=0)
+            rect(c, x0 + 40, 630, x1 - 140, 820, '#FFE7B0', 5); rect(c, x1 - 130, 610, x1 - 30, 820, '#FFE2A0', 6); rect(c, x1 - 130, 590, x1 - 30, 612, GOLD_, 5)
+            continue
         rect(c, x0 + 30, 318, x1 - 30, 388, '#0A0F1E', 5, r=8); txt(c, name, (x0 + x1) / 2, 370, min(52, (x1 - x0 - 80) / (len(name) * 0.62)), signc, MRK, 'center', skew=0)
         rect(c, x0 + 40, 630, x1 - 140, 820, '#FFE7B0', 5); rect(c, x1 - 120, 650, x1 - 40, 820, '#3B2A1E', 5)
     for k in range(4): rect(c, 40 + k * 95, 560, 70 + k * 95, 820, '#E5E5E5', 4)   # bank columns
@@ -214,14 +218,15 @@ def street():
         poly(c, [(cx - 84, 916), (cx - 54, 872), (cx - 4, 872), (cx - 4, 916)], '#9FB8F0', 4); circ(c, cx - 100, 1022, 32, '#1E1F2A', 5); circ(c, cx + 100, 1022, 32, '#1E1F2A', 5)
         add_light(c, cx + 170, 975, 60, '#FFF6DC', 160)
     # street lamp + walker + people at the cash advance
-    line(c, 980, 900, 980, 470, 10); line(c, 980, 470, 1060, 470, 10); poly(c, [(1030, 470), (1090, 470), (1080, 500), (1040, 500)], '#2E2E38', 5)
+    LX = 1330 if STREET_ERA == '1920' else 980   # 1920 version: lamp moved off the hero door
+    line(c, LX, 900, LX, 470, 10); line(c, LX, 470, LX + 80, 470, 10); poly(c, [(LX + 50, 470), (LX + 110, 470), (LX + 100, 500), (LX + 60, 500)], '#2E2E38', 5)
     person(c, 900, 905, 0.6, WORKER, face=0.5, eyes='dot', mouth='flat', arms=('pocket', 'pocket'), hat=True, legs=walk_legs(1.2), bob=6)
     person(c, 540, 880, 0.52, INVESTOR, face=-0.4, eyes='half', mouth='flat', arms=('chin', 'down'))
     person(c, 650, 880, 0.52, ANALYST, face=-0.6, eyes='dot', mouth='o', arms=('down', 'hold'), sweat=.3)
     person(c, 220, 880, 0.52, BANKER, face=0.4, eyes='closed', mouth='smile', arms=('present', 'hip'))
-    night(c, [('path', cone_path(1060, 500, 50, 520, 400), .85, 26), ('oval', 1060, 900, 300, 60, .8)] +
-              [('oval', (x0 + x1) / 2, 720, (x1 - x0) * .55, 160, .55) for x0, x1, *_ in shops] + [('oval', 1300, 205, 340, 110, .7)] + [('oval', (x0 + x1) / 2, 353, (x1 - x0) * .5, 70, .6) for x0, x1, *_ in shops], ambient='#4C5CA0')
-    add_light(c, 1060, 498, 90, '#FFE2A0', 200); add_light(c, 590, 353, 200, ORNG, 40)
+    night(c, [('path', cone_path(LX + 80, 500, 50, 520, 400), .85, 26), ('oval', LX + 80, 900, 300, 60, .8)] +
+              [('oval', (x0 + x1) / 2, 720, (x1 - x0) * .55, 160, .55) for x0, x1, *_ in shops] + ([('oval', 1020, 720, 230, 190, .95), ('oval', 930, 350, 260, 90, .9)] if STREET_ERA == '1920' else [('oval', 1300, 205, 340, 110, .7)]) + [('oval', (x0 + x1) / 2, 353, (x1 - x0) * .5, 70, .6) for x0, x1, *_ in shops], ambient='#4C5CA0')
+    add_light(c, LX + 80, 498, 90, '#FFE2A0', 200); add_light(c, 590, 353, 200, ORNG, 40)
     frame_out(surf, 'env4_street.png')
 
 # ============ 5. KITCHEN TABLE AT NIGHT (bills, laptop glow, worried couple)

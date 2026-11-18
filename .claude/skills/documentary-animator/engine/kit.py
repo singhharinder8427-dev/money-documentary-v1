@@ -52,7 +52,7 @@ def ink(w=LW, v=INK, a=255):
     p = skia.Paint(AntiAlias=True, Color=col(v, a)); p.setStyle(skia.Paint.kStroke_Style); p.setStrokeWidth(w)
     p.setStrokeCap(skia.Paint.kRound_Cap); p.setStrokeJoin(skia.Paint.kRound_Join); return p
 def shape(c, path, fill, w=LW, v=INK):
-    c.drawPath(path, fill if isinstance(fill, skia.Paint) else fp(fill))
+    if fill is not None: c.drawPath(path, fill if isinstance(fill, skia.Paint) else fp(fill))   # fill=None -> outline only
     if w: c.drawPath(path, ink(w, v))
 def rect(c, x0, y0, x1, y1, fill, w=LW, r=0, v=INK):
     p = skia.Path()

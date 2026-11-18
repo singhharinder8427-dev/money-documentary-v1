@@ -67,7 +67,8 @@ SETS = {
  'night/trading':  dict(fn=NS.trading, plane=-2, extras='before', spots={'left': (760, 1180, 1.35), 'right': (1260, 1150, 1.25)}),
  'night/desk':     dict(fn=NS.desk,    plane=None, extras='all', spots={}),          # top-down desk: hands + documents, no standing actors
  'night/street':   dict(fn=NS.street,  plane=0, extras='none', spots={'walk': (900, 905, .6), 'bank_door': (220, 880, .52), 'pawn': (540, 880, .52), 'pawn2': (650, 880, .52)}),
- 'night/street1920': dict(fn=lambda: (setattr(NS, 'STREET_ERA', '1920'), NS.street(), setattr(NS, 'STREET_ERA', 'modern')), plane=0, extras='none', spots={'walk': (900, 905, .6), 'queue_start': (120, 880, .5)}),
+ # street1920: people at s .36 so buildings read at the right scale; the line ends at the hero door (x 1020)
+ 'night/street1920': dict(fn=lambda: (setattr(NS, 'STREET_ERA', '1920'), NS.street(), setattr(NS, 'STREET_ERA', 'modern')), plane=0, extras='none', spots={'door': (1020, 860, .36), 'queue': (930, 864, .36)}),
  'night/kitchen':  dict(fn=NS.kitchen, plane=0, extras='none', spots={'left': (640, 1060, 1.05), 'right': (1180, 1060, 1.05)}),
  'day/living':     dict(fn=DS.living_room, spots={'left': (600, 975, .98), 'right': (860, 985, .98)}),
  'day/kitchen':    dict(fn=DS.kitchen, spots={'center': (600, 1000, 1.0)}),
@@ -110,7 +111,9 @@ def _build(name):
     # light map
     s = skia.Surface(W, H); c = s.getCanvas(); c.clear(skia.ColorWHITE); _night(c, lights, amb)
     m = s.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)[..., :3].astype(float).mean(-1) / 255
-    ambv = np.array(skia.Color4f(kit.hx(amb)).vec()[:3]).mean(); m = np.clip((m - ambv) / (1 - ambv), 0, 1)
+    # The approved night look was made with this value at 0 (skia's Color4f(int) returned ~0 on Linux but a real
+    # value on Windows, so PC renders came out darker and full of dots). Fixed at 0 so every machine matches.
+    ambv = 0.0; m = np.clip((m - ambv) / (1 - ambv), 0, 1)
     s2 = skia.Surface(W, H); c2 = s2.getCanvas(); c2.clear(skia.ColorBLACK)
     for g_ in glows: _add(c2, *g_)
     gm = s2.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)[..., :3].astype(float).mean(-1) / 255

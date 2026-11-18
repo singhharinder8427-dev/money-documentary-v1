@@ -92,8 +92,11 @@ Work in `videos/<slug>/` (the video folder). The runner is `make_video.py` in th
 - **Midpoint twist:** text card; the music cuts to silence with a low boom (automatic from the `TWIST` beat).
 - **Ch5 "your wallet":** day sets (`day/...`), charts (`widgets.bar_chart`, `line_chart`), counters per American,
   one practical takeaway on a sticky note or card.
-- **Ending:** return to the opening set (callback); finish on `widgets.polaroid` (freeze, gold ring on the main
-  character) or a black final-question text card.
+- **Ending:** return to the opening set (callback); final-question text card held, then `anim.outro` (sound logo) and
+  `anim.end_screen` (~18 s). The timeline adds these automatically (`'outro'`, `'endscreen'` markers); the music
+  resolves on a final chord and a soft bed plays under the end screen.
+- **Lesson part:** always a red-flags / how-to-spot-it board where the points pop in one by one with the narrator.
+- **Use the story animations** (`anim`) often: a hand slam, a stamp, a chart or a prop every 20-30 s.
 - Real people: `widgets.lower_third(name, role)` the first time they appear. Places / dates: `widgets.place_tag`.
 
 ## Engine reference (`engine/`)
@@ -105,8 +108,9 @@ Work in `videos/<slug>/` (the video folder). The runner is `make_video.py` in th
 | `cast` | `CAST` (locked: ceo, analyst, worker, banker, investor; archetypes: saver, grad, scammer, agent, reporter, retiree), `person(base, **changes)` for new people |
 | `sets` | `get_set(name)` -> `.draw(c, back=[...], front=[...])`, `.spots`, `.rim`, `.light`. Night: `night/office` `night/trading` `night/desk` `night/street` `night/kitchen`. Day: `day/living` `day/kitchen` `day/bank` `day/street` `day/lesson`. Desks/tables are a front layer: actors in `back` stand behind them. Cached in `.cache/sets/` |
 | `actor` | `Actor(who, x, y, s, face=, light=, rim=)` with `.pose(t, arms)`, `.expression(t, ...)`, `.walk_to(t0, t1, x1)`, `.say(tl, id, mouths)`; idle bob, blink, squash, overshoot built in |
-| `widgets` | `text_card`, `chapter_card`, `title_card`, `counter`, `stamp` (returns shake), `pop_label`, `lower_third`, `place_tag`, `sticky`, `document`, `bar_chart`, `line_chart`, `bill`, `coin`, `cash_stack`, `gold_bar`, `falling_money`, `polaroid` |
-| `shots` | `wide(set, back, front, overlay, t0)`, `closeup(set, actor, focus)` (actor s~2.15, feet y~1390), `card(kind, dur, ...)`, `desk(overlay)`, `plain(overlay)` |
+| `widgets` | `framed_bg` (owner's framed stage), `paper_card`, `big_label`, `arrow`, `text_card`, `chapter_card`, `title_card`, `counter`, `stamp` (returns shake), `pop_label`, `lower_third`, `place_tag`, `sticky`, `document`, `bar_chart`, `line_chart`, `bill`, `coin`, `cash_stack`, `gold_bar`, `falling_money`, `polaroid` |
+| `anim` | story animations: `hand_slam` (cash / paper / sticky, returns shake), `pyramid` (Ponzi diagram), `calendar` (tear-off countdown), `map_route`, `handcuffs`, `newspaper` (spin-in), `phone_ring`, `ledger`, `envelope`, `prison_bars`, `sleeve`, `outro`, `end_screen` |
+| `shots` | `wide(set, back, front, overlay, t0)`, `closeup(set, actor, focus)` (actor s~2.15, feet y~1390), `card(kind, dur, ...)`, `desk(overlay)`, `plain(overlay)` (framed stage by default) |
 | `render` | `render_shot` (24 Mbps), `still`, `contact_sheet`, `join`, `mux`, `frame_sheet` |
 | `audio` | mood music (`suspense`, `twist`, `lesson`, `ending`), SFX set (`SFX`), `sound_logo`, `voice_chain`, `mix` (-14 LUFS). Real tracks can replace a mood: put `music_<mood>.wav` in the video folder |
 | `voices` | Kokoro character lines (`CHARACTER_VOICES`, picked in the first test render, then fixed), narration splitting, transcript check |

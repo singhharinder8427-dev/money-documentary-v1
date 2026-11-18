@@ -60,6 +60,16 @@ next render** (the full-length Ponzi video). Do not re-render the test video.
       (e.g. Europe -> United States).
     - Always in the locked style (navy, gold = money, orange = losses only, the framed look from item 8), quiet SFX.
 
+## Status (engine work done; owner to approve before saving)
+- DONE in the engine: 1-3 (music kept, SFX -45%, real typewriter + carriage ding), 5-6 (1920s street: hero building with
+  gold sign + lit door, lamp moved, people at s .36 so the scale reads), 7 (root cause: one light-map value differed
+  between Linux and Windows - pinned so every machine renders the approved clean night look), 8 (framed stage,
+  paper card, big labels, arrow), 10 (no empty first frames), 13 (bigger name tag / place tag / labels), 16 (final
+  hold + outro + end screen + music resolve), 17 (anim.py: hand slams, pyramid, calendar, map route, handcuffs,
+  newspaper, phone, ledger, envelope, prison bars).
+- APPLY IN EACH SHOT LIST: 4 (start closer), 9 (vary angles), 11 (documents fill the frame), 12 (ending phones big),
+  14 (presenter close to the board), 15 (red-flags board in every lesson part).
+
 ## Next
 - Make the **full-length Ponzi video** (full Template A script, ~10 min) with the `documentary-script` skill, then
   animate it with all fixes above applied. Ask the owner PC or cloud before rendering.

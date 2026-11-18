@@ -20,11 +20,55 @@ def wrap(words, tf, size, maxw):
     if cur: lines.append(cur)
     return lines
 
+# ---------------- framed stage (owner's reference for diagram / document / newspaper shots)
+_FRAME = None
+def framed_bg(c):
+    """Navy stage with a soft dotted vignette and a double rounded light-navy border around the whole frame."""
+    global _FRAME
+    if _FRAME is None:
+        import numpy as np
+        yy, xx = np.mgrid[0:H, 0:W].astype(float); d = np.sqrt(((xx - W / 2) / (W * .55)) ** 2 + ((yy - H / 2) / (H * .62)) ** 2)
+        a = np.radians(45); P = 8.0; u = (xx * np.cos(a) + yy * np.sin(a)) * 2 * np.pi / P; v = (-xx * np.sin(a) + yy * np.cos(a)) * 2 * np.pi / P
+        scr = (np.cos(u) + np.cos(v) + 2) / 4; t = np.clip((d - .45) / .55, 0, 1)
+        centre = np.array([66, 92, 150], float); edge = np.array([14, 24, 52], float)
+        base = centre * (1 - np.clip(d / 1.1, 0, 1))[..., None] + edge * np.clip(d / 1.1, 0, 1)[..., None]
+        out = np.where((t > (1 - scr) * 1.05)[..., None], edge, base)
+        img = np.dstack([np.clip(out, 0, 255).astype(np.uint8), np.full((H, W), 255, np.uint8)])
+        s = skia.Surface(W, H); cc = s.getCanvas(); cc.drawImage(skia.Image.fromarray(img, colorType=skia.kRGBA_8888_ColorType), 0, 0)
+        for inset, wdt, col_ in ((26, 12, '#9DB0DA'), (60, 5, '#9DB0DA')):
+            cc.drawRRect(skia.RRect.MakeRectXY(skia.Rect(inset, inset, W - inset, H - inset), 34, 34), ink(wdt + 6, '#0A1124'))
+            cc.drawRRect(skia.RRect.MakeRectXY(skia.Rect(inset, inset, W - inset, H - inset), 34, 34), ink(wdt, col_))
+        _FRAME = s.makeImageSnapshot()
+    c.drawImage(_FRAME, 0, 0)
+
+def paper_card(c, x, y, title, lines, u, w=760, h=560, rot=3, slam=False):
+    """Big paper card (owner's coupon reference): Barlow heading + rule, Special Elite lines. slam=True drops it in
+    with a bounce (pair with a 'stamp' / thud SFX)."""
+    k = min(max(u / .35, 0), 1)
+    if slam: sc = lerp(1.35, 1.0, ease_out(k)) * (1 + .04 * math.sin(k * math.pi * 2) * (1 - k)); dy = 0
+    else: sc = 1.0; dy = (1 - back(k)) * 600
+    c.save(); c.translate(x, y + dy); c.rotate(rot); c.scale(sc, sc)
+    c.drawRect(skia.Rect(-w / 2 + 18, -h / 2 + 22, w / 2 + 18, h / 2 + 22), fp((0, 0, 0), 90, blur=14)); rect(c, -w / 2, -h / 2, w / 2, h / 2, PAPER, 6)
+    text(c, title.upper(), -w / 2 + 50, -h / 2 + 100, 76, NAVY, F_LABEL); c.drawRect(skia.Rect(-w / 2 + 50, -h / 2 + 128, w / 2 - 50, -h / 2 + 136), fp(NAVY))
+    for i, ln in enumerate(lines): text(c, ln, -w / 2 + 50, -h / 2 + 220 + i * 72, 52, NAVY, F_TYPE)
+    c.restore()
+
+def big_label(c, s, x, y, u, color=WHITE, size=110, maxw=760):
+    """Large Alfa Slab label with ink stroke (EUROPE / UNITED STATES style); shrinks to fit maxw."""
+    size = min(size, size * maxw / max(_font(F_TITLE, size).measureText(s.upper()), 1))
+    k = .85 + .15 * pop(u); c.save(); c.translate(x, y); c.scale(k, k); text(c, s.upper(), 0, 0, size, color, F_TITLE, 'center', stroke=14); c.restore()
+
+def arrow(c, x0, y0, x1, y1, u, color=GOLD, wdt=60):
+    """Big flat arrow that grows from x0 to x1."""
+    k = ease_out(min(max(u, 0), 1)); xe = lerp(x0, x1, k); hd = wdt * 1.1
+    if xe - x0 < hd: return
+    poly(c, [(x0, y0 - wdt / 2), (xe - hd, y0 - wdt / 2), (xe - hd, y0 - wdt), (xe, y0), (xe - hd, y0 + wdt), (xe - hd, y0 + wdt / 2), (x0, y0 + wdt / 2)], color, 7)
+
 # ---------------- cards (full screen)
 def text_card(c, s, u, gold_words=(), bg=BLACK, size=78, color=WHITE):
     """Typed text card: Special Elite, revealed word by word over u 0..1, gold block cursor. Max ~12 words."""
     c.drawRect(skia.Rect(0, 0, W, H), fp(bg)); words = s.split(); lines = wrap(words, F_TYPE, size, 1500)
-    n = len(words); shown = int(round(min(max(u, 0), 1) * n)); f = _font(F_TYPE, size); lh = size * 1.35
+    n = len(words); shown = max(1, int(round(min(max(u, 0), 1) * n))); f = _font(F_TYPE, size); lh = size * 1.35
     y0 = H / 2 - (len(lines) - 1) * lh / 2 + size * .3; k = 0; cx = cy = None
     gw = {g.lower().strip('.,!?') for g in gold_words}
     for i, ln in enumerate(lines):
@@ -40,13 +84,14 @@ def text_card(c, s, u, gold_words=(), bg=BLACK, size=78, color=WHITE):
 def chapter_card(c, n, title, u):
     """Navy chapter card: 'CHAPTER n' in gold Barlow, title in Alfa Slab popping in, gold rule growing."""
     c.drawRect(skia.Rect(0, 0, W, H), fp(NAVY))
-    a = ease(K(u, 0, .25)); text(c, f'CHAPTER {n}', W / 2, 420, 52, GOLD, F_LABEL, 'center', alpha=int(255 * a))
-    k = pop(K(u, .08, .35)); c.save(); c.translate(W / 2, 560); c.scale(k, k); text(c, title.upper(), 0, 0, 120, WHITE, F_TITLE, 'center', stroke=0); c.restore()
-    wl = 520 * ease_out(K(u, .25, .4)); c.drawRect(skia.Rect(W / 2 - wl, 618, W / 2 + wl, 628), fp(GOLD))
+    a = .45 + .55 * ease(K(u, 0, .25)); text(c, f'CHAPTER {n}', W / 2, 420, 52, GOLD, F_LABEL, 'center', alpha=int(255 * a))
+    ts = min(120, 120 * 1640 / max(_font(F_TITLE, 120).measureText(title.upper()), 1))
+    k = .8 + .2 * pop(K(u, 0, .35)); c.save(); c.translate(W / 2, 560); c.scale(k, k); text(c, title.upper(), 0, 0, ts, WHITE, F_TITLE, 'center', stroke=0); c.restore()
+    wl = 520 * (.25 + .75 * ease_out(K(u, .1, .4))); c.drawRect(skia.Rect(W / 2 - wl, 618, W / 2 + wl, 628), fp(GOLD))
 
 def title_card(c, title, u, gold_word=None, sub=None):
     """Black title card after the hook: Alfa Slab title, one gold word, optional Barlow subtitle."""
-    c.drawRect(skia.Rect(0, 0, W, H), fp(BLACK)); k = pop(K(u, 0, .4)); f = _font(F_TITLE, 130)
+    c.drawRect(skia.Rect(0, 0, W, H), fp(BLACK)); k = .82 + .18 * pop(K(u, 0, .4)); f = _font(F_TITLE, 130)
     words = title.upper().split(); tw = f.measureText(' '.join(words)); c.save(); c.translate(W / 2, H / 2 + 30); c.scale(k, k); x = -tw / 2
     for w in words:
         c.drawString(w, x, 0, f, fp(GOLD if gold_word and w.strip('.,!?') == gold_word.upper() else WHITE)); x += f.measureText(w + ' ')
@@ -71,7 +116,7 @@ def counter(c, x, y, v0, v1, u, unit='$', loss=False, size=96, label=None, panel
     xx = x - (tw + aw) / 2; yy = y + size * .38
     for t, f in parts: c.drawString(t, xx, yy, f, fp(col)); xx += f.measureText(t) + gap
     if loss: ax = xx + aw * .45; poly(c, [(ax - aw * .35, y - size * .2), (ax + aw * .35, y - size * .2), (ax, y + size * .32)], ORANGE, 0)
-    if label: text(c, label.upper(), x, y + size * 1.25, size * .42, WHITE, F_LABEL, 'center')
+    if label: text(c, label.upper(), x, y + size * 1.3, size * .5, WHITE, F_LABEL, 'center', stroke=8)
 
 # ---------------- stamps, labels, tags
 def stamp(c, s, x, y, t, color=GOLD, rot=-8, size=110):
@@ -86,26 +131,26 @@ def stamp(c, s, x, y, t, color=GOLD, rot=-8, size=110):
     if t < .35: r = random.Random(int(t * 100)); amp = 14 * (1 - t / .35); return (r.uniform(-amp, amp), r.uniform(-amp, amp))
     return (0, 0)
 
-def pop_label(c, s, x, y, u, color=WHITE, size=66, rot=-4, stroke=14):
+def pop_label(c, s, x, y, u, color=WHITE, size=84, rot=-4, stroke=16):
     """Barlow label with a thick ink stroke that pops in with overshoot."""
     k = pop(u)
     if k <= 0: return
     c.save(); c.translate(x, y); c.rotate(rot); c.scale(k, k); text(c, s.upper(), 0, 0, size, color, F_LABEL, 'center', stroke=stroke); c.restore()
 
-def lower_third(c, name, role, u, x=90, y=900):
+def lower_third(c, name, role, u, x=80, y=880):
     """Name tag: navy box, gold bar, Barlow name + gold role. Scales in with back()."""
-    k = back(min(max(u / .4, 0), 1)); fn, fr = _font(F_LABEL, 62), _font(F_LABEL2, 36)
+    k = back(min(max(u / .4, 0), 1)); fn, fr = _font(F_LABEL, 84), _font(F_LABEL2, 48)
     w = max(fn.measureText(name.upper()), fr.measureText(role.upper())) + 90
     c.save(); c.translate(x, y); c.scale(k, 1)
-    rect(c, 0, 0, w, 130, NAVY, 5, r=8); c.drawRect(skia.Rect(4, 4, 22, 126), fp(GOLD))
-    c.drawString(name.upper(), 46, 64, fn, fp(WHITE)); c.drawString(role.upper(), 46, 108, fr, fp(GOLD)); c.restore()
+    rect(c, 0, -40, w, 130, NAVY, 5, r=8); c.drawRect(skia.Rect(4, -36, 24, 126), fp(GOLD))
+    c.drawString(name.upper(), 48, 44, fn, fp(WHITE)); c.drawString(role.upper(), 48, 104, fr, fp(GOLD)); c.restore()
 
 def place_tag(c, place, u, sub=None):
     """Location tag top-left: gold pin + Barlow place name (+ date)."""
     a = int(255 * ease(K(u, 0, .3))); x, y = 80, 120
-    circ(c, x, y - 34, 16, GOLD, 4); poly(c, [(x - 12, y - 26), (x + 12, y - 26), (x, y - 2)], GOLD, 0)
-    text(c, place.upper(), x + 34, y - 18, 46, WHITE, F_LABEL, stroke=8, alpha=a)
-    if sub: text(c, sub.upper(), x + 34, y + 22, 32, GOLD, F_LABEL2, stroke=6, alpha=a)
+    circ(c, x, y - 40, 20, GOLD, 4); poly(c, [(x - 15, y - 30), (x + 15, y - 30), (x, y)], GOLD, 0)
+    text(c, place.upper(), x + 42, y - 14, 66, WHITE, F_LABEL, stroke=10, alpha=a)
+    if sub: text(c, sub.upper(), x + 42, y + 36, 44, GOLD, F_LABEL2, stroke=8, alpha=a)
 
 def sticky(c, s, x, y, u, rot=-5, w=220):
     """Gold-paper sticky note with navy Barlow text."""

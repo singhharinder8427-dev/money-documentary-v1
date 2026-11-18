@@ -43,7 +43,11 @@ def desk(overlay, set_name='night/desk'):
     def draw(c, t): c.drawImage(st.base, 0, 0); overlay(c, t)
     return draw
 
-def plain(overlay, bg='#14213D'):
-    """Navy (or black) stage for charts and counters."""
-    def draw(c, t): c.drawRect(skia.Rect(0, 0, W, H), skia.Paint(Color=skia.Color4f.FromColor(int('FF' + bg.lstrip('#'), 16)))); overlay(c, t)
+def plain(overlay, bg='#14213D', framed=True):
+    """Stage for diagrams, documents, newspapers, charts, counters. framed=True (default, owner's reference):
+    navy with a soft dotted vignette and a double rounded border."""
+    def draw(c, t):
+        if framed: Wd.framed_bg(c)
+        else: c.drawRect(skia.Rect(0, 0, W, H), skia.Paint(Color=skia.Color4f.FromColor(int('FF' + bg.lstrip('#'), 16))))
+        overlay(c, t)
     return draw
