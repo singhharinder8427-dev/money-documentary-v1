@@ -1,0 +1,261 @@
+{
+ "title": "50% in 45 Days",
+ "title_after": "n004",
+ "lines": [
+  {
+   "id": "n001",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Boston, 1920. A line of people wraps around the block.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2"
+   ],
+   "shot_hint": "night street, crowd queue, place tag BOSTON 1920"
+  },
+  {
+   "id": "n002",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "They're waiting to hand a stranger their savings.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "slow push along the queue"
+  },
+  {
+   "id": "n003",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Fifty percent profit in forty-five days.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S2"
+   ],
+   "shot_hint": "text card"
+  },
+  {
+   "id": "n004",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "His name became the word for this scam. The trick still hunts your money today.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "Ponzi in office, smirk"
+  },
+  {
+   "id": "n005",
+   "beat": "CH1",
+   "chapter": "The Loophole",
+   "speaker": "NARRATOR",
+   "text": "Charles Ponzi said he'd found a loophole in the mail.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S2"
+   ],
+   "shot_hint": "night office, Ponzi behind desk"
+  },
+  {
+   "id": "n006",
+   "beat": "CH1",
+   "chapter": "The Loophole",
+   "speaker": "NARRATOR",
+   "text": "Buy postal reply coupons cheap in Europe. Cash them in America for more.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S2"
+   ],
+   "shot_hint": "top-down desk, coupons slide in"
+  },
+  {
+   "id": "n007",
+   "beat": "CH1",
+   "chapter": "The Loophole",
+   "speaker": "INVESTOR",
+   "text": "So where's my money right now?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "close-up investor, worried",
+   "voice": "worker"
+  },
+  {
+   "id": "n008",
+   "beat": "CH1",
+   "chapter": "The Loophole",
+   "speaker": "PONZI",
+   "text": "Working. In coupons. Come back in forty-five days.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S1"
+   ],
+   "shot_hint": "close-up Ponzi, smirk",
+   "voice": "scammer"
+  },
+  {
+   "id": "n009",
+   "beat": "CH1",
+   "chapter": "The Loophole",
+   "speaker": "NARRATOR",
+   "text": "Around fifteen million dollars poured in.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 15000000,
+    "unit": "$",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S2",
+    "S3"
+   ],
+   "shot_hint": "counter over the office"
+  },
+  {
+   "id": "n010",
+   "beat": "CH1",
+   "chapter": "The Loophole",
+   "speaker": "NARRATOR",
+   "text": "But here's the strange part. Almost none of it bought coupons.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1"
+   ],
+   "shot_hint": "Ponzi drops the coupon"
+  },
+  {
+   "id": "n011",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "His plan needed 160 million coupons. About 27,000 existed.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S3"
+   ],
+   "shot_hint": "text card, music drops"
+  },
+  {
+   "id": "n013",
+   "beat": "CH4",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Then the Boston Post started asking questions. It all collapsed.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S5"
+   ],
+   "shot_hint": "newspaper slides onto desk"
+  },
+  {
+   "id": "n014",
+   "beat": "CH4",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Ponzi pleaded guilty to mail fraud. The newspaper won a Pulitzer.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2",
+    "S5"
+   ],
+   "shot_hint": "stamp FRAUD on the desk"
+  },
+  {
+   "id": "n015",
+   "beat": "CH5",
+   "chapter": "Your Wallet",
+   "speaker": "NARRATOR",
+   "text": "That was his problem. Here's yours.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "day living room, saver"
+  },
+  {
+   "id": "n017",
+   "beat": "CH5",
+   "chapter": "Your Wallet",
+   "speaker": "NARRATOR",
+   "text": "The SEC's red flags: guaranteed high returns. Returns that never dip. A seller who isn't registered.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4",
+    "S6"
+   ],
+   "shot_hint": "day lesson board, three flags pop in"
+  },
+  {
+   "id": "n018",
+   "beat": "CH5",
+   "chapter": "Your Wallet",
+   "speaker": "NARRATOR",
+   "text": "Before you invest, look them up at investor dot gov.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "sticky note: CHECK INVESTOR.GOV"
+  },
+  {
+   "id": "n019",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "A century later, the line is still there. It just moved online.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "back to the night street, queue now holding phones"
+  },
+  {
+   "id": "n020",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Would you have stood in that line?",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "black final question card"
+  }
+ ]
+}

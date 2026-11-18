@@ -35,7 +35,7 @@ def cmd_voices():
     for l in s['lines']:
         sp = l.get('speaker', 'NARRATOR').lower()
         if l.get('silent') or l['id'] in res: continue
-        who = sp if sp in Vc.CHARACTER_VOICES else 'retiree' if sp == 'narrator' else None
+        who = l.get('voice') or (sp if sp in Vc.CHARACTER_VOICES else 'retiree' if sp == 'narrator' else None)   # 'voice' = which cast voice a real person uses
         if who is None: print('unknown speaker', sp, '-> add it to CHARACTER_VOICES'); continue
         res[l['id']] = Vc.character_line(l['text'], who, str(VO / f"{l['id']}.wav"))
     json.dump(res, open(VO / 'clips.json', 'w'), indent=1); print(len(res), 'voice clips ready')
