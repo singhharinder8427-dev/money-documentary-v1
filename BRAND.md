@@ -81,5 +81,24 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
 - Lip-sync: mouths move from each clip's loudness (same for both voice sources).
 - Voice picks per character are chosen during the first short test render, not before.
 
+## Music + sound (locked: option D, made in code) - test in the first short render
+- **All music and sound effects are generated in code.** The render reads the beat marks in `script.json`
+  (hook, chapters, midpoint twist, wallet lesson, ending, cards, counters, stamps) and places everything itself.
+- **Swappable:** music is chosen by mood tag, so licensed / ElevenLabs tracks can replace the code music later
+  without changing anything else (decide after the first test render).
+- **Mood map:**
+  | Part | Mood |
+  |---|---|
+  | Night story parts (hook, Ch1-Ch4) | dark true-crime suspense: low synth pulse, ticking clock, tense plucked strings |
+  | Midpoint twist | music cuts to silence, then a deep low boom as the card lands |
+  | Day lesson part (Ch5 "your wallet") | lighter and warmer: soft piano, marimba, light percussion |
+  | Callback ending | opening theme returns softer, ends on silence over the final question card |
+  | Title card | 2-second **sound logo**, same every video: typewriter clack + coin ring |
+- **Sound effects (fixed set):** typewriter keys (text cards, matches Special Elite), stamp thud, counter ticks that
+  speed up and end in a gold "ding" (money) or a low tone (loss), paper slides + whooshes (props, scene changes),
+  cash / coin sounds (money), falling tone (orange loss moments).
+- **Mix:** music well under the voice with automatic ducking whenever someone speaks; the final mix is levelled to
+  YouTube's standard loudness (about -14 LUFS).
+
 ## Not decided yet
-- music/sound mood, final channel name, rendering pipeline.
+- final channel name, rendering pipeline.
