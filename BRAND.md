@@ -2,6 +2,8 @@
 
 Owner-approved, 18 Nov 2026. Change only with the owner's say-so.
 
+**Working rule:** never save / commit / push without the owner's OK - after every change, ask: "save now or later?"
+
 ## Channel
 - Long-form 16:9 money videos for a **US audience**: money lessons + real money stories. Max **10 minutes**.
 - Delivery: **1920x1080, 30 fps, 24 Mbps**; render on PC or in the cloud - ask the owner for every video.

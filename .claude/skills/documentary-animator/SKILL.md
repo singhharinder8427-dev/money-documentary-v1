@@ -21,7 +21,7 @@ and the owner has approved the result, apply those instructions on every video. 
 
 1. **Ask before every render:** for each new video ask the owner: *render on your Windows PC or in the cloud?*
    Never assume, never reuse the last answer.
-2. **Never save, commit or push** anything without the owner's explicit permission.
+2. **Never save, commit or push** anything without the owner's explicit permission. After every change, **ask the owner: "save now or later?"**
 3. **Locked style only** (BRAND.md):
    - Cast: rectangular head with curved chin, neck, rectangle body, trouser legs + shoes, ball hands, pupil eyes,
      glossy, drawn crisp on top of the backgrounds (never through the print pass, never grained).
