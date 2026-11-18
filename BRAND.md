@@ -29,10 +29,16 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
   moustache, glasses, navy suit, gold tie), Analyst, Worker, Banker, Investor.
 - Built on the drawing kit of the "Claude 2D Animation Long Form" skill **made by aivxer** (keep this credit), modified.
 
-## Backgrounds (approved: "mesmerizing") - `environments/`
-- Moody night scenes: navy darkness with light pools, lamp cones, glows, bloom, vignette.
-- **Paper grain on the background only.**
-- Note: the five sample images still show the earlier round-head characters; the final character style is in `characters/`.
+## Night scenes (locked: "night print") - `environments/`
+- Used for the **story / drama parts**; the night twin of the daytime print look, so the whole channel shares one style.
+- **Dark areas:** navy paper in 4 shades by each object's brightness (`#0D1630` `#1B2A52` `#2B3F70` `#3E5689`),
+  so floors, desks and walls stay separate, with light-navy ink outlines `#9FB3DE`.
+- **Lamp / window light:** reveals the day print (cream `#F8EDD3`, warm grey, small soft navy dots), with only outlines
+  in dark navy; the light fades out through a **dotted halftone edge**. Gold `#FCA311` stays the spot colour; orange
+  only for losses. No smooth glow, no bloom (that is the reference channel's signature).
+- **Paper grain on the background only**; locked cast drawn crisp on top with correct occlusion (desks/tables in front
+  still hide them). Locked fonts (Alfa Slab / Barlow / Special Elite).
+- Sample sets: CEO office, trading floor, desk top-down, street (bank / cash advance / pawn / mortgages), kitchen.
 
 ## Daytime scenes (locked: style A "printed illustration") - `daytime/`
 - Used for **lessons / "your money" parts**; night scenes stay for the story and drama parts.

@@ -1,4 +1,4 @@
-"""Five busy environments drawn with the aivxer long-form skill's kit (skia): dense props, navy night() lighting,
+"""Scene drawings for the night sets (run night_look.py, not this file, for the locked look). Originally five busy environments drawn with the aivxer long-form skill's kit (skia): dense props, navy night() lighting,
 light pools, glows, grade + bloom, vignette. Characters use our navy + gold brand colours. Losses in orange."""
 import os, math, random
 import kit
@@ -114,7 +114,7 @@ def trading():
     ticks = [('ACME', -4.2), ('BOLT', -6.8), ('OPAL', 1.3), ('PIKE', -3.1), ('QUAY', -9.4), ('KITE', -2.2), ('LUME', 0.6), ('NOVA', -5.5), ('RAVN', -7.1), ('SOLA', -1.4)]
     for i, (n, ch) in enumerate(ticks):
         x = 110 + (i % 5) * 350; y = 120 + (i // 5) * 120
-        txt(c, n, x, y, 52, WHITE, MRK, skew=0); txt(c, f'{ch:+.1f}%', x + 160, y, 46, ORNG if ch < 0 else GOLD_, MRK, skew=0)
+        txt(c, n, x, y, 40, WHITE, MRK, skew=0); txt(c, f'{ch:+.1f}%', x + 150, y, 38, ORNG if ch < 0 else GOLD_, MRK, skew=0)
         poly(c, [(x + 295, y - 34), (x + 315, y - 4), (x + 275, y - 4)] if ch >= 0 else [(x + 295, y - 4), (x + 315, y - 34), (x + 275, y - 34)], ORNG if ch < 0 else GOLD_, 2)
     rect(c, 60, 330, 1860, 380, '#1E1F2A', 6); txt(c, 'MARKETS  ·  LIVE', 960, 368, 34, GOLD_, KAL, 'center', skew=0)
     # back rows of desks with monitors (small), then front row (big)
@@ -249,10 +249,11 @@ def kitchen():
     for (x, r, t) in [(470, -8, 'CREDIT CARD'), (560, 6, 'RENT DUE'), (1300, -5, 'CAR LOAN'), (1420, 8, 'UTILITIES')]:
         c.save(); c.translate(x, 770); c.rotate(r); rect(c, -80, -40, 80, 40, '#FBF8F0', 4); txt(c, t, 0, 10, 26, ORNG if 'DUE' in t else NAVY, KAL, 'center', skew=0); c.restore()
     for mx in (660, 1200): rect(c, mx - 26, 720, mx + 26, 772, WHITE, 5, r=6); c.drawPath((lambda p: (p.addArc(skia.Rect(mx + 14, 732, mx + 46, 762), -90, 180), p)[-1])(skia.Path()), ink(5))
-    oval(c, 1080, 715, 1180, 775, '#F2A6B6', 5); circ(c, 1172, 738, 12, '#F2A6B6', 4); rect(c, 1118, 712, 1146, 718, NAVY, 0); coin(c, 1131, 702, 14)
+    oval(c, 1080, 715, 1180, 775, GOLD_, 5); circ(c, 1172, 738, 12, GOLD_, 4); rect(c, 1118, 712, 1146, 718, NAVY, 0); coin(c, 1131, 702, 14)
     night(c, [('oval', 860, 560, 640, 460, .9), ('oval', 910, 720, 260, 120, .9), ('path', (lambda p: (p.addRect(skia.Rect(1250, 120, 1650, 430)), p)[-1])(skia.Path()), .7, 24)], ambient='#4C5CA0')
     add_light(c, 860, 300, 140, '#FFE2A0', 200); c.drawPath(cone_path(860, 300, 160, 900, 470), fp(GOLD_, 22, blur=34, blend=skia.BlendMode.kPlus)); add_light(c, 910, 705, 180, '#7FA6FF', 50)
     frame_out(surf, 'env5_kitchen.png')
 
-for f in (office, trading, desk, street, kitchen):
-    f(); print('done', f.__name__)
+if __name__ == '__main__':
+    for f in (office, trading, desk, street, kitchen):
+        f(); print('done', f.__name__)
