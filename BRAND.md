@@ -18,6 +18,8 @@ Owner-approved, 18 Nov 2026. Change only with the owner's say-so.
 | **Gold** | `#FCA311` | **Brand**: key words, chapter stamps, dollar amounts, highlights |
 | **Orange** | `#F35B04` | **Losses and alerts only** |
 
+Exception (owner-approved): **real national flags keep their true colours** (e.g. Italy's green) - flags only, nothing else.
+
 Rules: gold = money / brand, orange = danger / loss, never swapped; they never touch; orange always with a minus sign
 or down arrow; gains in navy ink with an up arrow (no green); small handwriting on white paper is navy, not gold.
 

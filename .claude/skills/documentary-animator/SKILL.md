@@ -28,7 +28,8 @@ and the owner has approved the result, apply those instructions on every video. 
    - Story parts (hook, Ch1-Ch4, twist, ending) use **night-print** sets; the lesson part (Ch5 "your wallet") uses
      **day-print** sets.
    - Colours: gold `#FCA311` = money / brand; orange `#F35B04` = losses only, always with a minus sign or a down
-     arrow; gains in navy/white with an up arrow; **no green anywhere**; gold and orange never touch.
+     arrow; gains in navy/white with an up arrow; **no green anywhere** (only exception: real national flags,
+     e.g. in `anim.map_route(flag_a=..., flag_b=...)`, keep their true colours); gold and orange never touch.
    - Fonts: DSEG7 counters, Alfa Slab titles / chapter names / stamps, Special Elite text cards + documents (typed
      word by word, gold cursor), Barlow Condensed labels / name tags / sticky notes / place tags.
 4. **Truth:** the picture must not show anything the script doesn't support. Real people are drawn in our style with

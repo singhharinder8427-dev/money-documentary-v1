@@ -5,7 +5,7 @@ Functions that hit something return a camera shake (dx, dy) to pass to render_sh
 import math, random
 import skia
 from engine.core import W, H, NAVY, NAVY2, NAVY3, GOLD, GOLD_D, ORANGE, WHITE, GREY, PAPER, F_TITLE, F_TYPE, F_LABEL, F_LABEL2, F_COUNTER
-from engine.kit import fp, ink, rect, circ, oval, poly, shape, ease, ease_out, back, pop, lerp, K, INK
+from engine.kit import fp, sp, ink, rect, circ, oval, poly, shape, ease, ease_out, back, pop, lerp, K, INK
 from engine import widgets as Wd
 
 def _shake(t, hit, amp=16, dur=.3):
@@ -83,18 +83,53 @@ def calendar(c, x, y, t, days_from=45, days_to=0, dur=2.0, label='DAYS LEFT', s=
         c.save(); c.translate(ph * 520, -60 - ph * 380); c.rotate(ph * 60); rect(c, -150, -120, 150, 150, PAPER, 4); c.restore()
     c.restore()
 
-def map_route(c, t, dur=2.2, a=(470, 470), b=(1450, 520), label_a='EUROPE', label_b='UNITED STATES', icon='coupon'):
-    """Stylized map: two land masses, a dotted route that draws itself, an icon travelling along it."""
+FLAG_STYLE = 'true'   # 'true' = real flag colours (Italy has green: owner-approved exception) | 'brand' = navy/gold/white tint
+def _flag_cols(style):
+    if style == 'brand': return {'green': '#2B4A7A', 'red': GOLD, 'white': '#F6EFE2', 'blue': NAVY}
+    return {'green': '#2E8B57', 'red': '#C8242C', 'white': '#F6EFE2', 'blue': '#1E3A78'}
+def flag(c, kind, cx, cy, w, h, t=0.0, style=None):
+    """Waving flag (Italy / USA) drawn as vertical strips with a sine wave."""
+    col = _flag_cols(style or FLAG_STYLE); n = 36; sw = w / n
+    for i in range(n):
+        x0 = cx - w / 2 + i * sw; u = i / n; dy = math.sin(u * 6 + t * 4) * h * .04 * u; shade = 1 - .12 * (math.sin(u * 6 + t * 4) * .5 + .5) * u
+        def P(hexc):
+            r_, g_, b_ = (int(hexc[k:k + 2], 16) for k in (1, 3, 5)); return (r_ * shade, g_ * shade, b_ * shade)
+        if kind == 'italy':
+            cc = col['green'] if u < 1 / 3 else col['white'] if u < 2 / 3 else col['red']
+            c.drawRect(skia.Rect(x0, cy - h / 2 + dy, x0 + sw + .8, cy + h / 2 + dy), fp(P(cc)))
+        else:
+            for k in range(13):
+                y0 = cy - h / 2 + k * h / 13 + dy; cc = col['red'] if k % 2 == 0 else col['white']
+                c.drawRect(skia.Rect(x0, y0, x0 + sw + .8, y0 + h / 13 + .8), fp(P(cc)))
+            if u < .42:
+                c.drawRect(skia.Rect(x0, cy - h / 2 + dy, x0 + sw + .8, cy - h / 2 + dy + h * 7 / 13), fp(P(col['blue'])))
+    if kind == 'usa':
+        for r_ in range(4):
+            for k in range(5): c.drawCircle(cx - w / 2 + w * .05 + k * w * .075 + (r_ % 2) * w * .035, cy - h / 2 + h * .07 + r_ * h * .12, w * .012, fp(col['white']))
+
+def map_route(c, t, dur=2.2, a=(470, 470), b=(1450, 520), label_a='EUROPE', label_b='UNITED STATES', icon='coupon', flag_a=None, flag_b=None):
+    """Stylized map: two land circles (optionally showing a waving flag inside), a dotted route that draws itself,
+    an icon travelling along it. flag_a / flag_b: 'italy' | 'usa' | None."""
     Wd.framed_bg(c)
-    for (mx, my), w_, h_ in ((a, 420, 300), (b, 520, 330)):
-        p = skia.Path(); p.addOval(skia.Rect(mx - w_ / 2, my - h_ / 2, mx + w_ / 2, my + h_ / 2)); shape(c, p, '#2B3F70', 6)
+    for (mx, my), w_, h_, fl in ((a, 420, 300, flag_a), (b, 520, 330, flag_b)):
+        p = skia.Path(); p.addOval(skia.Rect(mx - w_ / 2, my - h_ / 2, mx + w_ / 2, my + h_ / 2))
+        c.drawPath(p, fp('#2B3F70'))
+        if fl:
+            c.save(); c.clipPath(p, doAntiAlias=True); flag(c, fl, mx, my, w_ * 1.05, h_ * 1.05, t)
+            c.drawPath(p, sp(Wd_radial(mx, my, max(w_, h_) * .6))); c.restore()
+        c.drawPath(p, ink(8)); c.drawPath(p, ink(3, '#9DB0DA'))
     Wd.big_label(c, label_a, a[0], a[1] + 250, 1, WHITE, 80); Wd.big_label(c, label_b, b[0], b[1] + 270, 1, GOLD, 80)
     k = ease(min(max(t / dur, 0), 1)); n = 40
     pts = [(lerp(a[0], b[0], i / n), lerp(a[1], b[1], i / n) - math.sin(math.pi * i / n) * 260) for i in range(n + 1)]
     for i in range(int(n * k)):
         if i % 2 == 0: c.drawLine(*pts[i], *pts[i + 1], ink(10, GOLD))
     ix, iy = pts[int(n * k)]
-    c.save(); c.translate(ix, iy); rect(c, -60, -40, 60, 40, PAPER, 4); Wd.text(c, 'IRC', 0, 14, 36, NAVY, F_LABEL, 'center'); c.restore()
+    c.save(); c.translate(ix, iy); rect(c, -60, -40, 60, 40, PAPER, 4); Wd.text(c, 'IRC' if icon == 'coupon' else icon, 0, 14, 36, NAVY, F_LABEL, 'center'); c.restore()
+
+def Wd_radial(x, y, r):
+    """Soft inner shadow for the land circles (flags read as a round badge)."""
+    from engine.kit import radial
+    return radial(x, y, r, [skia.Color(0, 0, 0, 0), skia.Color(0, 0, 0, 0), skia.Color(8, 14, 34, 150)], [0, .7, 1])
 
 def handcuffs(c, x, y, t, close_at=.3):
     """Handcuffs swing in and snap shut at t = close_at. Returns shake."""

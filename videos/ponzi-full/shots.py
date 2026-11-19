@@ -97,7 +97,7 @@ def build(tl):
 
     # ================= CH2 =================
     add('n014', shots.plain(lambda c, t: A.envelope(c, 960, 640, t, 'Reply coupon', ['International', 'postage coupon'])), zoom=(1, 1.06), sfx=[(.1, 'paper'), (.5, 'paper')])
-    add('n015', lambda c, t: A.map_route(c, t, dur=T('n015') * .8), zoom=(1, 1.04))
+    add('n015', lambda c, t: A.map_route(c, t, dur=T('n015') * .8, label_a='Italy', flag_a='italy', flag_b='usa'), zoom=(1, 1.04))
     add('n016', shots.plain(lambda c, t: (Wd.big_label(c, 'Money in Europe', 960, 210, 1, WHITE, 90),
                                           Wd.line_chart(c, 300, 300, 1620, 880, [100, 96, 88, 70, 55, 40, 30, 24], t / (T('n016') * .8), ORANGE, labels=['1914', '', '1916', '', '1918', '', '1920', '']),
                                           Wd.pop_label(c, 'coupon price: same', 1350, 330, (t - T('n016') * .6) / .4, GOLD, 70))), zoom=(1, 1.04), sfx=[(T('n016') * .8, 'falling')])
@@ -253,7 +253,7 @@ def build(tl):
     R['n037'] = two('n037', 3.6, by['n037'], bshot(shots.plain(lambda c, t: (A.coin_rain(c, t), Wd.pop_label(c, 'back: under 30¢ per $1', 960, 540, (t - .3) / .4, WHITE, 90, rot=0))), zoom=(1, 1.04), sfx=[(.2, 'falling')]))
     R['n038'] = two('n038', 3.3, by['n038'], bshot(shots.plain(lambda c, t: (A.newspaper(c, 960, 560, t, 'The Boston Post', 'Wins the Pulitzer Prize', 'Public Service, 1921'),
                                                                             Wd.stamp(c, 'Pulitzer', 1300, 330, t - .9, GOLD, rot=8, size=90))), zoom=(1, 1.05), sfx=[(.05, 'whoosh'), (.9, 'stamp')]))
-    R['n039'] = two('n039', 3.6, bshot(lambda c, t: A.map_route(c, t, dur=2.6, a=(1450, 520), b=(470, 470), label_a='United States', label_b='Italy, 1934'), zoom=(1, 1.04)), by['n039'])
+    R['n039'] = two('n039', 3.6, bshot(lambda c, t: A.map_route(c, t, dur=2.6, a=(1450, 520), b=(470, 470), label_a='United States', label_b='Italy, 1934', icon='PONZI', flag_a='usa', flag_b='italy'), zoom=(1, 1.04)), by['n039'])
     def statement(c, t):
         A.hand_slam(c, 960, 540, t, 'paper', 'Account statement', ['Balance: $65,000,000,000', 'Real money: most never existed'], hit=.3)
         Wd.stamp(c, 'Fake', 1250, 400, t - 1.4, ORANGE, rot=-10, size=120)
