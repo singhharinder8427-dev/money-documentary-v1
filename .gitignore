@@ -5,3 +5,4 @@ __pycache__/
 .cache/
 videos/*/out/
 videos/*/voices/
+!branding/*.png
