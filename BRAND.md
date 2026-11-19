@@ -78,6 +78,10 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
   the thumbnail**. Claude draws the thumbnail in code with the channel engine.
 
 ## Thumbnails (locked) - `.claude/skills/thumbnail-prompt/`
+- **Locked style (owner-approved "$20 MILLION GONE" v3):** the channel's own night-print set as a sharp background, a
+  huge emotional main character with shock lines and a glow, the whole story packed around him (crowd, police car +
+  spotlight, newspaper headline, key prop, flying cash, coins, crash arrow), a big Alfa Slab headline (white + one
+  orange/gold accent). Drawn by Claude in code with the engine.
 - Made by the owner in an AI image tool from **detailed prompts written at the end of every video** (after render),
   2-3 options per video.
 - Every prompt names the locked palette (hex + jobs, no green) and describes **our character style**; real people
