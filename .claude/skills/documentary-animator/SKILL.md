@@ -37,6 +37,14 @@ and the owner has approved the result, apply those instructions on every video. 
    the person and sends reference images -> Claude designs the character in our 2D style from them -> show it ->
    adjust until the owner is satisfied -> only then lock it into `REAL` (or the cast) in `engine/cast.py`. Locked
    characters are reused every time (video + thumbnail + later videos); never redesign one without asking.
+   **Places + props come first too (owner's rule):** also ask *"New places and props for this story, or reuse existing
+   ones?"* Each new story gets its OWN story-specific sets (e.g. Madoff's 17th-floor Manhattan office) and props
+   (e.g. fake statements), built in our style in `engine/sets_src/` + `engine/sets.py` / `engine/anim.py`, shown to the
+   owner, adjusted until approved, then locked and ADDED to the library (the library keeps growing; never let every
+   story reuse the same office/street).
+   **Signature parts always stay the same:** the night/day print looks, palette, fonts, vignette, captions, character
+   drawing style, title/chapter/text cards + typewriter, counters, stamps, the red-flags board, outro + end screen,
+   and the animation tools (filled with each story's own content).
    **Real people:** design each real person's character from their real traits - face cut
    (`face_shape=(width, height)`), hair style + colour (`hair`, `hair_part`), facial hair (`moustache_style`), glasses,
    build/height (scale), signature outfit and props (e.g. Ponzi's boater + gold cane via `kit.cane`) - add it to
@@ -66,8 +74,10 @@ curl -L -O $R/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2 && t
 
 Work in `videos/<slug>/` (the video folder). The runner is `make_video.py` in this skill folder.
 
-0. **Characters** - ask the owner: new character(s) or existing ones? For a new one, wait for the owner's reference
-   images, design it, iterate until approved, lock it in `engine/cast.py` (see hard rule 4).
+0. **Characters, places + props** - ask the owner: (a) new character(s) or existing ones? (b) new places and props
+   for this story, or reuse existing ones? For new ones: references from the owner -> design -> iterate until approved
+   -> lock (cast in `engine/cast.py`, sets in `engine/sets_src/` + `engine/sets.py`, props in `engine/anim.py`).
+   Show the current library of sets so the owner can choose what to reuse.
 1. **Script** - from the `documentary-script` skill: `script.json` (beats, speakers, `card`, `counter`,
    `dramatised`, `sources`, `shot_hint`) + `voice_script.md`. Add `"title_after": "<last hook line id>"`.
 2. **Narration** - the owner records the narrator lines with ElevenLabs (one file, narrator lines only, in script

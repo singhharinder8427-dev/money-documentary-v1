@@ -73,6 +73,10 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
 - **Characters come first:** before each video Claude asks "new character or existing one?". For a new one the owner
   researches and sends reference images; Claude designs it in our style; we iterate until the owner is satisfied; then
   it is locked and reused every time.
+- **Places + props per story:** before each video Claude also asks "new places and props, or reuse existing ones?".
+  Each story gets its own story-specific sets and props in our style (approved first), added to a growing library.
+  **Signature parts never change:** looks, palette, fonts, vignette, captions, character style, title/chapter/text
+  cards + typewriter, counters, stamps, red-flags board, outro + end screen.
 - Every real person a video is about gets a character built from their **real traits** (face cut, hair, facial hair,
   glasses, build, signature outfit and props) in our 2D style, and **the same character appears in the video and on
   the thumbnail**. Claude draws the thumbnail in code with the channel engine.
