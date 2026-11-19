@@ -32,11 +32,21 @@ and the owner has approved the result, apply those instructions on every video. 
      e.g. in `anim.map_route(flag_a=..., flag_b=...)`, keep their true colours); gold and orange never touch.
    - Fonts: DSEG7 counters, Alfa Slab titles / chapter names / stamps, Special Elite text cards + documents (typed
      word by word, gold cursor), Barlow Condensed labels / name tags / sticky notes / place tags.
-4. **Truth:** the picture must not show anything the script doesn't support. Real people are drawn in our style with
+4. **Characters come first (owner's rule):** at the start of EVERY new video, ask the owner: *"Do we need a new
+   character, or use an existing one?"* A new character is made BEFORE the video work starts: the owner researches
+   the person and sends reference images -> Claude designs the character in our 2D style from them -> show it ->
+   adjust until the owner is satisfied -> only then lock it into `REAL` (or the cast) in `engine/cast.py`. Locked
+   characters are reused every time (video + thumbnail + later videos); never redesign one without asking.
+   **Real people:** design each real person's character from their real traits - face cut
+   (`face_shape=(width, height)`), hair style + colour (`hair`, `hair_part`), facial hair (`moustache_style`), glasses,
+   build/height (scale), signature outfit and props (e.g. Ponzi's boater + gold cane via `kit.cane`) - add it to
+   `REAL` in `engine/cast.py`, and use the SAME character in the video and on the thumbnail. Always our 2D style,
+   never photo-real.
+5. **Truth:** the picture must not show anything the script doesn't support. Real people are drawn in our style with
    only their signature traits (hair, glasses, outfit) and identified with a name tag - never a likeness of a photo.
    Private people are not named.
-5. Never copy another channel's characters, frames, titles or thumbnails.
-6. Output is always **1920x1080, 30 fps, H.264 24 Mbps, AAC 256 kbps**, max 10 minutes.
+6. Never copy another channel's characters, frames, titles or thumbnails.
+7. Output is always **1920x1080, 30 fps, H.264 24 Mbps, AAC 256 kbps**, max 10 minutes.
 
 ## Setup (once per machine)
 
@@ -56,6 +66,8 @@ curl -L -O $R/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2 && t
 
 Work in `videos/<slug>/` (the video folder). The runner is `make_video.py` in this skill folder.
 
+0. **Characters** - ask the owner: new character(s) or existing ones? For a new one, wait for the owner's reference
+   images, design it, iterate until approved, lock it in `engine/cast.py` (see hard rule 4).
 1. **Script** - from the `documentary-script` skill: `script.json` (beats, speakers, `card`, `counter`,
    `dramatised`, `sources`, `shot_hint`) + `voice_script.md`. Add `"title_after": "<last hook line id>"`.
 2. **Narration** - the owner records the narrator lines with ElevenLabs (one file, narrator lines only, in script
@@ -82,10 +94,11 @@ Work in `videos/<slug>/` (the video folder). The runner is `make_video.py` in th
 8. **Final** - `make_video.py final` -> `out/final.mp4` + `out/frames.jpg` (one frame every 7 s). Check the sheet.
 9. **Check** - `make_video.py check`: transcript of the mix vs the script (aim > 0.9). Claude cannot hear or watch:
    tell the owner to watch once for timing.
-10. **Credits** - the typewriter key sounds are a real recording (CC BY 4.0): put the line from
+10. **Thumbnail** - Claude draws it with the engine and the video's own character (`thumbnail-prompt` skill).
+11. **Credits** - the typewriter key sounds are a real recording (CC BY 4.0): put the line from
    `assets/typewriter/ATTRIBUTION.md` in every video's description.
-11. **Thumbnails** - write 2-3 prompts with the `thumbnail-prompt` skill.
-12. **Deliver** - send the MP4 (or the PC commands), with: length, what is in it, facts not checked, dramatised
+12. **Thumbnail prompts (optional backup)** - write 2-3 prompts with the `thumbnail-prompt` skill.
+13. **Deliver** - send the MP4 (or the PC commands), with: length, what is in it, facts not checked, dramatised
     lines, and anything to watch for.
 
 ## Publishing checklist (every video)

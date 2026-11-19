@@ -3,10 +3,17 @@ name: thumbnail-prompt
 description: "Writes detailed AI-image prompts for the money documentary channel's YouTube thumbnails in the locked style (our character style, navy/gold/orange palette, big-face + story-object + top text band composition). Use at the END of every video, after it is rendered, or when the owner asks for thumbnail prompts. The owner generates the images in their own AI image tool; this skill never generates images itself."
 ---
 
-# Thumbnail prompts (locked style)
+# Thumbnails (locked style)
 
 **When:** at the end of every video, **after the video is rendered**, so the thumbnail matches the finished story.
-**Who makes the image:** the owner, in their own AI image tool, from these prompts. Never generate the image yourself.
+**Who makes the image (owner's rule, updated):** **Claude draws the thumbnail itself in code** with the channel engine
+(`.claude/skills/documentary-animator/engine`), using **the exact same character as in the video** - see
+`videos/ponzi-full/thumbnails/make_thumb.py` for the pattern (blurred set background, big character close-up with an
+expression, story props from `anim`, Alfa Slab headline with outline + shadow, 1280x720 + 1920 PNG).
+**Real people:** the character is the one locked before the video (from the owner's reference images, approved by the
+owner - see the animator skill, hard rule 4); it is designed from the real person's traits (face cut via `face_shape`, hair style/colour,
+facial hair, glasses, build, signature clothes + props), always in our 2D style, and the SAME character is used in the
+video and on the thumbnail. The text prompts below remain as an optional backup for an AI image tool.
 **Deliver:** **2-3 prompt options** per video (different concepts, e.g. big-face shock / story object / evidence
 board), each with the exact headline text, plus a one-line note on which to test first and why.
 

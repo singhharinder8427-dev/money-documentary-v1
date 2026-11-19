@@ -69,6 +69,14 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
   ~0:45) -> Ch 1 origin -> Ch 2 the opening -> Ch 3 the plan -> midpoint twist -> Ch 4 the fallout -> Ch 5 your
   wallet -> callback ending. 10 min default, ~1,500 words at 155 wpm.
 
+## Real people + thumbnails (owner's rule)
+- **Characters come first:** before each video Claude asks "new character or existing one?". For a new one the owner
+  researches and sends reference images; Claude designs it in our style; we iterate until the owner is satisfied; then
+  it is locked and reused every time.
+- Every real person a video is about gets a character built from their **real traits** (face cut, hair, facial hair,
+  glasses, build, signature outfit and props) in our 2D style, and **the same character appears in the video and on
+  the thumbnail**. Claude draws the thumbnail in code with the channel engine.
+
 ## Thumbnails (locked) - `.claude/skills/thumbnail-prompt/`
 - Made by the owner in an AI image tool from **detailed prompts written at the end of every video** (after render),
   2-3 options per video.
