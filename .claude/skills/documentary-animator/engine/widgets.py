@@ -151,7 +151,7 @@ def pop_label(c, s, x, y, u, color=WHITE, size=84, rot=-4, stroke=16):
     if k <= 0: return
     c.save(); c.translate(x, y); c.rotate(rot); c.scale(k, k); text(c, s.upper(), 0, 0, size, color, F_LABEL, 'center', stroke=stroke); c.restore()
 
-def lower_third(c, name, role, u, x=80, y=880):
+def lower_third(c, name, role, u, x=80, y=830):   # clear of the captions
     """Name tag: navy box, gold bar, Barlow name + gold role. Scales in with back()."""
     k = back(min(max(u / .4, 0), 1)); fn, fr = _font(F_LABEL, 84), _font(F_LABEL2, 48)
     w = max(fn.measureText(name.upper()), fr.measureText(role.upper())) + 90
