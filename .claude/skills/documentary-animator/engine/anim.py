@@ -185,10 +185,14 @@ def prison_bars(c, t, drop=.35):
     for i in range(9): x = 120 + i * 210; rect(c, x - 18, off - 20, x + 18, off + H + 20, '#3A3F4A', 6, r=10)
     rect(c, -10, off + 140, W + 10, off + 180, '#3A3F4A', 6); return _shake(t, drop, 14, .25)
 
-def outro(c, t, channel='PAPER TRILLIONS'):
-    """Outro card after the final question: channel name in the locked style (working name until the owner picks one)."""
+def outro(c, t, channel='DIRTY DOLLAR'):
+    """Outro card after the final question: the channel name in the locked style (white + gold)."""
     Wd.framed_bg(c); k = .85 + .15 * pop(K(t, 0, .4))
-    c.save(); c.translate(W / 2, H / 2); c.scale(k, k); Wd.text(c, channel, 0, 20, 130, WHITE, F_TITLE, 'center', stroke=14); c.restore()
+    f = Wd._font(F_TITLE, 130); words = channel.split(' ', 1); w0 = f.measureText(words[0] + ' '); tw = f.measureText(channel)
+    c.save(); c.translate(W / 2, H / 2); c.scale(k, k)
+    Wd.text(c, words[0] + ' ', -tw / 2, 20, 130, WHITE, F_TITLE, stroke=14)
+    if len(words) > 1: Wd.text(c, words[1], -tw / 2 + w0, 20, 130, GOLD, F_TITLE, stroke=14)
+    c.restore()
     wl = 420 * ease_out(K(t, .2, .5)); c.drawRect(skia.Rect(W / 2 - wl, H / 2 + 70, W / 2 + wl, H / 2 + 80), fp(GOLD))
 
 def end_screen(c, t):

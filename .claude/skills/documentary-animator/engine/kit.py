@@ -145,6 +145,10 @@ def _arm(spec):  # 'name' or ('from', 'to', k) blended with overshoot
     a, b, k = spec; k = back(k, 1.6); ea, ha, sa = ARM[a]; eb, hb, sb = ARM[b]
     return (lerp(ea[0], eb[0], k), lerp(ea[1], eb[1], k)), (lerp(ha[0], hb[0], k), lerp(ha[1], hb[1], k)), (sb if k > .5 else sa)
 
+def KALAM_DOLLAR():
+    from engine.core import F_TITLE
+    return F_TITLE
+
 def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, brow_tilt=0.0, arms=('down', 'down'),
               tilt=0.0, bob=0.0, squash=0.0, sweat=-1.0, light=-1, rim=None, hat=False, legs=None, pupil=0.0, sparkle=0.0):
     """x,y = feet. s=1 -> head radius 100 px (s=1 wide shot, s~2.15 close-up with feet at y~1390).
@@ -267,7 +271,12 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
     fx = face * 40; eyy = -6
     for ex0 in (-30, 30):
         ex = ex0 + fx; far = (face > 0 and ex0 > 0) or (face < 0 and ex0 < 0); sq = 1 - .3 * abs(face) if far else 1.0
-        if eyes == 'wide':
+        if eyes == 'dollar':   # money-crazy: big white eyes with a gold $ instead of the pupil
+            oval(c, ex - 26*sq, eyy - 26, ex + 26*sq, eyy + 26, '#FBFBF7', lw * .7)
+            fd = skia.Font(KALAM_DOLLAR(), 48); dw = fd.measureText('$')
+            c.save(); c.translate(ex, eyy); c.scale(sq, 1)
+            c.drawString('$', -dw / 2, 17, fd, ink(lw * .9)); c.drawString('$', -dw / 2, 17, fd, fp('#FCA311')); c.restore()
+        elif eyes == 'wide':
             oval(c, ex - 17*sq, eyy - 17, ex + 17*sq, eyy + 17, '#FBFBF7', lw * .7)
             c.drawOval(skia.Rect(ex - 5.5*sq + pupil*6, eyy - 5.5, ex + 5.5*sq + pupil*6, eyy + 5.5), fp(INK))
         elif eyes == 'closed':

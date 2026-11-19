@@ -126,9 +126,13 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
   heads, handwritten fonts, glow and white handwriting cards; 24 Mbps instead of its quality setting; our mood map
   instead of its single jazzy track; ElevenLabs narration + Kokoro characters handled as separate files.
 
-## Channel name
-- **Working name: "Paper Trillions"** - an **internal placeholder only**, used in our files while we build and test.
-- Too close to the reference channel's name to publish: **choose the real name before the first video goes public.**
+## Channel name (locked)
+- **DIRTY DOLLAR** (owner's final choice). Written "DIRTY" in white + "DOLLAR" in gold, Alfa Slab One.
+- Branding in `branding/`: `profile_800.png` (**official profile photo**: the CEO close-up with gold dollar-sign eyes
+  and a greedy grin, gold rays, no text; `profile_coin_800.png` = spare coin version), `banner_2560x1440.png`
+  (text inside YouTube's safe area; cast on the sides - desktop/TV), `banner_mobile_2560x1440.png` (**the official banner** - owner's choice: cast +
+  name + tagline all inside the phone-visible strip), made by `make_branding.py`.
+- "Paper Trillions" was only a working placeholder - never use it publicly.
 
 ## Not decided yet
-- final public channel name (before the first video goes public).
+- nothing - all brand decisions are locked.
