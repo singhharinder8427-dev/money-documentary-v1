@@ -1,6 +1,7 @@
 """Runner for one video. Usage (from the video's folder, e.g. videos/<slug>/):
    python <skill>/make_video.py voices   # Kokoro character lines + cut the ElevenLabs narration into line clips
    python <skill>/make_video.py stills   # contact sheet of the busiest frames -> check before the long render
+   python <skill>/make_video.py qa       # MANDATORY creative quality check: 3 frames per shot (start/mid/end) -> out/qa_sheet_N.jpg
    python <skill>/make_video.py render   # ASK THE OWNER FIRST: PC or cloud? Renders every shot (parallel)
    python <skill>/make_video.py audio    # voices + code music by mood + SFX, ducked, -14 LUFS
    python <skill>/make_video.py final    # join shots + mux audio -> out/final.mp4, frame sheet
@@ -20,7 +21,7 @@ def clips():
 def shots_mod():
     spec = importlib.util.spec_from_file_location('shots_video', V / 'shots.py'); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
 def timeline():
-    s = script(); m = shots_mod(); return T.build(s['lines'], clips(), shot_breaks=getattr(m, 'SHOT_BREAKS', ()), title_after=s.get('title_after'))
+    s = script(); m = shots_mod(); return T.build(s['lines'], clips(), shot_breaks=getattr(m, 'SHOT_BREAKS', ()), title_after=s.get('title_after'), end_screen=s.get('end_screen', 18.0))
 def shot_list():
     tl = timeline(); sh = shots_mod().build(tl); t = 0.0
     for i, x in enumerate(sh): x.setdefault('name', f'{i:03d}'); x['t0'] = t; t += x['dur']
@@ -96,10 +97,27 @@ def cmd_final():
     from engine.captions import srt
     print(f, render.frame_sheet(f, str(OUT / 'frames.jpg')), srt(tl, str(OUT / 'captions.srt')))
 
+def cmd_qa():
+    """MANDATORY creative quality check (SKILL.md step 5): 3 frames per shot (start / middle / end) with the real camera move,
+    HUD and captions, on compact sheets (out/qa_sheet_N.jpg, 6 shots per sheet, labelled). Review every shot, fix, re-run on changed shots:
+    QA_ONLY=n012,n013 python make_video.py qa"""
+    from PIL import Image, ImageDraw
+    tl, sh = shot_list(); only = set(filter(None, os.environ.get('QA_ONLY', '').split(','))); sh = [x for x in sh if not only or x['name'] in only]
+    per = 6; cw, chh = 640, 360
+    for si in range(0, len(sh), per):
+        grp = sh[si:si + per]; S = Image.new('RGB', (cw * 3 + 150, chh * len(grp)), (12, 18, 36)); d = ImageDraw.Draw(S)
+        for r, x in enumerate(grp):
+            hud = _with_captions(tl, x); dur = x['dur']
+            d.text((8, r * chh + 8), f"{x['name']}\n{dur:.1f}s", fill=(252, 163, 17))
+            for k, tt in enumerate((min(.25, dur * .2), dur / 2, max(dur - .25, dur * .8))):
+                img = render.frame_at(x['draw'], tt, dur, x.get('zoom', (1.0, 1.07)), x.get('focus', (960, 540)), x.get('rot', (0, 0)), x.get('shake'), hud)
+                tmp = str(OUT / '_qa.png'); img.save(tmp, __import__('skia').kPNG); S.paste(Image.open(tmp).convert('RGB').resize((cw, chh)), (150 + k * cw, r * chh))
+        p = OUT / f'qa_sheet_{si // per + 1}.jpg'; S.save(p, quality=86); print(p)
+
 def cmd_check():
     from engine import voices as Vc
     s = script(); txt = ' '.join(l['text'] for l in s['lines'] if not l.get('silent'))
     print('transcript match:', round(Vc.transcript_check(str(OUT / 'mix.wav'), txt), 3), '(aim > 0.9; the owner still watches once for timing)')
 
 if __name__ == '__main__':
-    {'voices': cmd_voices, 'stills': cmd_stills, 'render': cmd_render, 'audio': cmd_audio, 'final': cmd_final, 'check': cmd_check}[sys.argv[1]]()
+    {'voices': cmd_voices, 'stills': cmd_stills, 'render': cmd_render, 'audio': cmd_audio, 'final': cmd_final, 'qa': cmd_qa, 'check': cmd_check}[sys.argv[1]]()

@@ -99,10 +99,16 @@ def velvet_display(c, x, y, s=1.0, hand_k=0.0, glow=1.0):
         c.drawRect(skia.Rect(sx - 8, -250, sx + 8, 0), fp('#D6D9E2')); c.drawRect(skia.Rect(sx - 8, -250, sx + 8, 0), ink(5))
         circ(c, sx, -262, 20, GOLD, 5); rect(c, sx - 28, -8, sx + 28, 6, '#2E2E38', 5, r=4)
     rp = skia.Path(); rp.moveTo(-300, -240); rp.quadTo(0, -130, 300, -240); c.drawPath(rp, ink(16, (24, 22, 27))); c.drawPath(rp, ink(9, GOLD))
-    if hand_k > 0:
-        hx_, hy_ = 330 - 330 * min(hand_k, 1) * .82, -520 + 190 * min(hand_k, 1)
-        arm = skia.Path(); arm.moveTo(520, -600); arm.lineTo(hx_ + 44, hy_ - 10); c.drawPath(arm, ink(46, (24, 22, 27))); c.drawPath(arm, ink(36, '#E9B98F'))
-        circ(c, hx_, hy_, 34, '#E9B98F', 6)
+    if hand_k > 0:   # a real arm: navy suit sleeve, white cuff, hand with fingers reaching for the chip
+        k = min(hand_k, 1); hx_, hy_ = 330 - 300 * k, -560 + 230 * k
+        a = math.atan2(hy_ - (-640), hx_ - 620); L = math.hypot(hx_ - 620, hy_ + 640)
+        c.save(); c.translate(620, -640); c.rotate(math.degrees(a))
+        rect(c, -60, -52, L - 70, 52, NAVY2, 6, r=22); c.drawLine(0, 0, L - 80, 0, ink(3, '#2E4A7E'))
+        rect(c, L - 96, -56, L - 58, 56, WHITE, 5, r=8)
+        oval(c, L - 66, -40, L + 20, 40, '#E9B98F', 6)                                   # palm
+        for i, fy in enumerate((-30, -10, 10, 30)): rect(c, L + 4, fy - 9, L + 62 - abs(i - 1.5) * 8, fy + 9, '#E9B98F', 4.5, r=9)   # fingers
+        rect(c, L - 40, -58, L + 6, -36, '#E9B98F', 4.5, r=10)                            # thumb
+        c.restore()
     c.restore()
 
 

@@ -87,3 +87,13 @@ def render_parallel(jobs, workers=None):
     workers = workers or max(1, (os.cpu_count() or 2) - 1)
     with ProcessPoolExecutor(workers) as ex: return list(ex.map(_call, jobs))
 def _call(job): fn, args = job; return fn(*args)
+
+
+def frame_at(draw, t, dur, zoom=(1.0, 1.07), focus=(960, 540), rot=(0.0, 0.0), shake=None, hud=None):
+    """QA frame: EXACTLY what render_shot draws at local time t (same camera zoom / pan / rotation / shake / vignette / hud)."""
+    surf = skia.Surface(W, H); c = surf.getCanvas(); e = ease(min(max(t / max(dur, 1e-3), 0), 1)); dx, dy = shake(t) if shake else (0, 0)
+    c.clear(C((0, 0, 0))); c.save(); c.translate(W / 2 + dx, H / 2 + dy); z = lerp(zoom[0], zoom[1], e); c.scale(z, z)
+    fx, fy = _clamp(_focus(focus, e), z); c.rotate(lerp(rot[0], rot[1], e)); c.translate(-fx, -fy); draw(c, t); c.restore()
+    if getattr(draw, 'vignette', 0): _vignette(c, draw.vignette, getattr(draw, 'vignette_inner', .42))
+    if hud: hud(c, t)
+    return surf.makeImageSnapshot()

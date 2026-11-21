@@ -80,6 +80,9 @@ record it in the shot hint. Never skip it and never wait for the owner to ask.
 
 ("Shorts" in the owner's point 3 means SHOTS - the shot plan - not YouTube Shorts.)
 
+## 4b. Quality check BEFORE any render (hard rule, owner-set 22 Nov 2026)
+After the shots are coded and before asking to render: run `make_video.py qa` (3 frames per shot, real camera), review every sheet against SKILL.md step 5, fix, re-check changed shots, and tell the owner what was found. The QA stills are part of the owner's standing workflow; the video render still needs consent.
+
 ## 5. Never render without consent
 - Never start ANY render (video, YouTube Shorts, stills, contact sheets, test frames) without the owner's explicit OK
   for that render. Build assets and shot code first, then ask.

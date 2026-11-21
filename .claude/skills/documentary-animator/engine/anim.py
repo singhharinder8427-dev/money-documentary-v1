@@ -144,7 +144,7 @@ def newspaper(c, x, y, t, masthead, headline, sub=None, dur=.7):
     """Newspaper spins in and lands (classic film headline). Use the framed stage behind it."""
     k = ease_out(min(max(t / dur, 0), 1)); sc = lerp(.05, 1, k); rot = lerp(720, -3, k)
     c.save(); c.translate(x, y); c.rotate(rot); c.scale(sc, sc)
-    rect(c, -560, -380, 560, 380, PAPER, 6); Wd.text(c, masthead.upper(), 0, -280, 90, NAVY, F_TITLE, 'center')
+    rect(c, -560, -380, 560, 380, PAPER, 6); ms = min(90, 90 * 1000 / max(Wd._font(F_TITLE, 90).measureText(masthead.upper()), 1)); Wd.text(c, masthead.upper(), 0, -280, ms, NAVY, F_TITLE, 'center')
     c.drawRect(skia.Rect(-520, -250, 520, -244), fp(NAVY)); c.drawRect(skia.Rect(-520, -236, 520, -232), fp(NAVY))
     for i, ln in enumerate(Wd.wrap(headline.upper().split(), F_LABEL, 96, 1000)): Wd.text(c, ' '.join(ln), 0, -130 + i * 100, 96, NAVY, F_LABEL, 'center')
     if sub: Wd.text(c, sub, 0, 240, 40, NAVY, F_TYPE, 'center')
@@ -288,3 +288,25 @@ def stamp_shake(hit):
     global _SHAKE_CANVAS
     if _SHAKE_CANVAS is None: _SHAKE_CANVAS = skia.Surface(4, 4)
     return lambda t: Wd.stamp(_SHAKE_CANVAS.getCanvas(), 'x', 0, 0, t - hit)
+
+
+def subscribe_next(c, t, next_title='PART 2', line='SUBSCRIBE SO YOU DON\'T MISS IT', series=None):
+    """Short end card instead of the end screen (owner, Nvidia Files): 'NEXT: <part>' + a subscribe button that gets 'pressed'
+    and a bell that rings. Navy / gold / white only."""
+    Wd.framed_bg(c)
+    if series: Wd.text(c, series.upper(), W / 2, 230, 50, '#9DB0DA', F_LABEL, 'center')
+    k = pop(K(t, .1, .4))
+    if k > 0:
+        c.save(); c.translate(W / 2, 400); c.scale(k, k); Wd.text(c, 'NEXT:', 0, -40, 70, GOLD, F_LABEL, 'center')
+        for i, ln in enumerate(Wd.wrap(next_title.upper().split(), F_TITLE, 96, 1500)): Wd.text(c, ' '.join(ln), 0, 70 + i * 104, 96, WHITE, F_TITLE, 'center', stroke=12)
+        c.restore()
+    kb = pop(K(t, .9, .4)); press = 1 - .1 * math.sin(math.pi * K(t, 1.8, .3))
+    if kb > 0:
+        c.save(); c.translate(W / 2 - 60, 820); c.scale(kb * press, kb * press)
+        rect(c, -260, -64, 260, 64, GOLD, 7, r=20); Wd.text(c, 'SUBSCRIBE', 0, 22, 66, NAVY, F_LABEL, 'center'); c.restore()
+        ang = math.sin(t * 18) * 18 * K(t, 2.1, .1) * (1 - K(t, 3.0, .6))
+        c.save(); c.translate(W / 2 + 290, 800); c.rotate(ang)
+        p = skia.Path(); p.moveTo(-40, 40); p.quadTo(-44, -40, 0, -46); p.quadTo(44, -40, 40, 40); p.close(); c.drawPath(p, fp(WHITE)); c.drawPath(p, ink(6))
+        circ(c, 0, 52, 11, WHITE, 5); c.restore()
+        if t > 2.1: [c.drawArc(skia.Rect(W / 2 + 290 - r_, 800 - r_, W / 2 + 290 + r_, 800 + r_), a0, 40, False, ink(7, GOLD, int(255 * (1 - K(t, 3.0, .6))))) for r_ in (80, 110) for a0 in (-60, 200)]
+    if t > 1.2: Wd.text(c, line, W / 2, 980, 46, '#9DB0DA', F_LABEL, 'center')

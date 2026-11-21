@@ -56,3 +56,21 @@ NAMES = {'ceo': 'THE CEO', 'analyst': 'THE ANALYST', 'worker': 'THE WORKER', 'ba
 def person(base, **changes):
     """New character from a cast entry: person('ceo', hair='slick', suit='#2E2E38', glasses=False)."""
     d = dict(CAST[base]); d.update(changes); return d
+
+# LOCKED 22 Nov 2026 (owner approved): Nvidia Files Part 1, CH2-CH5 role characters (see ASSET_LIBRARY.md)
+ARCHETYPES.update({
+    'officer': dict(skin='#C98E62', skin_d='#A8714A', suit='#1E2A40', suit_d='#141D30', shirt='#9DB0DA', tie='#0E1424', hair='buzz', hair_col='#141414',
+                    hat_style='peaked', hat_col='#1E2A40', hat_band='#0E1424', badge=True),
+    'clerk': dict(skin='#F0CDA4', skin_d='#D2AC80', suit='#3A3F4A', suit_d='#2A2E36', shirt='#F4EFE2', outfit='sweater', hair='long', hair_col='#2A1A12', glasses=True),
+    'manager': dict(skin='#8A5A3C', skin_d='#6E4428', suit='#2E2E38', suit_d='#1E1E26', shirt=WHITE, tie=GOLD, hair='slick', hair_col='#121212'),
+    'lawyer': dict(skin='#EFCFB2', skin_d='#D4AF8F', suit='#22283A', suit_d='#161B2A', shirt=WHITE, tie='#7A1E2A', hair='slick', hair_col='#8A8A94', glasses=True),
+    'director': dict(skin='#E2B48C', skin_d='#C49468', suit='#3A3F4A', suit_d='#2A2E36', shirt=WHITE, tie=NAVY, hair='bald', hair_col='#D9D9DE'),
+    'director2': dict(skin='#B97A50', skin_d='#9A6038', suit='#2B4A7A', suit_d='#1F3860', shirt=WHITE, tie=GOLD, outfit='open', hair='long', hair_col='#1A1414'),
+    'trader': dict(skin='#F5D9C4', skin_d='#DDBBA3', suit='#3E6BB0', suit_d='#2E5590', shirt='#F4EFE2', tie=NAVY, outfit='open', hair='slick', hair_col='#C08A3A', lanyard=GOLD),
+    'supervisor': dict(skin='#7E4E32', skin_d='#633A22', suit='#24304A', suit_d='#18203A', shirt=WHITE, tie='#0E1424', hair='slick', hair_col='#8A8A94', glasses=True),
+    'customer': dict(skin='#E9B98F', skin_d='#CC9A6E', suit='#C0582A', suit_d='#9A4420', shirt='#F4EFE2', outfit='hoodie', hair='curly', hair_col='#3A2414'),
+    'seller': dict(skin='#F0CDA4', skin_d='#D2AC80', suit='#F4EFE2', suit_d='#D8D2C4', shirt=NAVY, outfit='sweater', apron='#9DB0DA', hair='buzz', hair_col='#5A3A22'),
+})
+CAST.update({k: ARCHETYPES[k] for k in ('officer', 'clerk', 'manager', 'lawyer', 'director', 'director2', 'trader', 'supervisor', 'customer', 'seller')})
+NAMES.update({'officer': 'THE OFFICER', 'clerk': 'THE CLERK', 'manager': 'THE MANAGER', 'lawyer': 'THE LAWYER', 'director': 'THE DIRECTOR',
+              'director2': 'THE SECOND DIRECTOR', 'trader': 'THE TRADER', 'supervisor': 'THE SUPERVISOR', 'customer': 'THE CUSTOMER', 'seller': 'THE SELLER'})

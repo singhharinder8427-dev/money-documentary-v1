@@ -211,6 +211,11 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
             poly(c, [(sx * 10, BODY_TOP + 4), (sx * 62, BODY_TOP + 4), (sx * 86, BODY_BOT), (sx * 10, BODY_BOT)], spec.get('vest_col', '#FCA311'), lw * .8)
             for yy in (BODY_TOP + 118, BODY_TOP + 146): c.drawLine(sx * 12, yy, sx * 84, yy, ink(lw * 1.5, '#D9DCE4'))
         c.drawLine(0, BODY_TOP + 20, 0, BODY_BOT, ink(lw * .6))
+     if spec.get('apron'):   # shop apron with a pocket and neck strap
+        c.drawLine(-30, BODY_TOP + 4, -40, BODY_TOP + 60, ink(lw * .6, spec['apron'])); c.drawLine(30, BODY_TOP + 4, 40, BODY_TOP + 60, ink(lw * .6, spec['apron']))
+        rect(c, -60, BODY_TOP + 60, 60, BODY_BOT + 4, spec['apron'], lw * .7, r=8); rect(c, -30, BODY_TOP + 120, 30, BODY_TOP + 160, None, lw * .4, r=4)
+     if spec.get('badge'):   # police badge on the left chest
+        circ(c, 44, BODY_TOP + 70, 16, GOLD, lw * .55); circ(c, 44, BODY_TOP + 70, 8, None, lw * .3, v='#B07A0A')
      if spec.get('lanyard'):   # lanyard + ID card
         lp2 = skia.Path(); lp2.moveTo(-26, BODY_TOP - 6); lp2.lineTo(0, BODY_TOP + 108); lp2.lineTo(26, BODY_TOP - 6); c.drawPath(lp2, ink(lw * .7, spec['lanyard']))
         rect(c, -17, BODY_TOP + 104, 17, BODY_TOP + 146, '#F4EFE2', lw * .5, r=4); c.drawRect(skia.Rect(-11, BODY_TOP + 112, 11, BODY_TOP + 124), fp(spec['lanyard']))
@@ -298,6 +303,12 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
         cr = skia.Path(); cr.addRRect(skia.RRect.MakeRectXY(skia.Rect(-R + 8, -R - 18, R - 8, -54), 8, 8)); shape(c, cr, spec.get('hat_col', '#E8C77A'), lw)
         c.save(); c.clipPath(cr, doAntiAlias=True); c.drawRect(skia.Rect(-R, -82, R, -60), fp(spec.get('hat_band', '#14213D'))); c.restore(); c.drawPath(cr, ink(lw))
         for k in range(-3, 4): c.drawLine(k * 22, -R - 14, k * 22 + 4, -84, ink(lw * .3, (180, 140, 70)))
+    elif hat and spec.get('hat_style') == 'peaked':   # police / officer peaked cap: flat top, band, gold badge, black visor
+        top = skia.Path(); top.moveTo(-R - 14, -R - 40); top.lineTo(R + 14, -R - 40); top.lineTo(R - 4, -64); top.lineTo(-R + 4, -64); top.close()
+        shape(c, top, spec.get('hat_col', '#1E2A40'), lw)
+        c.drawRect(skia.Rect(-R + 4, -96, R - 4, -64), fp(spec.get('hat_band', '#0E1424'))); c.drawLine(-R + 4, -96, R - 4, -96, ink(lw * .6))
+        circ(c, 0, -R - 14 + 6, 16, GOLD, lw * .6)
+        vz = skia.Path(); vz.moveTo(-R + 2, -66); vz.quadTo(0, -36, R - 2, -66); vz.close(); shape(c, vz, '#14141A', lw * .8)
     elif hat:
         crown = skia.Path(); crown.moveTo(-R + 6, -56); crown.cubicTo(-R - 2, -R - 82, R + 2, -R - 82, R - 6, -56); crown.close()
         shape(c, crown, spec.get('hat_col', '#2E2E38'), lw); c.save(); c.clipPath(crown, doAntiAlias=True)

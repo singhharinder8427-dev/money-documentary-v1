@@ -113,3 +113,19 @@ Reference notes: `graphics/codex-library/*.md`. Status for all rows: **IMPORTED*
 | The Judge / The Court Clerk | `judge` `court-clerk` | court scenes |
 | The Call-Center Operator | `call-center-operator` | scam-call scenes |
 | The Small-Business Owner | `small-business-owner` | shop scenes |
+
+## Nvidia Files Part 1, chapters 2-5 (owner approved 22 Nov 2026)
+| Name | Code key | Notes | Status |
+|---|---|---|---|
+| The Officer | cast `officer` | police uniform, peaked cap (new kit hat_style 'peaked'), badge | LOCKED |
+| The Clerk | cast `clerk` | | LOCKED |
+| The Manager | cast `manager` | | LOCKED |
+| The Lawyer | cast `lawyer` | | LOCKED |
+| The Director / The Second Director | cast `director`, `director2` | | LOCKED |
+| The Trader | cast `trader` | blue trading jacket + lanyard | LOCKED |
+| The Supervisor | cast `supervisor` | | LOCKED |
+| The Customer / The Seller | cast `customer`, `seller` | seller wears an apron (new kit spec 'apron') | LOCKED |
+| Subscribe-for-next-part card | anim `subscribe_next` | replaces the end screen when the owner skips it | LOCKED |
+| Reaching hand (sleeve + fingers) | props `velvet_display(hand_k)` | redrawn from the stick arm | LOCKED |
+| Codex sets, first use | `night/investigation_room`, `day/shop_counter`, `day/press_conference`, `night/apartment_hallway`, `day/boardroom` | approved as they are (no restyle) for this video | LOCKED |
+| Kit add-ons | kit `hat_style='peaked'`, `badge`, `apron` | usable on any character | LOCKED |
