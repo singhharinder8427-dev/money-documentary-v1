@@ -36,7 +36,7 @@ render anything without consent; 3 thumbnail variations from the owner's referen
 4. Publishing checklist + `videos/<slug>/youtube.md` (titles, description with chapters + sources, tags).
 
 ## Locked look (details in BRAND.md)
-Navy #14213D + gold #FCA311 (money) + orange #F35B04 (losses only), **no green** (only exception: real flags).
+Navy #14213D + gold #FCA311 (money) + orange #F35B04 (losses only), **no green** (only exceptions: real flags, and real companies' own brand colours on their own signs/chips/cards - `CLAUDE.md` 3b).
 Night print (dark navy, dotted light falloff) for the story; day print for the lesson. Rectangular-head glossy
 cast; fonts DSEG7 / Alfa Slab One / Special Elite / Barlow Condensed. Vignette, small burned-in captions (+ .srt),
 real typewriter keys (CC BY 4.0 - credit line in every description), code-made music + quiet SFX, outro "DIRTY

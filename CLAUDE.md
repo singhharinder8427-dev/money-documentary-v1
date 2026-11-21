@@ -46,6 +46,14 @@ approves -> lock into the library):
 - **Props** the story needs (documents, evidence, signs, vehicles).
 The library keeps growing; never reuse the same office/street for every story.
 
+## 3b. Company brand colours (standing rule, owner-set 21 Nov 2026)
+Wherever a real company appears (signs, chips, certificates, cards, screens, thumbnails), use that company's **original
+logo / brand colours** (e.g. Nvidia green `#76B900`), not our navy/gold swap. This is a second owner-approved exception to the
+"no green" rule, next to national flags (see `BRAND.md`). It applies to company-specific elements only; characters, places
+and everything else stay in the locked palette. We use the colours with plain typographic names; we do not trace or copy the
+real logo artwork. Check each company's real colours from its official brand page before using them, and list them in
+`videos/<name>/sources.md`.
+
 ## 4. Shot plan (the "Ponzi standard")
 Plan the shot list like `videos/ponzi-full`: a hook that starts mid-action, a new picture every 2-3 s, a visual beat
 (card / counter / stamp / chart / dialogue / place jump) every 20-30 s, moving camera, varied angles (no repeated wides),

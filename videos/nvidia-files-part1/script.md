@@ -1,8 +1,8 @@
-# The Nvidia Files - Part 1: Who Is Alice Huang?  (full script, ~9 min)
+# How Nvidia's CEO Ended Up at Dinner With a Suspected Spy  (The Nvidia Files - Part 1, full script, ~9 min)
 
 **Series:** The Nvidia Files (4 parts, each ends on a question that leads to the next). **Format:** Template A, 16:9, owner asked 8-10 min, render in the cloud (owner's choice).
 
-**Title options:** 1) Who Is Alice Huang? The Woman at the Center of Nvidia's Scandal  ·  2) Did Nvidia's CEO Befriend a Spy?  ·  3) The Mystery CEO Nvidia Can't Explain
+**CHOSEN TITLE (owner, 22 Nov): How Nvidia's CEO Ended Up at Dinner With a Suspected Spy**  ·  Earlier options: 1) Who Is Alice Huang? The Woman at the Center of Nvidia's Scandal  ·  2) Did Nvidia's CEO Befriend a Spy?  ·  3) The Mystery CEO Nvidia Can't Explain
 
 **On-screen title card:** WHO IS **ALICE HUANG?** (gold on the name)  ·  series tag: THE NVIDIA FILES - PART 1
 

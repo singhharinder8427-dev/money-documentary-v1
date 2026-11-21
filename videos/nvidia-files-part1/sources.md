@@ -75,3 +75,7 @@ Research date: 21 Nov 2026. Story is still developing - re-check every number on
 - Hair-dryer smuggling is an alleged separate case (Super Micro-related indictment), not Megaspeed.
 - House briefing date is unsettled (before Thanksgiving vs Dec 1) - not used in Part 1.
 - Kimberly Powell / the reported third relationship: not named in Part 1 by design.
+
+## Brand colours used (CLAUDE.md 3b)
+- Nvidia: green #76B900 (official brand palette: green + dark grey #1E1E1E + white; Nvidia's logo page nvidia.com/about-nvidia/legal-info/logo-brand-usage). Used as accent colour on Nvidia chip / certificate / cards only; no traced logo artwork.
+- Megaspeed: real logo colours NOT yet verified - sign stays a plain typographic wordmark until checked.

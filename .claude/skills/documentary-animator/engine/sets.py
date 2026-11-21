@@ -53,6 +53,7 @@ def _person(c, x, y, s, spec, **kw):
 NS.person = _person
 def _frame_out(surf, path): M['img'] = surf.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType).copy()
 NS.frame_out = _frame_out
+from engine.sets_src import ng_scenes as NG   # The Nvidia Files sets (look up NS.person / NS.night ... at call time)
 # day scenes: no actors, capture after the day print pass
 def _day_finish(surf):
     a = surf.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)[..., :3].astype(float)
@@ -70,6 +71,12 @@ SETS = {
  # street1920: people at s .36 so buildings read at the right scale; the line ends at the hero door (x 1020)
  'night/street1920': dict(fn=lambda: (setattr(NS, 'STREET_ERA', '1920'), NS.street(), setattr(NS, 'STREET_ERA', 'modern')), plane=0, extras='none', spots={'door': (1020, 860, .36), 'queue': (930, 864, .36)}),
  'night/kitchen':  dict(fn=NS.kitchen, plane=0, extras='none', spots={'left': (640, 1060, 1.05), 'right': (1180, 1060, 1.05)}),
+ # ---- The Nvidia Files, part 1 chapter 1
+ 'night/sg_street':  dict(fn=NG.sg_street, plane=None, extras='none', spots={'walk': (900, 905, .6), 'door': (960, 800, .5), 'left': (560, 905, .6), 'right': (1300, 905, .6)}),
+ 'night/megaspeed':  dict(fn=NG.megaspeed_office, plane=None, extras='none', spots={'desk_left': (330, 1010, 1.0), 'center': (960, 1000, 1.0), 'right': (1450, 1000, 1.0)}),
+ 'night/diner93':    dict(fn=NG.diner93, plane=0, extras='none', spots={'left': (800, 1010, 1.1), 'right': (1280, 1010, 1.1)}),
+ 'night/restaurant': dict(fn=NG.restaurant, plane=0, extras='none', spots={'left': (760, 1060, 1.18), 'right': (1160, 1060, 1.18)}),
+ 'night/datacenter': dict(fn=NG.datacenter, plane=None, extras='none', spots={'aisle': (960, 700, .5), 'near_left': (620, 1010, .95), 'near_right': (1280, 1010, .95)}),
  'day/living':     dict(fn=DS.living_room, spots={'left': (600, 975, .98), 'right': (860, 985, .98)}),
  'day/kitchen':    dict(fn=DS.kitchen, spots={'center': (600, 1000, 1.0)}),
  'day/bank':       dict(fn=DS.bank, spots={'left': (760, 1020, 1.0), 'right': (1120, 1025, 1.0)}),
@@ -96,7 +103,7 @@ def _run(fn, mode, **kw):
 def _to_img(a): return skia.Image.fromarray(np.ascontiguousarray(a), colorType=skia.kRGBA_8888_ColorType)
 def _src_hash():
     h = hashlib.md5()
-    for p in ('sets_src/night_scenes.py', 'sets_src/day_scenes.py', 'looks.py', 'kit.py', 'sets.py'): h.update(open(pathlib.Path(__file__).parent / p, 'rb').read())
+    for p in ('sets_src/night_scenes.py', 'sets_src/day_scenes.py', 'sets_src/ng_scenes.py', 'looks.py', 'kit.py', 'sets.py'): h.update(open(pathlib.Path(__file__).parent / p, 'rb').read())
     return h.hexdigest()[:10]
 
 def _build(name):

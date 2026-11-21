@@ -138,7 +138,7 @@ ARM = {  # left arm: (elbow, hand, show_hand); right arm is mirrored
     'count': ((-126, -300), (-120, -372), True)}   # hand raised in front (counting / listing)
 FRONT_POSES = ('facepalm', 'phone')
 HAIR_STYLES = ('bald', 'slick', 'silver', 'bob', 'curly', 'buzz', 'bun', 'long', None)
-OUTFITS = ('suit', 'open', 'sweater', 'hoodie')   # suit = jacket+tie (locked default); open = jacket, open collar, no tie
+OUTFITS = ('suit', 'open', 'sweater', 'hoodie', 'jacket', 'vest')   # suit = jacket+tie (locked default); open = jacket, open collar, no tie
 
 def _arm(spec):  # 'name' or ('from', 'to', k) blended with overshoot
     if isinstance(spec, str): return ARM[spec]
@@ -197,6 +197,21 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
         lp = skia.Path(); lp.moveTo(sx * 36, BODY_TOP - 2); lp.lineTo(sx * 2, BODY_TOP + 98); lp.lineTo(sx * 2, BODY_BOT); c.drawPath(lp, ink(lw * .75))
         c.drawLine(sx * 22, BODY_TOP + 58, sx * 40, BODY_TOP + 44, ink(lw * .6))
      if spec.get('hanky'): poly(c, [(30, BODY_TOP+96), (52, BODY_TOP+92), (48, BODY_TOP+76), (40, BODY_TOP+86), (33, BODY_TOP+76)], spec['hanky'], lw * .55)
+     # ---- Nvidia-files outfit pieces (added; every other cast member is untouched)
+     if outfit == 'jacket':   # leather jacket: wide folded lapels, centre zip, chest zip pocket, collar band
+        for sx in (-1, 1):
+            poly(c, [(sx * 2, BODY_TOP + 2), (sx * 46, BODY_TOP - 8), (sx * 64, BODY_TOP + 58), (sx * 22, BODY_TOP + 44)], spec['suit_d'], lw * .7)
+        c.drawLine(0, BODY_TOP + 44, 0, BODY_BOT, ink(lw * .7))
+        for yy in range(BODY_TOP + 56, BODY_BOT - 6, 22): c.drawLine(-5, yy, 5, yy, ink(lw * .45, (190, 190, 200)))
+        c.drawLine(34, BODY_TOP + 96, 70, BODY_TOP + 96, ink(lw * .6))
+     if outfit == 'vest':   # hi-vis vest (gold) with grey reflective stripes
+        for sx in (-1, 1):
+            poly(c, [(sx * 10, BODY_TOP + 4), (sx * 62, BODY_TOP + 4), (sx * 86, BODY_BOT), (sx * 10, BODY_BOT)], spec.get('vest_col', '#FCA311'), lw * .8)
+            for yy in (BODY_TOP + 118, BODY_TOP + 146): c.drawLine(sx * 12, yy, sx * 84, yy, ink(lw * 1.5, '#D9DCE4'))
+        c.drawLine(0, BODY_TOP + 20, 0, BODY_BOT, ink(lw * .6))
+     if spec.get('lanyard'):   # lanyard + ID card
+        lp2 = skia.Path(); lp2.moveTo(-26, BODY_TOP - 6); lp2.lineTo(0, BODY_TOP + 108); lp2.lineTo(26, BODY_TOP - 6); c.drawPath(lp2, ink(lw * .7, spec['lanyard']))
+        rect(c, -17, BODY_TOP + 104, 17, BODY_TOP + 146, '#F4EFE2', lw * .5, r=4); c.drawRect(skia.Rect(-11, BODY_TOP + 112, 11, BODY_TOP + 124), fp(spec['lanyard']))
      c.restore(); c.drawPath(body, ink(lw))
     def _draw_arm(side, a):
         e, h, show = _arm(a); m = 1 if side < 0 else -1
