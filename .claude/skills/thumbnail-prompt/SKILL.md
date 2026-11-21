@@ -5,6 +5,12 @@ description: "Writes detailed AI-image prompts for the money documentary channel
 
 # Thumbnails (locked style)
 
+**UPDATED 21 Nov 2026 (owner's rule):** at the final stage, first ask the owner for **reference thumbnails**. Then deliver
+**3 different variations**, each a thorough, ready-to-use prompt (template in section 4) with the brand kit applied,
+built from THIS video's real characters, props, places and key moment, and engineered for click-through (big emotional
+face, one story object, short headline, strong contrast). Say which to test first and why. Claude may also draw them in
+code with the engine (below) when the owner asks. Never render anything without the owner's OK.
+
 **When:** at the end of every video, **after the video is rendered**, so the thumbnail matches the finished story.
 **Who makes the image (owner's rule, updated):** **Claude draws the thumbnail itself in code** with the channel engine
 (`.claude/skills/documentary-animator/engine`), using **the exact same character as in the video** - see

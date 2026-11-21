@@ -2,11 +2,16 @@
 
 Read this first, then `BRAND.md`, then the skills in `.claude/skills/`. Everything below is the owner's decision.
 
+**The owner's locked 7-point workflow for every video is in `CLAUDE.md` (repo root) - it overrides anything older
+below.** In short: read the whole repo first; ask script (own / research / idea) + length + PC-or-cloud; plan new
+characters / places / props once the script is final; Ponzi-standard shot plan + ask about the end screen; never
+render anything without consent; 3 thumbnail variations from the owner's references; only ever touch this repo.
+
 ## The project
 - **Channel:** **Dirty Dollar** (@DirtyDollarFile) - long-form 16:9 animated money documentaries for a **US audience**:
   scams, fraud, corruption, con artists, business scandals + a money lesson ("your wallet"). Videos 4-10 min
   (aim 8-10 min from now on: mid-roll ads need 8+).
-- **Repo:** github.com/singhharinder8427-dev/money-documentary-v1 (branch `main`). The `-codex` repo is only a copy.
+- **Repo:** github.com/singhharinder8427-dev/money-documentary-v1 (branch `main`). The `-codex` and `-google` repos are separate copies: **never read-write, commit or push to them**.
 - **Owner's PC:** Windows, PowerShell, **everything on D:** - project `D:\money-documentary-v1`, Python venv
   `D:\pyenv` (Python 3.12), voice models `D:\models` (`DOCANIM_MODELS`), ffmpeg `D:\ffmpeg`. The owner is in India (IST).
 

@@ -12,15 +12,26 @@ fonts, sets or looks without the owner's say-so.
 Built on the drawing kit and pipeline of the **"Claude 2D Animation Long Form" skill, made by aivxer** (keep this
 credit), heavily modified for this channel.
 
-## Before anything else: read `FIXES.md`
+## Before anything else: follow `CLAUDE.md` (repo root)
+The owner's 7-point workflow in `CLAUDE.md` governs every video: (1) first read the whole repo, all skills and engine
+files and past videos; (2) ask script own / research / idea, the video length and PC vs cloud; (3) when the script is
+final, plan new characters (real person -> 2D character in our brand kit; role characters with their attire, e.g. a
+judge with robe + gavel), places (cafe, shop, airport, police station, bus stand, courtroom) and props, and build them
+first; (4) Ponzi-standard shot plan, and ask whether to add the end screen; (5) never render anything - videos, Shorts,
+stills, contact sheets - without the owner's consent; (6) 3 thumbnail variations from the owner's references;
+(7) only ever commit/push to `money-documentary-v1`. Where this file differs, `CLAUDE.md` wins.
+
+## Then read `FIXES.md`
 `FIXES.md` (in this folder) holds the owner's feedback from the first test render. Until every item there is done
 and the owner has approved the result, apply those instructions on every video. Standing rules from it:
 **music level stays as it is; sound effects quieter; typed text always uses a real typewriter sound.**
 
 ## Hard rules
 
-1. **Ask before every render:** for each new video ask the owner: *render on your Windows PC or in the cloud?*
-   Never assume, never reuse the last answer.
+1. **Ask before every render:** for each new video ask the owner at project start: *render on your Windows PC or in
+   the cloud?* Never assume, never reuse the last answer. **And never start any render (video, Shorts, stills, contact
+   sheets) without the owner's explicit OK** - build the shots first, then ask. Also ask every video: *how long should
+   it be?* and *add the end screen, or skip it?*
 2. **Never save, commit or push** anything without the owner's explicit permission. After every change, **ask the owner: "save now or later?"**
 3. **Locked style only** (BRAND.md):
    - Cast: rectangular head with curved chin, neck, rectangle body, trouser legs + shoes, ball hands, pupil eyes,

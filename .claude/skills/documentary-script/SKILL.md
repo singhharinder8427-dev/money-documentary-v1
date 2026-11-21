@@ -42,7 +42,11 @@ techniques only. **Never copy any creator's script, wording, story order, charac
 ---------------------------------------------------------------------------------------------------------------------
 ## 2. Workflow
 
-1. **Brief.** Ask (one message): topic (or "find a strong story"), length (default 10 min), anything to avoid.
+0. **Read the repo first** (`CLAUDE.md` step 1): the script must match how the engine and past videos work.
+1. **Brief.** Ask (one message): *do you already have a script, should I research and write one, or find the idea
+   first?* + the topic (or "find a strong story"), the **length (always ask; never assume 10 min)**, anything to avoid.
+   If the owner has a script, fact-check it and fit it to Template A; wait for the owner to lock the final script.
+   After it is locked, list the new characters, places and props it needs (see `CLAUDE.md` step 3).
 2. **Research** (section 3) -> a **fact sheet**: timeline, people (role, proven/alleged), key numbers with source +
    date, quotes that really exist (with source), the money trail, and how it reaches ordinary Americans.
 3. **Three outline options.** Same facts, three different angles (e.g. follow the villain / follow the victim /
