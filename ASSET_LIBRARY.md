@@ -21,12 +21,12 @@ Code lives in `.claude/skills/documentary-animator/engine/` (`cast.py`, `sets.py
 | The Reporter | `reporter` | grey jacket, glasses (has a bun - owner does not want buns; not used in new videos) | Ponzi | LOCKED |
 | The Retiree | `retiree` | brown sweater, bald, glasses | Ponzi | LOCKED |
 | Charles Ponzi | `ponzi` | straw boater, pencil moustache, wing collar, cane (REAL) | Ponzi | LOCKED |
-| Jensen Huang | `jensen` | black leather jacket (shiny lapels), dark rectangular glasses, thick swept GREY hair, lighter grey temples (REAL) | Nvidia Files | PENDING (reworked 22 Nov) |
-| Jensen Huang, 1993 | `jensen93` | same jacket + glasses, same grey hair (REAL) | Nvidia Files | PENDING |
+| Jensen Huang | `jensen` | black leather jacket (shiny lapels), dark rectangular glasses, thick swept GREY hair, lighter grey temples (REAL) | Nvidia Files | LOCKED (22 Nov) |
+| Jensen Huang, 1993 | `jensen93` | same jacket + glasses, same grey hair (REAL) | Nvidia Files | LOCKED (22 Nov) |
 | Alice Huang (alleged) | `alice` | dark bob, charcoal blazer, white shirt, gold ID lanyard, silent (REAL, always tagged "alleged") | Nvidia Files | LOCKED |
 | The Inspector | `inspector` | gold hi-vis vest, lanyard, buzz cut | Nvidia Files | LOCKED |
-| The Colleague | `inspector2` | gold hi-vis vest, lanyard, glasses, long brown hair | Nvidia Files | PENDING (hair changed) |
-| The Professor | `professor` | tweed suit, bow-tie look, grey slicked hair, glasses, moustache | Nvidia Files | PENDING (hair changed) |
+| The Colleague | `inspector2` | gold hi-vis vest, lanyard, glasses, long brown hair | Nvidia Files | LOCKED (22 Nov) |
+| The Professor | `professor` | tweed suit, bow-tie look, grey slicked hair, glasses, moustache | Nvidia Files | LOCKED (22 Nov) |
 
 ## Sets / places  (`engine/sets.py`, key = `get_set(name)`)
 | Name | Key | What it is | From video | Status |

@@ -30,6 +30,7 @@ REAL = {
                hair_part=True, moustache=True, moustache_style='pencil', moustache_col='#15110F', wing_collar=True,
                hat_style='boater', hat_col='#E8C77A', hat_band='#14213D', hanky='#FFFFFF'),   # wear with hat=True; he was short: use ~0.9x scale
 }
+# LOCKED by the owner 22 Nov 2026: jensen, jensen93, alice, inspector, inspector2, professor (see ASSET_LIBRARY.md; do not change without asking)
 # ---- The Nvidia Files (real people: signature traits only, never a photo likeness; always shown with a name tag)
 REAL.update({
  # Jensen Huang: black leather jacket (his signature), swept salt-and-pepper hair, no glasses, warm round-ish face, easy smile.

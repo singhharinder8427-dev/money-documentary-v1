@@ -8,11 +8,13 @@ import skia
 from engine import sets, props
 from engine.actor import Actor
 from engine.core import W, H
+ONLY_LINEUP = len(sys.argv) > 1 and sys.argv[1] == 'lineup'   # python assets_preview.py lineup  -> render only the character line-up
 OUT = HERE / 'previews'; OUT.mkdir(exist_ok=True)
 
 def save(surf, name): surf.makeImageSnapshot().save(str(OUT / name), skia.kPNG); print('wrote', name)
 
 def shot(setname, cast, name, extra=None):
+    if ONLY_LINEUP: return
     st = sets.get_set(setname); surf = skia.Surface(W, H); c = surf.getCanvas()
     actors = [Actor(who, *st.spots[spot], rim=st.rim, light=st.light, **kw) for (who, spot, kw) in cast]
     st.draw(c, back=[lambda cv, a=a: a.draw(cv, 1.0) for a in actors])
@@ -30,7 +32,7 @@ shot('night/datacenter', [('inspector', 'near_left', dict(face=.3, eyes='wide'))
 
 # character line-up: every character named on a plate (wide-shot scale)
 from engine.core import F_TITLE, F_LABEL, NAVY, GOLD, WHITE
-from engine.kit import label, rect
+from engine.kit import label, rect, text_w
 from engine.cast import NAMES
 surf = skia.Surface(W, H); c = surf.getCanvas(); c.clear(skia.Color(246, 239, 226))
 LINEUP = [('jensen', 'JENSEN HUANG', 'Nvidia CEO'), ('jensen93', 'JENSEN HUANG', '1993, co-founder'), ('alice', 'ALICE HUANG', 'alleged, per reports'),
@@ -39,11 +41,12 @@ LINEUP = [('jensen', 'JENSEN HUANG', 'Nvidia CEO'), ('jensen93', 'JENSEN HUANG',
 for i, (w, nm, sub) in enumerate(LINEUP):
     x = 135 + i * 235
     Actor(w, x, 820, .62, light=1, rim='#FFE3A6').draw(c, 1.0)
-    rect(c, x - 108, 862, x + 108, 962, NAVY, 5, r=10); label(c, nm, x, 905, min(30, 196 / (len(nm) * .62)), GOLD, font=F_TITLE, align='center', skew=0)   # fit the plate
+    rect(c, x - 108, 862, x + 108, 962, NAVY, 5, r=10); label(c, nm, x, 905, 30 * min(1, 190 / text_w(nm, 30, F_TITLE)), GOLD, font=F_TITLE, align='center', skew=0)   # fit the plate
     label(c, sub, x, 945, 22, WHITE, font=F_LABEL, align='center', skew=0)
 save(surf, 'characters_ch1.png')
 
 # prop sheet
+if ONLY_LINEUP: sys.exit(0)
 surf = skia.Surface(W, H); c = surf.getCanvas(); c.clear(skia.Color(246, 239, 226))
 props.sign_megaspeed(c, 520, 150, .9); props.sign_old_arcade(c, 1400, 150, .9, hanging=-4)
 props.chip(c, 220, 480, 1.1, glow=.4); props.certificate(c, 700, 520, .8, rot=-4); props.velvet_display(c, 1280, 700, .8, hand_k=.6)
