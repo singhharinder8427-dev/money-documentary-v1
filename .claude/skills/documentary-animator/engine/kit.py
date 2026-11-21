@@ -137,7 +137,7 @@ ARM = {  # left arm: (elbow, hand, show_hand); right arm is mirrored
     'wave': ((-150, -380), (-176, -470), True),    # hand up by the head
     'count': ((-126, -300), (-120, -372), True)}   # hand raised in front (counting / listing)
 FRONT_POSES = ('facepalm', 'phone')
-HAIR_STYLES = ('bald', 'slick', 'silver', 'bob', 'curly', 'buzz', 'bun', 'long', None)
+HAIR_STYLES = ('bald', 'slick', 'silver', 'bob', 'curly', 'buzz', 'bun', 'long', 'quiff', None)
 OUTFITS = ('suit', 'open', 'sweater', 'hoodie', 'jacket', 'vest')   # suit = jacket+tie (locked default); open = jacket, open collar, no tie
 
 def _arm(spec):  # 'name' or ('from', 'to', k) blended with overshoot
@@ -200,7 +200,9 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
      # ---- Nvidia-files outfit pieces (added; every other cast member is untouched)
      if outfit == 'jacket':   # leather jacket: wide folded lapels, centre zip, chest zip pocket, collar band
         for sx in (-1, 1):
-            poly(c, [(sx * 2, BODY_TOP + 2), (sx * 46, BODY_TOP - 8), (sx * 64, BODY_TOP + 58), (sx * 22, BODY_TOP + 44)], spec['suit_d'], lw * .7)
+            poly(c, [(sx * 2, BODY_TOP + 2), (sx * 46, BODY_TOP - 8), (sx * 64, BODY_TOP + 58), (sx * 22, BODY_TOP + 44)], spec.get('lapel', spec['suit_d']), lw * .7)
+            c.drawLine(sx * 40, BODY_TOP + 2, sx * 56, BODY_TOP + 46, ink(lw * .9, (170, 170, 190), 150))                # lapel shine
+            c.drawLine(sx * 62, BODY_TOP + 70, sx * 70, BODY_BOT - 40, ink(lw * 1.1, (150, 150, 170), 70))               # sleeve-side sheen
         c.drawLine(0, BODY_TOP + 44, 0, BODY_BOT, ink(lw * .7))
         for yy in range(BODY_TOP + 56, BODY_BOT - 6, 22): c.drawLine(-5, yy, 5, yy, ink(lw * .45, (190, 190, 200)))
         c.drawLine(34, BODY_TOP + 96, 70, BODY_TOP + 96, ink(lw * .6))
@@ -280,6 +282,17 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
         cap.moveTo(-R - 10, -R - 10); cap.lineTo(R + 10, -R - 10); cap.lineTo(R + 10, top + 30); cap.cubicTo(R - 20, top, -R + 20, top, -R - 10, top + 30); cap.close()
         c.drawPath(cap, fp(hcol)); c.drawPath(cap, ink(lw * (0.7 if hair == 'buzz' else 0.9))); c.restore()
     c.drawPath(head, ink(lw))
+    if hair == 'quiff':   # thick swept-back hair with volume on top, side part, optional grey temples (hair_grey)
+        fs = face * 10; hq = skia.Path(); hq.moveTo(-R - 4, -6); hq.lineTo(-R - 8, -58)
+        hq.cubicTo(-R - 14, -R - 16, -56, -R - 44, 18 + fs, -R - 40); hq.cubicTo(84 + fs, -R - 36, R + 18, -R - 8, R + 8, -56); hq.lineTo(R + 4, -6); hq.lineTo(R - 14, -34)
+        hq.cubicTo(R - 30, -64, 60 + fs, -80, 14 + fs, -72); hq.cubicTo(-30 + fs, -68, -R + 26, -60, -R + 14, -34); hq.close()
+        c.drawPath(hq, fp(spec.get('hair_col', '#2A2A33'))); c.drawPath(hq, ink(lw))
+        if spec.get('hair_grey'):
+            for sx in (-1, 1):
+                gp = skia.Path(); gp.moveTo(sx * (R + 6), -10); gp.lineTo(sx * (R + 9), -54); gp.cubicTo(sx * (R - 4), -84, sx * 70, -90, sx * 50, -78); gp.cubicTo(sx * 66, -52, sx * 72, -30, sx * (R - 14), -34); gp.close()
+                c.drawPath(gp, fp(spec['hair_grey'])); c.drawPath(gp, ink(lw * .7))
+        for k_ in (0, 1, 2):   # comb lines sweeping back
+            cl = skia.Path(); cl.moveTo(-30 + fs + k_ * 34, -R - 30 + k_ * 4); cl.quadTo(10 + fs + k_ * 30, -R - 38, 50 + fs + k_ * 24, -R - 22 + k_ * 6); c.drawPath(cl, ink(lw * .45, (120, 120, 140)))
     if hat and spec.get('hat_style') == 'boater':   # flat straw boater (1920s)
         oval(c, -R - 38, -70, R + 38, -44, spec.get('hat_col', '#E8C77A'), lw)
         cr = skia.Path(); cr.addRRect(skia.RRect.MakeRectXY(skia.Rect(-R + 8, -R - 18, R - 8, -54), 8, 8)); shape(c, cr, spec.get('hat_col', '#E8C77A'), lw)
@@ -316,7 +329,10 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
     if spec.get('glasses'):
         for ex0 in (-30, 30):
             ex = ex0 + fx; far = (face > 0 and ex0 > 0) or (face < 0 and ex0 < 0); sq = 1 - .3 * abs(face) if far else 1.0
-            g = skia.Path(); g.addOval(skia.Rect(ex - 24*sq, eyy - 24, ex + 24*sq, eyy + 24)); c.drawPath(g, fp((225, 240, 255), 55)); c.drawPath(g, ink(lw * .7))
+            g = skia.Path()
+            if spec.get('glasses_style') == 'rect': g.addRRect(skia.RRect.MakeRectXY(skia.Rect(ex - 27*sq, eyy - 20, ex + 27*sq, eyy + 21), 8, 8)); gw = lw * 1.15   # rectangular dark frames
+            else: g.addOval(skia.Rect(ex - 24*sq, eyy - 24, ex + 24*sq, eyy + 24)); gw = lw * .7
+            c.drawPath(g, fp((225, 240, 255), 55)); c.drawPath(g, ink(gw))
         c.drawLine(fx - 7, eyy - 3, fx + 7, eyy - 3, ink(lw * .7))
     mx, my = face * 34, 42
     if spec.get('moustache'):

@@ -54,6 +54,13 @@ and everything else stay in the locked palette. We use the colours with plain ty
 real logo artwork. Check each company's real colours from its official brand page before using them, and list them in
 `videos/<name>/sources.md`.
 
+## 3c. Asset library (standing rule, owner-set 22 Nov 2026)
+Every approved character, place (office, street, room...), prop, animation or widget is saved in `ASSET_LIBRARY.md` under ONE
+clear name with its code key, source video and status, so later videos can reuse it by name. When the owner approves an asset:
+lock it in code (`cast.py` / `sets.py` / `props.py` ...) AND add or update its row in `ASSET_LIBRARY.md` in the same step,
+then ask "save now or later?". Assets not yet approved are listed as PENDING. At step 3 of every new video, show the library
+first so the owner can choose reuse vs new. Never rename or change a LOCKED asset without asking.
+
 ## 4. Shot plan (the "Ponzi standard")
 Plan the shot list like `videos/ponzi-full`: a hook that starts mid-action, a new picture every 2-3 s, a visual beat
 (card / counter / stamp / chart / dialogue / place jump) every 20-30 s, moving camera, varied angles (no repeated wides),

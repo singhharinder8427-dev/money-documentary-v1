@@ -47,7 +47,7 @@ def certificate(c, x, y, s=1.0, rot=0.0, text='NVIDIA CLOUD PARTNER', k=1.0):
     c.drawRect(skia.Rect(-250, -170, 266, 188), fp((0, 0, 0), 80, blur=14))
     rect(c, -260, -180, 260, 180, CREAM, 6); rect(c, -244, -164, 244, 164, None, 3, v=GOLD_D)
     label(c, 'CERTIFICATE', 0, -118, 34, NAVY, font=F_TITLE, align='center', skew=0)
-    label(c, text, 0, -52, 40, NAVY, font=F_TITLE, align='center', skew=0)
+    label(c, text, 0, -52, min(40, 440 // max(len(text), 1) * 1.55), NAVY, font=F_TITLE, align='center', skew=0)
     c.drawLine(-170, -30, 170, -30, ink(3, GOLD_D))
     for i, w in enumerate((330, 280, 300)): c.drawRect(skia.Rect(-165, -4 + i * 22, -165 + w, 6 + i * 22), fp('#C9C3B5'))
     chip(c, -150, 118, .32, accent=BRAND['nvidia'])

@@ -28,10 +28,19 @@ shot('night/restaurant', [('jensen', 'left', dict(face=.3, mouth='smile')), ('al
 shot('night/datacenter', [('inspector', 'near_left', dict(face=.3, eyes='wide')), ('inspector2', 'near_right', dict(face=-.3))], 'set_datacenter.png',
      lambda c: (props.flashlight(c, 760, 760, -20, 700, 300), props.crate(c, 1500, 980, 1.2, glow=1.0)))
 
-# character line-up (one row, wide shot scale)
+# character line-up: every character named on a plate (wide-shot scale)
+from engine.core import F_TITLE, F_LABEL, NAVY, GOLD, WHITE
+from engine.kit import label, rect
+from engine.cast import NAMES
 surf = skia.Surface(W, H); c = surf.getCanvas(); c.clear(skia.Color(246, 239, 226))
-who = ['jensen', 'jensen93', 'alice', 'inspector', 'inspector2', 'professor']
-for i, w in enumerate(who): Actor(w, 170 + i * 315, 900, .72, light=1, rim='#FFE3A6').draw(c, 1.0)
+LINEUP = [('jensen', 'JENSEN HUANG', 'Nvidia CEO'), ('jensen93', 'JENSEN HUANG', '1993, co-founder'), ('alice', 'ALICE HUANG', 'alleged, per reports'),
+          ('inspector', 'THE INSPECTOR', 'generic role'), ('inspector2', 'THE COLLEAGUE', 'generic role'), ('professor', 'THE PROFESSOR', 'Tufts, opinion only'),
+          ('analyst', 'THE ANALYST', 'generic role'), ('investor', 'THE INVESTOR', 'generic role')]
+for i, (w, nm, sub) in enumerate(LINEUP):
+    x = 135 + i * 235
+    Actor(w, x, 820, .62, light=1, rim='#FFE3A6').draw(c, 1.0)
+    rect(c, x - 108, 862, x + 108, 962, NAVY, 5, r=10); label(c, nm, x, 905, min(30, 196 / (len(nm) * .62)), GOLD, font=F_TITLE, align='center', skew=0)   # fit the plate
+    label(c, sub, x, 945, 22, WHITE, font=F_LABEL, align='center', skew=0)
 save(surf, 'characters_ch1.png')
 
 # prop sheet

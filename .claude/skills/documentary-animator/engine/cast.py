@@ -33,24 +33,24 @@ REAL = {
 # ---- The Nvidia Files (real people: signature traits only, never a photo likeness; always shown with a name tag)
 REAL.update({
  # Jensen Huang: black leather jacket (his signature), swept salt-and-pepper hair, no glasses, warm round-ish face, easy smile.
- 'jensen': dict(skin='#E9C7A5', skin_d='#CBA682', suit='#1B1B22', suit_d='#0E0E13', shirt='#2B2B36', tie=None, outfit='jacket',
-                hair='silver', hair_col='#8C8C98', face_shape=(1.04, .98)),
- # 1993 version (company co-founder, 30): same jacket, dark hair, no grey.
- 'jensen93': dict(skin='#EBCBAA', skin_d='#CDAA86', suit='#1B1B22', suit_d='#0E0E13', shirt='#2B2B36', tie=None, outfit='jacket',
-                  hair='silver', hair_col='#2A2A32', face_shape=(1.04, .98)),
+ 'jensen': dict(skin='#E9C7A5', skin_d='#CBA682', suit='#22222A', suit_d='#121218', lapel='#3E3E4C', shirt='#15151B', tie=None, outfit='jacket',
+                hair='quiff', hair_col='#A5A5B2', hair_grey='#C9C9D3', glasses=True, glasses_style='rect', face_shape=(1.04, .98)),
+ # 1993 version (company co-founder, 30): same jacket + glasses; hair grey like the current Jensen (owner, 22 Nov).
+ 'jensen93': dict(skin='#EBCBAA', skin_d='#CDAA86', suit='#22222A', suit_d='#121218', lapel='#3E3E4C', shirt='#15151B', tie=None, outfit='jacket',
+                  hair='quiff', hair_col='#A5A5B2', hair_grey='#C9C9D3', glasses=True, glasses_style='rect', face_shape=(1.04, .98)),
  # Alice Huang (ALLEGED, per reports; never speaks): neutral professional look - dark bob, charcoal blazer, white shirt, ID lanyard.
  'alice': dict(skin='#F1D3B8', skin_d='#D8B496', suit='#3A3F4A', suit_d='#2A2E36', shirt='#FFFFFF', tie=None, outfit='open',
                hair='bob', hair_col='#15110F', lanyard=GOLD),
 })
 ARCHETYPES.update({
  'inspector': dict(skin='#B97A50', skin_d='#9A6038', suit='#4A5568', suit_d='#363F4F', shirt='#F4EFE2', tie=None, outfit='vest', hair='buzz', hair_col='#121212', lanyard=NAVY, hat_col='#E5E5E5', hat_band=GOLD),
- 'inspector2': dict(skin='#F0CDA4', skin_d='#D2AC80', suit='#4A5568', suit_d='#363F4F', shirt='#F4EFE2', tie=None, outfit='vest', hair='bun', hair_col='#6B4A2E', glasses=True, lanyard=NAVY),
- 'professor': dict(skin='#EFCFB2', skin_d='#D4AF8F', suit='#6B5A46', suit_d='#52432F', shirt='#F4EFE2', tie='#2B4A7A', hair='curly', hair_col='#B8B8C2', glasses=True, moustache=True, moustache_col='#B8B8C2'),
+ 'inspector2': dict(skin='#F0CDA4', skin_d='#D2AC80', suit='#4A5568', suit_d='#363F4F', shirt='#F4EFE2', tie=None, outfit='vest', hair='long', hair_col='#4A2E1C', glasses=True, lanyard=NAVY),
+ 'professor': dict(skin='#EFCFB2', skin_d='#D4AF8F', suit='#6B5A46', suit_d='#52432F', shirt='#F4EFE2', tie='#2B4A7A', hair='slick', hair_col='#B8B8C2', glasses=True, moustache=True, moustache_col='#B8B8C2'),
 })
 CAST.update(ARCHETYPES); CAST.update(REAL)
 CAST.update(REAL)
 NAMES = {'ceo': 'THE CEO', 'analyst': 'THE ANALYST', 'worker': 'THE WORKER', 'banker': 'THE BANKER', 'investor': 'THE INVESTOR',
-         'saver': 'THE SAVER', 'grad': 'THE GRAD', 'scammer': 'THE SCAMMER', 'agent': 'THE AGENT', 'reporter': 'THE REPORTER', 'retiree': 'THE RETIREE', 'inspector': 'THE INSPECTOR', 'inspector2': 'THE COLLEAGUE', 'professor': 'THE PROFESSOR'}
+         'saver': 'THE SAVER', 'grad': 'THE GRAD', 'scammer': 'THE SCAMMER', 'agent': 'THE AGENT', 'reporter': 'THE REPORTER', 'retiree': 'THE RETIREE', 'inspector': 'THE INSPECTOR', 'inspector2': 'THE COLLEAGUE', 'professor': 'THE PROFESSOR', 'jensen': 'JENSEN HUANG', 'jensen93': 'JENSEN HUANG, 1993', 'alice': 'ALICE HUANG (ALLEGED)', 'ponzi': 'CHARLES PONZI'}
 
 def person(base, **changes):
     """New character from a cast entry: person('ceo', hair='slick', suit='#2E2E38', glasses=False)."""

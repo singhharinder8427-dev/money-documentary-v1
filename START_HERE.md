@@ -55,3 +55,6 @@ DOLLAR" + end screen. Branding: `branding/profile_800.png` (CEO with dollar-sign
   (8-10 min), then characters/places/props approval, shot list, Claude quality check, owner renders on PC,
   thumbnail, youtube.md.
 - Ideas not done yet: Shorts cut from each video as trailers; playlists ("Famous Scams", "Money Lessons").
+
+
+**Asset library:** every approved character, set, prop and animation is named in `ASSET_LIBRARY.md` (rule: `CLAUDE.md` 3c). Check it before building anything new.
