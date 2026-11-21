@@ -1,0 +1,1750 @@
+{
+ "title": "The Nvidia Files - Part 1: Who Is Alice Huang?",
+ "title_after": "n010",
+ "series": "The Nvidia Files",
+ "part": 1,
+ "lines": [
+  {
+   "id": "n001",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "October 29th, 2026. Jensen Huang is on the phone with Bloomberg.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "night office, close-up of a glowing phone, place tag Santa Clara / date"
+  },
+  {
+   "id": "n002",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "That morning, the New York Times reported something explosive about a woman close to him.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S4"
+   ],
+   "shot_hint": "newspaper spins in, headline blurred, camera push-in"
+  },
+  {
+   "id": "n003",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "HUANG",
+   "text": "It was all completely normal and not unusual.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "CEO close-up, calm smirk; real on-record quote (Bloomberg, Oct 29)",
+   "voice": "ceo"
+  },
+  {
+   "id": "n004",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Ten days later, he writes to his own employees.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S5"
+   ],
+   "shot_hint": "envelope / email on a desk, tear-off calendar flips 10 days"
+  },
+  {
+   "id": "n005",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "HUANG",
+   "text": "I was unfaithful to my wife.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S5",
+    "S6"
+   ],
+   "shot_hint": "typed text card, gold on navy; real quote from his Nov 8 note",
+   "voice": "ceo"
+  },
+  {
+   "id": "n006",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Four days after that, he is out. The co-founder of the first company ever worth four trillion dollars.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2",
+    "S6"
+   ],
+   "shot_hint": "board-room door closes; $4 TRILLION counter ticks"
+  },
+  {
+   "id": "n007",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "At the center stands a woman U.S. officials reportedly believe worked for China.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S9"
+   ],
+   "shot_hint": "silhouette behind frosted glass, name tag withheld"
+  },
+  {
+   "id": "n008",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "She has not been charged. China calls the claim groundless.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S9",
+    "S5"
+   ],
+   "shot_hint": "stamp UNPROVEN in navy, no orange"
+  },
+  {
+   "id": "n009",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "And how this reaches your retirement account is closer than you think.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "quick cut: a 401(k) statement, a gold coin"
+  },
+  {
+   "id": "n010",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "So who is she? And how did she end up beside the most powerful man in AI?",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1"
+   ],
+   "shot_hint": "text card, key words gold"
+  },
+  {
+   "id": "n011",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "Rewind to 2023, in Singapore.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "night skyline set, place tag Singapore 2023, whip-pan in"
+  },
+  {
+   "id": "n012",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "A little-known company called Megaspeed has just been reborn.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "sign above a door being swapped, new name MEGASPEED"
+  },
+  {
+   "id": "n013",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "Before that, it was the Singapore arm of a Chinese video game company.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8",
+    "S10"
+   ],
+   "shot_hint": "old arcade sign comes down, new sign goes up"
+  },
+  {
+   "id": "n013b",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "Within days of its sale to a Singapore company, reports say, it became an official Nvidia cloud partner.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "certificate slides onto a desk, NVIDIA CLOUD PARTNER (chip logo only, no green)"
+  },
+  {
+   "id": "n014",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "Now it wanted to rent out computing power. The kind built on Nvidia chips.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "server racks, glowing chips, gold light"
+  },
+  {
+   "id": "n015",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "Everyone wants those chips. Not everyone is allowed to have them.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "chip on a velvet display, a hand reaches, a red rope"
+  },
+  {
+   "id": "n015b",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "Jensen Huang co-founded Nvidia in 1993. For thirty-three years, he was its only CEO.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2",
+    "S14"
+   ],
+   "shot_hint": "1993 garage-diner set, young-ish Jensen character, calendar flips to 2026"
+  },
+  {
+   "id": "n016",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "Its boss was Alice Huang. A Chinese national, according to U.S. reports. A Hong Kong resident, according to Singapore.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7"
+   ],
+   "shot_hint": "alice character first appears; lower third: Alice Huang, then-CEO Megaspeed",
+   "hint": "Alice character first appears; lower third: Alice Huang, then-CEO Megaspeed (Singapore: Hong Kong resident)"
+  },
+  {
+   "id": "n017",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "No relation to Jensen Huang. Same last name. That is all.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7",
+    "S6"
+   ],
+   "shot_hint": "two name tags side by side, an equals sign crossed out"
+  },
+  {
+   "id": "n018",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "In 2023, Megaspeed's assets were about thirty-three million dollars.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 33000000,
+    "unit": "$",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S6"
+   ],
+   "shot_hint": "counter over office set"
+  },
+  {
+   "id": "n019",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "A year later, almost three billion.",
+   "card": false,
+   "counter": {
+    "from": 33000000,
+    "to": 3000000000,
+    "unit": "$",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S7",
+    "S6"
+   ],
+   "shot_hint": "counter races up, small camera shake"
+  },
+  {
+   "id": "n020",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "ANALYST",
+   "text": "Thirty-three million to three billion? In one year?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "analyst close-up, wide eyes (generic role, dramatised)",
+   "voice": "analyst"
+  },
+  {
+   "id": "n020b",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "INVESTOR",
+   "text": "Maybe it was a very good year.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "investor shrugs, coffee cup (generic, dramatised)",
+   "voice": "investor"
+  },
+  {
+   "id": "n020c",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "ANALYST",
+   "text": "Maybe.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "analyst raises one brow, dry sting (generic, dramatised)",
+   "voice": "analyst"
+  },
+  {
+   "id": "n021",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "One Tufts professor said the company appeared out of nowhere.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "professor tag, quote on sticky note (his opinion)"
+  },
+  {
+   "id": "n022",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "Then, on December seventh, 2023, a photo. Jensen and Alice Huang, at a Singapore restaurant.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S12"
+   ],
+   "shot_hint": "restaurant night set, polaroid slides in, labelled REPORTED"
+  },
+  {
+   "id": "n023",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "By September 2024, a U.S. official was walking through a data center in Malaysia.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "Malaysia place tag, inspector walks a long aisle"
+  },
+  {
+   "id": "n024",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "INSPECTOR",
+   "text": "Why are these Nvidia servers still sitting in their boxes?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S3"
+   ],
+   "shot_hint": "close-up, flashlight on sealed crates (generic role, dramatised from NYT report)",
+   "voice": "agent"
+  },
+  {
+   "id": "n024b",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "COLLEAGUE",
+   "text": "Should I take photos?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "second inspector, clipboard (generic, dramatised)",
+   "voice": "worker"
+  },
+  {
+   "id": "n024c",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "INSPECTOR",
+   "text": "Of every box.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "flashlight sweeps the crates (generic, dramatised)",
+   "voice": "agent"
+  },
+  {
+   "id": "n025",
+   "beat": "CH1",
+   "chapter": "Out of Nowhere",
+   "speaker": "NARRATOR",
+   "text": "Remember those boxes. Soon, Washington will start asking about them.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S3",
+    "S10"
+   ],
+   "shot_hint": "crate stencil glows gold, hard cut to black"
+  },
+  {
+   "id": "n030",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "So what was Washington worried about? Chips.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "map: United States to China, dotted route"
+  },
+  {
+   "id": "n031",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "Since October 2022, the most advanced Nvidia AI chips are banned from China.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "framed map, BANNED stamp (navy), arrow stopped at the border"
+  },
+  {
+   "id": "n032",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "The Justice Department says smugglers keep trying. Hundreds of millions of dollars' worth, over several years.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "cash/coin counter, handcuffs sting"
+  },
+  {
+   "id": "n033",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "Singapore noticed Megaspeed too. In February 2025, its police and customs opened an investigation.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2b",
+    "S6"
+   ],
+   "shot_hint": "police badge, case file slams on desk"
+  },
+  {
+   "id": "n034",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "The suspicion: false declarations about server purchases. Singapore says it acted on its own. No foreign request.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2b"
+   ],
+   "shot_hint": "document close-up, key line highlighted, stamp: OFFICIAL FINDING"
+  },
+  {
+   "id": "n035",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "Then came June twenty-fourth, 2025.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2b",
+    "S10"
+   ],
+   "shot_hint": "tear-off calendar to JUNE 24"
+  },
+  {
+   "id": "n036",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "U.S. export officials inspect a Megaspeed site. Alice Huang is there.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2b"
+   ],
+   "shot_hint": "site visit, clipboard, Alice in frame, camera pushes in"
+  },
+  {
+   "id": "n037",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "That same day, Singapore police interview her. And impound her passport.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2b"
+   ],
+   "shot_hint": "passport slides across a desk, hand slam"
+  },
+  {
+   "id": "n038",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "OFFICER",
+   "text": "Please hand over your passport. You are not leaving yet.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S2b"
+   ],
+   "shot_hint": "police officer close-up (generic, dramatised)",
+   "voice": "agent"
+  },
+  {
+   "id": "n039",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "The same month, Nvidia says it cut Megaspeed off. No new orders. No shipments.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "Nvidia logo-free green-free chip, door slams, gold padlock"
+  },
+  {
+   "id": "n039b",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "CLERK",
+   "text": "New order from Megaspeed.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "order desk, phone to ear (generic, dramatised)",
+   "voice": "worker"
+  },
+  {
+   "id": "n039c",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "MANAGER",
+   "text": "Not anymore.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "manager stamps the order cancelled, navy stamp (generic, dramatised)",
+   "voice": "banker"
+  },
+  {
+   "id": "n040",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "It has not said why.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "empty chair, blinking cursor"
+  },
+  {
+   "id": "n041",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "Two months later, on August thirtieth, Alice Huang leaves Megaspeed. That is the company's account.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7"
+   ],
+   "shot_hint": "calendar AUG 30 circled in gold"
+  },
+  {
+   "id": "n042",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "Hold that date.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7"
+   ],
+   "shot_hint": "date stays on screen, music drops"
+  },
+  {
+   "id": "n043",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "A short seller called Culper Research quoted an employee who said she was still the boss.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7"
+   ],
+   "shot_hint": "report page, quote highlighted, label: CLAIM, NOT PROVEN"
+  },
+  {
+   "id": "n044",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "The records and the claims point in different directions.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7"
+   ],
+   "shot_hint": "two arrows diverge on a framed board"
+  },
+  {
+   "id": "n044b",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "In October 2025, the New York Times asked it bluntly. Is China buying banned Nvidia chips? It said Megaspeed was poised to buy two billion dollars of Nvidia technology within a year.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S3"
+   ],
+   "shot_hint": "newspaper spins in, $2 BILLION counter ticks, framed style"
+  },
+  {
+   "id": "n045",
+   "beat": "CH2",
+   "chapter": "Still in the Boxes",
+   "speaker": "NARRATOR",
+   "text": "But the biggest question was never about chips. It was about who she was talking to.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1"
+   ],
+   "shot_hint": "phone rings, close-up of a glowing screen"
+  },
+  {
+   "id": "n050",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "NARRATOR",
+   "text": "So how do banned chips allegedly reach China? Three ways.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "whiteboard, three numbered doors"
+  },
+  {
+   "id": "n051",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "NARRATOR",
+   "text": "One. Smuggling. Prosecutors in a separate case say workers swapped labels with a hair dryer.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "hands, hair dryer peeling a sticker, fake brand on the box"
+  },
+  {
+   "id": "n051b",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "WORKER",
+   "text": "This sticker will not budge.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "alleged separate case, depicted generically (dramatised)",
+   "voice": "worker"
+  },
+  {
+   "id": "n051c",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "COLLEAGUE",
+   "text": "Hit it with the hair dryer.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "hair dryer peels the sticker (alleged separate case, dramatised)",
+   "voice": "grad"
+  },
+  {
+   "id": "n052",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "NARRATOR",
+   "text": "Two. Middlemen. A company in Southeast Asia buys the servers and quietly passes them on.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "boxes pass along a conveyor, a map pin hops countries"
+  },
+  {
+   "id": "n053",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "NARRATOR",
+   "text": "Three. Renting. The chips never leave Asia. A buyer in China just logs in from afar.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "laptop in Beijing, dotted line to a server room, ding"
+  },
+  {
+   "id": "n053b",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "NARRATOR",
+   "text": "In May 2025, the Commerce Department warned U.S. firms to watch for partners offering cloud access to China.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S8"
+   ],
+   "shot_hint": "warning memo slides in, key line highlighted gold"
+  },
+  {
+   "id": "n054",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "NARRATOR",
+   "text": "Think of a pizza oven banned in one town. Nobody can sell you the oven. But anyone can sell you pizza.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "analogy scene: oven, delivery scooter, framed stage"
+  },
+  {
+   "id": "n054b",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "CUSTOMER",
+   "text": "One pizza oven, please.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "analogy scene, shop counter (generic, dramatised)",
+   "voice": "saver"
+  },
+  {
+   "id": "n054c",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "SELLER",
+   "text": "Sorry. Ovens are banned in this town.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "seller points at a BANNED sign (generic, dramatised)",
+   "voice": "worker"
+  },
+  {
+   "id": "n054d",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "CUSTOMER",
+   "text": "Then I'll take a pizza.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "customer perks up (generic, dramatised)",
+   "voice": "saver"
+  },
+  {
+   "id": "n054e",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "SELLER",
+   "text": "Pizza is fine.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "seller slides a pizza box across, sting (generic, dramatised)",
+   "voice": "worker"
+  },
+  {
+   "id": "n055",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "NARRATOR",
+   "text": "No one has proven Megaspeed did any of this. The company flatly denies it.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7"
+   ],
+   "shot_hint": "text card: No one has proven Megaspeed did this."
+  },
+  {
+   "id": "n056",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "NARRATOR",
+   "text": "Last December it said there was no evidence of illicit chip transfers.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7"
+   ],
+   "shot_hint": "company statement paper, DENIED stamp in navy"
+  },
+  {
+   "id": "n057",
+   "beat": "CH3",
+   "chapter": "How the Door Opens",
+   "speaker": "NARRATOR",
+   "text": "But U.S. intelligence wasn't only watching the chips. It was listening.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S10"
+   ],
+   "shot_hint": "headphones, waveform, music cuts out"
+  },
+  {
+   "id": "n060",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Here is what almost nobody outside Washington knew.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1"
+   ],
+   "shot_hint": "black background, single gold line"
+  },
+  {
+   "id": "n061",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "According to the New York Times, U.S. intelligence was watching Alice Huang.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1"
+   ],
+   "shot_hint": "surveillance room, screens of waveforms (navy, gold, no green)"
+  },
+  {
+   "id": "n062",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "And the American on the other end, reportedly, was the CEO of Nvidia.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S10"
+   ],
+   "shot_hint": "TEXT CARD: music cuts to silence, low boom (TWIST beat)"
+  },
+  {
+   "id": "n063",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "U.S. rules hide Americans' names in surveillance. Officials asked to reveal this one.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "redacted bars slide off a document, name hidden"
+  },
+  {
+   "id": "n063b",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "ANALYST",
+   "text": "The American's name is masked.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "surveillance room, redacted bars (generic, dramatised from reported unmasking)",
+   "voice": "analyst"
+  },
+  {
+   "id": "n063c",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "SUPERVISOR",
+   "text": "Then ask them to unmask it.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "supervisor leans in, screens glow (generic, dramatised)",
+   "voice": "banker"
+  },
+  {
+   "id": "n064",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "The name came back. Jensen Huang.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "stamp slam REVEALED on redacted page, camera shake"
+  },
+  {
+   "id": "n070",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "October twenty-ninth. The Times goes public.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1"
+   ],
+   "shot_hint": "newspaper spins in, framed style"
+  },
+  {
+   "id": "n071",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "People briefed on the surveillance said officials had concluded that Alice Huang was a Chinese intelligence asset.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S10"
+   ],
+   "shot_hint": "document close-up, key line gold, label: REPORTED"
+  },
+  {
+   "id": "n072",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "It also said Huang never got a defensive briefing. A warning agencies sometimes give.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S10"
+   ],
+   "shot_hint": "envelope marked WARNING never opened, sits on a desk"
+  },
+  {
+   "id": "n073",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "Nvidia's answer came fast. Megaspeed was one of many regional customers, it said.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4",
+    "S5"
+   ],
+   "shot_hint": "press-room podium, two microphones"
+  },
+  {
+   "id": "n074",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "Huang said the U.S. government had never told him of its suspicions.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "CEO close-up, hands spread, small sweat drop"
+  },
+  {
+   "id": "n075",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "China's foreign ministry called the spy claim groundless speculation.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S9"
+   ],
+   "shot_hint": "flag-coloured lectern (real flag colours only), denial stamp"
+  },
+  {
+   "id": "n076",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "Attorney General Todd Blanche later said the Justice Department had reached no conclusion on whether she was a spy.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S9",
+    "S10"
+   ],
+   "shot_hint": "DOJ podium, blank verdict card"
+  },
+  {
+   "id": "n077",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "Singapore added a twist. Its Home Affairs ministry said she was never investigated for espionage.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2b"
+   ],
+   "shot_hint": "official statement page, key words highlighted"
+  },
+  {
+   "id": "n078",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "They found too little evidence to charge her. But they warned her, and banned her from returning, for giving inaccurate information about her role.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2b"
+   ],
+   "shot_hint": "stern warning letter, ENTRY BANNED stamp (navy)"
+  },
+  {
+   "id": "n079",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "So where does that leave us? A spy? Reported. Not proven.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2b",
+    "S9"
+   ],
+   "shot_hint": "text card, gold on UNPROVEN"
+  },
+  {
+   "id": "n080",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "November fifth. Nvidia's top lawyer reportedly goes to Huang's home. And asks if the affair reports are true.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "doorstep at night, lit window, a briefcase"
+  },
+  {
+   "id": "n081",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "He reportedly said they were.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "hold on a closed door"
+  },
+  {
+   "id": "n081a",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "LAWYER",
+   "text": "Jensen, are the reports true?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "doorstep at night (generic role; paraphrase of a reported exchange, dramatised)",
+   "voice": "banker"
+  },
+  {
+   "id": "n081c",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "HUANG",
+   "text": "They are.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "close-up, heavy pause (paraphrase of a reported reply, dramatised; verify sourcing)",
+   "voice": "ceo"
+  },
+  {
+   "id": "n081b",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "The same week, three House chairs asked him for a closed-door briefing.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S5",
+    "S10"
+   ],
+   "shot_hint": "three chairs at a long table, an empty seat in the middle"
+  },
+  {
+   "id": "n082",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "November eighth. He tells his colleagues. And he does not name her.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S5",
+    "S10"
+   ],
+   "shot_hint": "typed note, the line where a name should be is empty"
+  },
+  {
+   "id": "n083",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "The board opens an independent investigation. It says it has no reason to believe national security or Nvidia secrets were compromised.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S15"
+   ],
+   "shot_hint": "board table, a folder slides to the center, gavel-free"
+  },
+  {
+   "id": "n083b",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "DIRECTOR",
+   "text": "We need outside lawyers.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "board table (generic, dramatised; Nvidia hired Wachtell Lipton on Nov 10)",
+   "voice": "retiree"
+  },
+  {
+   "id": "n083c",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "SECOND DIRECTOR",
+   "text": "Call them tonight.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "board table, phone slides across (generic, dramatised)",
+   "voice": "investor"
+  },
+  {
+   "id": "n084",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "The next day, Nvidia stock drops more than five percent.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 5.0,
+    "unit": "%",
+    "colour": "orange",
+    "sign": "-"
+   },
+   "dramatised": false,
+   "sources": [
+    "S5"
+   ],
+   "shot_hint": "orange down arrow counter, minus sign"
+  },
+  {
+   "id": "n084b",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "TRADER",
+   "text": "Nvidia is down five percent.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S5"
+   ],
+   "shot_hint": "trading floor, orange numbers (generic, dramatised)",
+   "voice": "worker"
+  },
+  {
+   "id": "n084c",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "SECOND TRADER",
+   "text": "On a Monday?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S5"
+   ],
+   "shot_hint": "trader drops his coffee, sting (generic, dramatised)",
+   "voice": "grad"
+  },
+  {
+   "id": "n085",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "By November eleventh, it is down about eleven percent in five days.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S5",
+    "S13"
+   ],
+   "shot_hint": "line chart crashes, orange arrow"
+  },
+  {
+   "id": "n086",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "Remember August thirtieth? On November fifteenth, Megaspeed repeated it. She left more than a year ago, it says. And it is investigating itself.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7"
+   ],
+   "shot_hint": "callback to calendar AUG 30, company statement page"
+  },
+  {
+   "id": "n087",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "On November twelfth, Nvidia announces that Huang has resigned. Effective immediately.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2",
+    "S6"
+   ],
+   "shot_hint": "8-K page slides in, RESIGNED stamp in navy"
+  },
+  {
+   "id": "n088",
+   "beat": "CH4",
+   "chapter": "Completely Normal",
+   "speaker": "NARRATOR",
+   "text": "But one question will not go away. Officials reportedly knew about her for months. So why, the Times said, was he never warned?",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S10"
+   ],
+   "shot_hint": "text card, cliffhanger, music holds an unresolved chord"
+  },
+  {
+   "id": "n090",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "Here is where this reaches your money.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "day/lesson set, whiteboard"
+  },
+  {
+   "id": "n091",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "You probably own Nvidia. Even if you have never bought a share.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "day/living: laptop with a 401(k) statement"
+  },
+  {
+   "id": "n091b",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "SAVER",
+   "text": "But I never bought Nvidia.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "day/living: saver character, laptop open, puzzled (generic role, dramatised)",
+   "voice": "saver"
+  },
+  {
+   "id": "n091c",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "ANALYST",
+   "text": "Check your index fund.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "day/living: analyst on a video call (generic, dramatised)",
+   "voice": "analyst"
+  },
+  {
+   "id": "n091d",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "SAVER",
+   "text": "I own an index fund?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "saver squints at a statement (generic, dramatised)",
+   "voice": "saver"
+  },
+  {
+   "id": "n091e",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "ANALYST",
+   "text": "Probably. Open it.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "sting; cut to pie chart (generic, dramatised)",
+   "voice": "analyst"
+  },
+  {
+   "id": "n092",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "If you hold an S&P 500 index fund, about six percent of it is Nvidia.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "pie chart grows, Nvidia slice in gold"
+  },
+  {
+   "id": "n092b",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "This spring it was closer to eight and a half. In 2022, it was about one.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "line chart rises steeply, gold line, J.P. Morgan label"
+  },
+  {
+   "id": "n093",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "That is roughly six hundred dollars of every ten thousand you invest.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 600,
+    "unit": "$",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "counter next to a stack of ten $1,000 bundles, one pulled out"
+  },
+  {
+   "id": "n094",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "When Nvidia dropped about eleven percent, the rest of the index cushioned it. This time.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "bar chart: Nvidia down, S&P bar up (navy up arrow, orange down arrow)"
+  },
+  {
+   "id": "n095",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "A decade ago, the ten biggest companies were under a fifth of the S&P 500. Today, seven are about a third.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "bar chart grows"
+  },
+  {
+   "id": "n096",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "That is called concentration risk. And one person can move it.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "teeter-totter tips (scales), a single figure on one side"
+  },
+  {
+   "id": "n097",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "Here are five things worth checking.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "RED FLAGS board appears, 5 slots"
+  },
+  {
+   "id": "n098",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "One. How much of your fund is just a few companies?",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "board flag 1 pops, soft pop"
+  },
+  {
+   "id": "n099",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "Two. Does one founder hold the whole company together?",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "board flag 2 pops"
+  },
+  {
+   "id": "n100",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "Three. Does one customer or partner drive big growth?",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "board flag 3 pops"
+  },
+  {
+   "id": "n101",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "Four. Can the biggest customers be checked? Or are they a mystery?",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "board flag 4 pops"
+  },
+  {
+   "id": "n102",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "Five. Do the board and the rules move before the headlines do?",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "board flag 5 pops"
+  },
+  {
+   "id": "n103",
+   "beat": "CH5",
+   "chapter": "Look Inside the Box",
+   "speaker": "NARRATOR",
+   "text": "This is education, not financial advice. Just a habit: open your fund, and look inside the box.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "sticky note slammed: LOOK INSIDE THE BOX"
+  },
+  {
+   "id": "n110",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Back on that October call, Huang called it all normal.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "return to the opening phone shot, now with the word NORMAL in gold"
+  },
+  {
+   "id": "n111",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "What we can prove so far fits on one hand. A company. A woman. A CEO. A letter. A resignation.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2",
+    "S2b",
+    "S5"
+   ],
+   "shot_hint": "five props appear one by one on a desk"
+  },
+  {
+   "id": "n112",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Everything else is a question.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "props fade, one stays: the unopened envelope"
+  },
+  {
+   "id": "n113",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Who knew about her? And when?",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S10"
+   ],
+   "shot_hint": "final black card held, soft sting; music resolves on one chord"
+  },
+  {
+   "id": "n114",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "In part two, we follow the briefings.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "next-video teaser, end screen section follows"
+  }
+ ]
+}

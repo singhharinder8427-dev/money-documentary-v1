@@ -27,6 +27,12 @@ Skip binaries (images, fonts, audio, video). Then continue; do not summarise all
 If the owner has a script: fact-check/adapt it into Template A (`documentary-script` skill). If not: research + write it
 with the `documentary-script` skill (3 outlines -> full script -> sources). Wait for the owner to lock the script.
 
+**Dialogue moments (standing rule, every script):** like the Ponzi video, about a quarter of the lines are short
+dialogue moments (each <= 10 s, 2-4 lines, two speakers, usually ending on a sting or a joke) that turn a fact into a
+scene. Use generic roles (analyst, inspector, clerk, trader, director, saver...) marked `"dramatised": true`. Real people
+only speak short real quotes or paraphrases of documented exchanges; never invent claims in their mouths. Never skip
+this and never wait for the owner to ask.
+
 ## 3. When the script is final: re-read the engine, then plan the assets BEFORE any shot is coded
 Re-read `engine/` + `videos/ponzi-full/shots.py` + `FIXES.md` against this script, then tell the owner exactly which new
 assets are needed to make the video engaging, and build them first (references -> design in our style -> owner
