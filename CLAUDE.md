@@ -68,6 +68,12 @@ story-specific animation (`anim`: hand slams, stamps, newspapers, calendars, pol
 board in the lesson part, the creative quality check (3 frames per shot, "would adding something make it more
 engaging?"). Match the *rhythm and engagement techniques*, not the Ponzi timing or content.
 Then ask: **"Do you want the end screen at the end of this video, or skip it?"** (ask EVERY project).
+**Name + role tag (standing rule, owner-set 22 Nov 2026):** every time an important character appears (first appearance, and
+again when they return after a long gap), show their name and role in a lower-third tag, exactly like the Ponzi video
+(`widgets.lower_third(c, name, role, u)`, e.g. `'Charles Ponzi', 'Boston, 1920'`). Real people get their real name and role;
+Alice Huang is always tagged "alleged"; generic dramatised roles get "THE <ROLE>". Put the tag in each shot's `hud` and
+record it in the shot hint. Never skip it and never wait for the owner to ask.
+
 ("Shorts" in the owner's point 3 means SHOTS - the shot plan - not YouTube Shorts.)
 
 ## 5. Never render without consent
