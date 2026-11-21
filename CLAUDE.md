@@ -6,6 +6,8 @@ have to repeat them. Details of the look live in `BRAND.md`; the handover is `ST
 ## 0. Repo isolation (hard rule)
 - The ONLY repository to read-write, commit or push is **`singhharinder8427-dev/money-documentary-v1`** (branch `main`).
 - Never touch any other repo (`-google`, `-codex`, `harry-shorts`, `claude-cartoon-engine`, ...), even if attached.
+  Exception (owner, 22 Nov 2026): when the owner asks, Claude may READ from `singhharinder8427-dev/money-documentary-v1-codex`
+  (read-only clone) to import graphics/code into `money-documentary-v1`. Never write, commit or push to the codex repo.
 - Still never save / commit / push without the owner's OK: after every change ask **"save now or later?"**
 
 ## 1. FIRST STEP, every time the repo or a skill is called: read everything
@@ -60,6 +62,8 @@ clear name with its code key, source video and status, so later videos can reuse
 lock it in code (`cast.py` / `sets.py` / `props.py` ...) AND add or update its row in `ASSET_LIBRARY.md` in the same step,
 then ask "save now or later?". Assets not yet approved are listed as PENDING. At step 3 of every new video, show the library
 first so the owner can choose reuse vs new. Never rename or change a LOCKED asset without asking.
+Imported codex assets (see the bottom of `ASSET_LIBRARY.md`) are used ONLY when the story needs them, never many at once, and each is
+restyled to our print look (with a preview for the owner) the first time it is used.
 
 ## 4. Shot plan (the "Ponzi standard")
 Plan the shot list like `videos/ponzi-full`: a hook that starts mid-action, a new picture every 2-3 s, a visual beat

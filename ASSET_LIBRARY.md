@@ -64,3 +64,52 @@ Code lives in `.claude/skills/documentary-animator/engine/` (`cast.py`, `sets.py
 |---|---|---|
 | Nvidia | green `#76B900`, dark grey `#1E1E1E`, white | Nvidia logo & brand usage page |
 | Megaspeed | NOT YET VERIFIED | - |
+
+
+---
+# IMPORTED from the codex repo (22 Nov 2026) - USE ONLY WHEN THE STORY NEEDS THEM
+Owner rule: these are in the library so they can be reused by name, but a video uses ONLY the ones its story needs, never
+many at once. They arrive in the codex look (dark screen frames, `illustrative` labels); each one is RESTYLED to our print look
+the first time a video uses it (preview shown to the owner first). Real documents carry their real source line, not "fictional sample".
+Code: `engine/story_assets/*`, `engine/explainers.py`, `engine/paper_trail.py`, `engine/sets_src/{boardroom,courtroom,documentary_locations,sales_floor}.py`.
+Reference notes: `graphics/codex-library/*.md`. Status for all rows: **IMPORTED** (not yet restyled / not yet used).
+
+## Sets (key = `get_set(name)`)
+| Name | Key | Good for |
+|---|---|---|
+| TV Interview Studio (night) | `night/tv_interview_studio` | interviews (e.g. Jensen's "completely normal" clip) |
+| Press Conference Stage (day) | `day/press_conference` | statements, announcements |
+| Boardroom (day) | `day/boardroom` | board meetings, directors |
+| Charity Gala / Luxury Apartment / Mansion Exterior | `night/charity_gala` `night/luxury_apartment` `day/mansion_exterior` | wealth and public image |
+| Private Banker's Office / Bank Vault | `night/private_banker` `night/bank_vault` | private banking, vaults |
+| Ordinary Office Floor / Startup Workspace / Stock Exchange Exterior / Warehouse | `day/ordinary_office` `day/startup_workspace` `day/stock_exchange` `day/warehouse` | business scenes |
+| Courtroom / Courthouse Exterior / Deposition Room / Regulator Hearing Room | `day/courtroom` `day/courthouse_exterior` `day/deposition_room` `day/regulator_hearing_room` | legal and regulator scenes |
+| Jail Visiting Room (+call version) / Jail Intake Desk / Cell Corridor | `day/visiting_room` `day/visiting_room_call` `day/jail_intake_desk` `night/cell_corridor` | consequences |
+| Investigation Room (night) | `night/investigation_room` | investigators, evidence wall |
+| Sales Floor (night) | `night/sales_floor` | call-centre / sales scenes |
+| Suburban Home / Hotel Ballroom (seminar) | `day/suburban_home` `day/hotel_ballroom` | victims at home, seminars |
+| Public Park / Cafe Booth / Apartment Hallway / Shop Counter / Train Station | `day/public_park` `day/cafe_booth` `night/apartment_hallway` `day/shop_counter` `day/train_station` | everyday life |
+
+## Props and graphics (draw functions on a 960x540 design canvas)
+| Name | Code | Good for |
+|---|---|---|
+| Audit Memo, Corporate Filing, Signed Contract, Prospectus, Pitch Deck | `story_assets.paper_trail_props` | company records, filings (e.g. Megaspeed filings) |
+| Court Exhibit Sticker, Evidence Bag, Archive Box | `story_assets.paper_trail_props` | investigations |
+| General Ledger, Transfer Record, Vendor Invoice, Case Folder | `engine.paper_trail` | money trail |
+| Email Window, Message Thread, Call Log | `story_assets.digital` | briefings, messages |
+| Investment Dashboard, Transaction History, Fake Profit Screen, Withdrawal Error | `story_assets.digital` | scam-style screens |
+| Check, Wire Receipt, Deposit Slip, Credit Card, Payment Terminal, Bank Statement, Cash Drawer | `story_assets.money` | money movement |
+| Desk, Cubicle Walls, Conference Chair, Filing Cabinet, Podium, Queue Posts, Street Sign, Park Bench, Period Phone, Period Lamp | `story_assets.furniture` | set dressing |
+| Document Callout, Evidence Inset, Border Highlight, Masked Place Label | `engine.explainers` | highlight a line in a real document or a place on a map |
+| Route Map, Port Pulses, Goods-to-Routes (hub with routes) | `engine.explainers` | chip routes Singapore/Malaysia (Part 4), zoom-in locator maps |
+| Portrait Reveal / Emphasis Portrait Card | `engine.explainers` | introducing a person on screen |
+
+## Supporting characters (`story_assets.people.draw_person(canvas, slug, x, y, scale)`)
+| Name | Slug | Good for |
+|---|---|---|
+| The Attorney | `attorney` | e.g. Nvidia's lawyer (Part 3/4) |
+| The Compliance Officer | `compliance-officer` | export-control and compliance scenes |
+| The Auditor | `auditor` | financial review |
+| The Judge / The Court Clerk | `judge` `court-clerk` | court scenes |
+| The Call-Center Operator | `call-center-operator` | scam-call scenes |
+| The Small-Business Owner | `small-business-owner` | shop scenes |

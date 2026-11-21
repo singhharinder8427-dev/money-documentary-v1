@@ -1,4 +1,4 @@
-"""The 10 LOCKED sets as empty, reusable backgrounds.
+"""The locked sets as reusable backgrounds.
    get_set(name) -> Set(base, fg, spots, rim, light, kind)
      base  = skia.Image: the set in its locked look (+ any background extras such as the trading-floor crowd, crisp)
      fg    = skia.Image with alpha, or None: things that stand IN FRONT of actors (desk, table) - draw after actors
@@ -36,8 +36,11 @@ def _add_w(c, x, y, r, v, a):
     elif M['m'] in ('off', 'bg'): _add(c, x, y, r, v, a)
 kit.night, kit.add_light = _night_w, _add_w
 
-from engine.sets_src import night_scenes as NS, day_scenes as DS
+from engine.sets_src import boardroom, day_scenes as DS, night_scenes as NS, sales_floor as SF
+from engine.sets_src import courtroom, documentary_locations as locations
 from engine.core import F_LABEL2, F_TITLE, F_TYPE
+from engine.story_assets.sets_catalogue import STORY_SETS
+from engine.sets_src import ng_scenes as NG   # The Nvidia Files sets (look up NS.person / NS.night ... at call time)
 NS.KAL, NS.MRK, NS.HAND = F_LABEL2, F_TITLE, F_TYPE
 NS.txt = lambda c, s, x, y, size, color, font=None, align='left', stroke=0, rot=0.0, skew=0, sc=kit.INK: kit.label(c, s, x, y, size, color, font=font or NS.KAL, align=align, stroke=stroke, stroke_col=sc, skew=0, rot=rot)
 NS.night, NS.add_light = _night_w, _add_w
@@ -53,12 +56,15 @@ def _person(c, x, y, s, spec, **kw):
 NS.person = _person
 def _frame_out(surf, path): M['img'] = surf.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType).copy()
 NS.frame_out = _frame_out
-from engine.sets_src import ng_scenes as NG   # The Nvidia Files sets (look up NS.person / NS.night ... at call time)
 # day scenes: no actors, capture after the day print pass
-def _day_finish(surf):
+def _day_pixels(surf):
     a = surf.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)[..., :3].astype(float)
     out = looks.grain(looks.day_print(a), base=240, fine=7, soft=26, seed=7)
-    M['img'] = np.dstack([np.clip(out, 0, 255).astype(np.uint8), np.full((H, W), 255, np.uint8)]); return surf.getCanvas()
+    return np.dstack([np.clip(out, 0, 255).astype(np.uint8), np.full((H, W), 255, np.uint8)])
+
+def _day_finish(surf):
+    M['img'] = _day_pixels(surf)
+    return surf.getCanvas()
 DS.finish_bg = _day_finish; DS.draw_char = lambda *a, **k: None; DS.shadow = lambda *a, **k: None; DS.save = lambda *a, **k: None
 
 # ---------- the catalogue
@@ -66,6 +72,7 @@ NIGHT_RIM, DAY_RIM = '#9FB8F0', '#FFE3A6'
 SETS = {
  'night/office':   dict(fn=NS.office,  plane=0, extras='none', spots={'behind_desk': (930, 950, 1.08), 'front_left': (380, 1070, 1.05), 'front_right': (1500, 1070, 1.05)}),
  'night/trading':  dict(fn=NS.trading, plane=-2, extras='before', spots={'left': (760, 1180, 1.35), 'right': (1260, 1150, 1.25)}),
+ 'night/sales_floor': dict(spots={'front_aisle': SF.AISLE_SPOT}),
  'night/desk':     dict(fn=NS.desk,    plane=None, extras='all', spots={}),          # top-down desk: hands + documents, no standing actors
  'night/street':   dict(fn=NS.street,  plane=0, extras='none', spots={'walk': (900, 905, .6), 'bank_door': (220, 880, .52), 'pawn': (540, 880, .52), 'pawn2': (650, 880, .52)}),
  # street1920: people at s .36 so buildings read at the right scale; the line ends at the hero door (x 1020)
@@ -80,16 +87,29 @@ SETS = {
  'day/living':     dict(fn=DS.living_room, spots={'left': (600, 975, .98), 'right': (860, 985, .98)}),
  'day/kitchen':    dict(fn=DS.kitchen, spots={'center': (600, 1000, 1.0)}),
  'day/bank':       dict(fn=DS.bank, spots={'left': (760, 1020, 1.0), 'right': (1120, 1025, 1.0)}),
+ 'day/suburban_home': dict(draw=locations.home, scale=2, vignette=(.28, .50),
+                           spots={'walkway': (808, 860, .52)}),
+ 'day/hotel_ballroom': dict(draw=locations.ballroom, furniture=locations.lectern, scale=2,
+                            vignette=(.28, .50), spots={'speaker': (1255, 598, .35)}),
+ 'night/investigation_room': dict(draw=locations.investigation, furniture=locations.investigation_desk,
+                                  lighting=locations.investigation_lighting, scale=2, vignette=(.67, .42),
+                                  spots={'behind_desk': (1062, 864, .76)}),
+ 'day/courtroom': dict(draw=courtroom.draw, furniture=courtroom.draw_furniture, vignette=(.28, .50),
+                       spots={'judge': (*courtroom.court_bench_camera().point((0, .36, 11.76)),
+                                        courtroom.court_bench_camera().scale(11.76) * .00455)}),
+ 'day/boardroom':  dict(draw=boardroom.draw, furniture=boardroom.draw_table, spots=boardroom.SPOTS, vignette=(.28, .50)),
  'day/street':     dict(fn=DS.street, spots={'left': (880, 905, .95), 'right': (1290, 905, .95)}),
  'day/lesson':     dict(fn=DS.lesson, spots={'board_left': (520, 990, 1.0), 'board_right': (860, 1000, 1.0)}),
 }
+SETS.update(STORY_SETS)
 CACHE = pathlib.Path(os.environ.get('DOCANIM_CACHE', str(REPO / '.cache' / 'sets')))
 
 class Set:
-    def __init__(self, name, base, fg, spots, kind):
+    def __init__(self, name, base, fg, spots, kind, vignette=None):
         self.name, self.base, self.fg, self.spots, self.kind = name, base, fg, spots, kind
         self.rim = NIGHT_RIM if kind == 'night' else DAY_RIM
         self.light = -1 if kind == 'night' else 1
+        self.vignette = vignette
     def draw(self, c, back=(), front=()):
         """Draw the set with actors: back = callables drawn between base and fg (behind desks/tables),
         front = callables drawn after fg (in front of everything). Each callable takes the canvas."""
@@ -102,12 +122,43 @@ def _run(fn, mode, **kw):
     M.update(m=mode, k=0, glows=[], img=None, **kw); fn(); out = M['img']; M['m'] = 'off'; return out
 def _to_img(a): return skia.Image.fromarray(np.ascontiguousarray(a), colorType=skia.kRGBA_8888_ColorType)
 def _src_hash():
+    folder = pathlib.Path(__file__).parent
     h = hashlib.md5()
-    for p in ('sets_src/night_scenes.py', 'sets_src/day_scenes.py', 'sets_src/ng_scenes.py', 'looks.py', 'kit.py', 'sets.py'): h.update(open(pathlib.Path(__file__).parent / p, 'rb').read())
+    for p in ('sets_src/night_scenes.py', 'sets_src/day_scenes.py', 'sets_src/sales_floor.py',
+              'sets_src/boardroom.py', 'sets_src/courtroom.py', 'sets_src/documentary_locations.py', 'sets_src/ng_scenes.py', 'looks.py', 'kit.py', 'sets.py'):
+        h.update((folder / p).read_bytes())
+    for path in sorted((folder / 'story_assets').rglob('*.py')):
+        h.update(path.read_bytes())
     return h.hexdigest()[:10]
 
 def _build(name):
     cfg = SETS[name]; kind = name.split('/')[0]
+    if name == 'night/sales_floor':
+        return SF.build(), None
+    if 'draw' in cfg:
+        room = skia.Surface(W, H)
+        canvas = room.getCanvas()
+        canvas.clear(kit.hx('#F6EFE2'))
+        scale = cfg.get('scale', 1)
+        canvas.scale(scale, scale)
+        pools = cfg['draw'](canvas)
+        if 'lighting' in cfg or 'light_map' in cfg:
+            lighting = cfg['light_map'](pools) if 'light_map' in cfg else cfg['lighting']()
+            rgba = room.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)
+            printed = looks.night_print(rgba[..., :3].astype(float), lighting)
+            rgba[..., :3] = np.clip(looks.grain(printed), 0, 255).astype(np.uint8)
+            base = rgba
+        else:
+            base = _day_pixels(room)
+        if 'furniture' not in cfg:
+            return base, None
+        furniture = skia.Surface(W, H)
+        canvas = furniture.getCanvas()
+        canvas.clear(skia.ColorTRANSPARENT)
+        canvas.scale(scale, scale)
+        cfg['furniture'](canvas)
+        mask = furniture.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)[..., 3]
+        return base, np.dstack((base[..., :3], mask))
     if kind == 'day':
         return _run(cfg['fn'], 'bg'), None
     fn = cfg['fn']
@@ -146,5 +197,7 @@ def get_set(name):
     else:
         base, fg = _build(name); PI.fromarray(base).save(bp)
         if fg is not None: PI.fromarray(fg).save(fp_)
-    st = Set(name, _to_img(base), _to_img(fg) if fg is not None else None, SETS[name]['spots'], name.split('/')[0])
+    cfg = SETS[name]
+    st = Set(name, _to_img(base), _to_img(fg) if fg is not None else None,
+             cfg['spots'], name.split('/')[0], vignette=cfg.get('vignette'))
     _MEM[name] = st; return st
