@@ -19,7 +19,7 @@ Owner-approved, 18 Nov 2026. Change only with the owner's say-so.
 | **Orange** | `#F35B04` | **Losses and alerts only** |
 
 Exception (owner-approved): **real national flags keep their true colours** (e.g. Italy's green) - flags only, nothing else.
-Exception 2 (owner-approved, 21 Nov 2026): **real companies keep their original logo / brand colours** (e.g. Nvidia green `#76B900`) on their own signs, chips, certificates, cards and screens - company elements only, plain typographic names, never traced logo artwork. See `CLAUDE.md` 3b.
+Exception 2 (owner-approved, 21 Nov 2026): **real companies keep their original logo / brand colours** (e.g. Nvidia green `#76B900`) on their own signs, chips, certificates, cards and screens - company elements only, with a simple rough 2D version of the company's logo drawn fresh in our flat style (owner, 22 Nov 2026), never a traced copy. See `CLAUDE.md` 3b.
 
 Rules: gold = money / brand, orange = danger / loss, never swapped; they never touch; orange always with a minus sign
 or down arrow; gains in navy ink with an up arrow (no green); small handwriting on white paper is navy, not gold.
