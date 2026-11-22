@@ -60,3 +60,48 @@ def grain(rgb, base=232, fine=9, soft=34, seed=5):
     r = np.random.default_rng(seed); f = r.normal(0, 1, (H, W))
     s = np.asarray(PI.fromarray((r.random((54, 96)) * 255).astype(np.uint8)).resize((W, H), PI.BICUBIC).filter(PF.GaussianBlur(18)), float) / 255 - .5
     g = np.clip(base + f * fine + s * soft, 0, 255) / 255; return rgb * g[..., None]
+
+# ---------- REAL-COLOUR NIGHT LOOK (owner-locked 22 Nov 2026) ----------
+# Every NEW place / office / street / company location / prop scene is made in two steps:
+#   1. draw it in flat 2D with its REAL colours (green grass stays green, a company's own colours stay) -
+#      simple flat shapes, thin dark outlines, matching the real place (sets_src/real_places.py);
+#   2. this pass puts our brand on it: unlit parts go onto our 4 night navies with a hint of the real colour,
+#      only real light sources keep full colour, halftone dots in shadows, navy sky with dots + stars,
+#      gold lamp heads, company logo colours stay true, dark-navy dotted vignette, paper grain.
+def real_night(a, sky=None, pools=(), glows=(), spot_gold=(), keep=(), src_level=.72):
+    """a: HxWx3 float flat drawing in real colours. sky: bool mask of sky pixels (or None).
+    pools: [(x, y, radius, strength, squash)] light pools (lamp spill, lobby spill, sign uplight).
+    glows: [(x, y, radius)] warm glow around lamp heads. spot_gold: hex colours turned into brand gold (lamp heads).
+    keep: hex colours kept exactly (company logo colours, e.g. Nvidia #76B900)."""
+    def near(h, tol): return np.abs(a - C(h)).sum(-1) < tol
+    yy, xx = np.mgrid[0:H, 0:W].astype(float); scr = screen()
+    sky = np.zeros((H, W), bool) if sky is None else sky
+    Lum = a.mean(-1) / 255
+    src = ((Lum > src_level) & ~sky).astype(float)                  # bright real colours = light sources (windows, lobby)
+    lm = np.asarray(PI.fromarray((np.clip(src, 0, 1) * 255).astype(np.uint8)).filter(PF.GaussianBlur(28)), float) / 255 * 3.0
+    for x, y, r, k, sq in pools: lm += np.clip(1 - np.hypot(xx - x, (yy - y) * sq) / r, 0, 1) * k
+    lm = np.clip(lm, 0, 1)
+    ramp = np.array([C('#0D1630'), C('#1B2A52'), C('#2E4374'), C('#4A62A0')])      # our 4 night navies
+    tt = np.clip((Lum - .05) / .8, 0, .999) * 3; i0 = np.floor(tt).astype(int); f = (tt - i0)[..., None]
+    dark = (ramp[i0] * (1 - f) + ramp[np.minimum(i0 + 1, 3)] * f) * .8 + a * .2
+    k = lm[..., None] ** .8; out = dark * (1 - k) + a * k
+    shade = np.clip((.55 - out.mean(-1) / 255) / .45, 0, 1)        # halftone dots in the shadows
+    out = np.where(((shade * .38) > (1 - scr))[..., None], out * .78 + C('#2B3F70') * .22 + 10, out)
+    sv = np.clip(yy / (H * .42), 0, 1)                               # night sky
+    skyc = np.where(((sv ** 1.6) * .6 > (1 - scr))[..., None], C('#1B2A52'), C('#0D1630'))
+    rng = np.random.default_rng(3); st = np.zeros((H, W), bool)
+    for _ in range(80):
+        x, y = rng.integers(0, W), rng.integers(0, int(H * .28)); st[y:y + 2, x:x + 2] = True
+    out = np.where(sky[..., None], np.where(st[..., None], C('#9FB3DE'), skyc), out)
+    lamp = np.zeros((H, W), bool)
+    for h in spot_gold: lamp |= near(h, 20)
+    out = np.where(lamp[..., None], C('#FCA311'), out)
+    g = np.zeros((H, W))
+    for x, y, r in glows: g += np.clip(1 - np.hypot(xx - x, (yy - y) * 1.6) / (r * 2.2), 0, 1) ** 2
+    g = np.clip(g, 0, 1)[..., None] * (~lamp)[..., None]; out = out * (1 - g * .55) + C('#FFD27A') * g * .55
+    for h in keep: out = np.where(near(h, 12)[..., None], C(h), out)
+    d = np.hypot((xx - W / 2) / (W / 2), (yy - H / 2) / (H / 2))   # dark-navy vignette with dotted falloff
+    v = np.clip((d - .72) / .5, 0, 1) ** 1.2
+    out = out * (1 - v[..., None] * .9) + C('#0D1630') * (v[..., None] * .9)
+    out = np.where((((v * .9) > (1 - scr)) & (v > .08))[..., None], C('#0D1630'), out)
+    return np.clip(grain(out, base=240, fine=7, soft=24), 0, 255)

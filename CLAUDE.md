@@ -66,6 +66,22 @@ first so the owner can choose reuse vs new. Never rename or change a LOCKED asse
 Imported codex assets (see the bottom of `ASSET_LIBRARY.md`) are used ONLY when the story needs them, never many at once, and each is
 restyled to our print look (with a preview for the owner) the first time it is used.
 
+## 3d. NEW ASSETS: real-colour night look (hard rule, owner-locked 22 Nov 2026)
+From now on EVERY new place, office, street, company building, room and prop scene is made in this exact way
+(reference still: `branding/real_night_look_nvidia_hq.png`, code: `engine/looks.py real_night` + `engine/sets_src/real_places.py`):
+1. **Draw the real place in flat 2D with its REAL colours** - same building / layout / mood as the real one (use reference
+   photos for layout and colours): green grass stays green, glass, concrete, wood and the company's own colours stay as they
+   are. Simple flat shapes, thin dark outlines, no gradients, no photo textures. Drawn fresh in code - never a traced or
+   pasted photo. Company logos as the rough 2D version from rule 3b.
+2. **Put our brand on it with `looks.real_night`**: dark navy night sky with halftone dots + a few stars; everything unlit
+   goes onto our 4 night navies with only a hint of its real colour; only real light sources (lamps, lobby, windows, a
+   sign uplight) keep full colour and spill light; halftone dots in the shadows; lamp heads in brand gold; logo colours
+   kept exact; a dark-navy dotted vignette at the edges; paper grain.
+3. Register it as a set with `real=` + `night=` in `engine/sets.py` (see `night/nvidia_hq`), show the owner a preview with
+   a character in front, then add it to `ASSET_LIBRARY.md` (rule 3c).
+The older night-print sets stay LOCKED and reusable; only NEW assets use this look. Do not go back to monochrome line-art
+recreations for new places.
+
 ## 4. Shot plan (the "Ponzi standard")
 Plan the shot list like `videos/ponzi-full`: a hook that starts mid-action, a new picture every 2-3 s, a visual beat
 (card / counter / stamp / chart / dialogue / place jump) every 20-30 s, moving camera, varied angles (no repeated wides),

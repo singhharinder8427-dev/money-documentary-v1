@@ -27,6 +27,9 @@ and the owner has approved the result, apply those instructions on every video. 
 **music level stays as it is; sound effects quieter; typed text always uses a real typewriter sound.**
 
 ## Hard rules
+- **New places / offices / streets / company buildings / prop scenes = real-colour night look (CLAUDE.md 3d, locked 22 Nov 2026):**
+  draw the real place flat in its real colours in `engine/sets_src/real_places.py`, then `looks.real_night` puts the navy
+  night, dots, light pools and dark-navy vignette on it; register with `real=` + `night=` in `sets.py` (example `night/nvidia_hq`).
 
 1. **Ask before every render:** for each new video ask the owner at project start: *render on your Windows PC or in
    the cloud?* Never assume, never reuse the last answer. **And never start any render (video, Shorts, stills, contact

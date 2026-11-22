@@ -34,6 +34,15 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
   moustache, glasses, navy suit, gold tie), Analyst, Worker, Banker, Investor.
 - Built on the drawing kit of the "Claude 2D Animation Long Form" skill **made by aivxer** (keep this credit), modified.
 
+## Real-colour night look (LOCKED 22 Nov 2026 - every NEW asset) - `engine/looks.py real_night`
+- **Step 1:** the real place drawn in flat 2D with its real colours (green grass, glass, concrete, company colours),
+  matching the real building / room / street; flat shapes, thin dark outlines `#1E2622`, no gradients or photo texture.
+- **Step 2 (`real_night`):** night sky `#0D1630` with a dotted `#1B2A52` horizon band and a few `#9FB3DE` stars;
+  unlit areas on the 4 night navies `#0D1630` `#1B2A52` `#2E4374` `#4A62A0` (80%) + 20% real colour; real light
+  sources keep full colour with soft light pools; halftone dots in shadows; lamp heads gold `#FCA311` with a warm
+  `#FFD27A` glow; company logo colours exact (exception 2); dark-navy dotted vignette; paper grain.
+- Reference: `branding/real_night_look_nvidia_hq.png` (set `night/nvidia_hq`). Characters drawn crisp on top.
+
 ## Night scenes (locked: "night print") - `environments/`
 - Used for the **story / drama parts**; the night twin of the daytime print look, so the whole channel shares one style.
 - **Dark areas:** navy paper in 4 shades by each object's brightness (`#0D1630` `#1B2A52` `#2B3F70` `#3E5689`),

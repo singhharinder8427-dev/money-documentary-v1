@@ -25,6 +25,11 @@ a "subscribe for Part 2" card instead.
 4. Open idea, not confirmed: make the Nvidia logo on the $4T screen bigger.
 5. Later: Part 1 thumbnails (ask for reference thumbnails, then 3 prompts), and check the unconfirmed facts in `sources.md`.
 
+## NEW LOCKED LOOK for new assets (22 Nov 2026, later the same day)
+- Every new place / office / street / company / prop scene: flat 2D in real colours, then `looks.real_night`
+  (CLAUDE.md 3d, BRAND.md). First asset: `night/nvidia_hq` (Nvidia HQ Endeavor entrance). Reference stills in `branding/`.
+- Next idea: use `night/nvidia_hq` in Part 1 where the story is at Nvidia, and remake upcoming new places this way.
+
 ## Rules learned this session (also written into CLAUDE.md / QA_CHECKLIST.md)
 - QA follows `QA_CHECKLIST.md` every time, before and after a render.
 - After ANY script text change, delete `voices/` first, because the voices step reuses old clips.

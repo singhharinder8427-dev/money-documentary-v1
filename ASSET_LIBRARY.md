@@ -29,6 +29,7 @@ Code lives in `.claude/skills/documentary-animator/engine/` (`cast.py`, `sets.py
 | The Professor | `professor` | tweed suit, bow-tie look, grey slicked hair, glasses, moustache | Nvidia Files | LOCKED (22 Nov) |
 
 ## Sets / places  (`engine/sets.py`, key = `get_set(name)`)
+NEW places from 22 Nov 2026 are made in the real-colour night look (CLAUDE.md 3d): flat 2D real colours -> `looks.real_night`.
 | Name | Key | What it is | From video | Status |
 |---|---|---|---|---|
 | CEO Office (night) | `night/office` | corner office, skyline window | Ponzi | LOCKED |
@@ -43,6 +44,7 @@ Code lives in `.claude/skills/documentary-animator/engine/` (`cast.py`, `sets.py
 | 1993 Roadside Diner (night) | `night/diner93` | booth, counter, neon DINER, calendar frame | Nvidia Files | LOCKED |
 | Singapore Italian Restaurant (night) | `night/restaurant` | candle table, arched windows, wine shelf | Nvidia Files | LOCKED |
 | Data-Center Aisle (night) | `night/datacenter` | one-point-perspective racks + sealed crates | Nvidia Files | LOCKED |
+| Nvidia HQ - Endeavor entrance (real-colour night) | `night/nvidia_hq` | glass HQ, lit lobby, lamps, stairs, sign wall with rough eye logo; spots walkway/stairs/sign. FIRST asset in the new real-colour night look (CLAUDE.md 3d) | Nvidia Files | LOCKED |
 
 ## Props  (`engine/props.py` = Nvidia Files; `engine/anim.py` + `engine/widgets.py` = earlier)
 | Name | Function | Notes | From video | Status |

@@ -44,6 +44,9 @@ fix them all, re-check the changed shots, then report.
 ## 7. Props and assets
 - Every new prop the story needs is BUILT as a proper prop in `engine/props.py` (not drawn ad hoc inside a shot),
   given one clear name, previewed to the owner, and listed in `ASSET_LIBRARY.md` (rule 3c).
+- Every NEW place / office / street / company building / prop scene uses the real-colour night look (CLAUDE.md 3d):
+  real colours drawn flat, then `looks.real_night` - navy edges + dots, light only from real sources, logo colours exact.
+  Flag any new asset still made as a monochrome line-art recreation.
 
 ## 8. Voice (speech-to-text on every clip; Claude cannot hear)
 - Run Parakeet on every clip and diff with the script: flag mispronounced names, words that come out as a rude or wrong
