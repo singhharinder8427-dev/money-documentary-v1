@@ -171,7 +171,7 @@ def coin():
 def cash():
     out = np.zeros(int(1.2 * SR)); add(out, stamp_thud() * .3, 0); add(out, coin(), .05); add(out, coin(), .12, .7); add(out, ding() * .6, .1); return out
 def pop():
-    t = secs(.06); f = 900 * np.exp(-t * 40) + 250; return np.sin(2 * np.pi * np.cumsum(f) / SR) * env(len(t), .001, .02) * .5
+    t = secs(.06); f = 900 * np.exp(-t * 40) + 250; return np.sin(2 * np.pi * np.cumsum(f) / SR) * env(len(t), .001, .02) * .2   # owner 22 Nov: pops softer everywhere
 def shutter():
     out = np.zeros(int(.2 * SR)); add(out, tick() * 3, 0); add(out, tick() * 3, .09); return out
 def boom():
@@ -180,7 +180,41 @@ def sound_logo():
     """2-second sound logo for every title card: typewriter clacks + coin ring."""
     out = np.zeros(int(2.0 * SR)); [add(out, type_key() * 1.3, .05 + i * .11) for i in range(3)]; add(out, stamp_thud() * .25, .38); add(out, coin() * 1.4, .42); add(out, ding() * .5, .45)
     return out
-SFX = dict(type_key=type_key, ding_carriage=carriage_ding, stamp=stamp_thud, tick=tick, ding=ding, low_tone=low_tone, falling=falling_tone, whoosh=whoosh,
+# ---- added 22 Nov 2026 (Nvidia Files QA): every movement has a sound ----
+def page_flip():   # one calendar / paper page flipping off
+    n = int(.16 * SR); x = bp(noise(n), 1200, 7000) * env(n, .004, .06); return x * .8
+def page_flips(dur, rate=7.0):   # a run of page flips (rate per second, slowing towards the end)
+    out = np.zeros(int((dur + .3) * SR)); t = 0.0
+    while t < dur:
+        add(out, page_flip() * (.6 + .4 * np.random.rand()), t); t += 1.0 / rate * (1 + 1.2 * (t / max(dur, 1e-3)) ** 2)
+    return out
+def phone_buzz(dur=0.45):   # vibration motor burst
+    tt = secs(dur); x = np.sign(np.sin(2 * np.pi * 150 * tt)) * .35 + np.sin(2 * np.pi * 300 * tt) * .2
+    return lp(x, 900) * env(len(tt), .01, dur * .9) * .7
+def ringtone(dur=1.2):   # soft two-note marimba ring
+    out = np.zeros(int(dur * SR) + SR)
+    for i, f in enumerate((76, 81, 76, 81)): add(out, marimba(note_hz(f), .35) * .5, i * .16)
+    return out[:int(dur * SR)]
+def phone_ring(dur, burst=0.4545):   # buzz on every vibration burst (matches shots.smartphone: on for 0.4545 s, off 0.4545 s) + ringtone
+    out = np.zeros(int((dur + .5) * SR)); t = 0.0
+    while t < dur: add(out, phone_buzz(min(burst, dur - t + .05)), t); add(out, ringtone(1.0) * .6, t); t += 2 * burst
+    return out
+def pickup(): n = int(.08 * SR); return (bp(noise(n), 800, 4000) * env(n, .001, .03)) * .9
+def footstep():
+    n = int(.11 * SR); return (lp(noise(n), 700) * env(n, .002, .05) + np.sin(2 * np.pi * 90 * secs(.11)) * env(n, .001, .04) * .5) * .9
+def footsteps(dur, rate=1.9):
+    out = np.zeros(int((dur + .3) * SR)); t = .05
+    while t < dur: add(out, footstep() * (.8 + .2 * np.random.rand()), t); t += 1.0 / rate
+    return out
+def room_tone(kind, dur):   # ambience beds: 'hum' data center, 'murmur' restaurant / crowd, 'rumble' conveyor, 'static' surveillance
+    n = int(dur * SR); tt = secs(dur)
+    if kind == 'hum': x = (np.sin(2 * np.pi * 60 * tt) * .25 + np.sin(2 * np.pi * 120 * tt) * .12 + lp(noise(n), 400) * .3) * .5
+    elif kind == 'murmur': x = bp(noise(n), 250, 1400) * (.6 + .4 * np.sin(2 * np.pi * .7 * tt) ** 2) * .5
+    elif kind == 'rumble': x = (lp(noise(n), 160) * .8 + np.sin(2 * np.pi * 45 * tt) * .2) * (1 + .3 * np.sin(2 * np.pi * 2 * tt)) * .5
+    else: x = hp(noise(n), 3000) * .12 * (.7 + .3 * np.sin(2 * np.pi * 11 * tt))
+    fade = np.minimum(1, np.minimum(tt / .3, (dur - tt) / .3)); return x * fade
+
+SFX = dict(page=page_flip, buzz=phone_buzz, pickup=pickup, footstep=footstep, type_key=type_key, ding_carriage=carriage_ding, stamp=stamp_thud, tick=tick, ding=ding, low_tone=low_tone, falling=falling_tone, whoosh=whoosh,
            paper=paper_slide, coin=coin, cash=cash, pop=pop, shutter=shutter, boom=boom, logo=sound_logo)
 
 # ======================= voices

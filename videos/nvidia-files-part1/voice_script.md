@@ -11,7 +11,7 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 - n002: That morning, the New York Times reported something explosive about a woman close to him.
 - n004: Ten days later, he writes to his own employees.
 - n006: Four days after that, he is out. The co-founder of the first company ever worth four trillion dollars.
-- n007: At the center stands a woman U.S. officials reportedly believe worked for China.
+- n007: At the center stands a woman United States officials reportedly believe worked for China.
 - n008: She has not been charged. China calls the claim groundless.
 - n009: And how this reaches your retirement account is closer than you think.
 - n010: So who is she? And how did she end up beside the most powerful man in AI?
@@ -22,13 +22,13 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 - n014: Now it wanted to rent out computing power. The kind built on Nvidia chips.
 - n015: Everyone wants those chips. Not everyone is allowed to have them.
 - n015b: Jensen Huang co-founded Nvidia in 1993. For thirty-three years, he was its only CEO.
-- n016: Its boss was Alice Huang. A Chinese national, according to U.S. reports. A Hong Kong resident, according to Singapore.
+- n016: Its boss was Alice Huang. A Chinese national, according to United States reports. A Hong Kong resident, according to Singapore.
 - n017: No relation to Jensen Huang. Same last name. That is all.
 - n018: In 2023, Megaspeed's assets were about thirty-three million dollars.
 - n019: A year later, almost three billion.
 - n021: One Tufts professor said the company appeared out of nowhere.
 - n022: Then, on December seventh, 2023, a photo. Jensen and Alice Huang, at a Singapore restaurant.
-- n023: By September 2024, a U.S. official was walking through a data center in Malaysia.
+- n023: By September 2024, a United States official was walking through a data center in Malaysia.
 - n025: Remember those boxes. Soon, Washington will start asking about them.
 - n030: So what was Washington worried about? Chips.
 - n031: Since October 2022, the most advanced Nvidia AI chips are banned from China.
@@ -36,7 +36,7 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 - n033: Singapore noticed Megaspeed too. In February 2025, its police and customs opened an investigation.
 - n034: The suspicion: false declarations about server purchases. Singapore says it acted on its own. No foreign request.
 - n035: Then came June twenty-fourth, 2025.
-- n036: U.S. export officials inspect a Megaspeed site. Alice Huang is there.
+- n036: United States export officials inspect a Megaspeed site. Alice Huang is there.
 - n037: That same day, Singapore police interview her. And impound her passport.
 - n039: The same month, Nvidia says it cut Megaspeed off. No new orders. No shipments.
 - n040: It has not said why.
@@ -50,21 +50,21 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 - n051: One. Smuggling. Prosecutors in a separate case say workers swapped labels with a hair dryer.
 - n052: Two. Middlemen. A company in Southeast Asia buys the servers and quietly passes them on.
 - n053: Three. Renting. The chips never leave Asia. A buyer in China just logs in from afar.
-- n053b: In May 2025, the Commerce Department warned U.S. firms to watch for partners offering cloud access to China.
+- n053b: In May 2025, the Commerce Department warned United States firms to watch for partners offering cloud access to China.
 - n054: Think of a pizza oven banned in one town. Nobody can sell you the oven. But anyone can sell you pizza.
 - n055: No one has proven Megaspeed did any of this. The company flatly denies it.
 - n056: Last December it said there was no evidence of illicit chip transfers.
-- n057: But U.S. intelligence wasn't only watching the chips. It was listening.
+- n057: But United States intelligence wasn't only watching the chips. It was listening.
 - n060: Here is what almost nobody outside Washington knew.
-- n061: According to the New York Times, U.S. intelligence was watching Alice Huang.
+- n061: According to the New York Times, United States intelligence was watching Alice Huang.
 - n062: And the American on the other end, reportedly, was the CEO of Nvidia.
-- n063: U.S. rules hide Americans' names in surveillance. Officials asked to reveal this one.
+- n063: United States rules hide Americans' names in surveillance. Officials asked to reveal this one.
 - n064: The name came back. Jensen Huang.
 - n070: October twenty-ninth. The Times goes public.
 - n071: People briefed on the surveillance said officials had concluded that Alice Huang was a Chinese intelligence asset.
 - n072: It also said Huang never got a defensive briefing. A warning agencies sometimes give.
 - n073: Nvidia's answer came fast. Megaspeed was one of many regional customers, it said.
-- n074: Huang said the U.S. government had never told him of its suspicions.
+- n074: Huang said the United States government had never told him of its suspicions.
 - n075: China's foreign ministry called the spy claim groundless speculation.
 - n076: Attorney General Todd Blanche later said the Justice Department had reached no conclusion on whether she was a spy.
 - n077: Singapore added a twist. Its Home Affairs ministry said she was never investigated for espionage.
@@ -122,7 +122,7 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 
 ## COLLEAGUE  - generic role, dramatised (voice: worker)
 - n024b: Should I take photos?
-- n051c: Hit it with the hair dryer.
+- n051c: Use the hair dryer.
 
 ## OFFICER  - generic role, dramatised (voice: agent)
 - n038: Please hand over your passport. You are not leaving yet.

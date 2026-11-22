@@ -58,6 +58,26 @@ def sg_street():
 
 
 # ============ 2. MEGASPEED OFFICE (open-plan, glass server room, blank wall panel for the wordmark)
+def workstation(c, x, floor_y, s=1.0, screen='chart', mug=True):
+    """Office desk that STANDS on the floor: chair behind, legs, top with thickness, drawer unit, monitor on a stand,
+    keyboard, mug. x = desk centre, floor_y = where the legs touch the floor."""
+    top = floor_y - 150 * s
+    rect(c, x + 40 * s, top - 110 * s, x + 150 * s, top - 10 * s, '#1E2A40', 5, r=14)           # chair back behind the desk
+    for lx in (x - 160 * s, x + 150 * s): rect(c, lx, top + 10 * s, lx + 12 * s, floor_y, '#3A2A1E', 4)   # legs
+    rect(c, x + 60 * s, top + 16 * s, x + 150 * s, floor_y - 6 * s, '#5A3B24', 4)                 # drawer unit
+    for k in range(2): rect(c, x + 72 * s, top + 30 * s + k * 50 * s, x + 138 * s, top + 70 * s + k * 50 * s, None, 3, v='#3E2816'); circ(c, x + 105 * s, top + 50 * s + k * 50 * s, 4 * s, GOLD_, 2)
+    p = skia.Path(); p.moveTo(x - 180 * s, top); p.lineTo(x + 180 * s, top); p.lineTo(x + 170 * s, top - 24 * s); p.lineTo(x - 170 * s, top - 24 * s); p.close()
+    c.drawPath(p, fp(WOOD)); c.drawPath(p, ink(5)); rect(c, x - 180 * s, top, x + 180 * s, top + 16 * s, '#5A3B24', 5)   # top + edge
+    rect(c, x - 70 * s, top - 34 * s, x - 10 * s, top - 26 * s, '#2E2E38', 3); rect(c, x - 46 * s, top - 64 * s, x - 34 * s, top - 30 * s, '#2E2E38', 3)   # stand
+    rect(c, x - 130 * s, top - 190 * s, x + 50 * s, top - 60 * s, '#2E2E38', 5, r=6); rect(c, x - 120 * s, top - 180 * s, x + 40 * s, top - 70 * s, '#0A1330', 3)
+    if screen == 'chart':
+        g = skia.Path(); g.moveTo(x - 110 * s, top - 90 * s)
+        for j in range(1, 7): g.lineTo(x - 110 * s + j * 24 * s, top - 90 * s - (j * 11 + (10 if j % 2 else 0)) * s)
+        c.drawPath(g, ink(5, GOLD_))
+    rect(c, x - 120 * s, top - 20 * s, x + 20 * s, top - 8 * s, '#3A3F4F', 3, r=3)                # keyboard
+    if mug: rect(c, x + 90 * s, top - 46 * s, x + 120 * s, top - 14 * s, '#FBF8F0', 3, r=4)
+
+
 def megaspeed_office():
     surf = skia.Surface(W, H); c = surf.getCanvas()
     for i, x in enumerate(range(0, W, 80)): c.drawRect(skia.Rect(x, 0, x + 80, 700), fp('#2A3D68' if i % 2 else '#263862'))
@@ -73,14 +93,9 @@ def megaspeed_office():
             for j in range(4): c.drawCircle(x + 20 + j * 14, yy + 17, 4, fp(GOLD_ if (yy // 46 + j + k) % 3 else '#5A6076'))
     c.drawRect(skia.Rect(1330, 150, 1850, 720), fp((255, 255, 255), 18)); rect(c, 1330, 150, 1850, 720, None, 8)
     for x in (1590,): line(c, x, 150, x, 720, 6)
-    # desks + monitors in two rows
-    for (dx, dy, sc) in ((250, 850, 1.0), (650, 850, 1.0), (1050, 850, 1.0), (200, 980, 1.2), (780, 980, 1.2)):
-        s = sc; rect(c, dx - 150 * s, dy, dx + 150 * s, dy + 22 * s, WOOD, 5)
-        rect(c, dx - 120 * s, dy - 120 * s, dx + 10 * s, dy - 14 * s, '#2E2E38', 5, r=6); rect(c, dx - 110 * s, dy - 110 * s, dx, dy - 24 * s, '#0A1330', 3)
-        g = skia.Path(); g.moveTo(dx - 100 * s, dy - 44 * s)
-        for j in range(1, 6): g.lineTo(dx - 100 * s + j * 18 * s, dy - 44 * s - (j * 9 + (8 if j % 2 else 0)) * s)
-        c.drawPath(g, ink(5, GOLD_)); line(c, dx - 55 * s, dy - 14 * s, dx - 55 * s, dy, 6)
-        rect(c, dx + 50 * s, dy - 18 * s, dx + 100 * s, dy, '#FBF8F0', 3, r=3)
+    # desks + monitors in two rows: real workstations standing on the floor (QA 22 Nov: no monitors on the floor)
+    for (dx, fy, sc) in ((300, 840, .85), (700, 840, .85), (1100, 840, .85), (250, 1010, 1.05), (820, 1010, 1.05)):
+        workstation(c, dx, fy, sc)
     NS.night(c, [('oval', 360, 330, 340, 260, .85), ('oval', 1590, 420, 360, 340, .9), ('oval', 960, 240, 300, 120, .7),
                  ('oval', 700, 850, 700, 160, .7)], ambient='#4C5CA0')
     NS.add_light(c, 1590, 420, 300, '#FFB93C', 110); NS.add_light(c, 360, 320, 220, '#7FA6FF', 70)
@@ -194,3 +209,58 @@ def datacenter():
     NS.night(c, [('oval', 960, 520, 640, 380, .6), ('oval', 960, 160, 540, 90, .85), ('oval', 960, 900, 800, 160, .45)], ambient='#4C5CA0')
     NS.add_light(c, 960, 140, 240, '#FFE2A0', 120); NS.add_light(c, 960, 470, 200, '#7FA6FF', 70)
     NS.frame_out(surf, 'ng_datacenter.png')
+
+
+# ============ NVIDIA OFFICE (night): glass-walled HQ floor, big wall screen (blank: shots draw charts / logo), workstations, plants
+def nvidia_office():
+    surf = skia.Surface(W, H); c = surf.getCanvas()
+    c.drawRect(skia.Rect(0, 0, W, 720), fp('#22355E'))
+    for x in range(0, W, 240): c.drawRect(skia.Rect(x, 0, x + 6, 720), fp('#2E4470'))
+    rect(c, -10, 720, W + 10, H + 10, '#2B2E3E', 0); [line(c, -10, y, W + 10, y, 3, (36, 38, 54)) for y in range(780, H, 60)]
+    city(c, 60, 110, 520, 560, seed=81); rect(c, 60, 110, 520, 560, None, 8); line(c, 290, 110, 290, 560, 7)
+    rect(c, 640, 110, 1280, 520, '#0A1330', 9, r=10); rect(c, 662, 132, 1258, 498, '#0F1E44', 3, r=6)   # big wall screen (blank)
+    rect(c, 940, 520, 980, 600, '#2E2E38', 4)
+    rect(c, 1400, 110, 1860, 560, '#1A2A52', 8); c.drawRect(skia.Rect(1400, 110, 1860, 560), fp((255, 255, 255), 16))   # glass meeting room
+    for xx in (1550, 1710): line(c, xx, 110, xx, 560, 5)
+    for px in (590, 1330):   # plants
+        rect(c, px - 34, 640, px + 34, 720, '#5A3B24', 5, r=8)
+        for k in range(5): oval(c, px - 60 + k * 24, 520 + (k % 2) * 30, px - 20 + k * 24, 650, '#2E4A3E', 4)
+    for (dx, fy, sc) in ((380, 880, .8), (1540, 880, .8), (300, 1050, 1.0), (1620, 1050, 1.0)): workstation(c, dx, fy, sc)
+    NS.night(c, [('oval', 960, 320, 420, 260, .9), ('oval', 300, 340, 300, 260, .8), ('oval', 960, 900, 800, 200, .7), ('oval', 1630, 330, 300, 260, .7)], ambient='#4C5CA0')
+    NS.add_light(c, 960, 320, 360, '#9FD0FF', 80); NS.add_light(c, 960, 860, 420, '#FFB93C', 60)
+    NS.frame_out(surf, 'ng_nvidia_office.png')
+
+
+# ============ NEWSROOM (night): rows of desks, wall of TV screens, big clocks, a front desk for the newspaper
+def newsroom():
+    surf = skia.Surface(W, H); c = surf.getCanvas()
+    c.drawRect(skia.Rect(0, 0, W, 700), fp('#26385F'))
+    rect(c, -10, 700, W + 10, H + 10, '#2E2A3C', 0); [line(c, -10, y, W + 10, y, 3, (40, 36, 54)) for y in range(760, H, 56)]
+    for i in range(6):   # TV wall
+        x0, y0 = 160 + (i % 3) * 300, 110 + (i // 3) * 200; rect(c, x0, y0, x0 + 270, y0 + 170, '#1B1D26', 6, r=6); rect(c, x0 + 12, y0 + 12, x0 + 258, y0 + 158, '#0F1E44', 2, r=4)
+        c.drawRect(skia.Rect(x0 + 12, y0 + 120, x0 + 258, y0 + 158), fp('#2B4A7A')); c.drawRect(skia.Rect(x0 + 20, y0 + 128, x0 + 160, y0 + 140), fp(GOLD_))
+    for k, (cx, nm) in enumerate(((1250, 'NEW YORK'), (1480, 'LONDON'), (1710, 'SINGAPORE'))):
+        circ(c, cx, 220, 80, '#FBF8F0', 6); line(c, cx, 220, cx + 30 * math.cos(k), 220 - 50, 6); line(c, cx, 220, cx + 40, 220 + 10 * k, 5)
+        NS.txt(c, nm, cx, 340, 28, '#9DB0DA', align='center')
+    for (dx, fy, sc) in ((260, 860, .8), (700, 860, .8), (1140, 860, .8), (1580, 860, .8)): workstation(c, dx, fy, sc)
+    NS.night(c, [('oval', 610, 310, 520, 260, .9), ('oval', 1480, 230, 360, 160, .75), ('oval', 960, 900, 900, 200, .7)], ambient='#4C5CA0')
+    NS.add_light(c, 610, 300, 420, '#9FD0FF', 70)
+    NS.frame_out(surf, 'ng_newsroom.png')
+
+
+# ============ CLEAN TOP-DOWN DESK (night): dark wood, lamp pool, pen + mug ring at the edges, empty centre for documents
+def desk_top():
+    """Clean top-down desk: warm dark wood with grain, lamp light from the top-left, soft dark vignette. No print 'night()' pass
+    (it washed the wood out to grey); our own warm shading instead. Empty centre for documents."""
+    surf = skia.Surface(W, H); c = surf.getCanvas()
+    c.drawRect(skia.Rect(0, 0, W, H), fp('#5A3F2C'))
+    rnd = random.Random(7)
+    for i in range(0, H, 14):
+        y = i + rnd.uniform(-2, 2); c.drawLine(0, y, W, y + rnd.uniform(-6, 6), ink(rnd.choice((2, 3, 4)), rnd.choice(('#4A3324', '#664834', '#523928')), 150))
+    for k in range(6):
+        cx, cy = rnd.uniform(200, W - 200), rnd.uniform(150, H - 150); c.drawOval(skia.Rect(cx - 90, cy - 18, cx + 90, cy + 18), ink(3, '#3E2A1E', 120))
+    p = skia.Paint(); p.setShader(skia.GradientShader.MakeRadial((760, 420), 1100, [skia.Color(255, 214, 150, 70), skia.Color(0, 0, 0, 0)])); c.drawRect(skia.Rect(0, 0, W, H), p)
+    v = skia.Paint(); v.setShader(skia.GradientShader.MakeRadial((960, 540), 1150, [skia.Color(0, 0, 0, 0), skia.Color(0, 0, 0, 0), skia.Color(10, 14, 30, 210)], [0, .55, 1])); c.drawRect(skia.Rect(0, 0, W, H), v)
+    c.drawCircle(170, 930, 64, ink(9, '#2E1E14', 150)); c.drawCircle(170, 930, 52, ink(3, '#2E1E14', 100))           # mug ring
+    rect(c, 1560, 930, 1800, 952, GOLD_, 4, r=10); poly(c, [(1800, 930), (1836, 941), (1800, 952)], '#F4EFE2', 3)      # pen, fully in frame
+    NS.frame_out(surf, 'ng_desk_top.png')

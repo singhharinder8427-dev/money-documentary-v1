@@ -76,17 +76,23 @@ def cmd_audio():
     mus = A.music(tl.mood_segments(), total, files=files or None)
     sfx = np.zeros(int(total * A.SR) + A.SR)
     for x in sh:                                                                      # per-shot SFX events
-        for tr, name in x.get('sfx', ()): A.add(sfx, A.SFX[name]() if callable(A.SFX[name]) else A.SFX[name], x['t0'] + tr)
+        for ev in x.get('sfx', ()):
+            tr, name = ev[0], ev[1]; d = ev[2] if len(ev) > 2 else None   # (t, name) or (t, name, duration) for runs / beds
+            if name == 'flips': A.add(sfx, A.page_flips(d), x['t0'] + tr, .9)
+            elif name == 'ring': A.add(sfx, A.phone_ring(d), x['t0'] + tr, .3)   # owner 22 Nov: ring was too loud
+            elif name == 'steps': A.add(sfx, A.footsteps(d), x['t0'] + tr, .8)
+            elif name.startswith('amb:'): A.add(sfx, A.room_tone(name[4:], d or x['dur']), x['t0'] + tr, .55)
+            else: A.add(sfx, A.SFX[name]() if callable(A.SFX[name]) else A.SFX[name], x['t0'] + tr)
         if x.get('whip_out'): A.add(sfx, A.whoosh(), x['t0'] + x['dur'] - .2, .8)
     for e in tl.events:                                                               # cards
         if e['kind'] == 'title': A.add(sfx, A.sound_logo(), e['t0'] + .05)
-        if e['kind'] == 'chapter': A.add(sfx, A.boom() * .5, e['t0'])
+        if e['kind'] == 'chapter': A.add(sfx, A.boom() * .2, e['t0'])   # owner 22 Nov: softer
         if e['kind'] == 'outro': A.add(sfx, A.sound_logo(), e['t0'] + .05)
     for l in tl.lines:                                                                # text cards type, counters tick
         t0, d = tl.cues[l['id']]
         if l.get('card'):
             from engine.widgets import type_times
-            A.add(sfx, A.typing(type_times(l['text'], d), l['text']), t0, .55)   # one key per letter, synced to the card
+            A.add(sfx, A.typing(type_times(l['text'], d), l['text']), t0, .25)   # owner 22 Nov: typing softer   # one key per letter, synced to the card
         if l.get('counter'):
             A.add(sfx, A.counter_ticks(1.4), t0 + .2, .6); A.add(sfx, A.low_tone() if l['counter'].get('colour') == 'orange' else A.ding(), t0 + 1.6, .7)
     out = A.mix(voice[:int(total * A.SR)], mus, sfx[:int(total * A.SR)], str(OUT / 'mix.wav')); print(out)

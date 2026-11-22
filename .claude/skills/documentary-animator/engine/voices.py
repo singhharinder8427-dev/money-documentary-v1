@@ -21,7 +21,7 @@ CHARACTER_VOICES = {   # candidates until the test render; then locked
     'agent': ('am_echo', 0.97), 'reporter': ('af_nicole', 1.0), 'retiree': ('am_michael', 0.92)}
 LEXICON_EXTRA = 'lex_extra.txt'   # per-video extra pronunciations (written automatically by prepare_text)
 # Hand-checked pronunciations (Kokoro symbols, space-separated). Add names here when they come up.
-MANUAL_LEX = {"sec's": 'ˌ ɛ s ˌ i s ˈ i z', 'sec': 'ˌ ɛ s ˌ i s ˈ i', 'ponzi': 'p ˈ ɑ n z i', 'pulitzer': 'p ˈ ʊ l ɪ t s ə ɹ', 'gov': 'ɡ ˈ ʌ v', 'madoff': 'm ˈ A d ɔ f', 'nvidia': 'ɛ n v ˈ ɪ d i ə'}
+MANUAL_LEX = {'huang': 'h w ˈ ɑ ŋ', 'ceo': 'ˌ s i ˌ i ˈ O', 'jensen': 'ʤ ˈ ɛ n s ə n', "sec's": 'ˌ ɛ s ˌ i s ˈ i z', 'sec': 'ˌ ɛ s ˌ i s ˈ i', 'ponzi': 'p ˈ ɑ n z i', 'pulitzer': 'p ˈ ʊ l ɪ t s ə ɹ', 'gov': 'ɡ ˈ ʌ v', 'madoff': 'm ˈ A d ɔ f', 'nvidia': 'ɛ n v ˈ ɪ d i ə'}
 _ONES = 'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split()
 _TENS = 'zero ten twenty thirty forty fifty sixty seventy eighty ninety'.split()
 def _words(n):

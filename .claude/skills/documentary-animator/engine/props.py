@@ -135,3 +135,77 @@ def tag_pair(c, x, y, k=1.0, cross_k=0.0):
         e = min(cross_k, 1); x0, y0 = x - 70, y + 52; x1, y1 = x0 + 140 * e, y0 - 104 * e
         c.drawLine(x0, y0, x1, y1, ink(22, '#F4EFE2')); c.drawLine(x0, y0, x1, y1, ink(12, (24, 22, 27)))
     c.restore()
+
+
+# ---- added 22 Nov 2026 (Nvidia Files QA fixes). PENDING owner approval -> ASSET_LIBRARY.md ----
+NV_GREEN = '#76B900'
+def nvidia_logo(c, x, y, s=1.0, word=True, on_dark=True):
+    """Simple ROUGH 2D Nvidia-style mark (rule 3b): a green square with a white eye-like swirl, + the name. Drawn fresh, not traced."""
+    c.save(); c.translate(x, y); c.scale(s, s)
+    rect(c, -60, -50, 60, 50, NV_GREEN, 5, r=6)
+    p = skia.Path(); p.moveTo(-54, 0); p.cubicTo(-30, -36, 30, -36, 54, 0); p.cubicTo(30, 36, -30, 36, -54, 0); p.close()
+    c.drawPath(p, fp(WHITE)); circ(c, 4, 0, 20, NV_GREEN, 0); circ(c, 4, 0, 9, WHITE, 0)
+    q = skia.Path(); q.moveTo(-60, 22); q.quadTo(-10, 4, 20, -50); c.drawPath(q, ink(6, NV_GREEN))
+    if word: label(c, 'NVIDIA', 78, 22, 64, WHITE if on_dark else NAVY, F_TITLE, 'left')
+    c.restore()
+
+def phone_flat(c, x, y, s=1.0, lit=0.0, t=0.0):
+    """Phone lying FLAT on a table (perspective), screen lights up when lit > 0, buzzes when lit pulses."""
+    bz = math.sin(t * 70) * 3 * lit
+    c.save(); c.translate(x + bz, y); c.scale(s, s)
+    p = skia.Path(); p.moveTo(-70, -22); p.lineTo(70, -22); p.lineTo(90, 22); p.lineTo(-90, 22); p.close()
+    c.drawPath(p, fp('#1B1D26')); c.drawPath(p, ink(5))
+    q = skia.Path(); q.moveTo(-60, -16); q.lineTo(60, -16); q.lineTo(76, 16); q.lineTo(-76, 16); q.close()
+    c.drawPath(q, fp('#FFE2A0' if lit > .5 else '#24365E'))
+    if lit > 0: c.drawOval(skia.Rect(-160, -70, 160, 60), fp(GOLD, int(80 * lit), blur=24))
+    c.restore()
+
+def hair_dryer(c, x, y, s=1.0, ang=0.0, t=0.0, hand=True, sleeve='#6B4A2E', skin='#F0CDA4', blowing=True):
+    """Hair dryer HELD by a hand + sleeve (never floating). Hot-air lines when blowing."""
+    c.save(); c.translate(x, y); c.rotate(ang); c.scale(s, s)
+    if hand:
+        rect(c, -30, 150, 30, 420, sleeve, 6, r=14); rect(c, -34, 140, 34, 168, WHITE, 5, r=6)
+    rect(c, -40, -10, 40, 170, '#2E2E38', 6, r=16); rect(c, -150, -60, 60, 60, '#3A3F4F', 7, r=50); circ(c, -150, 0, 56, '#2E2E38', 6)
+    if hand:
+        oval(c, -48, 40, 48, 140, skin, 6)
+        for i in range(3): rect(c, -56, 54 + i * 26, 2, 74 + i * 26, skin, 4, r=9)
+    if blowing:
+        for i in range(4): c.drawLine(-210, -30 + i * 20, -330 - 20 * math.sin(t * 20 + i), -40 + i * 26, ink(6, GOLD, 160))
+    c.restore()
+
+def handcuffs(c, x, y, s=1.0, close_k=1.0, rot=0.0):
+    """Proper handcuffs: two thick cuffs with a ratchet block each and a 3-link chain; they snap shut as close_k goes 0 -> 1."""
+    c.save(); c.translate(x, y); c.rotate(rot); c.scale(s, s)
+    for sx in (-1, 1):
+        cx = sx * 170; c.save(); c.translate(cx, 0); c.rotate(sx * (1 - close_k) * 30)
+        p = skia.Path(); p.addArc(skia.Rect(-110, -110, 110, 110), 200, 300 - 60 * (1 - close_k)); c.drawPath(p, ink(44, '#14141A')); c.drawPath(p, ink(30, '#C9CFDB'))
+        c.drawPath(p, ink(6, WHITE, 120)); rect(c, -40 * sx - 40, -150, -40 * sx + 40, -70, '#AEB4C2', 6, r=10); circ(c, -40 * sx, -110, 10, '#14141A', 0)
+        c.restore()
+    for i in range(3):
+        cx = -70 + i * 70; oval(c, cx - 36, -126, cx + 36, -94, None, 0); c.drawOval(skia.Rect(cx - 36, -126, cx + 36, -94), ink(16, '#14141A')); c.drawOval(skia.Rect(cx - 36, -126, cx + 36, -94), ink(9, '#C9CFDB'))
+    c.restore()
+
+def scooter_rider(c, x, y, s=1.0, t=0.0, skin='#C98E62', jacket='#2B4A7A', box='#C9A26A'):
+    """Delivery scooter WITH a rider (helmet, jacket) and a pizza box on the back."""
+    c.save(); c.translate(x, y + 4 * math.sin(t * 25)); c.scale(s, s)
+    circ(c, -110, 60, 50, '#2E2E38', 6); circ(c, 110, 60, 50, '#2E2E38', 6); circ(c, -110, 60, 18, '#9DB0DA', 4); circ(c, 110, 60, 18, '#9DB0DA', 4)
+    rect(c, -150, -20, 150, 40, '#2B4A7A', 6, r=20); line(c, 120, -20, 160, -140, 10); line(c, 140, -140, 190, -140, 10)
+    rect(c, -200, -150, -70, -20, box, 5, r=4); label(c, 'PIZZA', -135, -76, 30, NAVY, F_LABEL, 'center')
+    rect(c, -40, -200, 50, -20, jacket, 6, r=24); line(c, 40, -150, 150, -135, 14, jacket); circ(c, 150, -135, 14, skin, 4)
+    line(c, 10, -20, 70, 40, 16, '#1E2A40'); circ(c, 5, -250, 52, skin, 6)
+    p = skia.Path(); p.addArc(skia.Rect(-55, -310, 65, -190), 180, 180); c.drawPath(p, fp(GOLD)); c.drawPath(p, ink(6)); rect(c, 20, -262, 62, -240, '#24365E', 4, r=6)
+    c.restore()
+
+def paper_in_hand(c, hx, hy, s=1.0, title='STATEMENT', lines=('S&P 500 index fund',), rot=6.0):
+    """A sheet held at a character's hand position (kit.hand_pos), so documents are never floating."""
+    c.save(); c.translate(hx, hy); c.rotate(rot); c.scale(s, s)
+    rect(c, -20, -240, 300, 160, PAPER, 5); label(c, title, 0, -190, 38, NAVY, F_LABEL)
+    for i, ln in enumerate(lines): label(c, ln, 0, -130 + i * 46, 30, NAVY, F_TYPE)
+    circ(c, 0, 0, 22, '#E9B98F', 5); c.restore()
+
+def phone_in_hand(c, hx, hy, s=1.0, lit=True):
+    """Phone held at a hand position (for poses other than 'phone')."""
+    c.save(); c.translate(hx, hy - 30 * s); c.scale(s, s)
+    rect(c, -26, -50, 26, 50, '#1B1D26', 5, r=8); c.drawRect(skia.Rect(-20, -42, 20, 40), fp('#FFE2A0' if lit else '#24365E'))
+    if lit: c.drawCircle(0, 0, 60, fp(GOLD, 50, blur=18))
+    c.restore()

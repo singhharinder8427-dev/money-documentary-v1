@@ -73,10 +73,10 @@ def arrow(c, x0, y0, x1, y1, u, color=GOLD, wdt=60):
     poly(c, [(x0, y0 - wdt / 2), (xe - hd, y0 - wdt / 2), (xe - hd, y0 - wdt), (xe, y0), (xe - hd, y0 + wdt), (xe - hd, y0 + wdt / 2), (x0, y0 + wdt / 2)], color, 7)
 
 # ---------------- cards (full screen)
-TYPE_CPS = (9.0, 16.0)   # typing speed range (characters per second): believable, but finishes inside the voice line
+TYPE_CPS = (14.0, 40.0)   # typing speed range (characters per second). Owner QA 22 Nov: typing finishes by HALF the line so it can be read
 def type_times(s, dur):
     """Reveal time of every character of a typed card (same times drive the typewriter sound)."""
-    n = max(len(s), 1); cps = min(max(n / max(dur * .85, .1), TYPE_CPS[0]), TYPE_CPS[1])
+    n = max(len(s), 1); cps = min(max(n / max(dur * .5, .1), TYPE_CPS[0]), TYPE_CPS[1])
     return [i / cps for i in range(len(s))]
 def text_card(c, s, t, gold_words=(), bg=BLACK, size=78, color=WHITE, dur=3.0):
     """Typed text card: Special Elite, revealed LETTER BY LETTER at a typewriter pace (type_times), gold block cursor.

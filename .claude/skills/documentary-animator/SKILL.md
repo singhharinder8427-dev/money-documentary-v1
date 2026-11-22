@@ -98,7 +98,7 @@ Work in `videos/<slug>/` (the video folder). The runner is `make_video.py` in th
    `CHARACTER_VOICES`). Without a narration file, narrator lines get a temporary Kokoro voice so work can start.
    Watch the log for `NOT MATCHED` lines and Kokoro OOV warnings (add the word to `lex_extra.txt`).
 4. **Shot list** - copy `template/shots.py` to the video folder and write **one picture per sentence** (rules below).
-5. **Creative quality check (mandatory, by Claude)** - run `python <skill>/make_video.py qa` (3 frames per shot with the REAL camera zoom/pan, HUD and captions -> `out/qa_sheet_N.jpg`; `QA_ONLY=n012,n013` re-checks only changed shots). Never skip it, never render before it. It means: render 3 frames per shot (start / middle / end) into ONE
+5. **Creative quality check (mandatory, by Claude) - follow `QA_CHECKLIST.md` (repo root) item by item every time** - run `python <skill>/make_video.py qa` (3 frames per shot with the REAL camera zoom/pan, HUD and captions -> `out/qa_sheet_N.jpg`; `QA_ONLY=n012,n013` re-checks only changed shots). Never skip it, never render before it. It means: render 3 frames per shot (start / middle / end) into ONE
    compact sheet and review every shot against this checklist; fix everything before the owner renders:
    - **Mistakes:** cut-off text or props, overlaps, empty first frames, characters hidden or too small, tables/props
      not readable, wrong colours (orange only for losses, no green), facts on screen that the script doesn't support.

@@ -24,7 +24,7 @@
 - **NARRATOR:** Ten days later, he writes to his own employees.
 - **HUANG:** I was unfaithful to my wife. [CARD]
 - **NARRATOR:** Four days after that, he is out. The co-founder of the first company ever worth four trillion dollars.
-- **NARRATOR:** At the center stands a woman U.S. officials reportedly believe worked for China.
+- **NARRATOR:** At the center stands a woman United States officials reportedly believe worked for China.
 - **NARRATOR:** She has not been charged. China calls the claim groundless. [CARD]
 - **NARRATOR:** And how this reaches your retirement account is closer than you think.
 - **NARRATOR:** So who is she? And how did she end up beside the most powerful man in AI? [CARD]
@@ -40,7 +40,7 @@
 - **NARRATOR:** Now it wanted to rent out computing power. The kind built on Nvidia chips.
 - **NARRATOR:** Everyone wants those chips. Not everyone is allowed to have them.
 - **NARRATOR:** Jensen Huang co-founded Nvidia in 1993. For thirty-three years, he was its only CEO.
-- **NARRATOR:** Its boss was Alice Huang. A Chinese national, according to U.S. reports. A Hong Kong resident, according to Singapore.
+- **NARRATOR:** Its boss was Alice Huang. A Chinese national, according to United States reports. A Hong Kong resident, according to Singapore.
 - **NARRATOR:** No relation to Jensen Huang. Same last name. That is all.
 - **NARRATOR:** In 2023, Megaspeed's assets were about thirty-three million dollars. [COUNTER 0->33000000 gold]
 - **NARRATOR:** A year later, almost three billion. [COUNTER 33000000->3000000000 gold]
@@ -49,7 +49,7 @@
 - **ANALYST:** Maybe. (dramatised)
 - **NARRATOR:** One Tufts professor said the company appeared out of nowhere.
 - **NARRATOR:** Then, on December seventh, 2023, a photo. Jensen and Alice Huang, at a Singapore restaurant.
-- **NARRATOR:** By September 2024, a U.S. official was walking through a data center in Malaysia.
+- **NARRATOR:** By September 2024, a United States official was walking through a data center in Malaysia.
 - **INSPECTOR:** Why are these Nvidia servers still sitting in their boxes? (dramatised)
 - **COLLEAGUE:** Should I take photos? (dramatised)
 - **INSPECTOR:** Of every box. (dramatised)
@@ -62,7 +62,7 @@
 - **NARRATOR:** Singapore noticed Megaspeed too. In February 2025, its police and customs opened an investigation.
 - **NARRATOR:** The suspicion: false declarations about server purchases. Singapore says it acted on its own. No foreign request.
 - **NARRATOR:** Then came June twenty-fourth, 2025.
-- **NARRATOR:** U.S. export officials inspect a Megaspeed site. Alice Huang is there.
+- **NARRATOR:** United States export officials inspect a Megaspeed site. Alice Huang is there.
 - **NARRATOR:** That same day, Singapore police interview her. And impound her passport.
 - **OFFICER:** Please hand over your passport. You are not leaving yet. (dramatised)
 - **NARRATOR:** The same month, Nvidia says it cut Megaspeed off. No new orders. No shipments.
@@ -80,10 +80,10 @@
 - **NARRATOR:** So how do banned chips allegedly reach China? Three ways.
 - **NARRATOR:** One. Smuggling. Prosecutors in a separate case say workers swapped labels with a hair dryer.
 - **WORKER:** This sticker will not budge. (dramatised)
-- **COLLEAGUE:** Hit it with the hair dryer. (dramatised)
+- **COLLEAGUE:** Use the hair dryer. (dramatised)
 - **NARRATOR:** Two. Middlemen. A company in Southeast Asia buys the servers and quietly passes them on.
 - **NARRATOR:** Three. Renting. The chips never leave Asia. A buyer in China just logs in from afar.
-- **NARRATOR:** In May 2025, the Commerce Department warned U.S. firms to watch for partners offering cloud access to China.
+- **NARRATOR:** In May 2025, the Commerce Department warned United States firms to watch for partners offering cloud access to China.
 - **NARRATOR:** Think of a pizza oven banned in one town. Nobody can sell you the oven. But anyone can sell you pizza.
 - **CUSTOMER:** One pizza oven, please. (dramatised)
 - **SELLER:** Sorry. Ovens are banned in this town. (dramatised)
@@ -91,13 +91,13 @@
 - **SELLER:** Pizza is fine. (dramatised)
 - **NARRATOR:** No one has proven Megaspeed did any of this. The company flatly denies it. [CARD]
 - **NARRATOR:** Last December it said there was no evidence of illicit chip transfers.
-- **NARRATOR:** But U.S. intelligence wasn't only watching the chips. It was listening.
+- **NARRATOR:** But United States intelligence wasn't only watching the chips. It was listening.
 
 ## MIDPOINT TWIST
 - **NARRATOR:** Here is what almost nobody outside Washington knew.
-- **NARRATOR:** According to the New York Times, U.S. intelligence was watching Alice Huang.
+- **NARRATOR:** According to the New York Times, United States intelligence was watching Alice Huang.
 - **NARRATOR:** And the American on the other end, reportedly, was the CEO of Nvidia. [CARD]
-- **NARRATOR:** U.S. rules hide Americans' names in surveillance. Officials asked to reveal this one.
+- **NARRATOR:** United States rules hide Americans' names in surveillance. Officials asked to reveal this one.
 - **ANALYST:** The American's name is masked. (dramatised)
 - **SUPERVISOR:** Then ask them to unmask it. (dramatised)
 - **NARRATOR:** The name came back. Jensen Huang. [CARD]
@@ -107,7 +107,7 @@
 - **NARRATOR:** People briefed on the surveillance said officials had concluded that Alice Huang was a Chinese intelligence asset.
 - **NARRATOR:** It also said Huang never got a defensive briefing. A warning agencies sometimes give.
 - **NARRATOR:** Nvidia's answer came fast. Megaspeed was one of many regional customers, it said.
-- **NARRATOR:** Huang said the U.S. government had never told him of its suspicions.
+- **NARRATOR:** Huang said the United States government had never told him of its suspicions.
 - **NARRATOR:** China's foreign ministry called the spy claim groundless speculation.
 - **NARRATOR:** Attorney General Todd Blanche later said the Justice Department had reached no conclusion on whether she was a spy.
 - **NARRATOR:** Singapore added a twist. Its Home Affairs ministry said she was never investigated for espionage.

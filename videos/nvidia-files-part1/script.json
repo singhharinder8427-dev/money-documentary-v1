@@ -98,7 +98,7 @@
    "beat": "HOOK",
    "chapter": null,
    "speaker": "NARRATOR",
-   "text": "At the center stands a woman U.S. officials reportedly believe worked for China.",
+   "text": "At the center stands a woman United States officials reportedly believe worked for China.",
    "card": false,
    "counter": null,
    "dramatised": false,
@@ -256,7 +256,7 @@
    "beat": "CH1",
    "chapter": "Out of Nowhere",
    "speaker": "NARRATOR",
-   "text": "Its boss was Alice Huang. A Chinese national, according to U.S. reports. A Hong Kong resident, according to Singapore.",
+   "text": "Its boss was Alice Huang. A Chinese national, according to United States reports. A Hong Kong resident, according to Singapore.",
    "card": false,
    "counter": null,
    "dramatised": false,
@@ -392,7 +392,7 @@
    "beat": "CH1",
    "chapter": "Out of Nowhere",
    "speaker": "NARRATOR",
-   "text": "By September 2024, a U.S. official was walking through a data center in Malaysia.",
+   "text": "By September 2024, a United States official was walking through a data center in Malaysia.",
    "card": false,
    "counter": null,
    "dramatised": false,
@@ -427,7 +427,7 @@
    "dramatised": true,
    "sources": [],
    "shot_hint": "second inspector, clipboard (generic, dramatised)",
-   "voice": "worker"
+   "voice": "reporter"
   },
   {
    "id": "n024c",
@@ -548,7 +548,7 @@
    "beat": "CH2",
    "chapter": "Still in the Boxes",
    "speaker": "NARRATOR",
-   "text": "U.S. export officials inspect a Megaspeed site. Alice Huang is there.",
+   "text": "United States export officials inspect a Megaspeed site. Alice Huang is there.",
    "card": false,
    "counter": null,
    "dramatised": false,
@@ -613,7 +613,7 @@
     "S8"
    ],
    "shot_hint": "order desk, phone to ear (generic, dramatised)",
-   "voice": "worker"
+   "voice": "reporter"
   },
   {
    "id": "n039c",
@@ -776,7 +776,7 @@
    "beat": "CH3",
    "chapter": "How the Door Opens",
    "speaker": "COLLEAGUE",
-   "text": "Hit it with the hair dryer.",
+   "text": "Use the hair dryer.",
    "card": false,
    "counter": null,
    "dramatised": true,
@@ -819,7 +819,7 @@
    "beat": "CH3",
    "chapter": "How the Door Opens",
    "speaker": "NARRATOR",
-   "text": "In May 2025, the Commerce Department warned U.S. firms to watch for partners offering cloud access to China.",
+   "text": "In May 2025, the Commerce Department warned United States firms to watch for partners offering cloud access to China.",
    "card": false,
    "counter": null,
    "dramatised": false,
@@ -851,7 +851,7 @@
    "dramatised": true,
    "sources": [],
    "shot_hint": "analogy scene, shop counter (generic, dramatised)",
-   "voice": "saver"
+   "voice": "grad"
   },
   {
    "id": "n054c",
@@ -877,7 +877,7 @@
    "dramatised": true,
    "sources": [],
    "shot_hint": "customer perks up (generic, dramatised)",
-   "voice": "saver"
+   "voice": "grad"
   },
   {
    "id": "n054e",
@@ -925,7 +925,7 @@
    "beat": "CH3",
    "chapter": "How the Door Opens",
    "speaker": "NARRATOR",
-   "text": "But U.S. intelligence wasn't only watching the chips. It was listening.",
+   "text": "But United States intelligence wasn't only watching the chips. It was listening.",
    "card": false,
    "counter": null,
    "dramatised": false,
@@ -954,7 +954,7 @@
    "beat": "TWIST",
    "chapter": null,
    "speaker": "NARRATOR",
-   "text": "According to the New York Times, U.S. intelligence was watching Alice Huang.",
+   "text": "According to the New York Times, United States intelligence was watching Alice Huang.",
    "card": false,
    "counter": null,
    "dramatised": false,
@@ -983,7 +983,7 @@
    "beat": "TWIST",
    "chapter": null,
    "speaker": "NARRATOR",
-   "text": "U.S. rules hide Americans' names in surveillance. Officials asked to reveal this one.",
+   "text": "United States rules hide Americans' names in surveillance. Officials asked to reveal this one.",
    "card": false,
    "counter": null,
    "dramatised": false,
@@ -1100,7 +1100,7 @@
    "beat": "CH4",
    "chapter": "Completely Normal",
    "speaker": "NARRATOR",
-   "text": "Huang said the U.S. government had never told him of its suspicions.",
+   "text": "Huang said the United States government had never told him of its suspicions.",
    "card": false,
    "counter": null,
    "dramatised": false,

@@ -129,3 +129,22 @@ Reference notes: `graphics/codex-library/*.md`. Status for all rows: **IMPORTED*
 | Reaching hand (sleeve + fingers) | props `velvet_display(hand_k)` | redrawn from the stick arm | LOCKED |
 | Codex sets, first use | `night/investigation_room`, `day/shop_counter`, `day/press_conference`, `night/apartment_hallway`, `day/boardroom` | approved as they are (no restyle) for this video | LOCKED |
 | Kit add-ons | kit `hat_style='peaked'`, `badge`, `apron` | usable on any character | LOCKED |
+
+## PENDING - Nvidia Files Part 1 QA fixes (22 Nov 2026, owner to approve)
+| Name | Code key | Notes | Status |
+|---|---|---|---|
+| Nvidia logo (rough 2D) | props `nvidia_logo` | green square + white eye swirl + NVIDIA name, drawn fresh (rule 3b) | PENDING |
+| Phone lying flat | props `phone_flat` | on tables, lights up / buzzes | PENDING |
+| Hair dryer in hand | props `hair_dryer` | with sleeve + hand, hot-air lines | PENDING |
+| Handcuffs | props `handcuffs` | two cuffs + 3-link chain, snap shut | PENDING |
+| Delivery scooter with rider | props `scooter_rider` | helmet, jacket, pizza box | PENDING |
+| Paper / phone held in hand | props `paper_in_hand`, `phone_in_hand` | placed at kit.hand_pos | PENDING |
+| Phone pose always holds a phone | kit `_draw_arm` | engine-wide fix | PENDING |
+| Emotion-matched talking mouth | actor `draw` | wide grin only on happy lines | PENDING |
+| Office workstation | ng_scenes `workstation` | desk on legs, drawer, monitor on stand, chair, keyboard, mug | PENDING |
+| Megaspeed office (repaired desks) | set `night/megaspeed` | LOCKED set changed at owner's request (desks were on the floor) | PENDING |
+| Nvidia office | set `night/nvidia_office` | wall screen, glass meeting room, plants, workstations | PENDING |
+| Newsroom | set `night/newsroom` | TV wall, world clocks, desks | PENDING |
+| Clean top-down desk | set `night/desk_clean` | dark wood, mug ring, pen, laptop corner, empty centre for documents | PENDING |
+| Sounds | audio `page_flips`, `phone_ring`, `pickup`, `footsteps`, `room_tone` | flips, buzz+ring, pickup, steps, hum/murmur/rumble/static | PENDING |
+| Flags | anim `flag` china / singapore / malaysia | simplified national flags | PENDING |

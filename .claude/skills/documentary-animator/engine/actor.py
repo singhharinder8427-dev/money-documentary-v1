@@ -36,7 +36,9 @@ class Actor:
         squash = 0.06 * max(0, 1 - t / 0.25) * math.sin(t / 0.25 * math.pi) if t < 0.25 else 0.0
         for tl, lid, mouths in self.lines:
             m = tl.mouth_at(mouths, lid, abs_t)
-            if m: e['mouth'] = {'open': 'open', 'mid': 'mid', 'closed': 'flat'}[m]
+            if m:   # talking mouth follows the emotion (QA 22 Nov): the wide teeth 'open' mouth only on happy lines, else a neutral / shocked shape
+                base = e['mouth']; happy = base in ('smile', 'smirk', 'open', 'grin')
+                e['mouth'] = {'open': 'open' if happy else ('o' if base == 'o' else 'mid'), 'mid': 'mid' if happy or base != 'o' else 'o', 'closed': base if base in ('flat', 'smile', 'smirk', 'o') else 'flat'}[m]
         eyes = 'closed' if kit.blink(t, 2.7, self.phase) and e['eyes'] in ('dot', 'wide') else e['eyes']
         kit.draw_char(c, x, y, self.s, self.spec, face=self.face, eyes=eyes, mouth=e['mouth'], brow=e['brow'], brow_tilt=e['brow_tilt'],
                       arms=self._arms(t), bob=bob, squash=squash, sweat=(t % 1.0) if e['sweat'] >= 0 else -1.0, light=self.light, rim=self.rim,

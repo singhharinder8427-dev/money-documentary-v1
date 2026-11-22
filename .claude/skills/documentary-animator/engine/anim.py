@@ -94,6 +94,18 @@ def flag(c, kind, cx, cy, w, h, t=0.0, style=None):
         x0 = cx - w / 2 + i * sw; u = i / n; dy = math.sin(u * 6 + t * 4) * h * .04 * u; shade = 1 - .12 * (math.sin(u * 6 + t * 4) * .5 + .5) * u
         def P(hexc):
             r_, g_, b_ = (int(hexc[k:k + 2], 16) for k in (1, 3, 5)); return (r_ * shade, g_ * shade, b_ * shade)
+        if kind in ('china', 'singapore', 'malaysia'):   # national flags (allowed exception to the no-green / colour rules)
+            if kind == 'china': cc = '#DE2910'
+            elif kind == 'singapore': cc = '#EF3340'
+            else: cc = '#CC0001'
+            if kind == 'singapore':
+                c.drawRect(skia.Rect(x0, cy - h / 2 + dy, x0 + sw + .8, cy + dy), fp(P('#EF3340'))); c.drawRect(skia.Rect(x0, cy + dy, x0 + sw + .8, cy + h / 2 + dy), fp(P('#FFFFFF')))
+            elif kind == 'malaysia':
+                for k in range(14):
+                    y0 = cy - h / 2 + k * h / 14 + dy; c.drawRect(skia.Rect(x0, y0, x0 + sw + .8, y0 + h / 14 + .8), fp(P('#CC0001' if k % 2 == 0 else '#FFFFFF')))
+                if u < .5: c.drawRect(skia.Rect(x0, cy - h / 2 + dy, x0 + sw + .8, cy - h / 2 + dy + h * 8 / 14), fp(P('#010066')))
+            else: c.drawRect(skia.Rect(x0, cy - h / 2 + dy, x0 + sw + .8, cy + h / 2 + dy), fp(P(cc)))
+            continue
         if kind == 'italy':
             cc = col['green'] if u < 1 / 3 else col['white'] if u < 2 / 3 else col['red']
             c.drawRect(skia.Rect(x0, cy - h / 2 + dy, x0 + sw + .8, cy + h / 2 + dy), fp(P(cc)))
@@ -103,6 +115,16 @@ def flag(c, kind, cx, cy, w, h, t=0.0, style=None):
                 c.drawRect(skia.Rect(x0, y0, x0 + sw + .8, y0 + h / 13 + .8), fp(P(cc)))
             if u < .42:
                 c.drawRect(skia.Rect(x0, cy - h / 2 + dy, x0 + sw + .8, cy - h / 2 + dy + h * 7 / 13), fp(P(col['blue'])))
+    if kind == 'china':   # one big star + four small, simplified
+        def star(x, y, r, rot=0):
+            pts = [skia.Point(x + (r if k % 2 == 0 else r * .4) * math.cos(math.radians(-90 + rot + k * 36)), y + (r if k % 2 == 0 else r * .4) * math.sin(math.radians(-90 + rot + k * 36))) for k in range(10)]
+            c.drawPath(skia.Path.Polygon(pts, True), fp('#FFDE00'))
+        star(cx - w * .33, cy - h * .2, h * .16)
+        for i, (dx, dy2) in enumerate(((-.17, -.38), (-.1, -.26), (-.1, -.1), (-.17, .02))): star(cx + w * dx, cy + h * dy2, h * .055, 20 * i)
+    if kind == 'singapore':
+        c.drawCircle(cx - w * .3, cy - h * .25, h * .16, fp('#FFFFFF')); c.drawCircle(cx - w * .26, cy - h * .25, h * .15, fp('#EF3340'))
+    if kind == 'malaysia':
+        c.drawCircle(cx - w * .3, cy - h * .2, h * .17, fp('#FFCC00')); c.drawCircle(cx - w * .27, cy - h * .2, h * .15, fp('#010066'))
     if kind == 'usa':
         for r_ in range(4):
             for k in range(5): c.drawCircle(cx - w / 2 + w * .05 + k * w * .075 + (r_ % 2) * w * .035, cy - h / 2 + h * .07 + r_ * h * .12, w * .012, fp(col['white']))

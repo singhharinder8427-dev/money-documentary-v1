@@ -224,6 +224,9 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
         e, h, show = _arm(a); m = 1 if side < 0 else -1
         sx, sy = SHOULDER[0] * m, SHOULDER[1]; ex, ey, hx_, hy_ = e[0] * m, e[1], h[0] * m, h[1]
         ap = skia.Path(); ap.moveTo(sx, sy); ap.quadTo(1.35*ex - .175*(sx+hx_), 1.35*ey - .175*(sy+hy_), hx_, hy_); c.drawPath(ap, ink(lw))
+        if (a if isinstance(a, str) else a[1]) == 'phone':   # the phone pose ALWAYS holds a phone (QA 22 Nov: never an empty hand at the ear)
+            c.save(); c.translate(hx_ + 6 * m, hy_ - 4); c.rotate(-12 * m)
+            rect(c, -15, -46, 15, 40, '#1B1D26', lw * .7, r=7); c.drawRect(skia.Rect(-10, -38, 10, 30), fp('#2B4A7A')); c.restore()
         if show: circ(c, hx_, hy_, 13, spec['skin'], lw * .8)
     front = [(sd, a) for sd, a in ((-1, arms[0]), (1, arms[1])) if (a if isinstance(a, str) else a[1]) in FRONT_POSES]
     for side, a in ((-1, arms[0]), (1, arms[1])):

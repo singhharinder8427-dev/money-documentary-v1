@@ -80,6 +80,9 @@ SETS = {
  'night/kitchen':  dict(fn=NS.kitchen, plane=0, extras='none', spots={'left': (640, 1060, 1.05), 'right': (1180, 1060, 1.05)}),
  # ---- The Nvidia Files, part 1 chapter 1
  'night/sg_street':  dict(fn=NG.sg_street, plane=None, extras='none', spots={'walk': (900, 905, .6), 'door': (960, 800, .5), 'left': (560, 905, .6), 'right': (1300, 905, .6)}),
+ 'night/nvidia_office': dict(fn=NG.nvidia_office, plane=None, extras='none', spots={'left': (700, 1010, 1.0), 'center': (960, 1010, 1.0), 'right': (1220, 1010, 1.0)}),
+ 'night/newsroom': dict(fn=NG.newsroom, plane=None, extras='none', spots={'center': (960, 1010, 1.0)}),
+ 'night/desk_clean': dict(fn=NG.desk_top, plane=None, extras='none', spots={}),          # top-down desk WITHOUT the Ponzi leftovers (QA 22 Nov)
  'night/megaspeed':  dict(fn=NG.megaspeed_office, plane=None, extras='none', spots={'desk_left': (330, 1010, 1.0), 'center': (960, 1000, 1.0), 'right': (1450, 1000, 1.0)}),
  'night/diner93':    dict(fn=NG.diner93, plane=0, extras='none', spots={'left': (800, 1010, 1.1), 'right': (1280, 1010, 1.1)}),
  'night/restaurant': dict(fn=NG.restaurant, plane=0, extras='none', spots={'left': (760, 1060, 1.18), 'right': (1160, 1060, 1.18)}),
