@@ -50,6 +50,7 @@ def speakable(text):
         if n < 100 and n % 10 in ORD: return _TENS[n // 10] + '-' + ORD[n % 10]
         return _words(n) + 'th'
     text = re.sub(r'\b(\d+)(?:st|nd|rd|th)\b', ordinal, text)                      # 2nd -> second
+    text = text.replace('S&P', 'S and P')                                          # Kokoro drops '&' words (OOV)
     t = re.sub(r'\$?\d+(?:,\d{3})*(?:\.\d+)?%?', num, text)
     t = re.sub(r'(\w)\s*dollars\s+(million|billion|trillion|thousand)', r'\1 \2 dollars', t)
     return t

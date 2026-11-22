@@ -135,7 +135,7 @@ def build(tl):
         for i, w_ in enumerate((900, 760, 840)):                                              # headline kept blurred (not shown)
             c.drawRoundRect(skia.Rect(960 - w_ / 2, 400 + i * 100, 960 + w_ / 2, 470 + i * 100), 12, 12, fp(NAVY, 200 if t > .7 or push else 0, blur=10))
     def n002a(t0): return dict(draw=plain(lambda c, t: paper(c, t)), zoom=(1.0, 1.08), sfx=[(.05, 'whoosh'), (.7, 'stamp')], shake=shake(.7))
-    def n002b(t0): return dict(draw=plain(lambda c, t: paper(c, t, True)), zoom=(1.5, 1.9), focus=((960, 480), (960, 520)), hud=HUDPOP('a woman close to him', 960, 960, .4, GOLD, 90, -2))
+    def n002b(t0): return dict(draw=plain(lambda c, t: paper(c, t, True)), zoom=(1.5, 1.7), focus=((960, 480), (960, 440)), hud=HUDPOP('a woman close to him', 960, 960, .4, GOLD, 90, -2))
     multi('n002', [(.45, n002a), (.55, n002b)])
 
     # 5  n003  HUANG (real on-record quote, Bloomberg Oct 29): close-up, calm smile, phone at the ear
@@ -339,7 +339,7 @@ def build(tl):
 
     # 26  n024  inspector asks about the boxes: close-up, then the flashlight lands on the crates
     qi = say(Actor('inspector', 960, 1390, 2.15, face=.4, rim=NR).expression(0, eyes='wide', mouth='o', brow=.4).pose(.2, ('hold', 'point')), 'n024')
-    add('n024', shots.closeup('night/datacenter', qi, focus=(1300, 700), overlay=lambda c, t: props.flashlight(c, 1230, 930, -25 + 30 * ease(K(t, 0, D('n024'))), 640, 240, .9), t0=at('n024')),
+    add('n024', shots.closeup('night/datacenter', qi, focus=(1300, 700), overlay=lambda c, t: None if t < .5 else props.flashlight(c, 1515, 708, -10 + 30 * ease(K(t, 0, D('n024'))), 640, 240, .9), t0=at('n024')),
         zoom=(1.0, 1.1), sfx=[(.1, 'whoosh')])
     # 27  n024b  colleague with clipboard: should I take photos?
     cl = say(Actor('inspector2', 960, 1390, 2.15, face=-.4, rim=NR).expression(0, eyes='dot', mouth='smile').pose(.2, ('hold', 'hip')), 'n024b')
@@ -489,7 +489,7 @@ def build(tl):
         A.newspaper(c, 960, 520, t, 'The New York Times', ' ', None); Wd.text(c, 'OCTOBER 2025', 960, 900, 40, '#9DB0DA', F_LABEL, 'center') if t > .7 else None
         for i, w_ in enumerate((900, 760)): c.drawRoundRect(skia.Rect(960 - w_ / 2, 380 + i * 100, 960 + w_ / 2, 450 + i * 100), 12, 12, fp(NAVY, 200 if t > .7 else 0, blur=10))
     multi('n044b', [(.3, lambda t0: dict(draw=plain(nyt), zoom=(1.0, 1.08), sfx=[(.05, 'whoosh'), (.7, 'stamp')], shake=shake(.7))),
-                    (.3, lambda t0: dict(draw=plain(lambda c, t: nyt(c, 9)), zoom=(1.4, 1.6), focus=(960, 450), hud=HUDPOP('Is China buying banned Nvidia chips?', 960, 800, .2, GOLD, 76, -2))),
+                    (.3, lambda t0: dict(draw=plain(lambda c, t: nyt(c, 9)), zoom=(1.4, 1.5), focus=(960, 450), hud=HUDPOP('Is China buying banned Nvidia chips?', 960, 800, .2, GOLD, 76, -2))),
                     (.4, lambda t0: dict(draw=plain(lambda c, t: ([props.chip(c, 380 + i * 290, 880 - 30 * (i % 2), .8, glow=.3 * K(t, .3 + i * .15, .3), accent=NG) for i in range(5)],
                                                                          Wd.counter(c, 960, 420, 0, 2_000_000_000, (t - .1) / 1.6, label='poised to buy within a year (reported)', size=120))),
                                          zoom=(1.0, 1.1), sfx=[(.2, 'tick'), (1.8, 'ding')]))])
@@ -647,7 +647,7 @@ def build(tl):
     add('n070', plain(nyt2), zoom=(1.0, 1.15), sfx=[(.05, 'whoosh'), (.7, 'stamp')], shake=shake(.7), hud=HUDPOP('goes public', 1700, 700, 1.0, GOLD, 90, -6))
     R71 = ['People briefed on the surveillance:', 'officials had concluded she was', 'a Chinese intelligence asset']
     multi('n071', [(.5, lambda t0: dict(draw=plain(lambda c, t: doc(c, 960, 540, 'The New York Times reports', R71, t / 1.4, hl=2, label_txt='REPORTED, NOT PROVEN')), zoom=(1.0, 1.1), sfx=[(.1, 'paper')])),
-                   (.5, lambda t0: dict(draw=plain(lambda c, t: doc(c, 960, 540, 'The New York Times reports', R71, 3, hl=2, hl_t=0, label_txt='REPORTED, NOT PROVEN')), zoom=(1.45, 1.7), focus=((900, 600), (1000, 620)),
+                   (.5, lambda t0: dict(draw=plain(lambda c, t: doc(c, 960, 540, 'The New York Times reports', R71, 3, hl=2, hl_t=0, label_txt='REPORTED, NOT PROVEN')), zoom=(1.45, 1.55), focus=((900, 600), (1000, 580)),
                                         hud=lambda c, t: Wd.stamp(c, 'Reported', 1250, 720, t - .3, GOLD, rot=-8, size=90), sfx=[(.3, 'stamp')], shake=shake(.3)))])
     def warn_env(c, t):
         c.save(); c.translate(960, 600 + 6 * math.sin(t * 1.5)); c.rotate(-3)
@@ -735,7 +735,7 @@ def build(tl):
     add('n084', plain(lambda c, t: drop(c, t, D('n084'))), zoom=(1.0, 1.08), sfx=[(1.3, 'falling')])
     talk('n084b', 'trader', 'night/trading', (700, 600), .4, 'The Trader', 'Dramatised', dict(mouth='o', eyes='wide', brow=.6), ('phone', 'down'))
     def coffee(c, t):
-        k = K(t, .5, .5); x, y = 1300 + 80 * k, 820 + 300 * k ** 2; c.save(); c.translate(x, y); c.rotate(70 * k)
+        k = K(t, .5, .5); x, y = 1185 + 195 * k, 920 + 200 * k ** 2; c.save(); c.translate(x, y); c.rotate(70 * k)
         rect(c, -50, -70, 50, 70, WHITE, 6, r=10); c.drawRect(skia.Rect(-44, -64, 44, -40), fp('#5A3B24')); c.restore()
         if t > 1.0: [c.drawCircle(1380 + 40 * math.cos(i), 1060 + 10 * math.sin(i * 2), 16, fp('#5A3B24')) for i in range(6)]
     talk('n084c', 'trader', 'night/trading', (1250, 600), -.4, 'The Second Trader', 'Dramatised', dict(mouth='o', eyes='wide', brow=.6), ('hold', 'down'),
