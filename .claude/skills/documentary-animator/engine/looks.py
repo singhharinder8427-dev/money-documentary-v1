@@ -68,16 +68,22 @@ def grain(rgb, base=232, fine=9, soft=34, seed=5):
 #   2. this pass puts our brand on it: unlit parts go onto our 4 night navies with a hint of the real colour,
 #      only real light sources keep full colour, halftone dots in shadows, navy sky with dots + stars,
 #      gold lamp heads, company logo colours stay true, dark-navy dotted vignette, paper grain.
-def real_night(a, sky=None, pools=(), glows=(), spot_gold=(), keep=(), src_level=.72):
+REAL_VIGNETTE = 'bottom'      # LOCKED 22 Nov 2026: 'bottom' (dark navy rises from the bottom edge only). 'circle' = round, all edges
+def real_night(a, sky=None, pools=(), glows=(), spot_gold=(), keep=(), src_level=.72, src_cols=None, vignette=None):
     """a: HxWx3 float flat drawing in real colours. sky: bool mask of sky pixels (or None).
     pools: [(x, y, radius, strength, squash)] light pools (lamp spill, lobby spill, sign uplight).
     glows: [(x, y, radius)] warm glow around lamp heads. spot_gold: hex colours turned into brand gold (lamp heads).
-    keep: hex colours kept exactly (company logo colours, e.g. Nvidia #76B900)."""
+    keep: hex colours kept exactly (company logo colours, e.g. Nvidia #76B900).
+    src_cols: hex colours that ARE light sources (lit windows, screens, bulbs). Use it for rooms with white walls, so walls
+    are not mistaken for lights; without it, every pixel brighter than src_level counts as a light source."""
     def near(h, tol): return np.abs(a - C(h)).sum(-1) < tol
     yy, xx = np.mgrid[0:H, 0:W].astype(float); scr = screen()
     sky = np.zeros((H, W), bool) if sky is None else sky
     Lum = a.mean(-1) / 255
-    src = ((Lum > src_level) & ~sky).astype(float)                  # bright real colours = light sources (windows, lobby)
+    if src_cols is None: src = ((Lum > src_level) & ~sky).astype(float)   # bright real colours = light sources (windows, lobby)
+    else:
+        src = np.zeros((H, W))
+        for h in src_cols: src = np.maximum(src, near(h, 30).astype(float))
     lm = np.asarray(PI.fromarray((np.clip(src, 0, 1) * 255).astype(np.uint8)).filter(PF.GaussianBlur(28)), float) / 255 * 3.0
     for x, y, r, k, sq in pools: lm += np.clip(1 - np.hypot(xx - x, (yy - y) * sq) / r, 0, 1) * k
     lm = np.clip(lm, 0, 1)
@@ -100,8 +106,10 @@ def real_night(a, sky=None, pools=(), glows=(), spot_gold=(), keep=(), src_level
     for x, y, r in glows: g += np.clip(1 - np.hypot(xx - x, (yy - y) * 1.6) / (r * 2.2), 0, 1) ** 2
     g = np.clip(g, 0, 1)[..., None] * (~lamp)[..., None]; out = out * (1 - g * .55) + C('#FFD27A') * g * .55
     for h in keep: out = np.where(near(h, 12)[..., None], C(h), out)
-    d = np.hypot((xx - W / 2) / (W / 2), (yy - H / 2) / (H / 2))   # dark-navy vignette with dotted falloff
-    v = np.clip((d - .72) / .5, 0, 1) ** 1.2
+    if (vignette or REAL_VIGNETTE) == 'bottom':                       # bottom-only: navy rises from the lower edge
+        v = np.clip((yy / H - .74) / .26, 0, 1) ** 1.4
+    else:                                                            # round: all edges
+        d = np.hypot((xx - W / 2) / (W / 2), (yy - H / 2) / (H / 2)); v = np.clip((d - .72) / .5, 0, 1) ** 1.2
     out = out * (1 - v[..., None] * .9) + C('#0D1630') * (v[..., None] * .9)
     out = np.where((((v * .9) > (1 - scr)) & (v > .08))[..., None], C('#0D1630'), out)
     return np.clip(grain(out, base=240, fine=7, soft=24), 0, 255)

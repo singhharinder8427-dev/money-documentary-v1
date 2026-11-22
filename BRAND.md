@@ -40,8 +40,11 @@ or down arrow; gains in navy ink with an up arrow (no green); small handwriting 
 - **Step 2 (`real_night`):** night sky `#0D1630` with a dotted `#1B2A52` horizon band and a few `#9FB3DE` stars;
   unlit areas on the 4 night navies `#0D1630` `#1B2A52` `#2E4374` `#4A62A0` (80%) + 20% real colour; real light
   sources keep full colour with soft light pools; halftone dots in shadows; lamp heads gold `#FCA311` with a warm
-  `#FFD27A` glow; company logo colours exact (exception 2); dark-navy dotted vignette; paper grain.
-- Reference: `branding/real_night_look_nvidia_hq.png` (set `night/nvidia_hq`). Characters drawn crisp on top.
+  `#FFD27A` glow; company logo colours exact (exception 2); dark-navy dotted vignette rising from the **bottom edge only**
+  (owner-locked 22 Nov 2026, `REAL_VIGNETTE = 'bottom'`); paper grain.
+- Sets in this look: `night/nvidia_hq` `night/sg_street` `night/megaspeed` `night/diner93` `night/restaurant`
+  `night/datacenter` `night/nvidia_office` `night/newsroom` `night/desk_clean`.
+- Reference: `branding/real_night_look_nvidia_hq.png` (set `night/nvidia_hq`; this still shows the earlier round vignette - the locked one is bottom-only). Characters drawn crisp on top.
 
 ## Night scenes (locked: "night print") - `environments/`
 - Used for the **story / drama parts**; the night twin of the daytime print look, so the whole channel shares one style.

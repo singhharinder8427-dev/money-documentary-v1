@@ -13,7 +13,7 @@ have to repeat them. Details of the look live in `BRAND.md`; the handover is `ST
 ## 1. FIRST STEP, every time the repo or a skill is called: read everything
 Before answering anything, read the whole repo so no context has to be repeated. Read, in this order:
 1. `START_HERE.md`, `BRAND.md`, `README.md`, this file.
-2. Every `.claude/skills/*/SKILL.md` and `documentary-animator/FIXES.md` (owner feedback history 1-26).
+2. Every `.claude/skills/*/SKILL.md` and `documentary-animator/FIXES.md` (owner feedback history 1-38).
 3. The engine: `.claude/skills/documentary-animator/make_video.py`, all `engine/*.py` (`core kit cast actor sets looks
    widgets anim shots timeline render audio voices captions`), `engine/sets_src/*.py`, `template/`.
 4. Past videos, especially `videos/ponzi-full/` (`script.md`, `script.json`, `shots.py`, `voice_script.md`,
@@ -44,7 +44,7 @@ approves -> lock into the library):
   and used as the main character in the video AND the thumbnail. Also every role character with their
   trademark attire/props: e.g. a judge in robes with a gavel and court bench, police officer in uniform, teller, reporter.
 - **Places.** Every story-specific location the script needs (cafe, shop, airport, police station, bus stand, courtroom,
-  office...), in the locked night/day print look. Show the current set library so reuse vs new is the owner's choice.
+  office...), in the real-colour night look (rule 3d). Show the current set library so reuse vs new is the owner's choice.
 - **Props** the story needs (documents, evidence, signs, vehicles).
 The library keeps growing; never reuse the same office/street for every story.
 
@@ -76,10 +76,12 @@ From now on EVERY new place, office, street, company building, room and prop sce
 2. **Put our brand on it with `looks.real_night`**: dark navy night sky with halftone dots + a few stars; everything unlit
    goes onto our 4 night navies with only a hint of its real colour; only real light sources (lamps, lobby, windows, a
    sign uplight) keep full colour and spill light; halftone dots in the shadows; lamp heads in brand gold; logo colours
-   kept exact; a dark-navy dotted vignette at the edges; paper grain.
+   kept exact; a dark-navy dotted vignette rising from the BOTTOM edge only (`REAL_VIGNETTE = 'bottom'`, owner-locked
+   22 Nov 2026 - no round vignette); paper grain.
 3. Register it as a set with `real=` + `night=` in `engine/sets.py` (see `night/nvidia_hq`), show the owner a preview with
    a character in front, then add it to `ASSET_LIBRARY.md` (rule 3c).
-The older night-print sets stay LOCKED and reusable; only NEW assets use this look. Do not go back to monochrome line-art
+The Ponzi-era night-print sets stay LOCKED and reusable; every set made for The Nvidia Files was redrawn in this look and the old
+navy versions deleted. New assets ONLY use this look. Do not go back to monochrome line-art
 recreations for new places.
 
 ## 4. Shot plan (the "Ponzi standard")

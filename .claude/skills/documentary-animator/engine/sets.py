@@ -41,7 +41,6 @@ from engine.sets_src import courtroom, documentary_locations as locations
 from engine.core import F_LABEL2, F_TITLE, F_TYPE
 from engine.story_assets.sets_catalogue import STORY_SETS
 from engine.sets_src import real_places as RP   # real places: flat 2D real colours -> looks.real_night (locked 22 Nov)
-from engine.sets_src import ng_scenes as NG   # The Nvidia Files sets (look up NS.person / NS.night ... at call time)
 NS.KAL, NS.MRK, NS.HAND = F_LABEL2, F_TITLE, F_TYPE
 NS.txt = lambda c, s, x, y, size, color, font=None, align='left', stroke=0, rot=0.0, skew=0, sc=kit.INK: kit.label(c, s, x, y, size, color, font=font or NS.KAL, align=align, stroke=stroke, stroke_col=sc, skew=0, rot=rot)
 NS.night, NS.add_light = _night_w, _add_w
@@ -80,15 +79,15 @@ SETS = {
  'night/street1920': dict(fn=lambda: (setattr(NS, 'STREET_ERA', '1920'), NS.street(), setattr(NS, 'STREET_ERA', 'modern')), plane=0, extras='none', spots={'door': (1020, 860, .36), 'queue': (930, 864, .36)}),
  'night/kitchen':  dict(fn=NS.kitchen, plane=0, extras='none', spots={'left': (640, 1060, 1.05), 'right': (1180, 1060, 1.05)}),
  # ---- The Nvidia Files, part 1 chapter 1
- 'night/sg_street':  dict(fn=NG.sg_street, plane=None, extras='none', spots={'walk': (900, 905, .6), 'door': (960, 800, .5), 'left': (560, 905, .6), 'right': (1300, 905, .6)}),
- 'night/nvidia_office': dict(fn=NG.nvidia_office, plane=None, extras='none', spots={'left': (700, 1010, 1.0), 'center': (960, 1010, 1.0), 'right': (1220, 1010, 1.0)}),
- 'night/newsroom': dict(fn=NG.newsroom, plane=None, extras='none', spots={'center': (960, 1010, 1.0)}),
+ 'night/sg_street':  dict(real=RP.draw_sg_street, night=RP.sg_street_night, spots={'walk': (900, 905, .6), 'door': (960, 800, .5), 'left': (560, 905, .6), 'right': (1300, 905, .6)}),
+ 'night/nvidia_office': dict(real=RP.draw_nvidia_office, night=RP.nvidia_office_night, spots={'left': (700, 1010, 1.0), 'center': (960, 1010, 1.0), 'right': (1220, 1010, 1.0)}),
+ 'night/newsroom': dict(real=RP.draw_newsroom, night=RP.newsroom_night, spots={'center': (960, 1010, 1.0)}),
  'night/nvidia_hq': dict(real=RP.draw_nvidia_hq, night=RP.nvidia_hq_night, spots={'walkway': (860, 700, .55), 'stairs': (640, 900, .8), 'sign': (1150, 1000, 1.0)}, vignette=(0.25,)),   # real-colour night look (has its own navy vignette)
- 'night/desk_clean': dict(fn=NG.desk_top, plane=None, extras='none', spots={}),          # top-down desk WITHOUT the Ponzi leftovers (QA 22 Nov)
- 'night/megaspeed':  dict(fn=NG.megaspeed_office, plane=None, extras='none', spots={'desk_left': (330, 1010, 1.0), 'center': (960, 1000, 1.0), 'right': (1450, 1000, 1.0)}),
- 'night/diner93':    dict(fn=NG.diner93, plane=0, extras='none', spots={'left': (800, 1010, 1.1), 'right': (1280, 1010, 1.1)}),
- 'night/restaurant': dict(fn=NG.restaurant, plane=0, extras='none', spots={'left': (760, 1060, 1.18), 'right': (1160, 1060, 1.18)}),
- 'night/datacenter': dict(fn=NG.datacenter, plane=None, extras='none', spots={'aisle': (960, 700, .5), 'near_left': (620, 1010, .95), 'near_right': (1280, 1010, .95)}),
+ 'night/desk_clean': dict(real=RP.draw_desk_clean, night=RP.desk_clean_night, spots={}),          # top-down desk WITHOUT the Ponzi leftovers (QA 22 Nov)
+ 'night/megaspeed':  dict(real=RP.draw_megaspeed, night=RP.megaspeed_night, spots={'desk_left': (330, 1010, 1.0), 'center': (960, 1000, 1.0), 'right': (1450, 1000, 1.0)}),
+ 'night/diner93':    dict(real=RP.draw_diner93, real_fg=RP._diner_table, night=RP.diner93_night, spots={'left': (800, 1010, 1.1), 'right': (1280, 1010, 1.1)}),
+ 'night/restaurant': dict(real=RP.draw_restaurant, real_fg=RP._rest_table, night=RP.restaurant_night, spots={'left': (760, 1060, 1.18), 'right': (1160, 1060, 1.18)}),
+ 'night/datacenter': dict(real=RP.draw_datacenter, night=RP.datacenter_night, spots={'aisle': (960, 700, .5), 'near_left': (620, 1010, .95), 'near_right': (1280, 1010, .95)}),
  'day/living':     dict(fn=DS.living_room, spots={'left': (600, 975, .98), 'right': (860, 985, .98)}),
  'day/kitchen':    dict(fn=DS.kitchen, spots={'center': (600, 1000, 1.0)}),
  'day/bank':       dict(fn=DS.bank, spots={'left': (760, 1020, 1.0), 'right': (1120, 1025, 1.0)}),
@@ -130,7 +129,7 @@ def _src_hash():
     folder = pathlib.Path(__file__).parent
     h = hashlib.md5()
     for p in ('sets_src/night_scenes.py', 'sets_src/day_scenes.py', 'sets_src/sales_floor.py',
-              'sets_src/boardroom.py', 'sets_src/courtroom.py', 'sets_src/documentary_locations.py', 'sets_src/ng_scenes.py', 'sets_src/real_places.py', 'looks.py', 'kit.py', 'sets.py'):
+              'sets_src/boardroom.py', 'sets_src/courtroom.py', 'sets_src/documentary_locations.py', 'sets_src/real_places.py', 'looks.py', 'kit.py', 'sets.py'):
         h.update((folder / p).read_bytes())
     for path in sorted((folder / 'story_assets').rglob('*.py')):
         h.update(path.read_bytes())
@@ -140,13 +139,19 @@ def _build(name):
     cfg = SETS[name]; kind = name.split('/')[0]
     if name == 'night/sales_floor':
         return SF.build(), None
-    if 'real' in cfg:                                   # real place: flat real colours, then our brand night pass
+    if 'real' in cfg:                                   # real place: flat real colours, then our brand night pass (CLAUDE.md 3d)
         surf = skia.Surface(W, H); cv = surf.getCanvas(); cv.clear(skia.ColorWHITE); cfg['real'](cv)
         a = surf.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)[..., :3].astype(float)
         nt = cfg['night'](); sky = np.zeros((H, W), bool)
         for h in nt.get('sky', ()): sky |= np.abs(a - looks.C(h)).sum(-1) < 6
-        rgb = looks.real_night(a, sky, nt.get('pools', ()), nt.get('glows', ()), nt.get('spot_gold', ()), nt.get('keep', ())).astype(np.uint8)
-        return np.dstack([rgb, np.full((H, W), 255, np.uint8)]), None
+        rgb = looks.real_night(a, sky, nt.get('pools', ()), nt.get('glows', ()), nt.get('spot_gold', ()), nt.get('keep', ()),
+                               src_cols=nt.get('src_cols')).astype(np.uint8)
+        base = np.dstack([rgb, np.full((H, W), 255, np.uint8)]); fg = None
+        if 'real_fg' in cfg:                            # things in FRONT of the actors (tables): same pixels, masked
+            fs = skia.Surface(W, H); fc = fs.getCanvas(); fc.clear(skia.ColorTRANSPARENT); cfg['real_fg'](fc)
+            mask = fs.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType)[..., 3]
+            fg = np.dstack([rgb, mask])
+        return base, fg
     if 'draw' in cfg:
         room = skia.Surface(W, H)
         canvas = room.getCanvas()

@@ -1,6 +1,7 @@
 # START HERE - handover for a new Claude Code session (Dirty Dollar channel)
 
-Read this first, then `BRAND.md`, then the skills in `.claude/skills/`. Everything below is the owner's decision.
+Read this first, then `CHECKPOINT.md` (where the latest work stands + what was learned), then `BRAND.md`, then the skills
+in `.claude/skills/`. Everything below is the owner's decision.
 
 **The owner's locked 7-point workflow for every video is in `CLAUDE.md` (repo root) - it overrides anything older
 below.** In short: read the whole repo first; ask script (own / research / idea) + length + PC-or-cloud; plan new
@@ -30,14 +31,15 @@ render anything without consent; 3 thumbnail variations from the owner's referen
 ## Pipeline (skills)
 1. `documentary-script` - researched, sourced script (Template A), `script.json`, voice script, sources.
 2. `documentary-animator` - the engine (`engine/`), runner `make_video.py` (`voices`, `stills`, `render`, `audio`,
-   `final`, `check`), per-video `videos/<slug>/shots.py`. Read its `SKILL.md` and `FIXES.md` (owner feedback 1-26).
+   `final`, `check`), per-video `videos/<slug>/shots.py`. Read its `SKILL.md` and `FIXES.md` (owner feedback 1-38).
 3. `thumbnail-prompt` - **Claude draws the thumbnail in code** in the LOCKED style ("$20 MILLION GONE" v3:
    sharp night-print set, huge emotional character, whole story packed in, big Alfa Slab headline).
 4. Publishing checklist + `videos/<slug>/youtube.md` (titles, description with chapters + sources, tags).
 
 ## Locked look (details in BRAND.md)
 Navy #14213D + gold #FCA311 (money) + orange #F35B04 (losses only), **no green** (only exceptions: real flags, and real companies' own brand colours on their own signs/chips/cards - `CLAUDE.md` 3b).
-Night print (dark navy, dotted light falloff) for the story; day print for the lesson. Rectangular-head glossy
+Night print (dark navy, dotted light falloff) for the story; day print for the lesson. **Every NEW place / prop scene:
+real-colour night look** (flat 2D real colours -> `looks.real_night`, bottom vignette) - `CLAUDE.md` 3d. Rectangular-head glossy
 cast; fonts DSEG7 / Alfa Slab One / Special Elite / Barlow Condensed. Vignette, small burned-in captions (+ .srt),
 real typewriter keys (CC BY 4.0 - credit line in every description), code-made music + quiet SFX, outro "DIRTY
 DOLLAR" + end screen. Branding: `branding/profile_800.png` (CEO with dollar-sign eyes), `banner_mobile_2560x1440.png`.

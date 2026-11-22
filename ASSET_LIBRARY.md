@@ -39,11 +39,11 @@ NEW places from 22 Nov 2026 are made in the real-colour night look (CLAUDE.md 3d
 | 1920 Street (night) | `night/street1920` | queue-at-the-door street | Ponzi | LOCKED |
 | Kitchen (night) | `night/kitchen` | kitchen table, bills | Ponzi | LOCKED |
 | Living Room / Kitchen / Bank / Street / Lesson (day) | `day/living` `day/kitchen` `day/bank` `day/street` `day/lesson` | lesson-part sets, day print | Ponzi | LOCKED |
-| Singapore Shophouse Street (night) | `night/sg_street` | shophouse row, bay towers, blank sign frame | Nvidia Files | LOCKED |
-| Megaspeed Office (night) | `night/megaspeed` | open office, glass server room, blank wall panel | Nvidia Files | LOCKED |
-| 1993 Roadside Diner (night) | `night/diner93` | booth, counter, neon DINER, calendar frame | Nvidia Files | LOCKED |
-| Singapore Italian Restaurant (night) | `night/restaurant` | candle table, arched windows, wine shelf | Nvidia Files | LOCKED |
-| Data-Center Aisle (night) | `night/datacenter` | one-point-perspective racks + sealed crates | Nvidia Files | LOCKED |
+| Singapore Shophouse Street (night) | `night/sg_street` | shophouse row, bay towers, blank sign frame | Nvidia Files | LOCKED (real-colour night look, 22 Nov) |
+| Megaspeed Office (night) | `night/megaspeed` | open office, glass server room, blank wall panel | Nvidia Files | LOCKED (real-colour night look, 22 Nov) |
+| 1993 Roadside Diner (night) | `night/diner93` | booth, counter, neon DINER, calendar frame | Nvidia Files | LOCKED (real-colour night look, 22 Nov) |
+| Singapore Italian Restaurant (night) | `night/restaurant` | candle table, arched windows, wine shelf | Nvidia Files | LOCKED (real-colour night look, 22 Nov) |
+| Data-Center Aisle (night) | `night/datacenter` | one-point-perspective racks + sealed crates | Nvidia Files | LOCKED (real-colour night look, 22 Nov) |
 | Nvidia HQ - Endeavor entrance (real-colour night) | `night/nvidia_hq` | glass HQ, lit lobby, lamps, stairs, sign wall with rough eye logo; spots walkway/stairs/sign. FIRST asset in the new real-colour night look (CLAUDE.md 3d) | Nvidia Files | LOCKED |
 
 ## Props  (`engine/props.py` = Nvidia Files; `engine/anim.py` + `engine/widgets.py` = earlier)
@@ -144,9 +144,9 @@ Reference notes: `graphics/codex-library/*.md`. Status for all rows: **IMPORTED*
 | Phone pose always holds a phone | kit `_draw_arm` | engine-wide fix | PENDING |
 | Emotion-matched talking mouth | actor `draw` | wide grin only on happy lines | PENDING |
 | Office workstation | ng_scenes `workstation` | desk on legs, drawer, monitor on stand, chair, keyboard, mug | PENDING |
-| Megaspeed office (repaired desks) | set `night/megaspeed` | LOCKED set changed at owner's request (desks were on the floor) | PENDING |
-| Nvidia office | set `night/nvidia_office` | wall screen, glass meeting room, plants, workstations | PENDING |
-| Newsroom | set `night/newsroom` | TV wall, world clocks, desks | PENDING |
-| Clean top-down desk | set `night/desk_clean` | dark wood, mug ring, pen, laptop corner, empty centre for documents | PENDING |
+| Megaspeed office (repaired desks) | set `night/megaspeed` | LOCKED set changed at owner's request (desks were on the floor) | LOCKED (real-colour night look, 22 Nov) |
+| Nvidia office | set `night/nvidia_office` | wall screen, glass meeting room, plants, workstations | LOCKED (real-colour night look, 22 Nov) |
+| Newsroom | set `night/newsroom` | TV wall, world clocks, desks | LOCKED (real-colour night look, 22 Nov) |
+| Clean top-down desk | set `night/desk_clean` | dark wood, mug ring, pen, laptop corner, empty centre for documents | LOCKED (real-colour night look, 22 Nov) |
 | Sounds | audio `page_flips`, `phone_ring`, `pickup`, `footsteps`, `room_tone` | flips, buzz+ring, pickup, steps, hum/murmur/rumble/static | PENDING |
 | Flags | anim `flag` china / singapore / malaysia | simplified national flags | PENDING |

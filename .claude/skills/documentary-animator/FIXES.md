@@ -90,6 +90,28 @@ next render** (the full-length Ponzi video). Do not re-render the test video.
     navy/orange, no green). Small touches like this make the video more engaging.
 26. **Be more creative everywhere** - every shot should have something alive and story-specific happening.
 
+## Round 3 - The Nvidia Files Part 1 (owner feedback, 21-22 Nov 2026)
+27. **Read the whole repo and follow the QA step every time** - Claude skipped the repo's QA once. Now: `make_video.py qa`
+    (3 frames per shot, real camera) + `QA_CHECKLIST.md` before every render and again on the finished video.
+28. **Props must be real and held/grounded** - Jensen's phone was missing from his hand; monitors sat on the floor; props
+    floated. Every prop is BUILT in `engine/props.py`, held or standing on something, and listed in the library.
+29. **Every movement has a sound** - calendar pages turn with a flip sound, a vibrating phone rings, footsteps on walks.
+30. **Sounds stay soft under the voice** - ring, text pops, chapter-card boom and card typing were too loud (lowered).
+31. **No repeated plain backdrop** - the same white-frame card again and again is boring: use charts, the company's office,
+    its logo, people reacting. Stage shots on a desk or a blurred real set.
+32. **Camera must never crop a graphic** - labels/animations live in the HUD or are framed inside the zoom.
+33. **Faces match the line** - no grin on serious lines (talking mouth now follows the base emotion).
+34. **Stamps are always gold**, never white.
+35. **Pronunciation** - write "United States", not "U.S." (the voice read it wrongly); add names to MANUAL_LEX. After ANY
+    script text change delete `voices/` first (the voices step reuses old clips) and check every clip with speech-to-text.
+36. **Company logos** - a rough 2D version of every real company's logo, drawn fresh in its real colours (Nvidia = green eye).
+37. **Use the asset library** - maps and other library modules should be used where the story fits (e.g. Singapore ->
+    Malaysia route map).
+38. **NEW LOOK FOR ALL NEW ASSETS (biggest change)** - places / offices / streets / company buildings / props are drawn in
+    flat 2D with their REAL colours, then `looks.real_night` adds our brand: navy night, dots, light only from real sources,
+    gold lamps, true logo colours, dark-navy dotted vignette from the BOTTOM edge only. No more monochrome line-art
+    recreations. Owner: "this increases our production quality a lot". CLAUDE.md 3d, BRAND.md.
+
 ## Next
 - Make the **full-length Ponzi video** (full Template A script, ~10 min) with the `documentary-script` skill, then
   animate it with all fixes above applied. Ask the owner PC or cloud before rendering.
