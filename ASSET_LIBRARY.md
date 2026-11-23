@@ -27,6 +27,11 @@ Code lives in `.claude/skills/documentary-animator/engine/` (`cast.py`, `sets.py
 | The Inspector | `inspector` | gold hi-vis vest, lanyard, buzz cut | Nvidia Files | LOCKED |
 | The Colleague | `inspector2` | gold hi-vis vest, lanyard, glasses, long brown hair | Nvidia Files | LOCKED (22 Nov) |
 | The Professor | `professor` | tweed suit, bow-tie look, grey slicked hair, glasses, moustache | Nvidia Files | LOCKED (22 Nov) |
+| Donald Trump | `trump` | tall light-blond swept-up hair with a front lock, light thick brows, narrow eyes, navy suit, white shirt, long blue tie, flag lapel pin (REAL, from owner's reference) | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| Marco Rubio | `rubio` | short dark-brown side-combed hair, high forehead, darker brows, navy suit, white shirt, red patterned tie (REAL, from owner's reference) | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| Howard Lutnick | `lutnick` | bald top, short grey sides, close-trimmed grey beard + moustache, wide ruddy face, wide grin, dark suit, white shirt, navy patterned tie (REAL, from owner's reference) | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| The Officer (intel) | `intel` | dark grey-navy suit, white shirt, dark tie, gold-badge lanyard, short dark hair (generic; NOT the hi-vis Inspector) | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| The Reporter (no bun) | `reporter2` | short brown bob, glasses, soft blue jacket, press lanyard (generic) | Nvidia Files Part 2 | LOCKED (23 Nov) |
 
 ## Sets / places  (`engine/sets.py`, key = `get_set(name)`)
 NEW places from 22 Nov 2026 are made in the real-colour night look (CLAUDE.md 3d): flat 2D real colours -> `looks.real_night`.
@@ -45,6 +50,11 @@ NEW places from 22 Nov 2026 are made in the real-colour night look (CLAUDE.md 3d
 | Singapore Italian Restaurant (night) | `night/restaurant` | candle table, arched windows, wine shelf | Nvidia Files | LOCKED (real-colour night look, 22 Nov) |
 | Data-Center Aisle (night) | `night/datacenter` | one-point-perspective racks + sealed crates | Nvidia Files | LOCKED (real-colour night look, 22 Nov) |
 | Nvidia HQ - Endeavor entrance (real-colour night) | `night/nvidia_hq` | glass HQ, lit lobby, lamps, stairs, sign wall with rough eye logo; spots walkway/stairs/sign. FIRST asset in the new real-colour night look (CLAUDE.md 3d) | Nvidia Files | LOCKED |
+| White House - north front (real-colour night) | `night/white_house` | white portico + wings, lit door, lawn, drive, flag, railing, lamps; spots lawn_left / lawn_right / podium | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| Oval Office (real-colour night) | `night/oval_office` | cream walls, gold drapes, 3 windows, flags, blue oval rug, desk in front (`desk` spot) | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| Air Force One cabin (real-colour night) | `night/af1_cabin` | cream cabin, blue seats + carpet, oval windows, wood table in front | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| Commerce Dept - Hoover Building (real-colour night) | `night/commerce_hq` | limestone colonnade, lit entrance, gold seal, flags, steps | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| Commerce conference room (real-colour night) | `night/commerce_room` | wall screen, window, flags, chairs, long table in front (one empty chair) | Nvidia Files Part 2 | LOCKED (23 Nov) |
 
 ## Props  (`engine/props.py` = Nvidia Files; `engine/anim.py` + `engine/widgets.py` = earlier)
 | Name | Function | Notes | From video | Status |
@@ -58,6 +68,9 @@ NEW places from 22 Nov 2026 are made in the real-colour night look (CLAUDE.md 3d
 | Velvet Chip Display | `props.velvet_display` | pedestal, gold rope, reaching hand | Nvidia Files | LOCKED |
 | Flashlight Cone | `props.flashlight` | additive light cone | Nvidia Files | LOCKED |
 | Name-Tag Pair | `props.tag_pair` | two HUANG tags, crossed-out equals | Nvidia Files | LOCKED |
+| Air Force One plane | `props_dc.af1_plane` | side view, white + light-blue livery, blue tail, blinking lights; for night-sky shots | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| Classified Memo Folder | `props_dc.memo_folder` | manila folder, navy TOP SECRET band, pages, lift-open animation (stamp on it via `props_dc.prop_stamp`: gold + thick navy stroke) | Nvidia Files Part 2 | LOCKED (23 Nov) |
+| Prop stamp (TOP SECRET / REPORTED / ONE SOURCE / NOT CONFIRMED on a prop) | `props_dc.prop_stamp` | gold stamp slam with thick navy stroke on border + letters + soft shadow; use on props/paper. `widgets.stamp` stays for full-screen stamps | Nvidia Files Part 2 | LOCKED (23 Nov, owner rule) |
 | Hand Slam, Pyramid, Calendar, Flag, Map Route, Handcuffs, Newspaper, Phone Ring, Ledger, Envelope, Prison Bars, Police Car (+spotlight), Phone Screen, Coin Rain, Queue, Held item, End Screen, Outro | `anim.*` | story animations | Ponzi | LOCKED |
 | Cards, counters, stamps, charts, sticky note, document, polaroid, lower third, place tag, money props | `widgets.*` | see `widgets.py` | Ponzi | LOCKED |
 

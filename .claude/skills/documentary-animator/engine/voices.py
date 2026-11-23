@@ -18,7 +18,8 @@ KOKORO_IDS = {'af_heart': 3, 'af_bella': 2, 'af_nicole': 6, 'af_sarah': 9, 'af_s
 CHARACTER_VOICES = {   # candidates until the test render; then locked
     'ceo': ('am_onyx', 0.95), 'analyst': ('am_eric', 1.0), 'worker': ('am_adam', 1.0), 'banker': ('am_fenrir', 0.97),
     'investor': ('af_bella', 1.0), 'saver': ('af_sarah', 1.0), 'grad': ('am_liam', 1.05), 'scammer': ('am_puck', 1.0),
-    'agent': ('am_echo', 0.97), 'reporter': ('af_nicole', 1.0), 'retiree': ('am_michael', 0.92)}
+    'agent': ('am_echo', 0.97), 'reporter': ('af_nicole', 1.0), 'retiree': ('am_michael', 0.92),
+    'intel': ('am_michael', 0.97), 'reporter2': ('af_sky', 1.0), 'trump': ('am_adam', 0.9)}   # Part 2 candidates (23 Nov 2026)
 LEXICON_EXTRA = 'lex_extra.txt'   # per-video extra pronunciations (written automatically by prepare_text)
 # Hand-checked pronunciations (Kokoro symbols, space-separated). Add names here when they come up.
 MANUAL_LEX = {'huang': 'h w ˈ ɑ ŋ', 'ceo': 'ˌ s i ˌ i ˈ O', 'jensen': 'ʤ ˈ ɛ n s ə n', "sec's": 'ˌ ɛ s ˌ i s ˈ i z', 'sec': 'ˌ ɛ s ˌ i s ˈ i', 'ponzi': 'p ˈ ɑ n z i', 'pulitzer': 'p ˈ ʊ l ɪ t s ə ɹ', 'gov': 'ɡ ˈ ʌ v', 'madoff': 'm ˈ A d ɔ f', 'nvidia': 'ɛ n v ˈ ɪ d i ə'}
