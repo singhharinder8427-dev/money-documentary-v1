@@ -3,16 +3,16 @@
 Script: LOCKED (script.md, n001-n063). Only LOCKED assets (ASSET_LIBRARY.md). Night print throughout; Ch5 uses the day lesson room (lesson part, as in Part 1).
 Ponzi standard: opens mid-action, a new picture every 2-3 s (every line gets its own picture, long lines get 2-3), a visual beat (card / counter / stamp / chart / dialogue / place jump) every 20-30 s, camera always moving, no repeated wide, closer framing first (FIXES 4, 9, 10).
 Tags = `widgets.lower_third(name, role)` in each shot's `hud` at first appearance and again after a long gap. Real people: real name + role. Alice = "(alleged)". Generic roles = "THE <ROLE>" + "dramatised". Stamps = `props_dc.prop_stamp` when on a prop/paper, `widgets.stamp` full-screen. Stamps always gold.
-Legal rules carried into the picture: every briefing claim carries a REPORTED / ONE SOURCE / NOT CONFIRMED stamp or tag; Trump/Rubio/Lutnick never get an invented quote (only the documented "I haven't heard that", shown as a typed card with attribution); no verdict shown on anyone.
+Legal rules carried into the picture: every briefing claim carries a REPORTED / DISPUTED / NOT CONFIRMED stamp or tag; Trump/Rubio/Lutnick never get an invented quote (only the documented "I haven't heard that", shown as a typed card with attribution); no verdict shown on anyone.
 
 ## HOOK (n001-n007)  ~38 s
 | # | Line | Picture | Camera | Animation + beat | Tag / hud |
 |---|------|---------|--------|------------------|-----------|
 | 1 | n001 (a) "Monday, November sixteenth." | night/white_house, lit portico, reporter2 + 2 silhouettes on the lawn | start close on reporter's face, pull back | camera flashes pop | place tag: Washington, Nov 16 |
-| 2 | n001 (b) "A reporter asks the President about a secret memo." | white_house, `podium` spot: trump, reporter2 left | slow push to Trump | hand-held mic enters frame (NEW small prop) | **Donald Trump / President** |
+| 2 | n001 (b) "A reporter asks the President whether his Secretary of State warned him." | white_house, `podium` spot: trump, reporter2 left | slow push to Trump | hand-held mic enters frame (NEW small prop) | **Donald Trump / President** |
 | 3 | n002 (a) "The Washington Post says it came from the Secretary of State." | night/desk top-down, newspaper spins in, headline blurred | top-down push | anim.newspaper spin, REPORTED stamp | - |
 | 4 | n002 (b) "A warning about Nvidia's CEO." | same desk, memo_folder slides in beside the paper | slight tilt | folder lands, `prop_stamp` TOP SECRET (shake) | - |
-| 5 | n003 "...four words. 'I haven't heard that.'" | typed card, gold cursor, framed navy | static, 1.0 to 1.02 zoom | typewriter SFX, held beat of silence | attribution line: President Trump, Nov 16 (CNBC) |
+| 5 | n003 "...short. 'I haven't heard that.'" | typed card, gold cursor, framed navy | static, 1.0 to 1.02 zoom | typewriter SFX, held beat of silence | attribution line: President Trump, Nov 16 |
 | 6 | n004 (a) "reports say he was warned twice." | oval_office, trump behind `desk`, empty chairs | low angle push | calendar flips: fall 2025 | - |
 | 7 | n004 (b) "Once last fall. Once in May." | night/af1_cabin wide, trump + rubio | pan right | calendar flips to May 2026; two gold WARNED stamps (REPORTED) | - |
 | 8 | n005 "One company bought more than $4.8 billion of Nvidia chips." | night/datacenter, sealed crates (Part 1 callback) | dolly in on crates | counter 0 to $4,800,000,000 gold, flashlight cone | - |
@@ -65,8 +65,8 @@ Legal rules carried into the picture: every briefing claim carries a REPORTED / 
 | 45 | n030 "Here is where the story gets stranger." | night/commerce_hq exterior | whip-pan in from the sky | place tag | Commerce Dept, Washington |
 | 46 | n031 (a) "Axios reports top officials pressed Commerce to act." | night/commerce_room, 4 figures at table, one empty chair | slow pan along table | REPORTED tag | - |
 | 47 | n031 (b) "Treasury. Intelligence. The Pentagon." | three name plates slide on the table one by one | close, rack to each | plate-slide SFX x3 | - |
-| 48 | n032 (a) "...Secretary Lutnick and his undersecretary resisted." | commerce_room, lutnick center, close | push to face, calm | - | **Howard Lutnick / Commerce Secretary** |
-| 49 | n032 (b) "That is one outlet, one source. Commerce has not confirmed it." | card over the room, framed: ONE SOURCE - NOT CONFIRMED | static | two gold `widgets.stamp`s slam | - |
+| 48 | n032 (a) "...Axios reports Secretary Lutnick's department resisted." | commerce_room, lutnick center, close | push to face, calm | - | **Howard Lutnick / Commerce Secretary** |
+| 49 | n032 (b) "Commerce denies it. Bessent says Commerce was slow. Trump: Lutnick 'might have delayed it'." | card over the room, framed: DISPUTED (Axios reports / Commerce denies) | static | two gold `widgets.stamp`s slam | - |
 | 50 | n033 (a) "Bloomberg reported Nvidia's head lawyer had intervened in a probe of Megaspeed." | night/office, `lawyer` at desk, phone ringing | close | phone ring + buzz SFX, REPORTED | **THE LAWYER / Nvidia (reported)** |
 | 51 | n033 (b) "Then called a Commerce official..." | split: lawyer on phone left, commerce_hq window right | push | phone-pickup click | - |
 | 52 | n034 "Megaspeed says it has complied...Alice Huang left in August 2025." | night/megaspeed, statement card pinned, empty chair | slow drift | document callout on the statement | - |
@@ -90,7 +90,7 @@ Legal rules carried into the picture: every briefing claim carries a REPORTED / 
 | 66 | n044 (a) "November twelfth. Huang resigns." | calendar Nov 12, `jensen` walks out of the Nvidia HQ lobby | tracking | footsteps, door | date tag: Nov 12 |
 | 67 | n044 (b) "Democrats Neal and Wyden write to Lutnick..." | night/desk, letter slides in | top-down | `prop_stamp` RECEIVED | - |
 | 68 | n045 (a) "Congress wants answers." | hearing-room card: empty witness chair + nameplate HUANG (framed, no new set) | push | chair creak | - |
-| 69 | n045 (b) "Huang agreed to testify before Thanksgiving." | calendar Thanksgiving week ringed gold | punch | gold ring draws | - |
+| 69 | n045 (b) "Huang is due for a closed-door House interview on December first." | calendar 1 December ringed gold, label: CLOSED-DOOR INTERVIEW | punch | gold ring draws | - |
 | 70 | n046 "Monday the sixteenth. The President says he has not heard..." | night/white_house, SAME angle as shot 2, now lit differently | slow push | camera flashes | - |
 | 71 | n047 REPORTER "Who knew?" | `reporter2` close, mic | tight | brows up | **THE REPORTER / dramatised** |
 | 72 | n048 OFFICIAL "Several agencies are reviewing that." | `banker` at podium | close | flat mouth | **THE OFFICIAL / dramatised** |
@@ -103,7 +103,7 @@ Legal rules carried into the picture: every briefing claim carries a REPORTED / 
 | 77 | n052 "Here is where this reaches your money." | day/lesson room | push | - | - |
 | 78 | n053 (a) "In December 2025, ...H200 chips to China, for a 25% cut." | day/lesson whiteboard: RULE -> REVENUE arrows | slow push | counter 0 to 25% gold | - |
 | 79 | n053 (b) "No one has shown that the briefings and that rule are connected." | board: dotted line with NOT CONNECTED note | static | `widgets.stamp` NOT CONNECTED | - |
-| 80 | n054 "...about $600 of every $10,000 in an S&P 500 fund." | fund pie chart, one slice highlighted | push | slice pulses (Nvidia green, rule 3b) | - |
+| 80 | n054 "...more than $600 of every $10,000 in an S&P 500 fund." | fund pie chart, one slice highlighted | push | slice pulses (Nvidia green, rule 3b) | - |
 | 81 | n055 "So here is a habit." | notepad on desk, 3 lines typed | close | typewriter | - |
 | 82 | n056 "Ask three things." | **red-flags board** (standing segment): 3 items pop in one by one, timed to the voice | static | soft pop each | - |
 | 83 | n057 "...what you are actually holding when the headline lands." | hand holding a fund statement | close | - | - |
@@ -113,7 +113,7 @@ Legal rules carried into the picture: every briefing claim carries a REPORTED / 
 | 85 | n059 "Back to November sixteenth. 'I haven't heard that.'" | white_house, same angle as the hook, camera PULLS BACK, card fades in | pull-back | callback | - |
 | 86 | n060 (a-c) "A memo reportedly exists. A CEO is gone. Investigations have begun." | desk: folder, empty chair, SEC papers, one by one | top-down | three thuds | - |
 | 87 | n061 "...one date still bothers me. May twelfth." | calendar May 12 circled gold | punch | gold circle | - |
-| 88 | n062 "What happened in the five days between the confession and the resignation?" | final black card held | zoom 1.0 to 1.02 | music resolves on one chord, soft sting | - |
+| 88 | n062 "What happened in the four days between the confession and the resignation?" | final black card held | zoom 1.0 to 1.02 | music resolves on one chord, soft sting | - |
 | 89 | n063 "In part three, we count them." | subscribe-for-next-part card (`anim.subscribe_next`) if you skip the end screen, otherwise end screen | - | - | - |
 
 ## Counts

@@ -7,9 +7,9 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 
 ## NARRATOR
 
-- n001: Monday, November sixteenth. A reporter asks the President about a secret memo.
+- n001: Monday, November sixteenth. A reporter asks the President whether his Secretary of State warned him.
 - n002: The Washington Post says it came from the Secretary of State. A warning about Nvidia's CEO.
-- n003: The President's answer is four words. "I haven't heard that."
+- n003: The President's answer is short. "I haven't heard that."
 - n004: But reports say he was warned twice. Once last fall. Once in May.
 - n005: One company in this story bought more than four point eight billion dollars of Nvidia chips.
 - n006: And whatever Washington decides about those chips lands in your fund.
@@ -30,7 +30,7 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 - n029: Hold that date. May twelfth.
 - n030: Here is where the story gets stranger.
 - n031: Axios reports that after the memo, top officials pressed Commerce to act. Treasury. Intelligence. The Pentagon.
-- n032: Commerce runs export controls. Axios says Secretary Lutnick and his undersecretary resisted. That is one outlet, one source. Commerce has not confirmed it.
+- n032: Commerce runs export controls. Axios reports Secretary Lutnick's department resisted. Commerce denies it. Treasury's Bessent has said publicly that Commerce was slow. And the President says Lutnick might have delayed it.
 - n033: Meanwhile, Bloomberg reported that Nvidia's head lawyer had intervened in a probe of Megaspeed. Then called a Commerce official to ask about Alice Huang's case.
 - n034: Megaspeed says it has complied with United States law. Alice Huang left the company in August 2025, it says.
 - n038: What nobody knew until October.
@@ -40,12 +40,12 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 - n042: November eighth. Huang tells Nvidia employees he was unfaithful to his wife. The board opens an independent investigation. It says it has no reason to believe national security was compromised.
 - n043: November ninth. China's Foreign Ministry calls the spy claim groundless. The President says Huang told him by phone he had no idea.
 - n044: November twelfth. Huang resigns. Democrats Neal and Wyden write to Lutnick, saying the administration did not appear to take the threat seriously.
-- n045: Congress wants answers. House chairs asked for a closed-door briefing. Huang agreed to testify before Thanksgiving.
+- n045: Congress wants answers. House chairs asked for answers. Huang is due for a closed-door House interview on December first.
 - n046: Monday the sixteenth. The President says he has not heard about Rubio's warning. He says he would be fine with Huang coming back.
 - n051: By the seventeenth, the Wall Street Journal reported an SEC probe. Huang said he would be honored to return.
 - n052: Here is where this reaches your money.
 - n053: In December twenty twenty-five, the administration announced Nvidia could sell advanced H200 chips to China, in exchange for a twenty-five percent cut. No one has shown that the briefings and that rule are connected.
-- n054: But it shows how much one government decision can move one company. And Nvidia is about six hundred dollars of every ten thousand in a typical S&P 500 fund.
+- n054: But it shows how much one government decision can move one company. And Nvidia is more than six hundred dollars of every ten thousand in a typical S&P 500 fund.
 - n055: So here is a habit. When a company's growth depends on a government rule, the rule is part of what you own.
 - n056: Ask three things. Which decisions can switch its biggest market on or off? Who checks its biggest customers? And who gets warned, and when?
 - n057: Not so you can guess the next headline. So you know what you are actually holding when the headline lands.
@@ -53,7 +53,7 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 - n059: Back to November sixteenth. "I haven't heard that."
 - n060: What can be shown so far is small. A memo reportedly exists. A CEO is gone. Investigations have begun.
 - n061: Everything else is a question. And one date still bothers me. May twelfth.
-- n062: What happened in the five days between the confession and the resignation?
+- n062: What happened in the four days between the confession and the resignation?
 - n063: In part three, we count them.
 
 ## CHARACTERS (Kokoro, dramatised)

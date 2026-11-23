@@ -1,878 +1,879 @@
 {
- "title": "Who Warned Trump About Nvidia's CEO?",
- "title_after": "n007",
- "series": "The Nvidia Files",
- "part": 2,
- "lines": [
-  {
-   "beat": "HOOK",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "Monday, November sixteenth. A reporter asks the President about a secret memo.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S7"
-   ],
-   "shot_hint": "White House exterior at night, reporter mics pushing in, place tag Washington / date",
-   "id": "n001"
-  },
-  {
-   "beat": "HOOK",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "The Washington Post says it came from the Secretary of State. A warning about Nvidia's CEO.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S7",
-    "S2"
-   ],
-   "shot_hint": "newspaper spins in, headline blurred, Rubio memo folder stamped TOP SECRET",
-   "id": "n002"
-  },
-  {
-   "beat": "HOOK",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "The President's answer is four words. \"I haven't heard that.\"",
-   "card": true,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S7"
-   ],
-   "shot_hint": "typed card, attribution line: President Trump, Nov 16 (CNBC); held beat of silence",
-   "id": "n003"
-  },
-  {
-   "beat": "HOOK",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "But reports say he was warned twice. Once last fall. Once in May.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S1",
-    "S3"
-   ],
-   "shot_hint": "calendar flips: fall 2025 -> May 2026, two gold stamps WARNED (reported)",
-   "id": "n004"
-  },
-  {
-   "beat": "HOOK",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "One company in this story bought more than four point eight billion dollars of Nvidia chips.",
-   "card": false,
-   "counter": {
-    "from": 0,
-    "to": 4800000000,
-    "unit": "$",
-    "colour": "gold"
-   },
-   "dramatised": false,
-   "sources": [
-    "S6"
-   ],
-   "shot_hint": "counter over sealed crates (callback to Part 1 boxes)",
-   "id": "n005"
-  },
-  {
-   "beat": "HOOK",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "And whatever Washington decides about those chips lands in your fund.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "phone showing a fund pie chart, one slice glowing green",
-   "id": "n006"
-  },
-  {
-   "beat": "HOOK",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "So who knew? And what did they do about it?",
-   "card": true,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "black card, gold cursor; then title card",
-   "id": "n007"
-  },
-  {
-   "beat": "TITLE",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "[TITLE CARD: WHO WARNED TRUMP? - gold on WARNED + sound logo]",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "title card + sound logo; series tag THE NVIDIA FILES - PART 2",
-   "id": "n008"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "NARRATOR",
-   "text": "Rewind to spring 2026.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S2"
-   ],
-   "shot_hint": "chapter card then calendar flip to spring",
-   "id": "n009"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "NARRATOR",
-   "text": "According to the New York Times, a highly classified memo starts moving through Washington.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S2"
-   ],
-   "shot_hint": "folder slides across a desk, stamp TOP SECRET",
-   "id": "n010"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "NARRATOR",
-   "text": "It says Alice Huang was recruited by China's Ministry of State Security. To gather intelligence on Jensen Huang.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S2",
-    "S5"
-   ],
-   "shot_hint": "Alice (alleged) tag + Jensen portrait, dotted line between them marked REPORTED",
-   "id": "n011"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "NARRATOR",
-   "text": "By then, Singapore had already opened its own investigation into her company. Its police impounded her passport in June 2025. Singapore says that probe was about false declarations on server purchases. Not espionage.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S5",
-    "S15"
-   ],
-   "shot_hint": "Singapore street set, passport stamped IMPOUNDED; tag: Singapore says not espionage",
-   "id": "n012"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "NARRATOR",
-   "text": "Remember what we know. She has not been charged. Beijing calls it groundless. The Justice Department has reached no conclusion.",
-   "card": true,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S5",
-    "S4"
-   ],
-   "shot_hint": "plain typed card: ALLEGED - NOT PROVEN",
-   "id": "n013"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "NARRATOR",
-   "text": "The memo, reportedly, was meant to help officials who deal with Huang know what they were dealing with.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S3"
-   ],
-   "shot_hint": "memo copies fan out to numbered desks",
-   "id": "n014"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "OFFICER",
-   "text": "How sure are we?",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "intel office, two figures at a lit desk, officer leaning in",
-   "voice": "intel",
-   "id": "n015"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "ANALYST",
-   "text": "Sure enough to write a memo.",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "analyst slides folder forward",
-   "voice": "analyst",
-   "id": "n016"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "OFFICER",
-   "text": "Sure enough to do something?",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "officer close-up, brows down",
-   "voice": "intel",
-   "id": "n017"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "ANALYST",
-   "text": "That is a different office.",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "analyst shrugs; light cuts out on sting",
-   "voice": "analyst",
-   "id": "n018"
-  },
-  {
-   "beat": "CH1",
-   "chapter": "The Memo",
-   "speaker": "NARRATOR",
-   "text": "The memo was not the first warning. If reports are right, the first came months earlier.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S1",
-    "S3"
-   ],
-   "shot_hint": "two stacked memos, the lower one dated 2025",
-   "id": "n019"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "NARRATOR",
-   "text": "Last fall. Reports say President Trump was briefed on intelligence about Alice Huang's closeness to Jensen Huang.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S1",
-    "S3"
-   ],
-   "shot_hint": "Oval Office night set (new real-colour set), faceless generic figure at desk",
-   "id": "n020"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "NARRATOR",
-   "text": "The New York Times reported he took no action.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S1"
-   ],
-   "shot_hint": "newspaper line highlight (document callout)",
-   "id": "n021"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "NARRATOR",
-   "text": "By then, the two Huangs had been photographed together for almost two years. The first known photo is from a Taipei trade show in June 2024.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S3"
-   ],
-   "shot_hint": "Computex Taipei stage set, two figures seated side by side, date tag June 7, 2024",
-   "id": "n022"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "NARRATOR",
-   "text": "Then, May twelfth. Air Force One is headed to China.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S3"
-   ],
-   "shot_hint": "airplane over night sky, place tag Air Force One / May 12, 2026",
-   "id": "n023"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "NARRATOR",
-   "text": "ABC News reports Secretary of State Marco Rubio shared intelligence with the President in flight. It calls that the second known warning.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S3"
-   ],
-   "shot_hint": "inside plane cabin, Rubio-role figure hands a folder (generic, tag only if character built)",
-   "id": "n024"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "NARRATOR",
-   "text": "Jensen Huang joined that trip.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S2",
-    "S3"
-   ],
-   "shot_hint": "delegation line walking up the plane stairs, Jensen in leather jacket",
-   "id": "n025"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "STAFFER",
-   "text": "The delegation list is final.",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "cabin, clipboard in hand",
-   "voice": "worker",
-   "id": "n026"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "OFFICIAL",
-   "text": "Does it include the CEO?",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "official looks up",
-   "voice": "banker",
-   "id": "n027"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "STAFFER",
-   "text": "It does.",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "beat of silence, engine hum",
-   "voice": "worker",
-   "id": "n028"
-  },
-  {
-   "beat": "CH2",
-   "chapter": "Air Force One",
-   "speaker": "NARRATOR",
-   "text": "Hold that date. May twelfth.",
-   "card": true,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "card; plant for the ending",
-   "id": "n029"
-  },
-  {
-   "beat": "CH3",
-   "chapter": "The Stall",
-   "speaker": "NARRATOR",
-   "text": "Here is where the story gets stranger.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "re-hook; whip pan to Commerce building",
-   "id": "n030"
-  },
-  {
-   "beat": "CH3",
-   "chapter": "The Stall",
-   "speaker": "NARRATOR",
-   "text": "Axios reports that after the memo, top officials pressed Commerce to act. Treasury. Intelligence. The Pentagon.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S8"
-   ],
-   "shot_hint": "meeting table, four generic figures, one empty chair; REPORTED tag",
-   "id": "n031"
-  },
-  {
-   "beat": "CH3",
-   "chapter": "The Stall",
-   "speaker": "NARRATOR",
-   "text": "Commerce runs export controls. Axios says Secretary Lutnick and his undersecretary resisted. That is one outlet, one source. Commerce has not confirmed it.",
-   "card": true,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S8"
-   ],
-   "shot_hint": "card: ONE SOURCE - NOT CONFIRMED; place tag Commerce Dept",
-   "id": "n032"
-  },
-  {
-   "beat": "CH3",
-   "chapter": "The Stall",
-   "speaker": "NARRATOR",
-   "text": "Meanwhile, Bloomberg reported that Nvidia's head lawyer had intervened in a probe of Megaspeed. Then called a Commerce official to ask about Alice Huang's case.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S9"
-   ],
-   "shot_hint": "phone ring, lawyer-role figure at a desk, REPORTED tag",
-   "id": "n033"
-  },
-  {
-   "beat": "CH3",
-   "chapter": "The Stall",
-   "speaker": "NARRATOR",
-   "text": "Megaspeed says it has complied with United States law. Alice Huang left the company in August 2025, it says.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S5"
-   ],
-   "shot_hint": "Megaspeed office night set, statement card",
-   "id": "n034"
-  },
-  {
-   "beat": "CH3",
-   "chapter": "The Stall",
-   "speaker": "ANALYST",
-   "text": "The chips are going somewhere.",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "analyst at data wall",
-   "voice": "analyst",
-   "id": "n035"
-  },
-  {
-   "beat": "CH3",
-   "chapter": "The Stall",
-   "speaker": "OFFICER",
-   "text": "Where?",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "officer",
-   "voice": "intel",
-   "id": "n036"
-  },
-  {
-   "beat": "CH3",
-   "chapter": "The Stall",
-   "speaker": "ANALYST",
-   "text": "That is what the boxes were for.",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "cut to sealed crates; flashlight cone",
-   "voice": "analyst",
-   "id": "n037"
-  },
-  {
-   "beat": "TWIST",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "What nobody knew until October.",
-   "card": true,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "music cuts to silence, deep boom as card lands",
-   "id": "n038"
-  },
-  {
-   "beat": "TWIST",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "Jensen Huang told Bloomberg the government had never told him of its suspicions.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S4"
-   ],
-   "shot_hint": "Jensen close-up, calm; phone call frame (real quote paraphrase)",
-   "id": "n039"
-  },
-  {
-   "beat": "TWIST",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "A memo. Two reported briefings to the President. Officials across Washington. Everyone, reportedly, but him.",
-   "card": true,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S1",
-    "S2",
-    "S3",
-    "S4"
-   ],
-   "shot_hint": "empty desk with one lit chair marked HUANG",
-   "id": "n040"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "NARRATOR",
-   "text": "Then it all came out within days.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "re-hook; stacked newspaper spins",
-   "id": "n041"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "NARRATOR",
-   "text": "November eighth. Huang tells Nvidia employees he was unfaithful to his wife. The board opens an independent investigation. It says it has no reason to believe national security was compromised.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S10"
-   ],
-   "shot_hint": "board room night set, document callout of the board statement",
-   "id": "n042"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "NARRATOR",
-   "text": "November ninth. China's Foreign Ministry calls the spy claim groundless. The President says Huang told him by phone he had no idea.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S3"
-   ],
-   "shot_hint": "phone call frame, two panels split",
-   "id": "n043"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "NARRATOR",
-   "text": "November twelfth. Huang resigns. Democrats Neal and Wyden write to Lutnick, saying the administration did not appear to take the threat seriously.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S11",
-    "S1"
-   ],
-   "shot_hint": "letter slides in, stamp RECEIVED",
-   "id": "n044"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "NARRATOR",
-   "text": "Congress wants answers. House chairs asked for a closed-door briefing. Huang agreed to testify before Thanksgiving.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S11",
-    "S10"
-   ],
-   "shot_hint": "Capitol hearing room set, empty witness chair, card: testimony expected before Thanksgiving",
-   "id": "n045"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "NARRATOR",
-   "text": "Monday the sixteenth. The President says he has not heard about Rubio's warning. He says he would be fine with Huang coming back.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S7"
-   ],
-   "shot_hint": "White House exterior, same angle as the hook, now lit differently",
-   "id": "n046"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "REPORTER",
-   "text": "Who knew?",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "reporter with mic",
-   "voice": "reporter2",
-   "id": "n047"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "OFFICIAL",
-   "text": "Several agencies are reviewing that.",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "official, podium",
-   "voice": "banker",
-   "id": "n048"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "REPORTER",
-   "text": "That is not an answer.",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "reporter, brows down",
-   "voice": "reporter2",
-   "id": "n049"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "OFFICIAL",
-   "text": "No.",
-   "card": false,
-   "counter": null,
-   "dramatised": true,
-   "sources": [],
-   "shot_hint": "official looks away, sting",
-   "voice": "banker",
-   "id": "n050"
-  },
-  {
-   "beat": "CH4",
-   "chapter": "I Haven't Heard That",
-   "speaker": "NARRATOR",
-   "text": "By the seventeenth, the Wall Street Journal reported an SEC probe. Huang said he would be honored to return.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S12",
-    "S13"
-   ],
-   "shot_hint": "stamp: SEC - REPORTED; ticker panel",
-   "id": "n051"
-  },
-  {
-   "beat": "CH5",
-   "chapter": "Your Wallet",
-   "speaker": "NARRATOR",
-   "text": "Here is where this reaches your money.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "re-hook; day-look lesson room",
-   "id": "n052"
-  },
-  {
-   "beat": "CH5",
-   "chapter": "Your Wallet",
-   "speaker": "NARRATOR",
-   "text": "In December twenty twenty-five, the administration announced Nvidia could sell advanced H200 chips to China, in exchange for a twenty-five percent cut. No one has shown that the briefings and that rule are connected.",
-   "card": true,
-   "counter": {
-    "from": 0,
-    "to": 25,
-    "unit": "%",
-    "colour": "gold"
-   },
-   "dramatised": false,
-   "sources": [
-    "S3"
-   ],
-   "shot_hint": "whiteboard: rule -> revenue; NOT CONNECTED note",
-   "id": "n053"
-  },
-  {
-   "beat": "CH5",
-   "chapter": "Your Wallet",
-   "speaker": "NARRATOR",
-   "text": "But it shows how much one government decision can move one company. And Nvidia is about six hundred dollars of every ten thousand in a typical S&P 500 fund.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S14"
-   ],
-   "shot_hint": "fund pie chart, one slice highlighted",
-   "id": "n054"
-  },
-  {
-   "beat": "CH5",
-   "chapter": "Your Wallet",
-   "speaker": "NARRATOR",
-   "text": "So here is a habit. When a company's growth depends on a government rule, the rule is part of what you own.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "notepad, three lines typed",
-   "id": "n055"
-  },
-  {
-   "beat": "CH5",
-   "chapter": "Your Wallet",
-   "speaker": "NARRATOR",
-   "text": "Ask three things. Which decisions can switch its biggest market on or off? Who checks its biggest customers? And who gets warned, and when?",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "three sticky notes",
-   "id": "n056"
-  },
-  {
-   "beat": "CH5",
-   "chapter": "Your Wallet",
-   "speaker": "NARRATOR",
-   "text": "Not so you can guess the next headline. So you know what you are actually holding when the headline lands.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "hand holding a fund statement",
-   "id": "n057"
-  },
-  {
-   "beat": "CH5",
-   "chapter": "Your Wallet",
-   "speaker": "NARRATOR",
-   "text": "This is education, not financial advice.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "small lower-third",
-   "id": "n058"
-  },
-  {
-   "beat": "END",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "Back to November sixteenth. \"I haven't heard that.\"",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S7"
-   ],
-   "shot_hint": "hook set repeated, camera pulls back, card fades",
-   "id": "n059"
-  },
-  {
-   "beat": "END",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "What can be shown so far is small. A memo reportedly exists. A CEO is gone. Investigations have begun.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S1",
-    "S2",
-    "S10",
-    "S12"
-   ],
-   "shot_hint": "three objects on a desk, one by one",
-   "id": "n060"
-  },
-  {
-   "beat": "END",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "Everything else is a question. And one date still bothers me. May twelfth.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "calendar page, May 12 circled gold",
-   "id": "n061"
-  },
-  {
-   "beat": "END",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "What happened in the five days between the confession and the resignation?",
-   "card": true,
-   "counter": null,
-   "dramatised": false,
-   "sources": [
-    "S10"
-   ],
-   "shot_hint": "final black card held, music resolves on one chord",
-   "id": "n062"
-  },
-  {
-   "beat": "END",
-   "chapter": null,
-   "speaker": "NARRATOR",
-   "text": "In part three, we count them.",
-   "card": false,
-   "counter": null,
-   "dramatised": false,
-   "sources": [],
-   "shot_hint": "next-video teaser, no end screen; subscribe outro per Part 1 pattern (ask owner)",
-   "id": "n063"
-  }
- ],
- "series_title": "The Nvidia Files - Part 2",
- "working_title": "Who Warned Trump?",
- "end_screen": 0.0
+  "title": "Who Warned Trump About Nvidia's CEO?",
+  "title_after": "n007",
+  "series": "The Nvidia Files",
+  "part": 2,
+  "lines": [
+    {
+      "beat": "HOOK",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "Monday, November sixteenth. A reporter asks the President whether his Secretary of State warned him.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S7"
+      ],
+      "shot_hint": "White House exterior at night, reporter mics pushing in, place tag Washington / date",
+      "id": "n001"
+    },
+    {
+      "beat": "HOOK",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "The Washington Post says it came from the Secretary of State. A warning about Nvidia's CEO.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S7",
+        "S2"
+      ],
+      "shot_hint": "newspaper spins in, headline blurred, Rubio memo folder stamped TOP SECRET",
+      "id": "n002"
+    },
+    {
+      "beat": "HOOK",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "The President's answer is short. \"I haven't heard that.\"",
+      "card": true,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S7"
+      ],
+      "shot_hint": "typed card, attribution line: President Trump, Nov 16 ; held beat of silence",
+      "id": "n003"
+    },
+    {
+      "beat": "HOOK",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "But reports say he was warned twice. Once last fall. Once in May.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "shot_hint": "calendar flips: fall 2025 -> May 2026, two gold stamps WARNED (reported)",
+      "id": "n004"
+    },
+    {
+      "beat": "HOOK",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "One company in this story bought more than four point eight billion dollars of Nvidia chips.",
+      "card": false,
+      "counter": {
+        "from": 0,
+        "to": 4800000000,
+        "unit": "$",
+        "colour": "gold"
+      },
+      "dramatised": false,
+      "sources": [
+        "S6"
+      ],
+      "shot_hint": "counter over sealed crates (callback to Part 1 boxes)",
+      "id": "n005"
+    },
+    {
+      "beat": "HOOK",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "And whatever Washington decides about those chips lands in your fund.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "phone showing a fund pie chart, one slice glowing green",
+      "id": "n006"
+    },
+    {
+      "beat": "HOOK",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "So who knew? And what did they do about it?",
+      "card": true,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "black card, gold cursor; then title card",
+      "id": "n007"
+    },
+    {
+      "beat": "TITLE",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "[TITLE CARD: WHO WARNED TRUMP? - gold on WARNED + sound logo]",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "title card + sound logo; series tag THE NVIDIA FILES - PART 2",
+      "id": "n008"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "NARRATOR",
+      "text": "Rewind to spring 2026.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S2"
+      ],
+      "shot_hint": "chapter card then calendar flip to spring",
+      "id": "n009"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "NARRATOR",
+      "text": "According to the New York Times, a highly classified memo starts moving through Washington.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S2"
+      ],
+      "shot_hint": "folder slides across a desk, stamp TOP SECRET",
+      "id": "n010"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "NARRATOR",
+      "text": "It says Alice Huang was recruited by China's Ministry of State Security. To gather intelligence on Jensen Huang.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S2",
+        "S5"
+      ],
+      "shot_hint": "Alice (alleged) tag + Jensen portrait, dotted line between them marked REPORTED",
+      "id": "n011"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "NARRATOR",
+      "text": "By then, Singapore had already opened its own investigation into her company. Its police impounded her passport in June 2025. Singapore says that probe was about false declarations on server purchases. Not espionage.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S5",
+        "S15"
+      ],
+      "shot_hint": "Singapore street set, passport stamped IMPOUNDED; tag: Singapore says not espionage",
+      "id": "n012"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "NARRATOR",
+      "text": "Remember what we know. She has not been charged. Beijing calls it groundless. The Justice Department has reached no conclusion.",
+      "card": true,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S5",
+        "S4"
+      ],
+      "shot_hint": "plain typed card: ALLEGED - NOT PROVEN",
+      "id": "n013"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "NARRATOR",
+      "text": "The memo, reportedly, was meant to help officials who deal with Huang know what they were dealing with.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S3"
+      ],
+      "shot_hint": "memo copies fan out to numbered desks",
+      "id": "n014"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "OFFICER",
+      "text": "How sure are we?",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "intel office, two figures at a lit desk, officer leaning in",
+      "voice": "intel",
+      "id": "n015"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "ANALYST",
+      "text": "Sure enough to write a memo.",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "analyst slides folder forward",
+      "voice": "analyst",
+      "id": "n016"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "OFFICER",
+      "text": "Sure enough to do something?",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "officer close-up, brows down",
+      "voice": "intel",
+      "id": "n017"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "ANALYST",
+      "text": "That is a different office.",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "analyst shrugs; light cuts out on sting",
+      "voice": "analyst",
+      "id": "n018"
+    },
+    {
+      "beat": "CH1",
+      "chapter": "The Memo",
+      "speaker": "NARRATOR",
+      "text": "The memo was not the first warning. If reports are right, the first came months earlier.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "shot_hint": "two stacked memos, the lower one dated 2025",
+      "id": "n019"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "NARRATOR",
+      "text": "Last fall. Reports say President Trump was briefed on intelligence about Alice Huang's closeness to Jensen Huang.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "shot_hint": "Oval Office night set (new real-colour set), faceless generic figure at desk",
+      "id": "n020"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "NARRATOR",
+      "text": "The New York Times reported he took no action.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S1"
+      ],
+      "shot_hint": "newspaper line highlight (document callout)",
+      "id": "n021"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "NARRATOR",
+      "text": "By then, the two Huangs had been photographed together for almost two years. The first known photo is from a Taipei trade show in June 2024.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S3"
+      ],
+      "shot_hint": "Computex Taipei stage set, two figures seated side by side, date tag June 7, 2024",
+      "id": "n022"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "NARRATOR",
+      "text": "Then, May twelfth. Air Force One is headed to China.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S3"
+      ],
+      "shot_hint": "airplane over night sky, place tag Air Force One / May 12, 2026",
+      "id": "n023"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "NARRATOR",
+      "text": "ABC News reports Secretary of State Marco Rubio shared intelligence with the President in flight. It calls that the second known warning.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S3"
+      ],
+      "shot_hint": "inside plane cabin, Rubio-role figure hands a folder (generic, tag only if character built)",
+      "id": "n024"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "NARRATOR",
+      "text": "Jensen Huang joined that trip.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S2",
+        "S3"
+      ],
+      "shot_hint": "delegation line walking up the plane stairs, Jensen in leather jacket",
+      "id": "n025"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "STAFFER",
+      "text": "The delegation list is final.",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "cabin, clipboard in hand",
+      "voice": "worker",
+      "id": "n026"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "OFFICIAL",
+      "text": "Does it include the CEO?",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "official looks up",
+      "voice": "banker",
+      "id": "n027"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "STAFFER",
+      "text": "It does.",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "beat of silence, engine hum",
+      "voice": "worker",
+      "id": "n028"
+    },
+    {
+      "beat": "CH2",
+      "chapter": "Air Force One",
+      "speaker": "NARRATOR",
+      "text": "Hold that date. May twelfth.",
+      "card": true,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "card; plant for the ending",
+      "id": "n029"
+    },
+    {
+      "beat": "CH3",
+      "chapter": "The Stall",
+      "speaker": "NARRATOR",
+      "text": "Here is where the story gets stranger.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "re-hook; whip pan to Commerce building",
+      "id": "n030"
+    },
+    {
+      "beat": "CH3",
+      "chapter": "The Stall",
+      "speaker": "NARRATOR",
+      "text": "Axios reports that after the memo, top officials pressed Commerce to act. Treasury. Intelligence. The Pentagon.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S8"
+      ],
+      "shot_hint": "meeting table, four generic figures, one empty chair; REPORTED tag",
+      "id": "n031"
+    },
+    {
+      "beat": "CH3",
+      "chapter": "The Stall",
+      "speaker": "NARRATOR",
+      "text": "Commerce runs export controls. Axios reports Secretary Lutnick's department resisted. Commerce denies it. Treasury's Bessent has said publicly that Commerce was slow. And the President says Lutnick might have delayed it.",
+      "card": true,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S8",
+        "S16"
+      ],
+      "shot_hint": "card: DISPUTED (Axios reports / Commerce denies); place tag Commerce Dept",
+      "id": "n032"
+    },
+    {
+      "beat": "CH3",
+      "chapter": "The Stall",
+      "speaker": "NARRATOR",
+      "text": "Meanwhile, Bloomberg reported that Nvidia's head lawyer had intervened in a probe of Megaspeed. Then called a Commerce official to ask about Alice Huang's case.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S9"
+      ],
+      "shot_hint": "phone ring, lawyer-role figure at a desk, REPORTED tag",
+      "id": "n033"
+    },
+    {
+      "beat": "CH3",
+      "chapter": "The Stall",
+      "speaker": "NARRATOR",
+      "text": "Megaspeed says it has complied with United States law. Alice Huang left the company in August 2025, it says.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S5"
+      ],
+      "shot_hint": "Megaspeed office night set, statement card",
+      "id": "n034"
+    },
+    {
+      "beat": "CH3",
+      "chapter": "The Stall",
+      "speaker": "ANALYST",
+      "text": "The chips are going somewhere.",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "analyst at data wall",
+      "voice": "analyst",
+      "id": "n035"
+    },
+    {
+      "beat": "CH3",
+      "chapter": "The Stall",
+      "speaker": "OFFICER",
+      "text": "Where?",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "officer",
+      "voice": "intel",
+      "id": "n036"
+    },
+    {
+      "beat": "CH3",
+      "chapter": "The Stall",
+      "speaker": "ANALYST",
+      "text": "That is what the boxes were for.",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "cut to sealed crates; flashlight cone",
+      "voice": "analyst",
+      "id": "n037"
+    },
+    {
+      "beat": "TWIST",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "What nobody knew until October.",
+      "card": true,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "music cuts to silence, deep boom as card lands",
+      "id": "n038"
+    },
+    {
+      "beat": "TWIST",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "Jensen Huang told Bloomberg the government had never told him of its suspicions.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S4"
+      ],
+      "shot_hint": "Jensen close-up, calm; phone call frame (real quote paraphrase)",
+      "id": "n039"
+    },
+    {
+      "beat": "TWIST",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "A memo. Two reported briefings to the President. Officials across Washington. Everyone, reportedly, but him.",
+      "card": true,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "shot_hint": "empty desk with one lit chair marked HUANG",
+      "id": "n040"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "NARRATOR",
+      "text": "Then it all came out within days.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "re-hook; stacked newspaper spins",
+      "id": "n041"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "NARRATOR",
+      "text": "November eighth. Huang tells Nvidia employees he was unfaithful to his wife. The board opens an independent investigation. It says it has no reason to believe national security was compromised.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S10"
+      ],
+      "shot_hint": "board room night set, document callout of the board statement",
+      "id": "n042"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "NARRATOR",
+      "text": "November ninth. China's Foreign Ministry calls the spy claim groundless. The President says Huang told him by phone he had no idea.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S3"
+      ],
+      "shot_hint": "phone call frame, two panels split",
+      "id": "n043"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "NARRATOR",
+      "text": "November twelfth. Huang resigns. Democrats Neal and Wyden write to Lutnick, saying the administration did not appear to take the threat seriously.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S11",
+        "S1"
+      ],
+      "shot_hint": "letter slides in, stamp RECEIVED",
+      "id": "n044"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "NARRATOR",
+      "text": "Congress wants answers. House chairs asked for answers. Huang is due for a closed-door House interview on December first.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S11",
+        "S17"
+      ],
+      "shot_hint": "Capitol hearing room set, empty witness chair, card: closed-door interview Dec 1",
+      "id": "n045"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "NARRATOR",
+      "text": "Monday the sixteenth. The President says he has not heard about Rubio's warning. He says he would be fine with Huang coming back.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S7"
+      ],
+      "shot_hint": "White House exterior, same angle as the hook, now lit differently",
+      "id": "n046"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "REPORTER",
+      "text": "Who knew?",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "reporter with mic",
+      "voice": "reporter2",
+      "id": "n047"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "OFFICIAL",
+      "text": "Several agencies are reviewing that.",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "official, podium",
+      "voice": "banker",
+      "id": "n048"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "REPORTER",
+      "text": "That is not an answer.",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "reporter, brows down",
+      "voice": "reporter2",
+      "id": "n049"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "OFFICIAL",
+      "text": "No.",
+      "card": false,
+      "counter": null,
+      "dramatised": true,
+      "sources": [],
+      "shot_hint": "official looks away, sting",
+      "voice": "banker",
+      "id": "n050"
+    },
+    {
+      "beat": "CH4",
+      "chapter": "I Haven't Heard That",
+      "speaker": "NARRATOR",
+      "text": "By the seventeenth, the Wall Street Journal reported an SEC probe. Huang said he would be honored to return.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S12",
+        "S13"
+      ],
+      "shot_hint": "stamp: SEC - REPORTED; ticker panel",
+      "id": "n051"
+    },
+    {
+      "beat": "CH5",
+      "chapter": "Your Wallet",
+      "speaker": "NARRATOR",
+      "text": "Here is where this reaches your money.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "re-hook; day-look lesson room",
+      "id": "n052"
+    },
+    {
+      "beat": "CH5",
+      "chapter": "Your Wallet",
+      "speaker": "NARRATOR",
+      "text": "In December twenty twenty-five, the administration announced Nvidia could sell advanced H200 chips to China, in exchange for a twenty-five percent cut. No one has shown that the briefings and that rule are connected.",
+      "card": true,
+      "counter": {
+        "from": 0,
+        "to": 25,
+        "unit": "%",
+        "colour": "gold"
+      },
+      "dramatised": false,
+      "sources": [
+        "S3"
+      ],
+      "shot_hint": "whiteboard: rule -> revenue; NOT CONNECTED note",
+      "id": "n053"
+    },
+    {
+      "beat": "CH5",
+      "chapter": "Your Wallet",
+      "speaker": "NARRATOR",
+      "text": "But it shows how much one government decision can move one company. And Nvidia is more than six hundred dollars of every ten thousand in a typical S&P 500 fund.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S14"
+      ],
+      "shot_hint": "fund pie chart, one slice highlighted",
+      "id": "n054"
+    },
+    {
+      "beat": "CH5",
+      "chapter": "Your Wallet",
+      "speaker": "NARRATOR",
+      "text": "So here is a habit. When a company's growth depends on a government rule, the rule is part of what you own.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "notepad, three lines typed",
+      "id": "n055"
+    },
+    {
+      "beat": "CH5",
+      "chapter": "Your Wallet",
+      "speaker": "NARRATOR",
+      "text": "Ask three things. Which decisions can switch its biggest market on or off? Who checks its biggest customers? And who gets warned, and when?",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "three sticky notes",
+      "id": "n056"
+    },
+    {
+      "beat": "CH5",
+      "chapter": "Your Wallet",
+      "speaker": "NARRATOR",
+      "text": "Not so you can guess the next headline. So you know what you are actually holding when the headline lands.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "hand holding a fund statement",
+      "id": "n057"
+    },
+    {
+      "beat": "CH5",
+      "chapter": "Your Wallet",
+      "speaker": "NARRATOR",
+      "text": "This is education, not financial advice.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "small lower-third",
+      "id": "n058"
+    },
+    {
+      "beat": "END",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "Back to November sixteenth. \"I haven't heard that.\"",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S7"
+      ],
+      "shot_hint": "hook set repeated, camera pulls back, card fades",
+      "id": "n059"
+    },
+    {
+      "beat": "END",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "What can be shown so far is small. A memo reportedly exists. A CEO is gone. Investigations have begun.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S1",
+        "S2",
+        "S10",
+        "S12"
+      ],
+      "shot_hint": "three objects on a desk, one by one",
+      "id": "n060"
+    },
+    {
+      "beat": "END",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "Everything else is a question. And one date still bothers me. May twelfth.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "calendar page, May 12 circled gold",
+      "id": "n061"
+    },
+    {
+      "beat": "END",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "What happened in the four days between the confession and the resignation?",
+      "card": true,
+      "counter": null,
+      "dramatised": false,
+      "sources": [
+        "S10"
+      ],
+      "shot_hint": "final black card held, music resolves on one chord",
+      "id": "n062"
+    },
+    {
+      "beat": "END",
+      "chapter": null,
+      "speaker": "NARRATOR",
+      "text": "In part three, we count them.",
+      "card": false,
+      "counter": null,
+      "dramatised": false,
+      "sources": [],
+      "shot_hint": "next-video teaser, no end screen; subscribe outro per Part 1 pattern (ask owner)",
+      "id": "n063"
+    }
+  ],
+  "series_title": "The Nvidia Files - Part 2",
+  "working_title": "Who Warned Trump?",
+  "end_screen": 0.0
 }
