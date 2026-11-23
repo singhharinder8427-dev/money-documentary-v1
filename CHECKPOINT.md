@@ -43,6 +43,9 @@
 - **Owner workflow:** collect the full feedback list before changing anything; PowerShell commands one per block; never save or
   render without the owner's OK.
 
+## 3b. Research to apply to the NEXT video (23 Nov 2026)
+Read `research/APPLY_NEXT_VIDEO.md` (owner's competitor-style research, files in `research/competitor-style/`). Not applied to Nvidia Files Part 2. Nothing built, nothing rendered.
+
 ## 4. On the owner's PC
 ```
 cd D:\money-documentary-v1

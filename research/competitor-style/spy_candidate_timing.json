@@ -1,0 +1,37 @@
+{
+  "note": "Scene score candidates include within-shot animation and can miss dissolves. Values describe candidate spacing only.",
+  "above_012": {
+    "candidates": 546,
+    "mean_interval_s": 2.172,
+    "min_interval_s": 0.033,
+    "max_interval_s": 16.8,
+    "candidates_per_min": 27.578
+  },
+  "above_025": {
+    "candidates": 387,
+    "mean_interval_s": 3.062,
+    "min_interval_s": 0.033,
+    "max_interval_s": 23.367,
+    "candidates_per_min": 19.547
+  },
+  "windows": [
+    {
+      "from_s": 0,
+      "to_s": 10,
+      "count_012": 4,
+      "count_025": 2
+    },
+    {
+      "from_s": 10,
+      "to_s": 1157.9,
+      "count_012": 526,
+      "count_025": 373
+    },
+    {
+      "from_s": 1157.9,
+      "to_s": 1187.9,
+      "count_012": 16,
+      "count_025": 12
+    }
+  ]
+}
