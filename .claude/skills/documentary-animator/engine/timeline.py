@@ -6,7 +6,7 @@ from engine import audio as A
 from engine.kit import mouth_track
 
 BEAT_MOOD = {'HOOK': 'suspense', 'CH1': 'suspense', 'CH2': 'suspense', 'CH3': 'suspense', 'TWIST': 'twist',
-             'CH4': 'suspense', 'CH5': 'lesson', 'END': 'ending', 'TITLE': 'silence', 'CHAPTER': 'silence'}
+             'CH4': 'suspense', 'CH5': 'suspense', 'END': 'ending', 'TITLE': 'silence', 'CHAPTER': 'silence'}
 GAP, LEAD, CARD = 0.26, 0.3, 1.5
 
 def load_script(path): return json.load(open(path))['lines'] if path.endswith('.json') else path

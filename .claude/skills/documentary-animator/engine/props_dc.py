@@ -86,11 +86,11 @@ def passport(c, x, y, s=1.0, rot=0.0, open_k=0.0, tag='PASSPORT'):
 
 
 # ---------------- 24 Nov 2026, chapter 5 props (PENDING owner approval) ----------------
-def fund_screen(c, x, y, s=1.0, t=0.0, title='YOUR 401(k)', share=6.0, grid=True):
+def fund_screen(c, x, y, s=1.0, t=0.0, title='YOUR 401(k)', share=6.0, grid=True, stand=True):
     """Desk monitor facing the viewer showing a fund: header + a 10x10 waffle (100 squares = $10,000); `share` squares glow Nvidia green
     (brand colour exception, company element). t = seconds in: squares fill in over ~1 s. Anchor = screen centre; ~560*s wide."""
     c.save(); c.translate(x, y); c.scale(s, s)
-    rect(c, -60, 238, 60, 270, '#3A3F4F', 5, r=6); rect(c, -140, 262, 140, 282, '#2E2E38', 5, r=8)               # stand + foot
+    if stand: rect(c, -60, 238, 60, 270, '#3A3F4F', 5, r=6); rect(c, -140, 262, 140, 282, '#2E2E38', 5, r=8)   # stand + foot (stand=False: wall-mounted)
     rect(c, -290, -230, 290, 240, '#1E2026', 6, r=18); rect(c, -268, -208, 268, 218, '#0F1A38', 3, r=8)         # bezel + screen
     label(c, title, 0, -150, 52, WHITE, font=F_TITLE, align='center', skew=0)
     label(c, 'S&P 500 INDEX FUND', 0, -112, 26, '#9DB0DA', font=F_LABEL, align='center', skew=0)

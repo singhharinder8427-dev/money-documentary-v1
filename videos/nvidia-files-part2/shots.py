@@ -392,33 +392,74 @@ def build(tl):
     # ================= CH5 "Why It's a Big Deal for Your 401(k)" (night study, analyst; no board) =================
     chapter(5, "Why It's a Big Deal for Your 401(k)")
     def an_(x=700, face=.35, pose=('down', 'point'), **e): return Actor('analyst', x, 1010, 1.0, face=face, rim=NR).pose(.2, pose).expression(0, **e)
-    # n052 "This is how it affects you."  analyst + the 401(k) screen, coins drop in
+    # n052 "This is how it affects you."  analyst beside a wall-mounted 401(k) screen (full body visible, no desk)
     def n052o(c, t):
-        PD.fund_screen(c, 1330, 565, 1.0, t - .5, title='YOUR 401(k)', share=6.0)
+        PD.fund_screen(c, 1330, 520, 1.0, t - .5, title='YOUR 401(k)', share=6.0, stand=False)
     add('n052', shots.wide('night/study', [an_()], overlay=n052o, t0=at('n052')), zoom=(1.0, 1.12), focus=((1000, 560), (1150, 560)), whip_in=True, sfx=[(0, 'whoosh'), (1.0, 'tick')])
-    # n053 (a) the H200 rule + chip, 25% cut counter; (b) briefings folder and rule folder, NOT CONNECTED
-    def rule_chip(c, t):
-        k = ease_out(K(t, .1, .5)); PD.memo_folder(c, 1000, 770 - (1 - k) * 300, .75, rot=-5, label_text='H200 RULE'); PD.chip_box(c, 1450, 716, 1.0, rot=3)
-        Wd.counter(c, 1450, 400, 0, 25, (t - .8) / 1.0, unit='', suffix='%', label='cut announced, Dec 2025', size=90, panel=True)
-    def not_conn(c, t):
-        PD.memo_folder(c, 900, 770, .75, rot=-4, label_text='BRIEFINGS'); PD.memo_folder(c, 1500, 770, .75, rot=4, label_text='H200 RULE')
-        for i in range(int(12 * K(t, .2, .8))): c.drawCircle(1040 + i * 30, 700, 6, fp('#C9B995'))
-        Wd.stamp(c, 'Not connected', 1300, 500, t - 1.2, GOLD, rot=-6, size=64)
-    def n053a(t0): return dict(draw=shots.wide('night/study', [an_(face=.35)], overlay=rule_chip, t0=t0), zoom=(1.0, 1.15), focus=((1000, 560), (1250, 560)), sfx=[(.1, 'paper'), (1.0, 'tick')])
-    def n053b(t0): return dict(draw=shots.wide('night/study', [an_(pose=('down', 'present'))], overlay=not_conn, t0=t0), zoom=(1.1, 1.0), focus=(1150, 600), sfx=[(1.2, 'stamp')], shake=shake(1.2))
+    # ---- full-screen explainer charts (owner 24 Nov: easy to understand how it affects you) ----
+    def tx(c, s_, x, y, size, col=WHITE, al='center', f=F_LABEL, a=1.0): Wd.text(c, s_, x, y, size, col, f, al, alpha=int(255 * a))
+    # n053a  H200 sale to China: a bar of the sales with a 25% slice cut out, then the 25% counter
+    def h200_chart(c, t):
+        tx(c, 'NVIDIA H200 CHIPS, SOLD TO CHINA', 960, 190, 56, WHITE, 'center', F_TITLE, K(t, 0, .4))
+        tx(c, 'ANNOUNCED DECEMBER 2025', 960, 250, 34, '#9DB0DA', 'center', F_LABEL, K(t, .2, .4))
+        x0, x1, y0, y1 = 260, 1660, 420, 600; w = x1 - x0; k = ease_out(K(t, .5, .9))
+        rect(c, x0, y0, x0 + w * k, y1, NG, 6, r=10)                              # the sales (company element = Nvidia green)
+        if k > .95:
+            sl = ease_out(K(t, 2.0, .7)); cut = w * .25
+            rect(c, x1 - cut, y0, x1, y1, '#17315F', 3, r=10, v='#2E4A7A')             # the hole left behind
+            rect(c, x1 - cut + sl * 60, y0 - sl * 150, x1 + sl * 60, y1 - sl * 150, GOLD, 6, r=10)   # the cut slides up and away
+            if sl > .8: tx(c, '25% CUT', x1 - cut / 2 + 60, y0 - 190, 62, GOLD, 'center', F_TITLE, K(t, 2.6, .3))
+            tx(c, 'SALES', x0 + (w - cut) / 2, 530, 56, '#0F1A38', 'center', F_TITLE, K(t, 1.5, .3))
+        Wd.counter(c, 960, 860, 0, 25, (t - 2.9) / 1.2, unit='', suffix='%', label='of the sales, handed over as the price of the deal', size=110, panel=False)
+    def n053a(t0): return dict(draw=plain(h200_chart), zoom=(1.0, 1.06), focus=(960, 560), sfx=[(.5, 'whoosh'), (2.1, 'pop'), (3.0, 'tick')])
+    # n053b  two folders, the line between them is cut: "not connected"
+    def not_connected(c, t):
+        PD.memo_folder(c, 520, 560, 1.15, rot=-4, label_text='BRIEFINGS'); PD.memo_folder(c, 1400, 560, 1.15, rot=4, label_text='H200 RULE')
+        for i in range(int(14 * K(t, .2, .9))):
+            if 5 <= i <= 8: continue                                                       # the gap
+            c.drawCircle(700 + i * 32, 560, 8, fp('#C9B995'))
+        tx(c, '?', 960, 590, 130, GOLD, 'center', F_TITLE, K(t, 1.0, .3))
+        Wd.stamp(c, 'NOT CONNECTED', 960, 860, t - 1.3, GOLD, rot=-4, size=96)
+        tx(c, 'No one has shown a link', 960, 190, 52, '#9DB0DA', 'center', F_LABEL, K(t, 0, .4))
+    def n053b(t0): return dict(draw=plain(not_connected), zoom=(1.08, 1.0), focus=(960, 560), sfx=[(1.3, 'stamp')], shake=shake(1.3))
     multi('n053', [(.55, n053a), (.45, n053b)])
-    # n054 "more than six hundred dollars of every ten thousand"  big screen, ten stacks of cash, six percent glows
-    def waffle(c, t):
-        PD.fund_screen(c, 1230, 610, 1.2, t, title='YOUR 401(k)', share=6.0); Wd.cash_stack(c, 560, 836, 10, 1.0)
-        Wd.counter(c, 1230, 175, 0, 6.0, (t - .2) / 1.0, unit='', suffix='%', label='NVIDIA', size=80, panel=False)
-    add('n054', shots.wide('night/study', [an_(x=420, face=.4)], overlay=waffle, t0=at('n054')), zoom=(1.0, 1.1), focus=((900, 600), (1200, 560)), sfx=[(.2, 'tick'), (1.2, 'ding')],
-        hud=lambda c, t: Wd.text(c, 'ABOUT $600 OF EVERY $10,000', 960, 925, 40, '#9DB0DA', F_LABEL, 'center', alpha=int(255 * K(t, 1.0, .4))))
-    # n055 the habit  a rule folder slides over the screen, typed line on top
-    def rule_on_screen(c, t):
-        PD.fund_screen(c, 1330, 565, 1.0, 9, title='YOUR 401(k)', share=6.0); k = ease_out(K(t, .3, .6))
-        PD.memo_folder(c, 760 + k * 520, 800 - k * 180, .7, rot=-6 + 6 * k, label_text='THE RULE')
-    add('n055', shots.wide('night/study', [an_(x=560, pose=('down', 'present'))], overlay=rule_on_screen, t0=at('n055')), zoom=(1.0, 1.12), focus=((1000, 560), (1150, 560)), sfx=[(.3, 'paper'), (.9, 'tick')],
-        hud=lambda c, t: Wd.text(c, ('THE RULE IS PART OF WHAT YOU OWN')[:max(0, int((t - .4) / 2.4 * 40))], 960, 150, 52, WHITE, F_TYPE, 'center', stroke=10))
+    # n054  YOUR $10,000: 100 squares = $100 each; 6 are Nvidia; one government decision hits them and your balance dips (illustration)
+    def your_fund(c, t):
+        tx(c, 'A TYPICAL S&P 500 FUND: YOUR $10,000', 960, 150, 56, WHITE, 'center', F_TITLE, K(t, 0, .4))
+        tx(c, 'each square = $100', 560, 905, 34, '#9DB0DA', 'center', F_LABEL, K(t, .6, .4))
+        gx, gy, pitch = 270, 230, 58; n = int(K(t, .3, 1.6) * 100)
+        hit = ease_out(K(t, 6.6, .25)); dip = ease_out(K(t, 6.9, .8)); shiver = math.sin(t * 60) * 5 * (1 - K(t, 6.6, .9)) * (1 if t > 6.6 else 0)
+        for i in range(100):
+            col, row = i % 10, i // 10; lit = i < 6
+            if i >= n: continue
+            x = gx + col * pitch + (shiver if lit else 0); y = gy + row * pitch
+            f_ = ('#76B900' if lit and t > 3.4 else '#2B4A7A')
+            if lit and t > 6.6: f_ = '#4A6A12' if dip > .5 else '#76B900'
+            rect(c, x, y, x + 48, y + 48, f_, 3, r=6)
+        if t > 3.4:
+            rect(c, gx - 8, gy - 8, gx + 5 * pitch + 56, gy + 56, None, 6, r=10, v=GOLD)
+            tx(c, 'NVIDIA', gx + 160, gy - 24, 40, NG, 'center', F_TITLE, K(t, 3.4, .3))
+        if t > 3.4:
+            Wd.counter(c, 1330, 360, 0, 600, (t - 3.5) / 1.2, unit='$', label='IN NVIDIA, OF EVERY $10,000', size=120, panel=False)
+        if t > 6.0:
+            tx(c, 'ONE GOVERNMENT DECISION', 1330, 560, 46, WHITE, 'center', F_TITLE, K(t, 6.0, .3))
+        if t > 6.9:
+            tx(c, 'EXAMPLE: IF NVIDIA FELL 20%', 1330, 700, 36, '#9DB0DA', 'center', F_LABEL, K(t, 6.9, .3))
+            Wd.counter(c, 1330, 790, 10000, 9880, dip, unit='$', label='YOUR FUND', size=100, panel=False)
+    add('n054', plain(your_fund), zoom=(1.0, 1.04), focus=(960, 560), sfx=[(.4, 'tick'), (3.5, 'ding'), (6.6, 'stamp'), (7.0, 'low_tone')], shake=shake(6.6))
+    # n055  the habit: what you own when you own a company, the government rule is a layer of it
+    def layers(c, t):
+        tx(c, 'WHAT YOU OWN WHEN YOU OWN A COMPANY', 960, 160, 54, WHITE, 'center', F_TITLE, K(t, 0, .4))
+        L = [('ITS PRODUCTS', '#2B4A7A', .3), ('ITS BIGGEST CUSTOMERS', '#3A63A0', .9)]
+        for i, (nm, col, t0_) in enumerate(L):
+            k = ease_out(K(t, t0_, .45)); y1 = 860 - i * 150; y0 = y1 - 130
+            if k > 0:
+                c.save(); c.translate(0, -(1 - k) * 400); rect(c, 560, y0, 1360, y1, col, 6, r=10); tx(c, nm, 960, y0 + 82, 48, WHITE, 'center', F_TITLE); c.restore()
+        d = K(t, 1.9, .5); k = ease_out(d); bounce = math.sin(K(t, 2.35, .4) * 9) * 8 * (1 - K(t, 2.35, .4)) if t > 2.35 else 0
+        if k > 0:
+            c.save(); c.translate(0, -(1 - k) * 600 + bounce); rect(c, 540, 450, 1380, 590, GOLD, 7, r=10); tx(c, 'THE GOVERNMENT RULES IT DEPENDS ON', 960, 535, 44, '#3A2A00', 'center', F_TITLE); c.restore()
+    add('n055', plain(layers), zoom=(1.0, 1.05), focus=(960, 560), sfx=[(.3, 'paper'), (.9, 'paper'), (2.35, 'stamp')], shake=shake(2.35),
+        hud=lambda c, t: Wd.text(c, ('THE RULE IS PART OF WHAT YOU OWN')[:max(0, int((t - 3.2) / 2.4 * 33))], 960, 960, 44, WHITE, F_TYPE, 'center', stroke=10) if t > 3.2 else None)
     # n056 three questions: three index cards pop onto the desk one by one
     CARDS = [('What can switch its', 'market on or off?'), ('Who checks its', 'biggest customers?'), ('Who gets warned,', 'and when?')]
     def three_cards(c, t):

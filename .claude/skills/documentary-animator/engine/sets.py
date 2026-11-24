@@ -90,7 +90,7 @@ SETS = {
  'night/af1_cabin':   dict(real=RD.draw_af1_cabin, real_fg=RD._af1_table, night=RD.af1_cabin_night, spots={'left': (700, 1010, 1.05), 'right': (1220, 1010, 1.05)}),
  'night/commerce_hq': dict(real=RD.draw_commerce_hq, night=RD.commerce_hq_night, spots={'steps': (960, 900, .7), 'left': (640, 960, .75), 'right': (1280, 960, .75)}),
  'night/commerce_room': dict(real=RD.draw_commerce_room, real_fg=RD._commerce_table, night=RD.commerce_room_night, spots={'left': (560, 1010, 1.0), 'right': (1380, 1010, 1.0), 'center': (960, 1010, 1.0)}),
- 'night/study': dict(real=RS.draw_study, real_fg=RS._study_desk, night=RS.study_night, spots={'center': (960, 1010, 1.0), 'left': (640, 1010, 1.0), 'right': (1280, 1010, 1.0)}),   # Analyst's study, ch5 (PENDING approval, 24 Nov)
+ 'night/study': dict(real=RS.draw_study, night=RS.study_night, spots={'center': (960, 1010, 1.0), 'left': (640, 1010, 1.0), 'right': (1280, 1010, 1.0)}),   # Analyst's study, ch5 (PENDING approval, 24 Nov)
  'night/desk_clean': dict(real=RP.draw_desk_clean, night=RP.desk_clean_night, spots={}),          # top-down desk WITHOUT the Ponzi leftovers (QA 22 Nov)
  'night/megaspeed':  dict(real=RP.draw_megaspeed, night=RP.megaspeed_night, spots={'desk_left': (330, 1010, 1.0), 'center': (960, 1000, 1.0), 'right': (1450, 1000, 1.0)}),
  'night/diner93':    dict(real=RP.draw_diner93, real_fg=RP._diner_table, night=RP.diner93_night, spots={'left': (800, 1010, 1.1), 'right': (1280, 1010, 1.1)}),
