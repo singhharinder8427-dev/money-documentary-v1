@@ -1,6 +1,16 @@
-# Checkpoint - 22 Nov 2026 (read this right after START_HERE.md)
+# Checkpoint - 24 Nov 2026 (read this right after START_HERE.md)
 
-## 1. Where we are
+## 0. Latest (24 Nov 2026)
+- **The Nvidia Files - Part 2** ("Who Warned Trump About Nvidia's CEO?", 6:10) is **DONE and LIVE on YouTube** (category
+  Education). Rendered on the owner's PC; the owner made the thumbnail. Details: `videos/nvidia-files-part2/CHECKPOINT.md`.
+- All Part 1 + Part 2 assets are LOCKED in `ASSET_LIBRARY.md`.
+- **New standing rule (CLAUDE.md step 2):** every next video is about what people are actively SEARCHING for - show the search
+  evidence before picking the topic and title.
+- **Next video:** start with CLAUDE.md step 2 (search-demand idea, script / length / PC-or-cloud questions). Also apply
+  `research/APPLY_NEXT_VIDEO.md` (competitor-style research).
+- PC note: the Parakeet speech-to-text model is not in `D:\models`, so `make_video.py check` fails on the PC (download it or check in the cloud).
+
+## 1. Where we were (22 Nov 2026)
 - **"The Nvidia Files - Part 1"** ("How Nvidia's CEO Ended Up at Dinner With a Suspected Spy", ~10 min, cloud render,
   no end screen, "subscribe for Part 2" card) - **the owner declared Part 1 done (22 Nov 2026).**
   - Script: `videos/nvidia-files-part1/script.json` (copy in `videos/nvidia-files-part1-draft/`). Shots: `videos/nvidia-files-part1/shots.py` (~173).

@@ -16,7 +16,9 @@ Owner: Mukesh Kumar Jha (Dirty Dollar). Strict compliance: follow every instruct
 - Full video rendered on the owner's PC (6:10, 1080p30): `out/final.mp4`, `out/captions.srt`. **Owner approved the video.**
   `check` not run on the PC: Parakeet model missing from D:\models (cloud check of the previous version: 0.931).
 - All Part 1 + Part 2 PENDING assets LOCKED in ASSET_LIBRARY.md (office workstation marked REMOVED: ng_scenes.py was deleted).
-- Next: youtube.md disclaimer question, then thumbnails (ask for reference thumbnails -> 3 prompts).
+- youtube.md: disclaimer removed (owner), exact chapter times from the render, sources + typewriter credit; category Education.
+- Thumbnail: Claude wrote 3 prompts (A "ON THE SAME PLANE", B "EVERYONE KNEW BUT HIM", C "WARNED TWICE"); the owner made the final thumbnail.
+- **PART 2 IS DONE AND LIVE ON YOUTUBE (24 Nov 2026). Nothing left open.** Part 3 ("the four days") is teased at the end.
 
 ## Standing rules (do not break)
 - Never render (video, stills, contact sheets) without the owner's explicit OK. Ask first.

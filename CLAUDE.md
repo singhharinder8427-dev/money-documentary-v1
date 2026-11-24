@@ -26,6 +26,9 @@ Skip binaries (images, fonts, audio, video). Then continue; do not summarise all
 1. **Script:** "Do you already have a script, should I research and write one, or do you want me to find the idea first?"
 2. **Length:** "How long should this video be?" (ask EVERY video; never assume 10 min).
 3. **Render:** "Render on your Windows PC or in the cloud?" (ask EVERY new project; asking is not consent to render, see 5).
+**Search-demand topics (standing rule, owner-set 24 Nov 2026):** from now on every video is about what people are actively
+searching for. When finding or checking an idea, show the owner the search evidence first (Google Trends, YouTube search
+suggestions, recent news volume, competitor videos' views) and pick the topic and title wording people actually type.
 If the owner has a script: fact-check/adapt it into Template A (`documentary-script` skill). If not: research + write it
 with the `documentary-script` skill (3 outlines -> full script -> sources). Wait for the owner to lock the script.
 
