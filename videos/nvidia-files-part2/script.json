@@ -106,18 +106,6 @@
       "id": "n007"
     },
     {
-      "beat": "TITLE",
-      "chapter": null,
-      "speaker": "NARRATOR",
-      "text": "[TITLE CARD: WHO WARNED TRUMP? - gold on WARNED + sound logo]",
-      "card": false,
-      "counter": null,
-      "dramatised": false,
-      "sources": [],
-      "shot_hint": "title card + sound logo; series tag THE NVIDIA FILES - PART 2",
-      "id": "n008"
-    },
-    {
       "beat": "CH1",
       "chapter": "The Memo",
       "speaker": "NARRATOR",
@@ -712,9 +700,9 @@
     },
     {
       "beat": "CH5",
-      "chapter": "Your Wallet",
+      "chapter": "Why It's a Big Deal for Your 401(k)",
       "speaker": "NARRATOR",
-      "text": "Here is where this reaches your money.",
+      "text": "This is how it affects you.",
       "card": false,
       "counter": null,
       "dramatised": false,
@@ -724,9 +712,9 @@
     },
     {
       "beat": "CH5",
-      "chapter": "Your Wallet",
+      "chapter": "Why It's a Big Deal for Your 401(k)",
       "speaker": "NARRATOR",
-      "text": "In December twenty twenty-five, the administration announced Nvidia could sell advanced H200 chips to China, in exchange for a twenty-five percent cut. No one has shown that the briefings and that rule are connected.",
+      "text": "In December twenty twenty-five, the administration announced Nvidia could sell advanced H 200 chips to China, in exchange for a twenty-five percent cut. No one has shown that the briefings and that rule are connected.",
       "card": true,
       "counter": {
         "from": 0,
@@ -743,7 +731,7 @@
     },
     {
       "beat": "CH5",
-      "chapter": "Your Wallet",
+      "chapter": "Why It's a Big Deal for Your 401(k)",
       "speaker": "NARRATOR",
       "text": "But it shows how much one government decision can move one company. And Nvidia is more than six hundred dollars of every ten thousand in a typical S&P 500 fund.",
       "card": false,
@@ -757,7 +745,7 @@
     },
     {
       "beat": "CH5",
-      "chapter": "Your Wallet",
+      "chapter": "Why It's a Big Deal for Your 401(k)",
       "speaker": "NARRATOR",
       "text": "So here is a habit. When a company's growth depends on a government rule, the rule is part of what you own.",
       "card": false,
@@ -769,7 +757,7 @@
     },
     {
       "beat": "CH5",
-      "chapter": "Your Wallet",
+      "chapter": "Why It's a Big Deal for Your 401(k)",
       "speaker": "NARRATOR",
       "text": "Ask three things. Which decisions can switch its biggest market on or off? Who checks its biggest customers? And who gets warned, and when?",
       "card": false,
@@ -781,7 +769,7 @@
     },
     {
       "beat": "CH5",
-      "chapter": "Your Wallet",
+      "chapter": "Why It's a Big Deal for Your 401(k)",
       "speaker": "NARRATOR",
       "text": "Not so you can guess the next headline. So you know what you are actually holding when the headline lands.",
       "card": false,
@@ -790,18 +778,6 @@
       "sources": [],
       "shot_hint": "hand holding a fund statement",
       "id": "n057"
-    },
-    {
-      "beat": "CH5",
-      "chapter": "Your Wallet",
-      "speaker": "NARRATOR",
-      "text": "This is education, not financial advice.",
-      "card": false,
-      "counter": null,
-      "dramatised": false,
-      "sources": [],
-      "shot_hint": "small lower-third",
-      "id": "n058"
     },
     {
       "beat": "END",

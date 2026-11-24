@@ -98,16 +98,15 @@ Legal rules carried into the picture: every briefing claim carries a REPORTED / 
 | 74 | n050 OFFICIAL "No." | official looks away | push | sting | - |
 | 75 | n051 "By the seventeenth, the WSJ reported an SEC probe..." | night/desk, ticker panel + stamp | top-down | `prop_stamp` SEC - REPORTED | - |
 
-## CH5 - Your Wallet (n052-n058)  ~65 s (lesson part, day look)
-| 76 | chapter card "Your Wallet" | chapter card | - | - | - |
-| 77 | n052 "Here is where this reaches your money." | day/lesson room | push | - | - |
+## CH5 - Why It's a Big Deal for Your 401(k) (n052-n057)  ~65 s (analyst's study, night look; no board)
+| 76 | chapter card "Why It's a Big Deal for Your 401(k)" | chapter card | - | - | - |
+| 77 | n052 "This is how it affects you." | day/lesson room | push | - | - |
 | 78 | n053 (a) "In December 2025, ...H200 chips to China, for a 25% cut." | day/lesson whiteboard: RULE -> REVENUE arrows | slow push | counter 0 to 25% gold | - |
 | 79 | n053 (b) "No one has shown that the briefings and that rule are connected." | board: dotted line with NOT CONNECTED note | static | `widgets.stamp` NOT CONNECTED | - |
 | 80 | n054 "...more than $600 of every $10,000 in an S&P 500 fund." | fund pie chart, one slice highlighted | push | slice pulses (Nvidia green, rule 3b) | - |
 | 81 | n055 "So here is a habit." | notepad on desk, 3 lines typed | close | typewriter | - |
 | 82 | n056 "Ask three things." | **red-flags board** (standing segment): 3 items pop in one by one, timed to the voice | static | soft pop each | - |
 | 83 | n057 "...what you are actually holding when the headline lands." | hand holding a fund statement | close | - | - |
-| 84 | n058 "This is education, not financial advice." | small lower-third over the lesson room | static | - | - |
 
 ## END (n059-n063)  ~35 s
 | 85 | n059 "Back to November sixteenth. 'I haven't heard that.'" | white_house, same angle as the hook, camera PULLS BACK, card fades in | pull-back | callback | - |

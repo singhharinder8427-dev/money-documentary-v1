@@ -56,3 +56,72 @@ def prop_stamp(c, s, x, y, t, color=GOLD, rot=-8, size=110, stroke=8):
     c.drawString(s.upper(), -tw / 2, size * .3, f, fp(color, a)); c.restore()
     if t < .35: r = random.Random(int(t * 100)); amp = 14 * (1 - t / .35); return (r.uniform(-amp, amp), r.uniform(-amp, amp))
     return (0, 0)
+
+
+# ---- added 23 Nov 2026 for Part 2 shots (PENDING owner approval in ASSET_LIBRARY.md)
+def hand_mic(c, x, y, s=1.0, rot=0.0, arm=True):
+    """Reporter's hand-held microphone: dark foam head, gold band, handle, sleeve + hand. Anchor = top of the handle; pointing up-left at rot 0."""
+    c.save(); c.translate(x, y); c.rotate(rot); c.scale(s, s)
+    if arm:
+        poly(c, [(20, 120), (90, 120), (170, 420), (60, 420)], '#2B3A55', 5)                         # sleeve
+        circ(c, 6, 96, 40, '#E9B98F', 5)                                                              # hand
+    rect(c, -16, -20, 16, 110, '#2E2E38', 5, r=8)                                                      # handle
+    rect(c, -20, -34, 20, -14, GOLD, 4, r=4)                                                           # band
+    circ(c, 0, -86, 52, '#1B1D26', 5)                                                                  # foam head
+    for k in range(-2, 3): c.drawLine(-40, -86 + k * 14, 40, -86 + k * 14, ink(2, '#3A3F4F', 180))    # mesh lines
+    c.restore()
+
+def passport(c, x, y, s=1.0, rot=0.0, open_k=0.0, tag='PASSPORT'):
+    """Simple passport: navy cover, gold crest + word; open_k 1 shows a blank photo page. No real country marks."""
+    c.save(); c.translate(x, y); c.rotate(rot); c.scale(s, s)
+    c.drawRect(skia.Rect(-130, -170, 150, 190), fp((0, 0, 0), 70, blur=12))
+    if open_k < .5:
+        rect(c, -140, -180, 140, 180, '#1E3A6E', 6, r=10); circ(c, 0, -60, 52, None, 6, v=GOLD)
+        label(c, tag, 0, 70, 38, GOLD, font=F_LABEL, align='center', skew=0)
+    else:
+        rect(c, -280, -180, 0, 180, '#F4EFE2', 6, r=8); rect(c, 0, -180, 280, 180, '#F4EFE2', 6, r=8)
+        rect(c, -240, -120, -80, 40, '#C9D3EA', 4, r=6); circ(c, -160, -60, 34, '#9DB0DA', 4)
+        for k in range(4): c.drawLine(-60 + 0, -110 + k * 34, 240, -110 + k * 34, ink(3, '#6B7390', 200))
+    c.restore()
+
+
+# ---------------- 24 Nov 2026, chapter 5 props (PENDING owner approval) ----------------
+def fund_screen(c, x, y, s=1.0, t=0.0, title='YOUR 401(k)', share=6.0, grid=True):
+    """Desk monitor facing the viewer showing a fund: header + a 10x10 waffle (100 squares = $10,000); `share` squares glow Nvidia green
+    (brand colour exception, company element). t = seconds in: squares fill in over ~1 s. Anchor = screen centre; ~560*s wide."""
+    c.save(); c.translate(x, y); c.scale(s, s)
+    rect(c, -60, 238, 60, 270, '#3A3F4F', 5, r=6); rect(c, -140, 262, 140, 282, '#2E2E38', 5, r=8)               # stand + foot
+    rect(c, -290, -230, 290, 240, '#1E2026', 6, r=18); rect(c, -268, -208, 268, 218, '#0F1A38', 3, r=8)         # bezel + screen
+    label(c, title, 0, -150, 52, WHITE, font=F_TITLE, align='center', skew=0)
+    label(c, 'S&P 500 INDEX FUND', 0, -112, 26, '#9DB0DA', font=F_LABEL, align='center', skew=0)
+    if grid:
+        n = int(min(1.0, max(0.0, t / 1.0)) * 100);
+        for i in range(100):
+            col, row = i % 10, i // 10; cx = -135 + col * 30; cy = -86 + row * 24
+            lit = i < share
+            if i < n or lit and t > .2:
+                rect(c, cx - 12, cy, cx + 12, cy + 18, '#76B900' if lit else '#2B4A7A', 2.5, r=3)
+        if share and t > 1.0:
+            pulse = 1 + .06 * math.sin(t * 6); rect(c, -149, -90, -149 + 30 * share * pulse + 6, -64, None, 5, r=6, v=GOLD)
+    c.restore()
+
+def chip_box(c, x, y, s=1.0, rot=0.0, label_text='H200'):
+    """Chip package on a small pallet: dark square die, gold pins, Nvidia-green corner mark. Anchor = centre; ~220*s wide."""
+    c.save(); c.translate(x, y); c.rotate(rot); c.scale(s, s)
+    for k in range(-4, 5):
+        rect(c, -120, k * 24 - 5, -100, k * 24 + 5, '#C9A227', 2); rect(c, 100, k * 24 - 5, 120, k * 24 + 5, '#C9A227', 2)
+        rect(c, k * 24 - 5, -120, k * 24 + 5, -100, '#C9A227', 2); rect(c, k * 24 - 5, 100, k * 24 + 5, 120, '#C9A227', 2)
+    rect(c, -104, -104, 104, 104, '#2B2F38', 6, r=14); rect(c, -64, -64, 64, 64, '#1B1D26', 4, r=8)
+    poly(c, [(-92, -92), (-62, -92), (-92, -62)], '#76B900', 3)
+    label(c, label_text, 0, 14, 44, WHITE, font=F_TITLE, align='center', skew=0)
+    c.restore()
+
+def question_card(c, x, y, s=1.0, rot=0.0, n=1, line1='', line2='', u=1.0):
+    """Index card with a gold number tab; u 0..1 pops it in (scale + settle). Anchor = centre; 460*s wide."""
+    k = 0 if u <= 0 else min(1.0, u); sc = s * (0.4 + 0.6 * ease_out(k)) * (1 + .06 * math.sin(k * math.pi))
+    if u <= 0: return
+    c.save(); c.translate(x, y + (1 - ease_out(k)) * 60); c.rotate(rot); c.scale(sc, sc)
+    c.drawRect(skia.Rect(-226, -146, 246, 166), fp((0, 0, 0), 70, blur=12))
+    rect(c, -230, -150, 230, 150, '#FBF8F0', 6, r=10); circ(c, -190, -110, 34, GOLD, 5); label(c, str(n), -190, -92, 52, NAVY, font=F_TITLE, align='center', skew=0)
+    label(c, line1, 0, -10, 38, NAVY, font=F_TITLE, align='center', skew=0); label(c, line2, 0, 50, 38, NAVY, font=F_TITLE, align='center', skew=0)
+    c.restore()

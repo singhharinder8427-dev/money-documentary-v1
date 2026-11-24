@@ -163,3 +163,13 @@ Reference notes: `graphics/codex-library/*.md`. Status for all rows: **IMPORTED*
 | Clean top-down desk | set `night/desk_clean` | dark wood, mug ring, pen, laptop corner, empty centre for documents | LOCKED (real-colour night look, 22 Nov) |
 | Sounds | audio `page_flips`, `phone_ring`, `pickup`, `footsteps`, `room_tone` | flips, buzz+ring, pickup, steps, hum/murmur/rumble/static | PENDING |
 | Flags | anim `flag` china / singapore / malaysia | simplified national flags | PENDING |
+
+### Added in The Nvidia Files Part 2 (PENDING owner approval)
+| Name | Code key | Source video | Status |
+|---|---|---|---|
+| Reporter hand microphone | `props_dc.hand_mic(c, x, y, s, rot, arm)` | nvidia-files-part2 | PENDING |
+| Passport (opens, tag text) | `props_dc.passport(c, x, y, s, rot, open_k, tag)` | nvidia-files-part2 | PENDING |
+| Analyst's study (night) | set `night/study` (`real_places_study.py`) | nvidia-files-part2 ch5 | PENDING |
+| Fund screen (waffle 10x10) | `props_dc.fund_screen(c, x, y, s, t, title, share, grid)` | nvidia-files-part2 ch5 | PENDING |
+| Chip box (H200) | `props_dc.chip_box(c, x, y, s, rot, label_text)` | nvidia-files-part2 ch5 | PENDING |
+| Question card | `props_dc.question_card(c, x, y, s, rot, n, line1, line2, u)` | nvidia-files-part2 ch5 | PENDING |

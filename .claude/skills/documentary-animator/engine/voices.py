@@ -73,7 +73,7 @@ def _espeak_ipa(word):
 def prepare_text(text):
     """Make a line safe for Kokoro: spell numbers out, and add every word missing from its dictionary to
     lex_extra.txt (hand-checked MANUAL_LEX first, then espeak-ng). Without this Kokoro silently SKIPS unknown words."""
-    t = speakable(text); known = _known(); have = {}
+    t = speakable(text).replace('"', ''); known = _known(); have = {}   # quotes glued to a word made Kokoro skip it ('"I)
     if os.path.exists(LEXICON_EXTRA): have = {l.split(' ', 1)[0]: 1 for l in open(LEXICON_EXTRA, encoding='utf-8') if l.strip()}
     new = []
     for w in re.findall(r"[A-Za-z][A-Za-z'’-]*", t):

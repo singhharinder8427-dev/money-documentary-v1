@@ -73,14 +73,13 @@
 - **OFFICIAL:** No. (dramatised)
 - **NARRATOR:** By the seventeenth, the Wall Street Journal reported an SEC probe. Huang said he would be honored to return.
 
-## CH5 - Your Wallet
-- **NARRATOR:** Here is where this reaches your money.
+## CH5 - Why It's a Big Deal for Your 401(k)
+- **NARRATOR:** This is how it affects you.
 - **NARRATOR:** In December twenty twenty-five, the administration announced Nvidia could sell advanced H200 chips to China, in exchange for a twenty-five percent cut. No one has shown that the briefings and that rule are connected. [CARD] [COUNTER 0->25 gold]
 - **NARRATOR:** But it shows how much one government decision can move one company. And Nvidia is more than six hundred dollars of every ten thousand in a typical S&P 500 fund.
 - **NARRATOR:** So here is a habit. When a company's growth depends on a government rule, the rule is part of what you own.
 - **NARRATOR:** Ask three things. Which decisions can switch its biggest market on or off? Who checks its biggest customers? And who gets warned, and when?
 - **NARRATOR:** Not so you can guess the next headline. So you know what you are actually holding when the headline lands.
-- **NARRATOR:** This is education, not financial advice.
 
 ## END
 - **NARRATOR:** Back to November sixteenth. "I haven't heard that."

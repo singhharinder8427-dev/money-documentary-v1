@@ -43,13 +43,12 @@ Narrator lines go to the owner's ElevenLabs voice in script order; character lin
 - n045: Congress wants answers. House chairs asked for answers. Huang is due for a closed-door House interview on December first.
 - n046: Monday the sixteenth. The President says he has not heard about Rubio's warning. He says he would be fine with Huang coming back.
 - n051: By the seventeenth, the Wall Street Journal reported an SEC probe. Huang said he would be honored to return.
-- n052: Here is where this reaches your money.
+- n052: This is how it affects you.
 - n053: In December twenty twenty-five, the administration announced Nvidia could sell advanced H200 chips to China, in exchange for a twenty-five percent cut. No one has shown that the briefings and that rule are connected.
 - n054: But it shows how much one government decision can move one company. And Nvidia is more than six hundred dollars of every ten thousand in a typical S&P 500 fund.
 - n055: So here is a habit. When a company's growth depends on a government rule, the rule is part of what you own.
 - n056: Ask three things. Which decisions can switch its biggest market on or off? Who checks its biggest customers? And who gets warned, and when?
 - n057: Not so you can guess the next headline. So you know what you are actually holding when the headline lands.
-- n058: This is education, not financial advice.
 - n059: Back to November sixteenth. "I haven't heard that."
 - n060: What can be shown so far is small. A memo reportedly exists. A CEO is gone. Investigations have begun.
 - n061: Everything else is a question. And one date still bothers me. May twelfth.
