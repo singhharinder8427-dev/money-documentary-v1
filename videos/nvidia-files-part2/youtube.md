@@ -16,6 +16,6 @@
 ## Description draft
 Reports say the President was warned twice about Nvidia CEO Jensen Huang's relationship with a woman U.S. officials reportedly believe worked for China. The President says he has not heard it. Here is what is reported, what is confirmed, and what is still unknown.
 
-Everything about the briefings comes from press reports and anonymous sources, and is marked as reported. Alice Huang has not been charged; China denies the claim; the Justice Department has reached no conclusion. Not financial advice. Educational content only.
+Everything about the briefings comes from press reports and anonymous sources, and is marked as reported. Alice Huang has not been charged; China denies the claim; the Justice Department has reached no conclusion.
 
 Sources: see sources.md (link each in the description). Typewriter keys: CC BY 4.0 credit line, as in every video.
