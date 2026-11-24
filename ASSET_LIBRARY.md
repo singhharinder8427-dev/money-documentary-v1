@@ -145,31 +145,31 @@ Reference notes: `graphics/codex-library/*.md`. Status for all rows: **IMPORTED*
 | Codex sets, first use | `night/investigation_room`, `day/shop_counter`, `day/press_conference`, `night/apartment_hallway`, `day/boardroom` | approved as they are (no restyle) for this video | LOCKED |
 | Kit add-ons | kit `hat_style='peaked'`, `badge`, `apron` | usable on any character | LOCKED |
 
-## PENDING - Nvidia Files Part 1 QA fixes (22 Nov 2026, owner to approve)
+## Nvidia Files Part 1 QA fixes (LOCKED by the owner 24 Nov 2026)
 | Name | Code key | Notes | Status |
 |---|---|---|---|
-| Nvidia logo (rough 2D) | props `nvidia_logo` | green square + white eye swirl + NVIDIA name, drawn fresh (rule 3b) | PENDING |
-| Phone lying flat | props `phone_flat` | on tables, lights up / buzzes | PENDING |
-| Hair dryer in hand | props `hair_dryer` | with sleeve + hand, hot-air lines | PENDING |
-| Handcuffs | props `handcuffs` | two cuffs + 3-link chain, snap shut | PENDING |
-| Delivery scooter with rider | props `scooter_rider` | helmet, jacket, pizza box | PENDING |
-| Paper / phone held in hand | props `paper_in_hand`, `phone_in_hand` | placed at kit.hand_pos | PENDING |
-| Phone pose always holds a phone | kit `_draw_arm` | engine-wide fix | PENDING |
-| Emotion-matched talking mouth | actor `draw` | wide grin only on happy lines | PENDING |
-| Office workstation | ng_scenes `workstation` | desk on legs, drawer, monitor on stand, chair, keyboard, mug | PENDING |
+| Nvidia logo (rough 2D) | props `nvidia_logo` | green square + white eye swirl + NVIDIA name, drawn fresh (rule 3b) | LOCKED |
+| Phone lying flat | props `phone_flat` | on tables, lights up / buzzes | LOCKED |
+| Hair dryer in hand | props `hair_dryer` | with sleeve + hand, hot-air lines | LOCKED |
+| Handcuffs | props `handcuffs` | two cuffs + 3-link chain, snap shut | LOCKED |
+| Delivery scooter with rider | props `scooter_rider` | helmet, jacket, pizza box | LOCKED |
+| Paper / phone held in hand | props `paper_in_hand`, `phone_in_hand` | placed at kit.hand_pos | LOCKED |
+| Phone pose always holds a phone | kit `_draw_arm` | engine-wide fix | LOCKED |
+| Emotion-matched talking mouth | actor `draw` | wide grin only on happy lines | LOCKED |
+| Office workstation | ng_scenes `workstation` | desk on legs, drawer, monitor on stand, chair, keyboard, mug | REMOVED (ng_scenes.py deleted 22 Nov 2026) |
 | Megaspeed office (repaired desks) | set `night/megaspeed` | LOCKED set changed at owner's request (desks were on the floor) | LOCKED (real-colour night look, 22 Nov) |
 | Nvidia office | set `night/nvidia_office` | wall screen, glass meeting room, plants, workstations | LOCKED (real-colour night look, 22 Nov) |
 | Newsroom | set `night/newsroom` | TV wall, world clocks, desks | LOCKED (real-colour night look, 22 Nov) |
 | Clean top-down desk | set `night/desk_clean` | dark wood, mug ring, pen, laptop corner, empty centre for documents | LOCKED (real-colour night look, 22 Nov) |
-| Sounds | audio `page_flips`, `phone_ring`, `pickup`, `footsteps`, `room_tone` | flips, buzz+ring, pickup, steps, hum/murmur/rumble/static | PENDING |
-| Flags | anim `flag` china / singapore / malaysia | simplified national flags | PENDING |
+| Sounds | audio `page_flips`, `phone_ring`, `pickup`, `footsteps`, `room_tone` | flips, buzz+ring, pickup, steps, hum/murmur/rumble/static | LOCKED |
+| Flags | anim `flag` china / singapore / malaysia | simplified national flags | LOCKED |
 
-### Added in The Nvidia Files Part 2 (PENDING owner approval)
+### Added in The Nvidia Files Part 2 (LOCKED by the owner 24 Nov 2026)
 | Name | Code key | Source video | Status |
 |---|---|---|---|
-| Reporter hand microphone | `props_dc.hand_mic(c, x, y, s, rot, arm)` | nvidia-files-part2 | PENDING |
-| Passport (opens, tag text) | `props_dc.passport(c, x, y, s, rot, open_k, tag)` | nvidia-files-part2 | PENDING |
-| Analyst's study (night) | set `night/study` (`real_places_study.py`) | nvidia-files-part2 ch5 | PENDING |
-| Fund screen (waffle 10x10) | `props_dc.fund_screen(c, x, y, s, t, title, share, grid)` | nvidia-files-part2 ch5 | PENDING |
-| Chip box (H200) | `props_dc.chip_box(c, x, y, s, rot, label_text)` | nvidia-files-part2 ch5 | PENDING |
-| Question card | `props_dc.question_card(c, x, y, s, rot, n, line1, line2, u)` | nvidia-files-part2 ch5 | PENDING |
+| Reporter hand microphone | `props_dc.hand_mic(c, x, y, s, rot, arm)` | nvidia-files-part2 | LOCKED |
+| Passport (opens, tag text) | `props_dc.passport(c, x, y, s, rot, open_k, tag)` | nvidia-files-part2 | LOCKED |
+| Analyst's study (night) | set `night/study` (`real_places_study.py`) | nvidia-files-part2 ch5 | LOCKED |
+| Fund screen (waffle 10x10) | `props_dc.fund_screen(c, x, y, s, t, title, share, grid)` | nvidia-files-part2 ch5 | LOCKED |
+| Chip box (H200) | `props_dc.chip_box(c, x, y, s, rot, label_text)` | nvidia-files-part2 ch5 | LOCKED |
+| Question card | `props_dc.question_card(c, x, y, s, rot, n, line1, line2, u)` | nvidia-files-part2 ch5 | LOCKED |

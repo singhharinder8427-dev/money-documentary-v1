@@ -395,7 +395,7 @@ def build(tl):
     # n052 "This is how it affects you."  analyst beside a wall-mounted 401(k) screen (full body visible, no desk)
     def n052o(c, t):
         PD.fund_screen(c, 1330, 520, 1.0, t - .5, title='YOUR 401(k)', share=6.0, stand=False)
-    add('n052', shots.wide('night/study', [an_()], overlay=n052o, t0=at('n052')), zoom=(1.0, 1.12), focus=((1000, 560), (1150, 560)), whip_in=True, sfx=[(0, 'whoosh'), (1.0, 'tick')])
+    add('n052', shots.wide('night/study', [an_(mouth='flat')], overlay=n052o, t0=at('n052')), zoom=(1.0, 1.12), focus=((1000, 560), (1150, 560)), whip_in=True, sfx=[(0, 'whoosh'), (1.0, 'tick')])
     # ---- full-screen explainer charts (owner 24 Nov: easy to understand how it affects you) ----
     def tx(c, s_, x, y, size, col=WHITE, al='center', f=F_LABEL, a=1.0): Wd.text(c, s_, x, y, size, col, f, al, alpha=int(255 * a))
     # n053a  H200 sale to China: a bar of the sales with a 25% slice cut out, then the 25% counter
@@ -403,12 +403,12 @@ def build(tl):
         tx(c, 'NVIDIA H200 CHIPS, SOLD TO CHINA', 960, 190, 56, WHITE, 'center', F_TITLE, K(t, 0, .4))
         tx(c, 'ANNOUNCED DECEMBER 2025', 960, 250, 34, '#9DB0DA', 'center', F_LABEL, K(t, .2, .4))
         x0, x1, y0, y1 = 260, 1660, 420, 600; w = x1 - x0; k = ease_out(K(t, .5, .9))
-        rect(c, x0, y0, x0 + w * k, y1, NG, 6, r=10)                              # the sales (company element = Nvidia green)
+        if k > .01: rect(c, x0, y0, x0 + w * k, y1, NG, 6, r=10)                  # the sales (company element = Nvidia green)
         if k > .95:
             sl = ease_out(K(t, 2.0, .7)); cut = w * .25
             rect(c, x1 - cut, y0, x1, y1, '#17315F', 3, r=10, v='#2E4A7A')             # the hole left behind
-            rect(c, x1 - cut + sl * 60, y0 - sl * 150, x1 + sl * 60, y1 - sl * 150, GOLD, 6, r=10)   # the cut slides up and away
-            if sl > .8: tx(c, '25% CUT', x1 - cut / 2 + 60, y0 - 190, 62, GOLD, 'center', F_TITLE, K(t, 2.6, .3))
+            rect(c, x1 - cut + sl * 60, y0 - sl * 90, x1 + sl * 60, y1 - sl * 90, GOLD, 6, r=10)   # the cut slides up and away (stays clear of the title)
+            if sl > .8: tx(c, '25% CUT', x1 - cut / 2 + 60, y0 - 90 + 110, 62, '#3A2A00', 'center', F_TITLE, K(t, 2.6, .3))
             tx(c, 'SALES', x0 + (w - cut) / 2, 530, 56, '#0F1A38', 'center', F_TITLE, K(t, 1.5, .3))
         Wd.counter(c, 960, 860, 0, 25, (t - 2.9) / 1.2, unit='', suffix='%', label='of the sales, handed over as the price of the deal', size=110, panel=False)
     def n053a(t0): return dict(draw=plain(h200_chart), zoom=(1.0, 1.06), focus=(960, 560), sfx=[(.5, 'whoosh'), (2.1, 'pop'), (3.0, 'tick')])
@@ -442,10 +442,10 @@ def build(tl):
         if t > 3.4:
             Wd.counter(c, 1330, 360, 0, 600, (t - 3.5) / 1.2, unit='$', label='IN NVIDIA, OF EVERY $10,000', size=120, panel=False)
         if t > 6.0:
-            tx(c, 'ONE GOVERNMENT DECISION', 1330, 560, 46, WHITE, 'center', F_TITLE, K(t, 6.0, .3))
+            tx(c, 'ONE GOVERNMENT DECISION', 1330, 610, 46, WHITE, 'center', F_TITLE, K(t, 6.0, .3))
         if t > 6.9:
-            tx(c, 'EXAMPLE: IF NVIDIA FELL 20%', 1330, 700, 36, '#9DB0DA', 'center', F_LABEL, K(t, 6.9, .3))
-            Wd.counter(c, 1330, 790, 10000, 9880, dip, unit='$', label='YOUR FUND', size=100, panel=False)
+            tx(c, 'EXAMPLE: IF NVIDIA FELL 20%', 1330, 715, 36, '#9DB0DA', 'center', F_LABEL, K(t, 6.9, .3))
+            Wd.counter(c, 1330, 805, 10000, 9880, dip, unit='$', label='YOUR FUND', size=100, panel=False)
     add('n054', plain(your_fund), zoom=(1.0, 1.04), focus=(960, 560), sfx=[(.4, 'tick'), (3.5, 'ding'), (6.6, 'stamp'), (7.0, 'low_tone')], shake=shake(6.6))
     # n055  the habit: what you own when you own a company, the government rule is a layer of it
     def layers(c, t):
@@ -457,7 +457,7 @@ def build(tl):
                 c.save(); c.translate(0, -(1 - k) * 400); rect(c, 560, y0, 1360, y1, col, 6, r=10); tx(c, nm, 960, y0 + 82, 48, WHITE, 'center', F_TITLE); c.restore()
         d = K(t, 1.9, .5); k = ease_out(d); bounce = math.sin(K(t, 2.35, .4) * 9) * 8 * (1 - K(t, 2.35, .4)) if t > 2.35 else 0
         if k > 0:
-            c.save(); c.translate(0, -(1 - k) * 600 + bounce); rect(c, 540, 450, 1380, 590, GOLD, 7, r=10); tx(c, 'THE GOVERNMENT RULES IT DEPENDS ON', 960, 535, 44, '#3A2A00', 'center', F_TITLE); c.restore()
+            c.save(); c.translate(0, -(1 - k) * 600 + bounce); rect(c, 380, 450, 1540, 590, GOLD, 7, r=10); tx(c, 'THE GOVERNMENT RULES IT DEPENDS ON', 960, 535, 44, '#3A2A00', 'center', F_TITLE); c.restore()
     add('n055', plain(layers), zoom=(1.0, 1.05), focus=(960, 560), sfx=[(.3, 'paper'), (.9, 'paper'), (2.35, 'stamp')], shake=shake(2.35),
         hud=lambda c, t: Wd.text(c, ('THE RULE IS PART OF WHAT YOU OWN')[:max(0, int((t - 3.2) / 2.4 * 33))], 960, 960, 44, WHITE, F_TYPE, 'center', stroke=10) if t > 3.2 else None)
     # n056 three questions: three index cards pop onto the desk one by one

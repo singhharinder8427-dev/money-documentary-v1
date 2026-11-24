@@ -11,6 +11,13 @@ Owner: Mukesh Kumar Jha (Dirty Dollar). Strict compliance: follow every instruct
   3. Full-screen explainer charts, no character: n053 (H200 25% cut bar + NOT CONNECTED folders), n054 ($10,000 grid, 6 squares Nvidia = $600, then example dip), n055 (layers: products / customers / government rules). n052 analyst + wall-mounted screen. n056 cards, n057 saver closeup unchanged.
   4. The n054 "EXAMPLE: IF NVIDIA FELL 20%" ($10,000 -> $9,880) is Claude's own illustration, flagged to the owner, not yet confirmed.
 
+## Update 24 Nov 2026 (later)
+- Chapter 5 QA fixes (25% CUT label, n054 text overlap, n055 gold box overflow, n052 serious face). n054 20% example: owner said KEEP.
+- Full video rendered on the owner's PC (6:10, 1080p30): `out/final.mp4`, `out/captions.srt`. **Owner approved the video.**
+  `check` not run on the PC: Parakeet model missing from D:\models (cloud check of the previous version: 0.931).
+- All Part 1 + Part 2 PENDING assets LOCKED in ASSET_LIBRARY.md (office workstation marked REMOVED: ng_scenes.py was deleted).
+- Next: youtube.md disclaimer question, then thumbnails (ask for reference thumbnails -> 3 prompts).
+
 ## Standing rules (do not break)
 - Never render (video, stills, contact sheets) without the owner's explicit OK. Ask first.
 - After any change ask "save now or later?".
