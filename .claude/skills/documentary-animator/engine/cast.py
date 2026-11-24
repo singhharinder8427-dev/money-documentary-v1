@@ -118,3 +118,22 @@ ARCHETYPES.update({
 })
 CAST.update({k: ARCHETYPES[k] for k in ('intel', 'reporter2')})
 NAMES.update({'intel': 'THE OFFICER', 'reporter2': 'THE REPORTER'})
+
+# ---- The $1.7 Trillion Morning (24 Nov 2026) - LOCKED by the owner 24 Nov 2026 (do not change without asking). Real people: signature traits only (never a photo
+# likeness), always with a name tag; main characters carry their company's rough logo on the chest (chest=, engine/logos.py).
+REAL.update({
+ # Dario Amodei (ref: Wikimedia Commons, TechCrunch Disrupt 2023 photo): dark-brown curly hair receding at the temples, thick
+ # dark-navy rectangular glasses, fuller round face, blue chambray button shirt (casual, no jacket).
+ 'dario': dict(skin='#EEC6A4', skin_d='#D1A783', suit='#5A78AA', suit_d='#465F8C', shirt='#F4EFE2', tie=None, outfit='sweater',
+               hair='curly', hair_col='#3A2618', glasses=True, glasses_style='rect', face_shape=(1.08, .98), brow_col='#3A2618', chest='anthropic'),
+ # Daniela Amodei: long straight brown hair, no glasses, dark blazer over a light top.
+ 'daniela': dict(skin='#F2D0B0', skin_d='#D6B190', suit='#3B3530', suit_d='#2A2522', shirt='#F4EFE2', tie=None, outfit='open',
+                 hair='long', hair_col='#5A3A24', face_shape=(.96, 1.02), chest='anthropic'),
+ # Sam Altman (ref: Wikimedia Commons, Feb 2025 meeting photo): greying light-brown tousled hair pushed UP, slim long face,
+ # dark brows, navy suit, white shirt, navy (polka-dot) tie.
+ 'altman': dict(skin='#F0CCAE', skin_d='#D4AE8E', suit='#24345A', suit_d='#18243F', lapel='#2E4170', shirt=WHITE, tie='#1B2440',
+                hair='tousled', hair_col='#76604C', face_shape=(.95, 1.07), brow_col='#4A3828', chest='openai'),
+})
+ARCHETYPES['trader2'] = dict(ARCHETYPES['trader'], hair='curly', hair_col='#1A1414', skin='#B97A50', skin_d='#9A6038', suit='#2B4A7A', suit_d='#1F3860')
+CAST.update(REAL); CAST['trader2'] = ARCHETYPES['trader2']
+NAMES.update({'dario': 'DARIO AMODEI', 'daniela': 'DANIELA AMODEI', 'altman': 'SAM ALTMAN', 'trader2': 'THE SECOND TRADER'})

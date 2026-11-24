@@ -181,6 +181,7 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
             nk2 = skia.Path(); nk2.addArc(skia.Rect(-38, BODY_TOP - 26, 38, BODY_TOP + 24), 20, 140); c.drawPath(nk2, ink(lw * .7))
             if spec.get('shirt'): cl = skia.Path(); cl.moveTo(-24, BODY_TOP + 2); cl.lineTo(0, BODY_TOP + 22); cl.lineTo(24, BODY_TOP + 2); c.drawPath(cl, ink(lw * .5))
             for yy in (BODY_BOT - 22,): c.drawLine(-80, yy, 80, yy, ink(lw * .5))
+        if spec.get('chest'): from engine import logos; logos.badge(c, spec['chest'], 44, BODY_TOP + 70)
         c.restore(); c.drawPath(body, ink(lw))
     else:
      if spec.get('wing_collar'):
@@ -218,6 +219,8 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
         rect(c, -60, BODY_TOP + 60, 60, BODY_BOT + 4, spec['apron'], lw * .7, r=8); rect(c, -30, BODY_TOP + 120, 30, BODY_TOP + 160, None, lw * .4, r=4)
      if spec.get('badge'):   # police badge on the left chest
         circ(c, 44, BODY_TOP + 70, 16, GOLD, lw * .55); circ(c, 44, BODY_TOP + 70, 8, None, lw * .3, v='#B07A0A')
+     if spec.get('chest'):   # company logo badge on the left chest (owner, 24 Nov 2026: main characters carry their company mark)
+        from engine import logos; logos.badge(c, spec['chest'], 44, BODY_TOP + 70)
      if spec.get('lanyard'):   # lanyard + ID card
         lp2 = skia.Path(); lp2.moveTo(-26, BODY_TOP - 6); lp2.lineTo(0, BODY_TOP + 108); lp2.lineTo(26, BODY_TOP - 6); c.drawPath(lp2, ink(lw * .7, spec['lanyard']))
         rect(c, -17, BODY_TOP + 104, 17, BODY_TOP + 146, '#F4EFE2', lw * .5, r=4); c.drawRect(skia.Rect(-11, BODY_TOP + 112, 11, BODY_TOP + 124), fp(spec['lanyard']))
@@ -304,10 +307,16 @@ def draw_char(c, x, y, s, spec, face=0.0, eyes='dot', mouth='smile', brow=0.0, b
             c.drawPath(hl, fp(spec['hair_grey'])); c.drawPath(hl, ink(lw * .5))
         for k_ in (0, 1, 2, 3):   # strand lines sweeping up and back
             cl = skia.Path(); cl.moveTo(-54 + fs + k_ * 24, -52 - k_ * 2); cl.quadTo(-34 + fs + k_ * 26, -R - 36, 14 + fs + k_ * 22, -R - 42 + k_ * 4); c.drawPath(cl, ink(lw * .45, (150, 120, 70)))
-    if hair == 'quiff':   # thick swept-back hair with volume on top, side part, optional grey temples (hair_grey)
-        fs = face * 10; hq = skia.Path(); hq.moveTo(-R - 4, -6); hq.lineTo(-R - 8, -58)
+    if hair in ('quiff', 'tousled'):   # quiff: thick swept-back hair, volume on top, side part, optional grey temples (hair_grey)
+        fs = face * 10; hq = skia.Path(); hq.moveTo(-R - 4, -6); hq.lineTo(-R - 8, -58)                # tousled: same base + messy tufts pushed UP (Sam Altman, 24 Nov 2026)
         hq.cubicTo(-R - 14, -R - 16, -56, -R - 44, 18 + fs, -R - 40); hq.cubicTo(84 + fs, -R - 36, R + 18, -R - 8, R + 8, -56); hq.lineTo(R + 4, -6); hq.lineTo(R - 14, -34)
         hq.cubicTo(R - 30, -64, 60 + fs, -80, 14 + fs, -72); hq.cubicTo(-30 + fs, -68, -R + 26, -60, -R + 14, -34); hq.close()
+        if hair == 'tousled':
+            for k_, (tx, tw, th) in enumerate(((-58, 46, 20), (-22, 50, 28), (16, 52, 30), (54, 46, 22))):   # soft rounded tufts, textured volume
+                tp = skia.Path(); bx = tx + fs; by = -R - 28 + abs(tx) * .16
+                tp.moveTo(bx - tw / 2, by + 12); tp.cubicTo(bx - tw * .45, by - th, bx + tw * .1, by - th * 1.15, bx + tw * .3, by - th * .7)
+                tp.quadTo(bx + tw * .5, by - th * .3, bx + tw / 2, by + 12); tp.close(); hq.addPath(tp)
+            hq.setFillType(skia.PathFillType.kWinding); hq = skia.Op(hq, skia.Path(), skia.PathOp.kUnion_PathOp) or hq
         c.drawPath(hq, fp(spec.get('hair_col', '#2A2A33'))); c.drawPath(hq, ink(lw))
         if spec.get('hair_grey'):
             for sx in (-1, 1):

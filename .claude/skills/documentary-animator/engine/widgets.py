@@ -103,6 +103,18 @@ def chapter_card(c, n, title, u):
     k = .8 + .2 * pop(K(u, 0, .35)); c.save(); c.translate(W / 2, 560); c.scale(k, k); text(c, title.upper(), 0, 0, ts, WHITE, F_TITLE, 'center', stroke=0); c.restore()
     wl = 520 * (.25 + .75 * ease_out(K(u, .1, .4))); c.drawRect(skia.Rect(W / 2 - wl, 618, W / 2 + wl, 628), fp(GOLD))
 
+def chapter_fade(c, n, title, u):
+    """Cinematic chapter card (owner, 24 Nov 2026), drawn OVER the moving scene, never a hard cut: the picture dims to navy,
+    'CHAPTER n' + title fade in, then fade out while the next scene rises underneath. u = 0..1 over the fade.
+    Use it as a screen-space overlay spanning the end of one shot and the start of the next."""
+    dim = ease(K(u, 0, .3)) * (1 - ease(K(u, .65, .35))); c.drawRect(skia.Rect(0, 0, W, H), fp(NAVY, int(215 * dim)))
+    a = ease(K(u, .15, .25)) * (1 - ease(K(u, .6, .25)))
+    if a <= 0: return
+    text(c, f'CHAPTER {n}', W / 2, 440, 50, GOLD, F_LABEL, 'center', alpha=int(255 * a))
+    ts = min(110, 110 * 1640 / max(_font(F_TITLE, 110).measureText(title.upper()), 1))
+    text(c, title.upper(), W / 2, 570, ts, WHITE, F_TITLE, 'center', alpha=int(255 * a))
+    wl = 420 * a; c.drawRect(skia.Rect(W / 2 - wl, 616, W / 2 + wl, 624), fp(GOLD, int(255 * a)))
+
 def title_card(c, title, u, gold_word=None, sub=None):
     """Black title card after the hook: Alfa Slab title, one gold word, optional Barlow subtitle."""
     c.drawRect(skia.Rect(0, 0, W, H), fp(BLACK)); k = .82 + .18 * pop(K(u, 0, .4)); f = _font(F_TITLE, 130)

@@ -42,7 +42,8 @@ from engine.core import F_LABEL2, F_TITLE, F_TYPE
 from engine.story_assets.sets_catalogue import STORY_SETS
 from engine.sets_src import real_places as RP
 from engine.sets_src import real_places_dc as RD   # Washington set for Nvidia Files Part 2 (23 Nov 2026, LOCKED)   # real places: flat 2D real colours -> looks.real_night (locked 22 Nov)
-from engine.sets_src import real_places_study as RS   # Analyst study, ch5 (24 Nov 2026, PENDING)
+from engine.sets_src import real_places_study as RS   # Analyst study, ch5 (24 Nov 2026, LOCKED)
+from engine.sets_src import real_places_ipo as RI      # The $1.7 Trillion Morning (24 Nov 2026, LOCKED)
 NS.KAL, NS.MRK, NS.HAND = F_LABEL2, F_TITLE, F_TYPE
 NS.txt = lambda c, s, x, y, size, color, font=None, align='left', stroke=0, rot=0.0, skew=0, sc=kit.INK: kit.label(c, s, x, y, size, color, font=font or NS.KAL, align=align, stroke=stroke, stroke_col=sc, skew=0, rot=rot)
 NS.night, NS.add_light = _night_w, _add_w
@@ -91,6 +92,9 @@ SETS = {
  'night/commerce_hq': dict(real=RD.draw_commerce_hq, night=RD.commerce_hq_night, spots={'steps': (960, 900, .7), 'left': (640, 960, .75), 'right': (1280, 960, .75)}),
  'night/commerce_room': dict(real=RD.draw_commerce_room, real_fg=RD._commerce_table, night=RD.commerce_room_night, spots={'left': (560, 1010, 1.0), 'right': (1380, 1010, 1.0), 'center': (960, 1010, 1.0)}),
  'night/study': dict(real=RS.draw_study, night=RS.study_night, spots={'center': (960, 1010, 1.0), 'left': (640, 1010, 1.0), 'right': (1280, 1010, 1.0)}),   # Analyst's study, ch5 (PENDING approval, 24 Nov)
+ 'night/nasdaq_tower':  dict(real=RI.draw_nasdaq_tower, night=RI.nasdaq_tower_night, spots={'pavement': (960, 880, .55), 'left': (520, 880, .55), 'right': (1400, 880, .55)}),   # LOCKED (24 Nov)
+ 'night/nasdaq_studio': dict(real=RI.draw_nasdaq_studio_full, real_fg=RI._podium, night=RI.nasdaq_studio_night, spots={'podium': (960, 1010, 1.0), 'left': (420, 1030, 1.0), 'right': (1500, 1030, 1.0)}),   # LOCKED
+ 'night/openai_hq':     dict(real=RI.draw_openai_hq, night=RI.openai_hq_night, spots={'door': (960, 880, .55), 'left': (500, 900, .6), 'right': (1420, 900, .6)}),   # LOCKED
  'night/desk_clean': dict(real=RP.draw_desk_clean, night=RP.desk_clean_night, spots={}),          # top-down desk WITHOUT the Ponzi leftovers (QA 22 Nov)
  'night/megaspeed':  dict(real=RP.draw_megaspeed, night=RP.megaspeed_night, spots={'desk_left': (330, 1010, 1.0), 'center': (960, 1000, 1.0), 'right': (1450, 1000, 1.0)}),
  'night/diner93':    dict(real=RP.draw_diner93, real_fg=RP._diner_table, night=RP.diner93_night, spots={'left': (800, 1010, 1.1), 'right': (1280, 1010, 1.1)}),
@@ -137,7 +141,7 @@ def _src_hash():
     folder = pathlib.Path(__file__).parent
     h = hashlib.md5()
     for p in ('sets_src/night_scenes.py', 'sets_src/day_scenes.py', 'sets_src/sales_floor.py',
-              'sets_src/boardroom.py', 'sets_src/courtroom.py', 'sets_src/documentary_locations.py', 'sets_src/real_places.py', 'sets_src/real_places_dc.py', 'sets_src/real_places_study.py', 'looks.py', 'kit.py', 'sets.py'):
+              'sets_src/boardroom.py', 'sets_src/courtroom.py', 'sets_src/documentary_locations.py', 'sets_src/real_places.py', 'sets_src/real_places_dc.py', 'sets_src/real_places_study.py', 'sets_src/real_places_ipo.py', 'logos.py', 'looks.py', 'kit.py', 'sets.py'):
         h.update((folder / p).read_bytes())
     for path in sorted((folder / 'story_assets').rglob('*.py')):
         h.update(path.read_bytes())

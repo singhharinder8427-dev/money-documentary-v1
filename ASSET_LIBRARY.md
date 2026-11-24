@@ -74,10 +74,50 @@ NEW places from 22 Nov 2026 are made in the real-colour night look (CLAUDE.md 3d
 | Hand Slam, Pyramid, Calendar, Flag, Map Route, Handcuffs, Newspaper, Phone Ring, Ledger, Envelope, Prison Bars, Police Car (+spotlight), Phone Screen, Coin Rain, Queue, Held item, End Screen, Outro | `anim.*` | story animations | Ponzi | LOCKED |
 | Cards, counters, stamps, charts, sticky note, document, polaroid, lower third, place tag, money props | `widgets.*` | see `widgets.py` | Ponzi | LOCKED |
 
+## Living backgrounds (`engine/ambience.py`, LOCKED by the owner 24 Nov 2026 - opt-in: a video calls `ambience.enable()`)
+Small moving details drawn every frame over the set and behind the actors, on the absolute video clock (motion continues across
+cuts). Per shot: `shots.wide(..., amb=[(name, {params})])` / `shots.closeup(..., amb=...)` (blurred to match); `within=(l,t,r,b)`
+keeps an effect inside a window. Example placements for `night/nvidia_office` + `night/sg_street`: `videos/trillion-morning/ambience_preview.py`.
+**Sounds for these effects: NOT YET MADE** (owner: after all assets are built).
+| Name | Key | What it does | Status |
+|---|---|---|---|
+| Walking silhouettes | `silhouettes` | people behind frosted glass (`clip`, `glass`) or along a street; briefcase / glowing phone / swinging arm | LOCKED |
+| Birds / Clouds / Stars / Plane / Rain | `birds` `clouds` `stars` `plane` `rain` | sky life: flapping flock, drifting clouds, twinkle, blinking plane, rain streaks | LOCKED |
+| Cars | `cars` | dark car bodies with headlights + road light pool, both directions (no taillights: orange = losses only) | LOCKED |
+| Window lights / Moths / Flag | `window_lights` `moths` `flag` | windows switching on and off, moths at lamps, waving cloth | LOCKED |
+| Live screen / Ticker | `screen` (`chart` `code` `mail`, `bg`) `ticker` | live monitors and wall screens; scrolling stock ticker (orange + down arrow for losses only) | LOCKED |
+| Clock / Steam / Blinds / Phone blink / Papers | `clock` `steam` `blinds` `phone_blink` `papers` | office and room life | LOCKED |
+| Server LEDs / Fan | `leds` `fan` | data-centre life | LOCKED |
+| Dust / Flashes / Gold dust / Loss flicker | `dust` `flashes` `gold_dust` `loss_flicker` | mood: tension, press, big money, losses | LOCKED |
+
+## Added for "The $1.7 Trillion Morning" (24 Nov 2026) - LOCKED by the owner 24 Nov 2026 (preview: `videos/trillion-morning/assets_preview.py`)
+| Name | Code key | Notes | Status |
+|---|---|---|---|
+| Dario Amodei | cast `dario` | curly dark-brown hair, glasses, dark blazer, open collar, Anthropic chest badge (REAL) | LOCKED |
+| Daniela Amodei | cast `daniela` | long brown hair, dark blazer, Anthropic chest badge (REAL; no public reference photo yet - refresh when the owner sends one) | LOCKED |
+| Sam Altman | cast `altman` | short brown side-swept hair, dark crewneck sweater, OpenAI chest badge (REAL) | LOCKED |
+| The Second Trader | cast `trader2` | trader variant: curly black hair, navy jacket, gold lanyard | LOCKED |
+| Company chest badge | kit spec `chest='anthropic' / 'openai' / 'nasdaq'` | rough company mark on the left chest (owner: main characters carry their company logo) | LOCKED |
+| Rough company marks | `logos.anthropic / openai / nasdaq`, `logos.badge` | drawn fresh in real brand colours (rule 3b) | LOCKED |
+| Nasdaq MarketSite, Times Square (real-colour night) | set `night/nasdaq_tower` | curved blue screen tower, billboards, pavement, crosswalk, lamps | LOCKED |
+| Nasdaq studio + bell podium (real-colour night) | set `night/nasdaq_studio` | blue video wall, ticker band, podium in FRONT of actors (`podium` spot) | LOCKED |
+| OpenAI HQ, San Francisco (real-colour night) | set `night/openai_hq` | glass-and-concrete office (shape approximate), lit entrance with the blossom, trees, lamps | LOCKED |
+| Price tag | `props_ipo.price_tag` | gold tag, old price crossed in orange, new price slides in | LOCKED |
+| The List | `props_ipo.investor_list` | gold-edged allocation list, blurred names, rolls shut | LOCKED |
+| Share certificate | `props_ipo.share_certificate` | ivory + gold border, Anthropic mark, self-writing signature | LOCKED |
+| App icon (Sora) | `props_ipo.app_icon` | black icon with the rough OpenAI mark, greys out | LOCKED |
+| Opening bell | `props_ipo.bell` | gold bell swinging with ring lines | LOCKED |
+| Index-fund box + conveyor | `props_ipo.fund_box`, `props_ipo.conveyor` | arm pops out and grabs an ANT share | LOCKED |
+| Subscribe button (end of video) | `props_ipo.subscribe_button` | navy pill + gold bell, cursor click -> SUBSCRIBED (replaces the old logo outro) | LOCKED |
+| Fade chapter card | `widgets.chapter_fade(c, n, title, u)` | scene dims, chapter fades in/out over moving picture (old `chapter_card` stays LOCKED) | LOCKED |
+
 ## Brand colours of real companies (CLAUDE.md 3b)
 | Company | Colours | Verified from |
 |---|---|---|
 | Nvidia | green `#76B900`, dark grey `#1E1E1E`, white | Nvidia logo & brand usage page |
+| Anthropic | dark `#141413`, ivory `#FAF9F5`, orange `#D97757` | Anthropic brand-guidelines file (anthropics/skills, via mirrors) |
+| OpenAI | black / white only | openai.com/brand ("don't add any colors to the Blossom") |
+| Nasdaq | Nasdaq Blue `#0092BC` (PMS 313 C) | brand-guideline summary (official PDF not public) |
 | Megaspeed | NOT YET VERIFIED | - |
 
 
