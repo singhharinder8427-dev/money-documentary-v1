@@ -32,6 +32,11 @@ suggestions, recent news volume, competitor videos' views) and pick the topic an
 If the owner has a script: fact-check/adapt it into Template A (`documentary-script` skill). If not: research + write it
 with the `documentary-script` skill (3 outlines -> full script -> sources). Wait for the owner to lock the script.
 
+**No wallet chapter - one continuous video (standing rule, owner-set 24 Nov 2026):** NEVER add a separate "your wallet" /
+lesson chapter (Template A Ch5, day-print lesson sets, red-flags board). Every video is one continuous story from the first
+frame to the last, motion never stops, the viewer never looks away; any money point is woven into the story itself.
+This overrides Template A, BRAND.md and the skills wherever they mention Ch5 / the lesson part.
+
 **Dialogue moments (standing rule, every script):** like the Ponzi video, about a quarter of the lines are short
 dialogue moments (each <= 10 s, 2-4 lines, two speakers, usually ending on a sting or a joke) that turn a fact into a
 scene. Use generic roles (analyst, inspector, clerk, trader, director, saver...) marked `"dramatised": true`. Real people
