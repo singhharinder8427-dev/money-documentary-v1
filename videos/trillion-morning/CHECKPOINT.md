@@ -18,5 +18,5 @@
   synced to the pictures) + belt rumble / subscribe pop; test mix out/mix.wav (254 s).
 - PC setup: use `py -3.12` (packages installed there).
 1. Narrator = Kokoro (owner, 25 Nov), +2 dB in this video only (script.json "narrator_gain": 1.26). No ElevenLabs file needed.
-2. Full qa on all shots -> ask to render (PC) -> render -> final -> check -> QA on the finished frames.
+2. DONE 25 Nov: full qa + fixes, rendered on the PC -> out/final.mp4 (4:14, 1080p30). Speech check NOT run: the PC has no ASR model (D:modelssherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8). Next: owner watches -> youtube.md -> thumbnails.
 3. Open: Daniela Amodei reference photo; OpenAI wordmark font for cloud renders; re-check the CNBC "filed in June" report.
