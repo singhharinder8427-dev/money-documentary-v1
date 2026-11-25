@@ -230,6 +230,38 @@ def draw(c, t, set_name=None, extra=()):
         kw = dict(kw); within = kw.pop('within', None)          # within=(l,t,r,b): keep the effect inside a window / frame
         _clip(c, within); FX[name](c, t, **kw); c.restore()
 
+def sound_events(set_name, extra, t0, dur):
+    """Sounds for the living background of one shot, on the same absolute clock as the pictures.
+    Returns [(local_t, sfx_name, gain, length_or_None)]; sfx_name 'amb:<kind>' / 'steps' are beds over the shot.
+    Quiet layers (clouds, stars, dust, window lights, gold dust, steam) make no sound."""
+    if not ENABLED: return []
+    out = []
+    def every(first, step, name, gain):              # events at absolute first + k*step that fall inside the shot
+        k = math.ceil((t0 - first) / step)
+        while first + k * step < t0 + dur: out.append((first + k * step - t0, name, gain, None)); k += 1
+    for name, kw in list(AMBIENCE.get(set_name, ())) + list(extra):
+        if name == 'flashes':
+            r = kw.get('rate', 1.6); every(0, 1 / r, 'shutter', .2)
+        elif name == 'cars':                         # car i is mid-screen when (t + r_i*period) % period = period/2
+            p = kw.get('period', 8)
+            for i in range(kw.get('n', 3)): every(p / 2 - _r(i) * p - 1.2, p, 'car_pass', .5)   # car_pass peaks 1.2 s in
+        elif name == 'birds':
+            p = kw.get('period', 16); every(p * .45, p, 'chirp', .4)
+        elif name == 'plane':
+            p = kw.get('period', 45); every(p / 2 - 3, p, 'jet', .3)
+        elif name == 'clock': every(0, 1.0, 'tick', .5)
+        elif name == 'papers':
+            p = kw.get('period', 6)
+            for i in range(kw.get('n', 6)): every(p / 2 - _r(i) * p, p, 'paper', .25)
+        elif name == 'silhouettes': out.append((0, 'steps', .25, dur))
+        elif name in ('ticker', 'screen', 'leds', 'fan'): out.append((0, 'amb:hum', .25, dur))
+        elif name == 'rain': out.append((0, 'amb:static', .6, dur))
+    seen = set(); res = []                           # one bed of each kind per shot
+    for e in out:
+        key = e[1] if e[3] else e
+        if key not in seen: seen.add(key); res.append(e)
+    return res
+
 if __name__ == '__main__':          # self-check: every effect draws at a few times without error, and stays repeatable
     s = skia.Surface(W, H); cv = s.getCanvas(); enable()
     demo = {'silhouettes': dict(y=900, clip=(200, 300, 1700, 950), glass=.6), 'screen': dict(rect=(100, 100, 500, 350)), 'ticker': dict(rect=(0, 0, W, 60), down=('NVDA',)),

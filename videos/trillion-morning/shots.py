@@ -493,7 +493,7 @@ def build(tl):
     def n047(t0): return dict(draw=wide('night/datacenter', overlay=lambda c, t: belt(c, t), t0=t0), zoom=(1.0, 1.15), focus=((960, 640), (960, 700)), sfx=[(0, 'amb:hum', None), (0, 'amb:rumble', None)])
     add('n047', **n047(at('n047')))
     def n048a(t0): return dict(draw=wide('night/datacenter', overlay=lambda c, t: belt(c, t + D('n047'), grab_t=D('n047') + .1), t0=t0), zoom=(1.15, 1.25), focus=((900, 700), (1000, 700)),
-                               sfx=[(.1, 'stamp'), (.5, 'stamp'), (.9, 'stamp')])
+                               sfx=[(.1, 'stamp'), (.5, 'stamp'), (.9, 'stamp'), (0, 'amb:rumble', None)])
     def eight(c, t):
         rect(c, 300, 120, 1620, 960, '#1E2026', 6, r=18); rect(c, 322, 142, 1598, 938, '#0F1A38', 3, r=8)
         Wd.text(c, 'A TOTAL STOCK MARKET FUND: EVERY $10,000', 960, 210, 46, WHITE, F_TITLE, 'center')
@@ -540,5 +540,5 @@ def build(tl):
     def sub(c, t):
         P.subscribe_button(c, 960, 800, 1.25, u=K(t, .5, .5), click=K(t, dend - 3.0, 1.0))
     S.append(dict(name='n055', dur=dend, draw=wide('night/nasdaq_tower', t0=at('n055'), amb=[('gold_dust', dict(n=40, region=(0, 0, 1920, 760)))]), hud=sub, zoom=(1.0, 1.12), focus=((960, 540), (960, 480)),
-                  sfx=[(dend - 2.5, 'pickup'), (dend - 2.4, 'ding')]))
+                  sfx=[(.5, 'pop'), (dend - 2.5, 'pickup'), (dend - 2.4, 'ding')]))
     return S

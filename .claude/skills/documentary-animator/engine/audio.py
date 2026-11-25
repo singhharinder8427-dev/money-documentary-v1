@@ -214,8 +214,19 @@ def room_tone(kind, dur):   # ambience beds: 'hum' data center, 'murmur' restaur
     else: x = hp(noise(n), 3000) * .12 * (.7 + .3 * np.sin(2 * np.pi * 11 * tt))
     fade = np.minimum(1, np.minimum(tt / .3, (dur - tt) / .3)); return x * fade
 
+# living-background sounds (owner, 25 Nov): placed by ambience.sound_events, in sync with what moves on screen
+def car_pass(dur=2.4):   # tyre roar swelling in and out, centred at dur/2
+    n = int(dur * SR); t = np.arange(n) / n; return lp(noise(n), 500) * np.exp(-((t - .5) / .2) ** 2) * .6
+def chirp():   # two quick bird chirps
+    out = np.zeros(int(.35 * SR))
+    for k, f0 in enumerate((3200, 3700)):
+        tt = secs(.07); f = f0 + 900 * np.sin(np.pi * tt / .07); add(out, np.sin(2 * np.pi * np.cumsum(f) / SR) * env(len(tt), .005, .05) * .25, k * .14)
+    return out
+def jet(dur=6.0):   # distant plane rumble, slow swell
+    n = int(dur * SR); t = np.arange(n) / n; return lp(noise(n), 250) * np.sin(np.pi * t) ** 2 * .5
+
 SFX = dict(page=page_flip, buzz=phone_buzz, pickup=pickup, footstep=footstep, type_key=type_key, ding_carriage=carriage_ding, stamp=stamp_thud, tick=tick, ding=ding, low_tone=low_tone, falling=falling_tone, whoosh=whoosh,
-           paper=paper_slide, coin=coin, cash=cash, pop=pop, shutter=shutter, boom=boom, logo=sound_logo)
+           paper=paper_slide, coin=coin, cash=cash, pop=pop, shutter=shutter, boom=boom, logo=sound_logo, car_pass=car_pass, chirp=chirp, jet=jet)
 
 # ======================= voices
 def load(path):

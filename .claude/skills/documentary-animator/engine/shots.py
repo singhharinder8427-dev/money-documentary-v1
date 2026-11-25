@@ -20,6 +20,7 @@ def wide(set_name, back_actors=(), front_actors=(), overlay=None, t0=0.0, amb=()
         st.draw(c, [lambda c: ambience.draw(c, t0 + t, set_name, amb)] + [lambda c, a=a: a.draw(c, t, t0 + t) for a in back_actors],
                 [lambda c, a=a: a.draw(c, t, t0 + t) for a in front_actors])
         if overlay: overlay(c, t)
+    draw.amb_sound = (set_name, amb, t0)                                # living-background sounds (make_video audio)
     return _v(draw, *st.vignette) if st.vignette else _v(draw)
 
 _BLUR = {}
@@ -40,6 +41,7 @@ def closeup(set_name, actor, focus=(960, 540), overlay=None, t0=0.0, blur=13, zo
             ambience.draw(c, t0 + t, set_name, amb); c.restore()
         actor.draw(c, t, t0 + t)
         if overlay: overlay(c, t)
+    draw.amb_sound = (set_name, amb, t0)
     return _v(draw, .85)
 
 def card(kind, dur, **kw):

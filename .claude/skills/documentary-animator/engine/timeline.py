@@ -58,12 +58,12 @@ class Timeline:
             if segs and segs[-1][2] == m and abs(segs[-1][1] - t0) < .6: segs[-1] = (segs[-1][0], t1, m)
             else: segs.append((t0, t1, m))
         return segs
-    def voice_track(self, ref_rms=None):
+    def voice_track(self, ref_rms=None, narrator_gain=1.0):
         """All voice clips placed at their cues, cleaned (narrator vs character chain, level-matched)."""
         out = np.zeros(int(self.total * A.SR) + A.SR)
         for lid, (wav, _) in self.clips.items():
             sp = self.by_id[lid].get('speaker', 'NARRATOR').lower(); y = A.load(wav)
-            y = A.voice_chain(y, 'narrator' if sp == 'narrator' else 'character', None if sp == 'narrator' else ref_rms); A.add(out, y, self.start(lid))
+            y = A.voice_chain(y, 'narrator' if sp == 'narrator' else 'character', None if sp == 'narrator' else ref_rms); A.add(out, y, self.start(lid), narrator_gain if sp == 'narrator' else 1.0)
         return out[:int(self.total * A.SR)]
     def mouths(self):
         """{id: per-frame mouth states ('open'/'mid'/'closed')} for lip-sync of speaking characters."""

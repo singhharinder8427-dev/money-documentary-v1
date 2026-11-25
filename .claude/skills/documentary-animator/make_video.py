@@ -71,7 +71,7 @@ def cmd_audio():
     tl, sh = shot_list(); total = sum(x['dur'] for x in sh)
     narr = [k for k, v in tl.clips.items() if tl.by_id[k].get('speaker', 'NARRATOR') == 'NARRATOR']
     ref = np.mean([A.rms(A.voice_chain(A.load(tl.clips[k][0]), 'narrator')) for k in narr[:6]]) if narr else None
-    voice = tl.voice_track(ref)
+    voice = tl.voice_track(ref, script().get('narrator_gain', 1.0))   # per video: script.json "narrator_gain" (1.0 = as before)
     files = {m: str(p) for m in A.MOODS for p in V.glob(f'music_{m}.wav')}          # optional real tracks per mood
     mus = A.music(tl.mood_segments(), total, files=files or None)
     sfx = np.zeros(int(total * A.SR) + A.SR)
@@ -84,6 +84,13 @@ def cmd_audio():
             elif name.startswith('amb:'): A.add(sfx, A.room_tone(name[4:], d or x['dur']), x['t0'] + tr, .55)
             else: A.add(sfx, A.SFX[name]() if callable(A.SFX[name]) else A.SFX[name], x['t0'] + tr)
         if x.get('whip_out'): A.add(sfx, A.whoosh(), x['t0'] + x['dur'] - .2, .8)
+        if getattr(x['draw'], 'amb_sound', None):                                    # living-background sounds, synced to the pictures
+            from engine import ambience
+            set_name, amb, st0 = x['draw'].amb_sound
+            for tr, name, g, d in ambience.sound_events(set_name, amb, st0, x['dur']):
+                if name == 'steps': A.add(sfx, A.footsteps(d), x['t0'] + tr, g)
+                elif name.startswith('amb:'): A.add(sfx, A.room_tone(name[4:], d), x['t0'] + tr, g)
+                else: A.add(sfx, A.SFX[name](), x['t0'] + tr, g)
     for e in tl.events:                                                               # cards
         if e['kind'] == 'title': A.add(sfx, A.sound_logo(), e['t0'] + .05)
         if e['kind'] == 'chapter': A.add(sfx, A.boom() * .2, e['t0'])   # owner 22 Nov: softer

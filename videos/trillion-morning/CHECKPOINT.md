@@ -12,9 +12,11 @@
 - Reference photos (Wikimedia Commons) are kept OUTSIDE the repo: D:\money-documentary-refs\trillion-morning.
 - Shot plan: shot_plan.md (69 pictures) - written, waiting for the owner's OK to code shots.py. Nothing rendered except previews.
 
-## Next
-1. Owner OK -> write shots.py from shot_plan.md (ambience.enable(), chapter_fade overlays, title over the moving tower).
-2. voices -> qa (QA_CHECKLIST.md) -> fix -> ask to render (PC) -> render, audio, final.
-3. Sounds for the living backgrounds + new props (owner: after all assets).
-4. Open: Daniela Amodei reference photo (none public on Commons) - owner to send; OpenAI wordmark font is Arial on Windows
-   (add a free clean sans to fonts/ for cloud renders); re-check the CNBC "filed in June" report before recording.
+## Next (25 Nov 2026)
+- DONE: shots.py coded + QA'd; voices for all 55 lines (narrator = Kokoro placeholder); contact-sheet fixes (OpenAI sign on top
+  of the building, captions above framed-card borders, list held, etc.); living-background sounds (ambience.sound_events,
+  synced to the pictures) + belt rumble / subscribe pop; test mix out/mix.wav (254 s).
+- PC setup: use `py -3.12` (packages installed there).
+1. Narrator = Kokoro (owner, 25 Nov), +2 dB in this video only (script.json "narrator_gain": 1.26). No ElevenLabs file needed.
+2. Full qa on all shots -> ask to render (PC) -> render -> final -> check -> QA on the finished frames.
+3. Open: Daniela Amodei reference photo; OpenAI wordmark font for cloud renders; re-check the CNBC "filed in June" report.
