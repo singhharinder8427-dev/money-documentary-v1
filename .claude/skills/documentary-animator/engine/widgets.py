@@ -171,10 +171,11 @@ def lower_third(c, name, role, u, x=80, y=830):   # clear of the captions
     rect(c, 0, -40, w, 130, NAVY, 5, r=8); c.drawRect(skia.Rect(4, -36, 24, 126), fp(GOLD))
     c.drawString(name.upper(), 48, 44, fn, fp(WHITE)); c.drawString(role.upper(), 48, 104, fr, fp(GOLD)); c.restore()
 
-def place_tag(c, place, u, sub=None):
+def place_tag(c, place, u, sub=None, y=120):
     """Location tag top-left: gold pin + Barlow place name (+ date)."""
-    a = int(255 * ease(K(u, 0, .3))); x, y = 80, 120
-    circ(c, x, y - 40, 20, GOLD, 4); poly(c, [(x - 15, y - 30), (x + 15, y - 30), (x, y)], GOLD, 0)
+    a = int(255 * ease(K(u, 0, .3))); x = 80
+    if a <= 0: return
+    c.saveLayerAlpha(None, a); circ(c, x, y - 40, 20, GOLD, 4); poly(c, [(x - 15, y - 30), (x + 15, y - 30), (x, y)], GOLD, 0); c.restore()   # pin fades with the text
     text(c, place.upper(), x + 42, y - 14, 66, WHITE, F_LABEL, stroke=10, alpha=a)
     if sub: text(c, sub.upper(), x + 42, y + 36, 44, GOLD, F_LABEL2, stroke=8, alpha=a)
 

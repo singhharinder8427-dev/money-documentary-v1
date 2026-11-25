@@ -75,7 +75,7 @@ def build(tl):
     plain = shots.plain
     HUDPOP = lambda txt, x, y, t0, col=GOLD, size=96, rot=-4: (lambda c, t: Wd.pop_label(c, txt, x, y, (t - t0) / .4, col, size, rot=rot))
     LT = lambda name, role, t0=.3, **kw: (lambda c, t: Wd.lower_third(c, name, role, (t - t0) / .5, **kw))
-    PT = lambda place, sub=None, t0=.2: (lambda c, t: Wd.place_tag(c, place, (t - t0) / .4, sub))
+    PT = lambda place, sub=None, t0=.2, y=120: (lambda c, t: Wd.place_tag(c, place, (t - t0) / .4, sub, y))
     def both(*fs): return lambda c, t: [f(c, t) for f in fs if f]
     def desk(overlay): return shots.desk(overlay, 'night/desk_clean')
     def wide(set_name, back=(), front=(), overlay=None, t0=0.0, amb=()): return shots.wide(set_name, back, front, overlay=overlay, t0=t0, amb=amb)
@@ -321,9 +321,9 @@ def build(tl):
         PD.memo_folder(c, 960, 470, 1.35, rot=-4, open_k=1 - ease_out(K(t, .3, .4)), label_text='DISNEY DEAL')
         if t > .7: Wd.counter(c, 960, 770, 0, 1_000_000_000, (t - .7) / 1.2, loss=True, label='the deal: gone', size=90)
     add('n020', desk(deal), zoom=(1.0, 1.12), shake=shake(.7), sfx=[(.7, 'paper'), (.8, 'low_tone')], hud=lambda c, t: Wd.text(c, 'PER REPORTS: NO MONEY CHANGED HANDS', 1880, 70, 34, SOFT, F_LABEL, 'right', stroke=6))
-    # 30-31  n021 THE CLERK with the phone; n022 THE MANAGER, hand over the face
+    # 30-31  n021 THE CLERK with the phone; n022 THE MANAGER, phone in hand
     talk('n021', 'clerk', 'night/office', (1300, 520), -.4, 'The Clerk', 'Dramatised', dict(mouth='flat', brow=.4), ('phone', 'down'))
-    talk('n022', 'manager', 'night/office', (600, 520), .4, 'The Manager', 'Dramatised', dict(mouth='flat', eyes='closed', brow=.3), ('facepalm', 'down'), zoom=(1.0, 1.2))
+    talk('n022', 'manager', 'night/office', (600, 520), .4, 'The Manager', 'Dramatised', dict(mouth='flat', eyes='closed', brow=.3), ('phone', 'down'), zoom=(1.0, 1.2))   # phone IN his hand (owner QA, 25 Nov)
     # 32-35  n023 (a) the newsroom, push to the TV wall; (b) bar chart, Anthropic rises; n024 (a) OpenAI bar; (b) newspaper "a first"
     def bars(c, t, both_=False, t2=0.0):
         Wd.text(c, 'REVENUE, SECOND QUARTER 2026', 960, 170, 54, WHITE, F_TITLE, 'center')
@@ -470,7 +470,7 @@ def build(tl):
     DOWN = [('ticker', dict(rect=(40, 196, 1880, 258), items=(('ANT', '-9%'), ('NVDA', '+0.4%'), ('ANT', '-9%'), ('S&P 500', '-0.1%')), down=('ANT',)))]
     fade_in(4, 'The Morning After', wide('night/trading', t0=at('chapter:4'), amb=DOWN), zoom=(1.0, 1.0), focus=(960, 540))
     def fall(c, t): Wd.counter(c, 960, 740, 0, 9, (t - .2) / 1.2, unit='', suffix='%', loss=True, label='to about $85', size=100)
-    add('n043', wide('night/trading', overlay=fall, t0=at('n043'), amb=DOWN), zoom=(1.0, 1.12), focus=((960, 500), (960, 460)), hud=PT('Wall Street', 'Nov 20, 2026'), sfx=[(.2, 'tick'), (1.6, 'low_tone')])
+    add('n043', wide('night/trading', overlay=fall, t0=at('n043'), amb=DOWN), zoom=(1.0, 1.12), focus=((960, 500), (960, 460)), hud=PT('Wall Street', 'Nov 20, 2026', y=930), sfx=[(.2, 'tick'), (1.6, 'low_tone')])
     def slice_(c, t):
         Wd.text(c, 'BOUGHT AT THE OPEN: $111.50', 960, 190, 56, WHITE, F_TITLE, 'center')
         cx, cy, r = 960, 560, 260; k = ease_out(K(t, .6, .6)); c.drawCircle(cx + 16, cy + 20, r, fp((0, 0, 0), 70, blur=16))
@@ -529,8 +529,8 @@ def build(tl):
     def seven_walk(c, t):
         for i in range(7):
             x = lerp(300 - i * 120, 2300 - i * 120, ease(K(t, 0, D('n052') * 1.1))); figure(c, x, 892, .9 + .03 * (i % 2), 245)
-    add('n052', wide('night/nasdaq_tower', overlay=seven_walk, t0=at('n052')), zoom=(1.3, 1.3), focus=((700, 760), (1200, 760)), sfx=[(0, 'steps', D('n052'))],
-        hud=HUDPOP('7 people - nearly $2 billion', 960, 700, .8, GOLD, 74, -2))
+    add('n052', wide('night/nasdaq_tower', overlay=seven_walk, t0=at('n052')), zoom=(1.3, 1.3), focus=((700, 600), (1200, 600)), sfx=[(0, 'steps', D('n052'))],
+        hud=HUDPOP('7 people - nearly $2 billion', 960, 530, .8, GOLD, 74, -2))
     def door_light(c, t):
         figure(c, 1400, 884, .85); g = K(t, 1.0, .3)
         if g > 0: c.drawRect(skia.Rect(1270, 812, 1400, 876), fp('#FFE2A0', int(200 * g))); c.drawCircle(1335, 844, 120, fp('#FFE2A0', int(60 * g), blur=30))

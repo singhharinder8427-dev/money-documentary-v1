@@ -9,6 +9,10 @@ fix them all, re-check the changed shots, then report.
 ## 1. Does the picture show what the line SAYS? (read every line next to its frame)
 - Every object or action the line mentions is visible: "on the phone" -> a phone IN the hand; "boxes" -> boxes;
   "map / route / Malaysia" -> a real map, not empty ovals; a name tag -> that person is on screen.
+- A hand raised to the ear / cheek / face with NOTHING in it reads as a phone call with a missing phone (owner, 25 Nov,
+  repeated mistake). Every frame where a hand is at the head: either it holds a real prop (use the 'phone' pose, which
+  always draws the phone) or the gesture is unmistakable. Search shots.py for 'facepalm' and hand-at-head poses and
+  look at each one on the QA sheet before saying the check passed.
 - Every prop is HELD or RESTING on something: nothing floats (phones, hair dryers, papers, folders). Phones lie flat on
   tables. Furniture stands on the floor with legs: desks have tops, legs and height; monitors sit on stands on the desk.
 - Vehicles have drivers; tools have hands; documents have a desk or a hand under them.

@@ -27,6 +27,8 @@ _BLUR = {}
 def closeup(set_name, actor, focus=(960, 540), overlay=None, t0=0.0, blur=13, zoom=1.5, amb=()):
     """Close-up: the set blurred and zoomed behind a big character (actor.s ~2.15, feet y ~1390).
     Living-background layers (ambience) get the same zoom + blur, so they sit inside the soft background."""
+    hx, hy = W / (2 * zoom), H / (2 * zoom)                             # keep the blurred room filling the frame (owner QA, 25 Nov)
+    focus = (min(max(focus[0], hx), W - hx), min(max(focus[1], hy), H - hy))
     key = (set_name, focus, blur, zoom)
     if key not in _BLUR:
         st = get_set(set_name); s = skia.Surface(W, H); c = s.getCanvas(); p = skia.Paint(); p.setImageFilter(skia.ImageFilters.Blur(blur, blur))

@@ -18,6 +18,10 @@ def _focus(focus, e):
     if isinstance(focus[0], (tuple, list)): (a, b), (c_, d) = focus; return (lerp(a, c_, e), lerp(b, d, e))
     return focus
 
+def _rot_cover(deg):
+    """Extra zoom so a tilted camera never shows the black outside the world (owner QA, 25 Nov)."""
+    a = abs(math.radians(deg)); return math.cos(a) + math.sin(a) * W / H
+
 def _clamp(focus, z):
     """Keep the camera inside the 1920x1080 world so no black edges show."""
     hx, hy = W / (2 * z), H / (2 * z)
@@ -38,8 +42,8 @@ def render_shot(out, dur, draw, zoom=(1.0, 1.07), focus=(960, 540), rot=(0.0, 0.
         if whip_out and n - f <= 5: wx = -((6 - (n - f)) ** 2) * 34; sig = (6 - (n - f)) * 16
         if whip_in and f < 4: wx = (4 - f) ** 2 * 52; sig = (4 - f) * 18
         dx, dy = shake(t) if shake else (0, 0)
-        c.clear(C((0, 0, 0))); c.save(); c.translate(W / 2 + wx + dx, H / 2 + dy); z = lerp(zoom[0], zoom[1], e); c.scale(z, z)
-        fx, fy = _clamp(_focus(focus, e), z); c.rotate(lerp(rot[0], rot[1], e)); c.translate(-fx, -fy); draw(c, t); c.restore()
+        c.clear(C((0, 0, 0))); c.save(); c.translate(W / 2 + wx + dx, H / 2 + dy); z = lerp(zoom[0], zoom[1], e); r = lerp(rot[0], rot[1], e); c.scale(z * _rot_cover(r), z * _rot_cover(r))
+        fx, fy = _clamp(_focus(focus, e), z); c.rotate(r); c.translate(-fx, -fy); draw(c, t); c.restore()
         if getattr(draw, 'vignette', 0):
             _vignette(c, draw.vignette, getattr(draw, 'vignette_inner', .42))
         if hud: hud(c, t)
@@ -92,8 +96,8 @@ def _call(job): fn, args = job; return fn(*args)
 def frame_at(draw, t, dur, zoom=(1.0, 1.07), focus=(960, 540), rot=(0.0, 0.0), shake=None, hud=None):
     """QA frame: EXACTLY what render_shot draws at local time t (same camera zoom / pan / rotation / shake / vignette / hud)."""
     surf = skia.Surface(W, H); c = surf.getCanvas(); e = ease(min(max(t / max(dur, 1e-3), 0), 1)); dx, dy = shake(t) if shake else (0, 0)
-    c.clear(C((0, 0, 0))); c.save(); c.translate(W / 2 + dx, H / 2 + dy); z = lerp(zoom[0], zoom[1], e); c.scale(z, z)
-    fx, fy = _clamp(_focus(focus, e), z); c.rotate(lerp(rot[0], rot[1], e)); c.translate(-fx, -fy); draw(c, t); c.restore()
+    c.clear(C((0, 0, 0))); c.save(); c.translate(W / 2 + dx, H / 2 + dy); z = lerp(zoom[0], zoom[1], e); r = lerp(rot[0], rot[1], e); c.scale(z * _rot_cover(r), z * _rot_cover(r))
+    fx, fy = _clamp(_focus(focus, e), z); c.rotate(r); c.translate(-fx, -fy); draw(c, t); c.restore()
     if getattr(draw, 'vignette', 0): _vignette(c, draw.vignette, getattr(draw, 'vignette_inner', .42))
     if hud: hud(c, t)
     return surf.makeImageSnapshot()

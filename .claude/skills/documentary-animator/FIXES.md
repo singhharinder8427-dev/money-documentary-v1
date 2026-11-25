@@ -111,6 +111,10 @@ next render** (the full-length Ponzi video). Do not re-render the test video.
     flat 2D with their REAL colours, then `looks.real_night` adds our brand: navy night, dots, light only from real sources,
     gold lamps, true logo colours, dark-navy dotted vignette from the BOTTOM edge only. No more monochrome line-art
     recreations. Owner: "this increases our production quality a lot". CLAUDE.md 3d, BRAND.md.
+39. **Empty hand at the head = missing phone (repeated, owner 25 Nov)** - The Manager (Trillion Morning n022) used the
+    'facepalm' pose: hand at his cheek, nothing in it, so it read as a phone call with no phone - the same mistake as
+    Jensen's missing phone (28). Fix: n022 now uses the 'phone' pose (phone drawn in the hand). Rule in QA_CHECKLIST.md 1:
+    every hand-at-head frame is checked for a real prop.
 
 ## Next
 - Make the **full-length Ponzi video** (full Template A script, ~10 min) with the `documentary-script` skill, then
