@@ -27,7 +27,7 @@ ambience.AMBIENCE.update({
     'night/nasdaq_studio': [('ticker', dict(rect=(60, 562, 1860, 628), items=(('NVDA', '+0.8%'), ('MSFT', '+0.3%'), ('S&P 500', '+0.2%')))),
                             ('flashes', dict(region=(200, 650, 1720, 760)))],
     'night/openai_hq': [('clouds', dict(y=60, n=3, speed=10, a=110)), ('birds', dict(y=90, n=4, period=9)),
-                        ('window_lights', dict(rects=[(387, 282, 487, 370), (1206, 506, 1306, 594), (621, 618, 721, 706)], period=6)),
+                        ('window_lights', dict(rects=[(387, 282, 487, 370), (1560, 506, 1660, 594), (1450, 618, 1550, 706)], period=6)),
                         ('silhouettes', dict(y=880, n=4, s=.6, speed=50)), ('cars', dict(y=1010, n=2, period=7, d=-1, s=.9))],
     'night/trading': [('ticker', dict(rect=(40, 196, 1880, 258), items=(('NVDA', '+0.8%'), ('MSFT', '+0.3%'), ('AAPL', '+0.5%'), ('S&P 500', '+0.2%')))),
                       ('papers', dict(n=5))],
@@ -156,7 +156,7 @@ def build(tl):
     # ===================================== HOOK =====================================
     # 1-2  n001: the Nasdaq tower close on the LED screen pulling back (Times Square) -> whip to the trading floor
     def n001a(t0): return dict(draw=wide('night/nasdaq_tower', t0=t0), zoom=(1.9, 1.0), focus=((965, 420), (960, 540)),
-                               hud=PT('Nasdaq, Times Square', 'Nov 19, 2026'), sfx=[(0, 'amb:murmur', None)])
+                               hud=PT('Nasdaq, Times Square', 'Nov 19, 2026', t0=tl.dur('n001', nxt('n001')) * .55 * .7), sfx=[(0, 'amb:murmur', None)])
     def n001b(t0): return dict(draw=wide('night/trading', t0=t0), zoom=(1.0, 1.12), focus=((960, 560), (960, 500)), whip_in=True, sfx=[(0, 'whoosh'), (0, 'amb:murmur', None)])
     multi('n001', [(.55, n001a), (.45, n001b)])
 
@@ -200,7 +200,7 @@ def build(tl):
     add('n007', shots.card('text', D('n007'), text=tl.by_id['n007']['text'], gold_words=['single']), zoom=(1.0, 1.02))
 
     # 11-12  n008 (a) OpenAI HQ at night, push to the door; (b) close on the lit door, one silhouette waiting
-    def n008a(t0): return dict(draw=wide('night/openai_hq', t0=t0), zoom=(1.0, 1.3), focus=((960, 560), (960, 760)), whip_in=True,
+    def n008a(t0): return dict(draw=wide('night/openai_hq', t0=t0), zoom=(1.0, 1.3), focus=((960, 560), (960, 300)), whip_in=True,
                                hud=PT('OpenAI HQ', 'San Francisco'), sfx=[(0, 'whoosh'), (0, 'amb:murmur', None)])
     def n008b(t0): return dict(draw=wide('night/openai_hq', overlay=lambda c, t: figure(c, 1400, 884, .85), t0=t0), zoom=(2.0, 2.3), focus=((1000, 760), (1060, 780)))
     multi('n008', [(.55, n008a), (.45, n008b)])
@@ -256,17 +256,17 @@ def build(tl):
     talk('n014', 'investor', 'night/office', (600, 520), .4, 'The Investor', 'Dramatised', dict(mouth='smirk', eyes='half', brow=.2), ('hold', 'down'), overlay=mug(('hold', 'down')))
     talk('n015', 'analyst', 'night/office', (1300, 520), -.4, None, None, dict(mouth='flat', eyes='half', brow=-.3), ('down', 'down'), zoom=(1.0, 1.2))
     # 23-24  n016 (a) Times Square pavement, everyone's phone lights up one by one; (b) the user counter
-    def led_2022(c):
+    def led_2022(c, year=True):
         cyl = skia.RRect.MakeRectXY(skia.Rect(668, 158, 1262, 636), 296, 66); c.drawRRect(cyl, fp('#1A2366'))
-        Wd.text(c, '2022', 965, 520, 150, '#3D7BFF', F_LABEL, 'center')
-    def phones_on(c, t, n=9):
-        led_2022(c)
+        if year: Wd.text(c, '2022', 965, 520, 150, '#3D7BFF', F_LABEL, 'center')
+    def phones_on(c, t, n=9, year=True):
+        led_2022(c, year)
         for i in range(n):
             x = 140 + i * 205; k = K(t, .2 + i * .18, .25)
             figure(c, x, 890, .9); c.drawCircle(x + 26, 760, 50 * k + 1, fp('#FFE2A0', int(110 * k), blur=18)); rect(c, x + 14, 744, x + 40, 782, '#FFE2A0' if k > .5 else '#24365E', 3, r=4)
     def n016a(t0): return dict(draw=wide('night/nasdaq_tower', overlay=phones_on, t0=t0), zoom=(1.35, 1.5), focus=((900, 760), (1000, 760)),
                                hud=PT('ChatGPT launches', 'Nov 30, 2022'), sfx=[(.2 + i * .18, 'pop') for i in range(9)])
-    def n016b(t0): return dict(draw=wide('night/nasdaq_tower', overlay=lambda c, t: (phones_on(c, 9), Wd.counter(c, 960, 380, 0, 100_000_000, (t - .1) / 1.2, unit='', label='people using it within 2 months (estimate)')), t0=t0),
+    def n016b(t0): return dict(draw=wide('night/nasdaq_tower', overlay=lambda c, t: (phones_on(c, 9, year=False), Wd.counter(c, 960, 380, 0, 100_000_000, (t - .1) / 1.2, unit='', label='people using it within 2 months (estimate)')), t0=t0),
                                zoom=(1.3, 1.0), focus=((960, 700), (960, 540)), sfx=[(.1, 'tick'), (1.4, 'ding')])
     multi('n016', [(.5, n016a), (.5, n016b)])
     # 25-26  n017 business contracts slide across the desk, the Anthropic one gets signed; n018 a gold coin drops on it
@@ -327,7 +327,7 @@ def build(tl):
     # 32-35  n023 (a) the newsroom, push to the TV wall; (b) bar chart, Anthropic rises; n024 (a) OpenAI bar; (b) newspaper "a first"
     def bars(c, t, both_=False, t2=0.0):
         Wd.text(c, 'REVENUE, SECOND QUARTER 2026', 960, 170, 54, WHITE, F_TITLE, 'center')
-        base = 880; x0s = (560, 1160); hmax = 440
+        base = 820; x0s = (560, 1160); hmax = 400   # clear of the raised captions
         for i, (val, nm, fill, line_c, mark) in enumerate(((11.6, 'ANTHROPIC', AN_IV, AN_DK, logos.anthropic), (6.7, 'OPENAI', '#000000', WHITE, logos.openai))):
             if i == 1 and not both_: continue
             g = ease_out(K(t, .3 if i == 0 else t2, 1.0)) if (i == 0 and not both_) or i == 1 else 1.0
@@ -338,7 +338,7 @@ def build(tl):
             if g > .95: Wd.text(c, f'${val} BILLION', x + 110, base - h - 140, 52, GOLD, F_TITLE, 'center', stroke=8)
         c.drawLine(480, base, 1460, base, kit.ink(6, WHITE))
         if both_ and t > t2 + 1.1:
-            Wd.pop_label(c, 'counted differently', 1270, 420, (t - t2 - 1.1) / .4, SOFT, 50, rot=-3, stroke=8)
+            Wd.pop_label(c, 'counted differently', 1270, 330, (t - t2 - 1.1) / .4, SOFT, 50, rot=-3, stroke=8)
         Wd.text(c, 'WALL STREET JOURNAL, Q2 2026', 1860, 1010 - 0, 28, SOFT, F_LABEL, 'right')
     def tv_bars(c, t):
         rect(c, 156, 105, 1020, 480, '#0D1630', 0, r=6)
@@ -355,7 +355,7 @@ def build(tl):
     add('n025', shots.card('text', D('n025'), text=tl.by_id['n025']['text'], gold_words=['passed']), zoom=(1.0, 1.02))
     # 37  n026 (a) Altman under the OpenAI sign, flashes; (b) close, his September statement as a label (narrated, he does not speak)
     alt = Actor('altman', 1470, 905, .62, face=0, rim=NR).expression(0, mouth='flat', eyes='dot').pose(.2, ('down', 'down'))
-    def n026a(t0): return dict(draw=wide('night/openai_hq', front=[alt], overlay=flashes([.3, .8, 1.4]), t0=t0), zoom=(1.3, 1.6), focus=((1150, 700), (1300, 720)),
+    def n026a(t0): return dict(draw=wide('night/openai_hq', front=[alt], overlay=flashes([.3, .8, 1.4]), t0=t0), zoom=(1.06, 1.12), focus=((1100, 430), (1160, 420)),   # raised OpenAI sign in frame, under the place tag
                                hud=both(LT('Sam Altman', 'CEO, OpenAI', .3), PT('San Francisco', 'September 2026')), sfx=[(.3, 'shutter'), (.8, 'shutter'), (1.4, 'shutter')])
     def n026b_hud(c, t):
         Wd.pop_label(c, 'OpenAI IPO: not in 2026', 1340, 300, (t - .3) / .4, GOLD, 80, rot=-3, stroke=12)
@@ -412,8 +412,8 @@ def build(tl):
     # 43-45  n031 THE SAVER, hopeful; n032 THE BANKER over his glasses; n033 the list rolls shut in front of her
     talk('n031', 'saver', 'night/private_banker', (500, 700), .4, 'The Saver', 'Dramatised', dict(mouth='smile', brow=.4), ('present', 'down'))
     talk('n032', 'banker', 'night/private_banker', (1300, 600), -.4, None, None, dict(mouth='flat', eyes='half', brow=-.4), ('down', 'hip'), zoom=(1.0, 1.2))
-    talk('n033', 'saver', 'night/private_banker', (500, 700), .4, None, None, dict(mouth='o', eyes='wide', brow=.6), ('down', 'down'), zoom=(1.1, 1.25),
-         overlay=lambda c, t: P.investor_list(c, 1480, 560, 1.15, open_k=1 - ease_out(K(t, .3, .5))))
+    talk('n033', 'saver', 'night/private_banker', (500, 700), .4, None, None, dict(mouth='o', eyes='wide', brow=.6), ('present', 'down'), zoom=(1.1, 1.25),
+         overlay=lambda c, t: P.investor_list(c, *hand(960, 1390, 2.15, ('present', 'down'), -1), 1.15, open_k=1 - ease_out(K(t, .3, .5))))   # held in her hand, not floating
     # 46-47  n034 (a) share stacks fill the vault, $81 billion; (b) gold RECORD stamp on the vault door
     def stacks(c, t, ctr=True):
         for i in range(9):
@@ -533,8 +533,8 @@ def build(tl):
         hud=HUDPOP('7 people - nearly $2 billion', 960, 700, .8, GOLD, 74, -2))
     def door_light(c, t):
         figure(c, 1400, 884, .85); g = K(t, 1.0, .3)
-        if g > 0: c.drawRect(skia.Rect(1150, 560, 1250, 640), fp('#FFE2A0', int(200 * g))); c.drawCircle(1200, 600, 120, fp('#FFE2A0', int(60 * g), blur=30))
-    add('n053', wide('night/openai_hq', overlay=door_light, t0=at('n053')), zoom=(1.6, 2.1), focus=((960, 700), (1040, 780)), sfx=[(1.0, 'pickup')])
+        if g > 0: c.drawRect(skia.Rect(1270, 812, 1400, 876), fp('#FFE2A0', int(200 * g))); c.drawCircle(1335, 844, 120, fp('#FFE2A0', int(60 * g), blur=30))
+    add('n053', wide('night/openai_hq', overlay=door_light, t0=at('n053')), zoom=(1.35, 2.1), focus=((960, 420), (1040, 780)), sfx=[(1.0, 'pickup')])   # starts on the sign, tilts down to the door
     add('n054', shots.card('text', D('n054'), text=tl.by_id['n054']['text'], gold_words=['first']), zoom=(1.0, 1.02))
     dend = tl.dur('n055', 'end')
     def sub(c, t):

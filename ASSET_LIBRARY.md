@@ -101,7 +101,7 @@ keeps an effect inside a window. Example placements for `night/nvidia_office` + 
 | Rough company marks | `logos.anthropic / openai / nasdaq`, `logos.badge` | drawn fresh in real brand colours (rule 3b) | LOCKED |
 | Nasdaq MarketSite, Times Square (real-colour night) | set `night/nasdaq_tower` | curved blue screen tower, billboards, pavement, crosswalk, lamps | LOCKED |
 | Nasdaq studio + bell podium (real-colour night) | set `night/nasdaq_studio` | blue video wall, ticker band, podium in FRONT of actors (`podium` spot) | LOCKED |
-| OpenAI HQ, San Francisco (real-colour night) | set `night/openai_hq` | glass-and-concrete office (shape approximate), lit entrance with the blossom, trees, lamps | LOCKED |
+| OpenAI HQ, San Francisco (real-colour night) | set `night/openai_hq` | glass-and-concrete office (shape approximate), black OpenAI sign high on the top of the building (owner, 25 Nov), lit entrance, palms, lamps | LOCKED |
 | Price tag | `props_ipo.price_tag` | gold tag, old price crossed in orange, new price slides in | LOCKED |
 | The List | `props_ipo.investor_list` | gold-edged allocation list, blurred names, rolls shut | LOCKED |
 | Share certificate | `props_ipo.share_certificate` | ivory + gold border, Anthropic mark, self-writing signature | LOCKED |

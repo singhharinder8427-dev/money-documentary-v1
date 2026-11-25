@@ -64,4 +64,5 @@ def plain(overlay, bg='#14213D', framed=True):
         if framed: Wd.framed_bg(c)
         else: c.drawRect(skia.Rect(0, 0, W, H), skia.Paint(Color=skia.Color4f.FromColor(int('FF' + bg.lstrip('#'), 16))))
         overlay(c, t)
+    draw.cap_y = 975 if framed else None                                 # captions sit above the inner border (owner, 25 Nov)
     return _v(draw, .5)

@@ -51,10 +51,10 @@ def _with_captions(tl, x):
     """Shot HUD + small burned-in captions (absolute time = shot start + t). CAPTIONS=0 turns them off."""
     if os.environ.get('CAPTIONS', '1') == '0': return x.get('hud')
     from engine.captions import Captions
-    cap = Captions(tl); hud = x.get('hud'); t0 = x['t0']
+    cap = Captions(tl); hud = x.get('hud'); t0 = x['t0']; cy = getattr(x['draw'], 'cap_y', None)
     def h(c, t):
         if hud: hud(c, t)
-        cap.draw(c, t0 + t)
+        cap.draw(c, t0 + t, cy)
     return h
 def _render_one(i):
     tl, sh = shot_list(); x = sh[i]; f = str(OUT / f"shot_{x['name']}.mp4")

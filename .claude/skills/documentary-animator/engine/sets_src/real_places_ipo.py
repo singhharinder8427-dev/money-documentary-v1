@@ -83,11 +83,11 @@ def draw_openai_hq(c):
     rect(c, 200, 120, 1720, 800, None, 12, v=BRONZE)                                                               # bronze frame
     rect(c, 200, 800, 1720, 880, '#2A2E36', 5)                                                                     # glass ground floor
     for k in range(10): rect(c, 220 + k * 150, 812, 350 + k * 150, 876, LIT if k in (4, 5) else '#4E6A86', 3)
-    rect(c, 600, 742, 1320, 846, '#000000', 5, r=6)                                                                # big entrance sign (owner, 24 Nov)
-    logos.openai(c, 690, 794, 40)
+    rect(c, 600, 136, 1320, 240, '#000000', 5, r=6)                                                                # sign at the top of the building (owner, 25 Nov)
+    logos.openai(c, 690, 188, 40)
     # shortcut: OpenAI's wordmark is a plain sans; Arial (Windows) is the closest font we have, Barlow is the fallback - add a free geometric sans to fonts/ for cloud renders
     sans = skia.Typeface.MakeFromName('Arial', skia.FontStyle.Normal()) or F_LABEL
-    c.drawString('OpenAI', 760, 824, skia.Font(sans, 84), fp('#FFFFFF'))
+    c.drawString('OpenAI', 760, 218, skia.Font(sans, 84), fp('#FFFFFF'))
     rect(c, -10, 880, W + 10, 910, '#9A9890', 4); rect(c, -10, 910, W + 10, H + 10, '#3A3D4A', 0)                  # pavement + street
     for x in range(40, W, 260): rect(c, x, 995, x + 120, 1003, '#D8D6CC', 0)
     for px, ph in ((120, 420), (430, 380), (1460, 400), (1640, 450), (1800, 430)): _palm(c, px, 888, ph)

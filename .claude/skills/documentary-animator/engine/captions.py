@@ -27,7 +27,8 @@ def chunks(tl):
 
 class Captions:
     def __init__(self, tl): self.ch = chunks(tl); self.font = skia.Font(F_LABEL2, SIZE)
-    def draw(self, c, t):
+    def draw(self, c, t, y=None):
+        y = y or Y
         for t0, t1, words in self.ch:
             if t0 <= t < t1: break
         else: return
@@ -35,7 +36,7 @@ class Captions:
         x = W / 2 - total / 2
         for (w, a, b), wd in zip(words, ws):
             col = GOLD if a <= t < b else WHITE
-            c.drawString(w, x, Y, f, ink(9, (10, 17, 36))); c.drawString(w, x, Y, f, fp(col)); x += wd + sp
+            c.drawString(w, x, y, f, ink(9, (10, 17, 36))); c.drawString(w, x, y, f, fp(col)); x += wd + sp
 
 def srt(tl, path):
     def ts(s): h, s = divmod(s, 3600); m, s = divmod(s, 60); return f'{int(h):02d}:{int(m):02d}:{int(s):02d},{int(round((s % 1) * 1000)) % 1000:03d}'
