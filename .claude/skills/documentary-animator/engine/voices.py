@@ -26,7 +26,8 @@ CHARACTER_VOICES = {   # candidates until the test render; then locked
 # table; confirmed 26 Nov 2026: Whisper reads all 4, pitch f ~200 Hz / m ~135 Hz). Each English character voice maps to a Hindi one of the same gender unless
 # HINDI_VOICES names it. Narrator = ElevenLabs Hindi file; hm_omega is only the placeholder until it arrives.
 KOKORO_IDS.update({'hf_alpha': 31, 'hf_beta': 32, 'hm_omega': 33, 'hm_psi': 34})
-HINDI_VOICES = {'retiree': ('hm_omega', 1.0), 'reporter2': ('hf_beta', 1.0), 'analyst': ('hm_omega', 1.0)}
+HINDI_VOICES = {'retiree': ('hm_omega', 1.0), 'reporter2': ('hf_beta', 1.0), 'analyst': ('hm_omega', 1.0),
+                'grad': ('hm_omega', 1.05), 'reporter': ('hf_beta', 1.0)}   # grad vs worker (hm_psi) = the two traders must differ
 LANG = 'en'   # set by make_video.py from script.json
 WHISPER = os.path.join(MODELS, 'faster-whisper-large-v3-turbo')   # Hindi speech-to-text (Parakeet is English only)
 LEXICON_EXTRA = 'lex_extra.txt'   # per-video extra pronunciations (written automatically by prepare_text)
@@ -133,9 +134,21 @@ def _mono16k(path):
 def words_with_times(path, chunk=24.0):
     """Speech-to-text with word timings: [(word, start, end)]. Decodes in 24 s chunks with 1 s overlap."""
     if LANG == 'hi':   # Whisper (faster-whisper) for Hindi
-        from faster_whisper import WhisperModel
-        segs, _ = WhisperModel(WHISPER, device='cpu', compute_type='int8').transcribe(_mono16k(path), language='hi', word_timestamps=True)   # array, not path: skips PyAV (version clash)
-        return [(w.word.strip(), w.start, w.end) for s in segs for w in s.words if w.word.strip()]
+        global _WH
+        if '_WH' not in globals():
+            from faster_whisper import WhisperModel; _WH = WhisperModel(WHISPER, device='cpu', compute_type='int8')   # load once
+        y = _mono16k(path)   # array, not path: skips PyAV (version clash)
+        def tr(a, off, **kw):
+            segs, _ = _WH.transcribe(a, language='hi', word_timestamps=True, condition_on_previous_text=False, **kw)
+            return [(w.word.strip(), w.start + off, w.end + off) for s in segs for w in s.words if w.word.strip()]
+        out = tr(y, 0, vad_filter=True, vad_parameters=dict(min_silence_duration_ms=300, max_speech_duration_s=20))   # VAD: without it words at 30 s window edges are dropped
+        rms = lambda a, b: float(np.sqrt(np.mean(y[int(a * 16000):int(b * 16000)] ** 2) + 1e-12)); loud = rms(0, len(y) / 16000)
+        edges = [0.0] + [t for w in out for t in (w[1], min(w[2], w[1] + 1.0))] + [len(y) / 16000]   # a 9 s 'word' hides skipped speech
+        for a, b in zip(edges[0::2], edges[1::2]):   # gaps between words (and at both ends)
+            if b - a > 1.5 and rms(a, b) > .3 * loud:   # Whisper still skipped speech here: transcribe the gap on its own
+                out += tr(y[int(max(a - .2, 0) * 16000):int((b + .2) * 16000)], max(a - .2, 0))
+        out = sorted(out, key=lambda w: w[1])
+        return [(w, a, min(b, out[i + 1][1]) if i + 1 < len(out) else b) for i, (w, a, b) in enumerate(out)]   # no word runs over the next one
     y = _mono16k(path); out = []; step = int((chunk - 1) * 16000); L = int(chunk * 16000); i = 0
     while i < len(y):
         seg = y[i:i + L]; st = asr().create_stream(); st.accept_waveform(16000, seg); asr().decode_stream(st); r = st.result
@@ -154,7 +167,19 @@ def words_with_times(path, chunk=24.0):
     return [(w, a, b) for w, a, b in ded if w]
 def norm(s): return re.sub(r"[^a-z0-9$%'ऀ-ॣ०-ॿ]+", ' ', s.lower()).split()   # keeps Devanagari, drops the danda
 
-def split_narration(narration_wav, lines, outdir):
+def tighten(y, sr, max_pause):
+    """Shorten every silence longer than max_pause seconds to max_pause (owner 26 Nov 2026: Hindi narration had ~51 s of pauses)."""
+    fr = int(.02 * sr); n = len(y) // fr
+    if n < 2: return y
+    e = np.sqrt(np.mean(y[:n * fr].reshape(n, fr) ** 2, axis=1)); quiet = e < .02 * e.max(); keep = int(max_pause / .02); out = []; i = 0
+    while i < n:
+        j = i
+        while j < n and quiet[j] == quiet[i]: j += 1
+        if quiet[i] and j - i > keep: h = keep // 2; out += [y[i * fr:(i + h) * fr], y[(j - (keep - h)) * fr:j * fr]]   # keep both edges of the silence
+        else: out.append(y[i * fr:j * fr])
+        i = j
+    return np.concatenate(out + [y[n * fr:]])
+def split_narration(narration_wav, lines, outdir, max_pause=None):
     """Cut the owner's ElevenLabs narration (one file, narrator lines in script order) into one clip per line.
     lines: [(id, text)] narrator lines only. Returns {id: (clip_path, seconds)}. Aligns speech-to-text words to the
     script with difflib; lines that can't be matched are reported so the owner can check them."""
@@ -162,9 +187,13 @@ def split_narration(narration_wav, lines, outdir):
     ref, owner = [], []
     for k, (lid, txt) in enumerate(lines):
         for w in norm(txt): ref.append(w); owner.append(k)
-    sm = difflib.SequenceMatcher(None, ref, hyp, autojunk=False); hit = {}; matched = set()
+    # letter-level match: spelling variants (शेर/शेयर, सुभ/सुबह) still line up; numbers heard as digits stay small islands
+    rw = [i for i, w in enumerate(ref) for _ in w + ' ']; hw = [i for i, w in enumerate(hyp) for _ in w + ' ']
+    sm = difflib.SequenceMatcher(None, ' '.join(ref), ' '.join(hyp), autojunk=False); hit = {}; matched = set()
     for a, b, n in sm.get_matching_blocks():
-        for j in range(n): hit.setdefault(owner[a + j], []).append(b + j); matched.add(a + j)
+        if n < 3: continue
+        for j in range(n):
+            if ref[rw[a + j]] and hyp[hw[b + j]]: hit.setdefault(owner[rw[a + j]], []).append(hw[b + j]); matched.add(rw[a + j])
     y, sr = sf.read(narration_wav); y = y.mean(1) if y.ndim > 1 else y; res, missing = {}, []
     rng = {k: [min(v), max(v)] for k, v in hit.items()}; ks = sorted(rng)
     for k, k2 in zip(ks, ks[1:]):   # unmatched heard words between two lines (e.g. Whisper writes 'Factory' in Latin) go to the line whose edge word is unmatched
@@ -179,7 +208,7 @@ def split_narration(narration_wav, lines, outdir):
         if bounds[k] is None: continue
         a, b = bounds[k]; nxt = next((bb[0] for bb in bounds[k + 1:] if bb), len(y) / sr)
         a = max(0, a - .12); b = min(nxt - .02, b + .35)
-        clip = y[int(a * sr):int(b * sr)]; p = os.path.join(outdir, f'{lid}.wav'); sf.write(p, clip, sr); res[lid] = (p, len(clip) / sr)
+        clip = y[int(a * sr):int(b * sr)]; clip = tighten(clip, sr, max_pause) if max_pause else clip; p = os.path.join(outdir, f'{lid}.wav'); sf.write(p, clip, sr); res[lid] = (p, len(clip) / sr)
     if missing: print('NOT MATCHED (check these lines in the narration):', missing)
     return res
 

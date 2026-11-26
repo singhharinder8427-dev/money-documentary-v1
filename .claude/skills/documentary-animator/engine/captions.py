@@ -4,7 +4,7 @@ Lines shown as typed text cards are skipped (the words are already on screen). W
 voice clip by character count (no extra model needed); good enough for small captions."""
 import re
 from engine.core import W, H, GOLD, WHITE, F_LABEL2
-from engine.kit import ink, fp
+from engine.kit import ink, fp, mw, ds
 import skia
 
 MAXW, SIZE, Y = 7, 50, 1045
@@ -32,11 +32,11 @@ class Captions:
         for t0, t1, words in self.ch:
             if t0 <= t < t1: break
         else: return
-        f = self.font; sp = f.measureText(' '); ws = [f.measureText(w) for w, _, _ in words]; total = sum(ws) + sp * (len(ws) - 1)
+        f = self.font; sp = f.measureText(' '); ws = [mw(f, w) for w, _, _ in words]; total = sum(ws) + sp * (len(ws) - 1)
         x = W / 2 - total / 2
         for (w, a, b), wd in zip(words, ws):
             col = GOLD if a <= t < b else WHITE
-            c.drawString(w, x, y, f, ink(9, (10, 17, 36))); c.drawString(w, x, y, f, fp(col)); x += wd + sp
+            ds(c, w, x, y, f, ink(9, (10, 17, 36))); ds(c, w, x, y, f, fp(col)); x += wd + sp
 
 def srt(tl, path):
     def ts(s): h, s = divmod(s, 3600); m, s = divmod(s, 60); return f'{int(h):02d}:{int(m):02d}:{int(s):02d},{int(round((s % 1) * 1000)) % 1000:03d}'

@@ -1,0 +1,921 @@
+{
+ "title": "$1.7 Trillion Wali Subah: Jab Anthropic OpenAI Se Aage Nikal Gayi",
+ "working_title": "The $1.7 Trillion Morning",
+ "title_after": "n009",
+ "end_screen": 0.0,
+ "narrator_gain": 1.26,
+ "lines": [
+  {
+   "id": "n001",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "19 November, Guruvaar ki subah hai. Wall Street.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2"
+   ],
+   "shot_hint": "trading floor mid-action, screens flicker, place tag Nasdaq / Nov 19, 2026",
+   "text_en": "Late Thursday morning, November nineteenth. Wall Street.",
+   "say": "उन्नीस नवंबर, गुरुवार की सुबह है। वॉल स्ट्रीट।"
+  },
+  {
+   "id": "n002",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Ek nayi company ka share pehli baar share market mein aane wala hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2"
+   ],
+   "shot_hint": "ticker board, blank row ANT blinking",
+   "text_en": "A brand new stock is about to trade for the very first time.",
+   "say": "एक नई कंपनी का शेयर पहली बार शेयर मार्केट में आने वाला है।"
+  },
+  {
+   "id": "n003",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "TRADER",
+   "voice": "worker",
+   "text": "Kahan khul raha hai?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "trader close-up, headset; tag THE TRADER",
+   "text_en": "Where's it opening?",
+   "say": "कहाँ खुल रहा है?"
+  },
+  {
+   "id": "n004",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "SECOND TRADER",
+   "voice": "grad",
+   "text": "₹10,400.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [
+    "S2"
+   ],
+   "shot_hint": "second trader, screen flips to $111.50 in gold",
+   "text_en": "A hundred and eleven fifty.",
+   "say": "दस हज़ार चार सौ।"
+  },
+  {
+   "id": "n005",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Company ka naam hai Anthropic. 2021 mein is company mein bas kuch log the, jo OpenAI chhodkar aaye the.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S9"
+   ],
+   "shot_hint": "Anthropic name on the board -> quick flash of an office door closing (2021)",
+   "text_en": "The company is Anthropic. In 2021, it was a handful of people who had just quit OpenAI.",
+   "say": "कंपनी का नाम है एंथ्रोपिक। दो हज़ार इक्कीस में इस कंपनी में बस कुछ लोग थे, जो ओपनएआई छोड़कर आए थे।"
+  },
+  {
+   "id": "n006",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Is company ko shuru karne wale saat log pehle hi apne shares bech chuke hain. Har ek ko kareeb ₹2,600 crore mile.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 280000000,
+    "unit": "$",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "seven chairs / seven silhouettes, counter $280M gold",
+   "text_en": "Seven of its founders have already sold shares. About two hundred and eighty million dollars each.",
+   "say": "इस कंपनी को शुरू करने वाले सात लोग पहले ही अपने शेयर बेच चुके हैं। हर एक को करीब छब्बीस सौ करोड़ रुपये मिले।"
+  },
+  {
+   "id": "n007",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Woh bhi share market khulne se pehle.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "typed card",
+   "text_en": "Before a single share traded.",
+   "say": "वो भी शेयर मार्केट खुलने से पहले।"
+  },
+  {
+   "id": "n008",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Aur jis company ko yeh log chhodkar aaye the, woh aaj bhi apni baari ka intezaar kar rahi hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S13"
+   ],
+   "shot_hint": "OpenAI-style HQ at night, one lit window, empty ticker slot",
+   "text_en": "And the company they walked out of? Still waiting for its turn.",
+   "say": "और जिस कंपनी को ये लोग छोड़कर आए थे, वो आज भी अपनी बारी का इंतज़ार कर रही है।"
+  },
+  {
+   "id": "n009",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Toh us subah asal mein kaun ameer bana? Aur kiske paise doobe?",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "typed card",
+   "text_en": "So who really got rich that morning? And who paid for it?",
+   "say": "तो उस सुबह असल में कौन अमीर बना? और किसके पैसे डूबे?"
+  },
+  {
+   "id": "n010",
+   "beat": "CH1",
+   "chapter": "Bagaawat",
+   "speaker": "NARRATOR",
+   "text": "Chaliye, wapas chalte hain 2021 mein.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S9"
+   ],
+   "shot_hint": "calendar flips back to 2021",
+   "text_en": "Rewind to 2021.",
+   "say": "चलिए, वापस चलते हैं दो हज़ार इक्कीस में।"
+  },
+  {
+   "id": "n011",
+   "beat": "CH1",
+   "chapter": "Bagaawat",
+   "speaker": "NARRATOR",
+   "text": "AI ki duniya mein sabse bada naam hai OpenAI. Lekin phir uske apne hi kuch log company chhod dete hain.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S9"
+   ],
+   "shot_hint": "office at night, a line of silhouettes leaving with boxes",
+   "text_en": "OpenAI is the hottest name in artificial intelligence. Then a group of its own people walks out.",
+   "say": "एआई की दुनिया में सबसे बड़ा नाम है ओपनएआई। लेकिन फिर उसके अपने ही कुछ लोग कंपनी छोड़ देते हैं।"
+  },
+  {
+   "id": "n012",
+   "beat": "CH1",
+   "chapter": "Bagaawat",
+   "speaker": "NARRATOR",
+   "text": "Inmein hain bhai-behen, Dario aur Daniela Amodei. Unki nayi company ka naam hai Anthropic.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S9"
+   ],
+   "shot_hint": "two characters, tags DARIO AMODEI / co-founder, DANIELA AMODEI / co-founder",
+   "text_en": "Among them, siblings Dario and Daniela Amodei. Their new company is called Anthropic.",
+   "say": "इनमें हैं भाई-बहन, डारियो और डेनिएला अमोडेई। उनकी नई कंपनी का नाम है एंथ्रोपिक।"
+  },
+  {
+   "id": "n013",
+   "beat": "CH1",
+   "chapter": "Bagaawat",
+   "speaker": "ANALYST",
+   "voice": "analyst",
+   "text": "OpenAI chhoda, OpenAI se hi muqabla karne ke liye?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "analyst close-up; tag THE ANALYST",
+   "text_en": "They left OpenAI to compete with OpenAI?",
+   "say": "OpenAI छोड़ा, OpenAI से ही मुकाबला करने के लिए?"
+  },
+  {
+   "id": "n014",
+   "beat": "CH1",
+   "chapter": "Bagaawat",
+   "speaker": "INVESTOR",
+   "voice": "investor",
+   "text": "Himmat hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "investor sips coffee; tag THE INVESTOR",
+   "text_en": "Bold.",
+   "say": "हिम्मत है।"
+  },
+  {
+   "id": "n015",
+   "beat": "CH1",
+   "chapter": "Bagaawat",
+   "speaker": "ANALYST",
+   "voice": "analyst",
+   "text": "Ya bahut mehenga shauk.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "analyst deadpan",
+   "text_en": "Or very expensive.",
+   "say": "या बहुत महँगा शौक।"
+  },
+  {
+   "id": "n016",
+   "beat": "CH1",
+   "chapter": "Bagaawat",
+   "speaker": "NARRATOR",
+   "text": "2022 ke aakhir mein OpenAI ChatGPT launch karta hai. Sirf do mahine mein kareeb 10 crore log iska istemaal karne lagte hain.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 100000000,
+    "unit": "",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S10"
+   ],
+   "shot_hint": "phones lighting up across a city, user counter",
+   "text_en": "Late 2022, OpenAI launches ChatGPT. Within two months, an estimated hundred million people are using it.",
+   "say": "दो हज़ार बाईस के आख़िर में ओपनएआई चैटजीपीटी लॉन्च करता है। सिर्फ़ दो महीने में करीब दस करोड़ लोग इसका इस्तेमाल करने लगते हैं।"
+  },
+  {
+   "id": "n017",
+   "beat": "CH1",
+   "chapter": "Bagaawat",
+   "speaker": "NARRATOR",
+   "text": "Lekin Anthropic ek alag raasta chunti hai. Woh apna AI aam logon ki bajaay zyaadatar companiyon ko bechti hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S11"
+   ],
+   "shot_hint": "office towers, contracts sliding across desks",
+   "text_en": "Anthropic takes the quieter road. It sells its AI mostly to businesses.",
+   "say": "लेकिन एंथ्रोपिक एक अलग रास्ता चुनती है। वो अपना एआई आम लोगों की बजाय ज़्यादातर कंपनियों को बेचती है।"
+  },
+  {
+   "id": "n018",
+   "beat": "CH1",
+   "chapter": "Bagaawat",
+   "speaker": "NARRATOR",
+   "text": "Is faisle ko yaad rakhiye. Aage chalkar yahi faisla company ko bahut paisa kamaakar dene wala hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "contract signed, gold glint; cliffhanger",
+   "text_en": "Remember that choice. It is about to be worth a fortune.",
+   "say": "इस फ़ैसले को याद रखिए। आगे चलकर यही फ़ैसला कंपनी को बहुत पैसा कमाकर देने वाला है।"
+  },
+  {
+   "id": "n019",
+   "beat": "CH2",
+   "chapter": "Palti Baazi",
+   "speaker": "NARRATOR",
+   "text": "March 2026. OpenAI apna mashhoor video banane wala app, Sora, band kar deta hai. Launch hone ke sirf 6 mahine baad.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S6"
+   ],
+   "shot_hint": "phone app icon greys out, SHUT DOWN gold stamp",
+   "text_en": "March 2026. OpenAI shuts down Sora, its viral video app. Six months after launch.",
+   "say": "मार्च दो हज़ार छब्बीस। ओपनएआई अपना मशहूर वीडियो बनाने वाला ऐप, सोरा, बंद कर देता है। लॉन्च होने के सिर्फ़ छह महीने बाद।"
+  },
+  {
+   "id": "n020",
+   "beat": "CH2",
+   "chapter": "Palti Baazi",
+   "speaker": "NARRATOR",
+   "text": "Iske saath Disney ki ₹9,300 crore ki deal bhi khatam ho jaati hai. Khabron ke mutabik, ek rupaya bhi nahi diya gaya tha.",
+   "card": false,
+   "counter": {
+    "from": 1000000000,
+    "to": 0,
+    "unit": "$",
+    "colour": "orange"
+   },
+   "dramatised": false,
+   "sources": [
+    "S6"
+   ],
+   "shot_hint": "deal folder closes, counter drains to 0 in orange",
+   "text_en": "A billion-dollar deal with Disney goes with it. Reports say no money ever changed hands.",
+   "say": "इसके साथ डिज़्नी की तिरानवे सौ करोड़ रुपये की डील भी ख़त्म हो जाती है। ख़बरों के मुताबिक, एक रुपया भी नहीं दिया गया था।"
+  },
+  {
+   "id": "n021",
+   "beat": "CH2",
+   "chapter": "Palti Baazi",
+   "speaker": "CLERK",
+   "voice": "reporter",
+   "text": "Disney line par hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "clerk holding phone; tag THE CLERK",
+   "text_en": "Disney is on the line.",
+   "say": "डिज़्नी लाइन पर है।"
+  },
+  {
+   "id": "n022",
+   "beat": "CH2",
+   "chapter": "Palti Baazi",
+   "speaker": "MANAGER",
+   "voice": "banker",
+   "text": "Keh do, 6 mahine bade shaandaar rahe.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "manager rubs temples; tag THE MANAGER",
+   "text_en": "Tell them it was a great six months.",
+   "say": "कह दो, छह महीने बड़े शानदार रहे।"
+  },
+  {
+   "id": "n023",
+   "beat": "CH2",
+   "chapter": "Palti Baazi",
+   "speaker": "NARRATOR",
+   "text": "Phir garmiyon mein kamaai ke number saamne aate hain. Wall Street Journal ki khabar ke mutabik, sirf 3 mahine mein Anthropic ki kamaai kareeb ₹1.08 lakh crore rahi.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 11600000000,
+    "unit": "$",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S5"
+   ],
+   "shot_hint": "bar chart: Anthropic bar rises",
+   "text_en": "Then the summer numbers arrive. The Wall Street Journal reports Anthropic took in eleven point six billion dollars in the second quarter.",
+   "say": "फिर गर्मियों में कमाई के नंबर सामने आते हैं। वॉल स्ट्रीट जर्नल की ख़बर के मुताबिक, सिर्फ़ तीन महीने में एंथ्रोपिक की कमाई करीब एक लाख आठ हज़ार करोड़ रुपये रही।"
+  },
+  {
+   "id": "n024",
+   "beat": "CH2",
+   "chapter": "Palti Baazi",
+   "speaker": "NARRATOR",
+   "text": "Aur OpenAI kareeb ₹62,000 crore. Haalaanki dono companiyan apni kamaai alag-alag tareeke se ginti hain. Phir bhi har taraf ek hi khabar chal rahi thi.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S5"
+   ],
+   "shot_hint": "second bar shorter; small label COUNTED DIFFERENTLY; newspaper spins in",
+   "text_en": "OpenAI? Six point seven billion. They count revenue differently. Still, the headlines called it a first.",
+   "say": "और ओपनएआई करीब बासठ हज़ार करोड़ रुपये। हालाँकि दोनों कंपनियाँ अपनी कमाई अलग-अलग तरीके से गिनती हैं। फिर भी हर तरफ़ एक ही ख़बर चल रही थी।"
+  },
+  {
+   "id": "n025",
+   "beat": "CH2",
+   "chapter": "Palti Baazi",
+   "speaker": "NARRATOR",
+   "text": "Jin logon ne OpenAI chhoda tha, unki company ab OpenAI se aage nikal gayi thi.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S5"
+   ],
+   "shot_hint": "typed card",
+   "text_en": "The company that walked out had passed the company it left.",
+   "say": "जिन लोगों ने ओपनएआई छोड़ा था, उनकी कंपनी अब ओपनएआई से आगे निकल गई थी।"
+  },
+  {
+   "id": "n026",
+   "beat": "CH2",
+   "chapter": "Palti Baazi",
+   "speaker": "NARRATOR",
+   "text": "September mein Sam Altman ne kaha ki OpenAI 2026 mein share market mein nahi aayegi.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S12"
+   ],
+   "shot_hint": "interview set, Altman character; tag SAM ALTMAN / CEO, OpenAI",
+   "text_en": "In September, Sam Altman said OpenAI would not go public in 2026.",
+   "say": "सितंबर में सैम ऑल्टमैन ने कहा कि ओपनएआई दो हज़ार छब्बीस में शेयर मार्केट में नहीं आएगी।"
+  },
+  {
+   "id": "n027",
+   "beat": "CH2",
+   "chapter": "Palti Baazi",
+   "speaker": "NARRATOR",
+   "text": "Lekin Anthropic intezaar karne wali nahi thi.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2"
+   ],
+   "shot_hint": "calendar page tears to November; cliffhanger",
+   "text_en": "Anthropic wasn't going to wait.",
+   "say": "लेकिन एंथ्रोपिक इंतज़ार करने वाली नहीं थी।"
+  },
+  {
+   "id": "n028",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "NARRATOR",
+   "text": "Ab samajhte hain ki us subah share market mein kya hua.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S14"
+   ],
+   "shot_hint": "a line of figures forms: banks, big investors, founders, public last",
+   "text_en": "Here's how an IPO morning really works. In order.",
+   "say": "अब समझते हैं कि उस सुबह शेयर मार्केट में क्या हुआ।"
+  },
+  {
+   "id": "n029",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "NARRATOR",
+   "text": "Pehle, banks share ka daam tay karte hain. Budhvaar ki raat ek share ki keemat kareeb ₹7,700 rakhi jaati hai. Yeh unki ummeed se bhi zyaada thi.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S2"
+   ],
+   "shot_hint": "price tag slides from $70-78 up to $83",
+   "text_en": "First, the banks set a price. On Wednesday night, eighty-three dollars a share. Above the range they planned.",
+   "say": "पहले, बैंक शेयर का दाम तय करते हैं। बुधवार की रात एक शेयर की कीमत करीब सात हज़ार सात सौ रुपये रखी जाती है। ये उनकी उम्मीद से भी ज़्यादा थी।"
+  },
+  {
+   "id": "n030",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "NARRATOR",
+   "text": "Phir yeh shares beche jaate hain. Zyaadatar un bade logon aur companiyon ko, jo share market mein paisa lagaate hain.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S14"
+   ],
+   "shot_hint": "a gold-edged list, names blurred, shares handed down the list",
+   "text_en": "Then they sell the shares. Mostly to a list of big investors.",
+   "say": "फिर ये शेयर बेचे जाते हैं। ज़्यादातर उन बड़े लोगों और कंपनियों को, जो शेयर मार्केट में पैसा लगाते हैं।"
+  },
+  {
+   "id": "n031",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "SAVER",
+   "voice": "saver",
+   "text": "Kya mujhe ₹7,700 mein kuch shares mil sakte hain?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "saver at a desk counter; tag THE SAVER",
+   "text_en": "Can I buy some at eighty-three?",
+   "say": "क्या मुझे सात हज़ार सात सौ में कुछ शेयर मिल सकते हैं?"
+  },
+  {
+   "id": "n032",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "BANKER",
+   "voice": "banker",
+   "text": "Aap list mein hain?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "banker looks over glasses; tag THE BANKER",
+   "text_en": "Are you on the list?",
+   "say": "आप लिस्ट में हैं?"
+  },
+  {
+   "id": "n033",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "SAVER",
+   "voice": "saver",
+   "text": "Kaun si list?",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "saver blinks, list rolls shut",
+   "text_en": "What list?",
+   "say": "कौन सी list?"
+  },
+  {
+   "id": "n034",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "NARRATOR",
+   "text": "Kul 98 crore shares. ₹7.5 lakh crore ke kareeb ki bikri. Itihaas ka sabse bada IPO.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 81000000000,
+    "unit": "$",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S3"
+   ],
+   "shot_hint": "share stacks fill a vault, $81B counter",
+   "text_en": "Nine hundred and eighty million shares. More than eighty billion dollars. The biggest IPO on record.",
+   "say": "कुल अट्ठानवे करोड़ शेयर। साढ़े सात लाख करोड़ रुपये के करीब की बिक्री। इतिहास का सबसे बड़ा आईपीओ।"
+  },
+  {
+   "id": "n035",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "NARRATOR",
+   "text": "Is bikri mein company shuru karne wale saaton log bhi apne shares bechte hain. Har ek ne 30 lakh se kuch zyaada shares beche.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "seven share certificates on a table",
+   "text_en": "Inside that sale, the seven co-founders. Just over three million shares each.",
+   "say": "इस बिक्री में कंपनी शुरू करने वाले सातों लोग भी अपने शेयर बेचते हैं। हर एक ने तीस लाख से कुछ ज़्यादा शेयर बेचे।"
+  },
+  {
+   "id": "n036",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "BANKER",
+   "voice": "banker",
+   "text": "Saat signature.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "pen signs, gold stamp",
+   "text_en": "Seven signatures.",
+   "say": "सात सिग्नेचर।"
+  },
+  {
+   "id": "n037",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "CLERK",
+   "voice": "reporter",
+   "text": "Saat khazaane.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "clerk stacks the signed pages",
+   "text_en": "Seven fortunes.",
+   "say": "सात, खजाने।"
+  },
+  {
+   "id": "n038",
+   "beat": "CH3",
+   "chapter": "Pehle Paisa Kisko?",
+   "speaker": "NARRATOR",
+   "text": "Saaton ko milaakar kareeb ₹18,600 crore mile. Woh bhi aam logon ke ek bhi share khareedne se pehle.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "bell still silent, clock hand ticking to opening; cliffhanger",
+   "text_en": "Nearly two billion dollars together. All before the public could buy a single share.",
+   "say": "सातों को मिलाकर करीब अठारह हज़ार छह सौ करोड़ रुपये मिले। वो भी आम लोगों के एक भी शेयर ख़रीदने से पहले।"
+  },
+  {
+   "id": "n039",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Phir share market khulne ki ghanti bajti hai. Aur yahan ek aisi baat hoti hai, jis par zyaadatar log dhyaan nahi dete.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2"
+   ],
+   "shot_hint": "bell rings, music drops",
+   "text_en": "Then the opening bell rings. And here's what most people miss.",
+   "say": "फिर शेयर मार्केट खुलने की घंटी बजती है। और यहाँ एक ऐसी बात होती है, जिस पर ज़्यादातर लोग ध्यान नहीं देते।"
+  },
+  {
+   "id": "n040",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Anthropic ne apna share ₹7,700 mein becha tha. Lekin market mein usi share ki shuruaat hui kareeb ₹10,400 se.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S2"
+   ],
+   "shot_hint": "two price tags side by side, gap glowing gold",
+   "text_en": "Anthropic sold at eighty-three. The stock opened at a hundred and eleven fifty.",
+   "say": "एंथ्रोपिक ने अपना शेयर सात हज़ार सात सौ रुपये में बेचा था। लेकिन मार्केट में उसी शेयर की शुरुआत हुई करीब दस हज़ार चार सौ रुपये से।"
+  },
+  {
+   "id": "n041",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Ab is badhi hui keemat ka faayda Anthropic ko nahi mila. Yeh faayda mila un logon ko, jinhone pehle hi ₹7,700 mein shares khareed liye the.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S14"
+   ],
+   "shot_hint": "typed card",
+   "text_en": "That jump didn't go to Anthropic. It went to whoever got shares at eighty-three.",
+   "say": "अब इस बढ़ी हुई कीमत का फ़ायदा एंथ्रोपिक को नहीं मिला। ये फ़ायदा मिला उन लोगों को, जिन्होंने पहले ही सात हज़ार सात सौ रुपये में शेयर ख़रीद लिए थे।"
+  },
+  {
+   "id": "n042",
+   "beat": "TWIST",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Share market band hone tak un shares ki kul keemat kareeb ₹1.3 lakh crore badh chuki thi. Sirf ek din mein.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 14000000000,
+    "unit": "$",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S2",
+    "S3"
+   ],
+   "shot_hint": "the list glows, counter $14B (calculation, see sources)",
+   "text_en": "By the closing bell, those shares were worth about fourteen billion dollars more. In one day.",
+   "say": "शेयर मार्केट बंद होने तक उन शेयरों की कुल कीमत करीब एक लाख तीस हज़ार करोड़ रुपये बढ़ चुकी थी। सिर्फ़ एक दिन में।"
+  },
+  {
+   "id": "n043",
+   "beat": "CH4",
+   "chapter": "Agli Subah",
+   "speaker": "NARRATOR",
+   "text": "Lekin kahaani yahin khatam nahi hoti. Agle din share kareeb 9% gir jaata hai. Iski keemat kareeb ₹7,900 reh jaati hai.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 9,
+    "unit": "%",
+    "colour": "orange"
+   },
+   "dramatised": false,
+   "sources": [
+    "S2"
+   ],
+   "shot_hint": "orange down arrow on the ticker",
+   "text_en": "The next day, the stock falls about nine percent. To around eighty-five dollars.",
+   "say": "लेकिन कहानी यहीं ख़त्म नहीं होती। अगले दिन शेयर करीब नौ परसेंट गिर जाता है। इसकी कीमत करीब सात हज़ार नौ सौ रुपये रह जाती है।"
+  },
+  {
+   "id": "n044",
+   "beat": "CH4",
+   "chapter": "Agli Subah",
+   "speaker": "NARRATOR",
+   "text": "Jin logon ne market khulte hi share khareeda tha, unke lagaaye hue paise ka lagbhag chautha hissa doob chuka tha.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2"
+   ],
+   "shot_hint": "pie of a $111.50 share loses a quarter slice in orange",
+   "text_en": "Anyone who bought at the opening price was down almost a quarter.",
+   "say": "जिन लोगों ने मार्केट खुलते ही शेयर ख़रीदा था, उनके लगाए हुए पैसे का लगभग चौथा हिस्सा डूब चुका था।"
+  },
+  {
+   "id": "n045",
+   "beat": "CH4",
+   "chapter": "Agli Subah",
+   "speaker": "TRADER",
+   "voice": "worker",
+   "text": "Maine open par khareeda.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "trader slumps",
+   "text_en": "I bought the open.",
+   "say": "मैंने open पर खरीदा।"
+  },
+  {
+   "id": "n046",
+   "beat": "CH4",
+   "chapter": "Agli Subah",
+   "speaker": "SECOND TRADER",
+   "voice": "grad",
+   "text": "Sabne open par khareeda.",
+   "card": false,
+   "counter": null,
+   "dramatised": true,
+   "sources": [],
+   "shot_hint": "pan across a row of slumped traders",
+   "text_en": "Everybody bought the open.",
+   "say": "सबने open पर खरीदा।"
+  },
+  {
+   "id": "n047",
+   "beat": "CH4",
+   "chapter": "Agli Subah",
+   "speaker": "NARRATOR",
+   "text": "Lekin kuch aise funds bhi hain, jinke paas share khareedne ya na khareedne ka zyaada vikalp nahi hota. Inhe kehte hain index funds. Yeh aise funds hote hain, jo ek saath kai companiyon ke shares mein aapka paisa lagaate hain.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7"
+   ],
+   "shot_hint": "conveyor of fund boxes, each auto-grabbing a share",
+   "text_en": "And one buyer never gets a choice. Index funds.",
+   "say": "लेकिन कुछ ऐसे फ़ंड भी हैं, जिनके पास शेयर ख़रीदने या न ख़रीदने का ज़्यादा विकल्प नहीं होता। इन्हें कहते हैं इंडेक्स फ़ंड्स। ये ऐसे फ़ंड होते हैं, जो एक साथ कई कंपनियों के शेयरों में आपका पैसा लगाते हैं।"
+  },
+  {
+   "id": "n048",
+   "beat": "CH4",
+   "chapter": "Agli Subah",
+   "speaker": "NARRATOR",
+   "text": "Poore share market mein paisa lagaane wale aise funds kuch hi dinon mein Anthropic jaisi badi companiyon ke shares bhi khareed sakte hain. Morningstar ke hisaab se, agar aapne aise kisi fund mein ₹1 lakh lagaaye hain, toh usmein se kareeb ₹80 Anthropic ke shares mein ja sakte hain.",
+   "card": false,
+   "counter": {
+    "from": 0,
+    "to": 8,
+    "unit": "$",
+    "colour": "gold"
+   },
+   "dramatised": false,
+   "sources": [
+    "S7",
+    "S8"
+   ],
+   "shot_hint": "fund screen: tiny gold sliver of 10,000",
+   "text_en": "Total stock market funds add giants like this within days. Morningstar estimates around eight dollars of every ten thousand.",
+   "say": "पूरे शेयर मार्केट में पैसा लगाने वाले ऐसे फ़ंड कुछ ही दिनों में एंथ्रोपिक जैसी बड़ी कंपनियों के शेयर भी ख़रीद सकते हैं। मॉर्निंगस्टार के हिसाब से, अगर आपने ऐसे किसी फ़ंड में एक लाख रुपये लगाए हैं, तो उसमें से करीब अस्सी रुपये एंथ्रोपिक के शेयरों में जा सकते हैं।"
+  },
+  {
+   "id": "n049",
+   "beat": "CH4",
+   "chapter": "Agli Subah",
+   "speaker": "NARRATOR",
+   "text": "Lekin S&P 500 ke niyam alag hain. Yeh America ki 500 badi companiyon ka ek index hai. Ismein shaamil hone ke liye company ko kam se kam ek saal share market mein rehna hoga. Aur use munafa bhi kamaana hoga.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S7",
+    "S8"
+   ],
+   "shot_hint": "typed card",
+   "text_en": "But the S&P 500 says no. Not until a full year of trading. And real profits.",
+   "say": "लेकिन एस एंड पी फ़ाइव हंड्रेड के नियम अलग हैं। ये अमेरिका की पाँच सौ बड़ी कंपनियों का एक इंडेक्स है। इसमें शामिल होने के लिए कंपनी को कम से कम एक साल शेयर मार्केट में रहना होगा। और उसे मुनाफ़ा भी कमाना होगा।"
+  },
+  {
+   "id": "n050",
+   "beat": "CH4",
+   "chapter": "Agli Subah",
+   "speaker": "NARRATOR",
+   "text": "Aur OpenAI ka kya hua? Khabron ke mutabik, usne June mein hi share market mein aane ke liye chupchaap kaagaz jama kar diye the. Uska lakshya hai 2027.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S12",
+    "S13"
+   ],
+   "shot_hint": "sealed envelope CONFIDENTIAL, calendar 2027",
+   "text_en": "And OpenAI? It reportedly filed in secret in June. It's aiming for 2027.",
+   "say": "और ओपनएआई का क्या हुआ? ख़बरों के मुताबिक, उसने जून में ही शेयर मार्केट में आने के लिए चुपचाप काग़ज़ जमा कर दिए थे। उसका लक्ष्य है दो हज़ार सत्ताईस।"
+  },
+  {
+   "id": "n051",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Ab wapas chalte hain usi Guruvaar ki subah. ₹10,400 ka ek share.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S2"
+   ],
+   "shot_hint": "callback: the same trading floor, same ticker",
+   "text_en": "Back to that Thursday morning. A hundred and eleven fifty.",
+   "say": "अब वापस चलते हैं उसी गुरुवार की सुबह। दस हज़ार चार सौ रुपये का एक शेयर।"
+  },
+  {
+   "id": "n052",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Saat log, jo kabhi OpenAI chhodkar nikle the, ab apne kuch shares bechkar kareeb ₹18,600 crore kama chuke the.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4",
+    "S9"
+   ],
+   "shot_hint": "seven silhouettes walk out of frame",
+   "text_en": "Seven people who once walked out of OpenAI walked away with nearly two billion dollars.",
+   "say": "सात लोग, जो कभी ओपनएआई छोड़कर निकले थे, अब अपने कुछ शेयर बेचकर करीब अठारह हज़ार छह सौ करोड़ रुपये कमा चुके थे।"
+  },
+  {
+   "id": "n053",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Aur unki puraani company, woh aaj bhi apni baari ka intezaar kar rahi hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S12",
+    "S13"
+   ],
+   "shot_hint": "OpenAI-style HQ door at night, light on",
+   "text_en": "Their old company is still waiting at the door.",
+   "say": "और उनकी पुरानी कंपनी, वो आज भी अपनी बारी का इंतज़ार कर रही है।"
+  },
+  {
+   "id": "n054",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Lekin jab OpenAI ki baari aayegi, tab sabse pehle paisa kise milega?",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "final typed question card",
+   "text_en": "When OpenAI finally rings its bell, who gets paid first this time?",
+   "say": "लेकिन जब ओपनएआई की बारी आएगी, तब सबसे पहले पैसा किसे मिलेगा?"
+  },
+  {
+   "id": "n055",
+   "beat": "END",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "OpenAI ke shares bhi aane wale hain. Aur jab aisa hoga, hum phir dekhenge ki paisa kiske paas jaata hai aur kiska nuksaan hota hai. Subscribe kijiye, taaki aap agli kahaani miss na karein.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "callback to 'the list': Nasdaq tower keeps moving, subscribe button slides in, cursor clicks -> SUBSCRIBED (owner: no logo outro)",
+   "text_en": "OpenAI's bell is coming. When it rings, we'll follow the money again. Subscribe, so you're on our list.",
+   "say": "ओपनएआई के शेयर भी आने वाले हैं। और जब ऐसा होगा, हम फिर देखेंगे कि पैसा किसके पास जाता है और किसका नुक़सान होता है। सब्सक्राइब कीजिए, ताकि आप अगली कहानी मिस न करें।"
+  }
+ ],
+ "lang": "hi",
+ "max_pause": 0.3
+}

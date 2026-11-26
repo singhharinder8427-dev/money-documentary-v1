@@ -33,7 +33,7 @@ def cmd_voices():
     s = script(); Vc.LANG = s.get('lang', 'en'); res = clips()
     narr = [(l['id'], spoken(l)) for l in s['lines'] if l.get('speaker', 'NARRATOR') == 'NARRATOR' and not l.get('silent')]
     nf = next(iter(glob.glob(str(V / 'narration.*'))), None)
-    if nf: res.update(Vc.split_narration(nf, narr, str(VO)))
+    if nf: res.update(Vc.split_narration(nf, narr, str(VO), s.get('max_pause')))   # max_pause: shorten long pauses inside lines (seconds)
     else: print('No narration.* yet - narrator lines use Kokoro placeholders until the ElevenLabs file arrives.')
     for l in s['lines']:
         sp = l.get('speaker', 'NARRATOR').lower()

@@ -5,13 +5,13 @@ titles/stamps, Special Elite typed text, Barlow labels."""
 import math, random
 import skia
 from engine.core import W, H, NAVY, NAVY2, NAVY3, BLACK, WHITE, GREY, GOLD, GOLD_D, ORANGE, PAPER, F_COUNTER, F_TITLE, F_TYPE, F_LABEL, F_LABEL2
-from engine.kit import fp, ink, hx, rect, circ, poly, shape, pop, back, ease, ease_out, lerp, K, INK
+from engine.kit import fp, ink, hx, rect, circ, poly, shape, pop, back, ease, ease_out, lerp, K, INK, mw, ds, _rf
 
 def _font(tf, size): return skia.Font(tf, size)
 def text(c, s, x, y, size, color, tf=F_LABEL, align='left', stroke=0, stroke_col=INK, alpha=255):
-    f = _font(tf, size); w = f.measureText(s); ox = {'left': 0, 'center': -w / 2, 'right': -w}[align]
-    if stroke: c.drawString(s, x + ox, y, f, ink(stroke, stroke_col, alpha))
-    c.drawString(s, x + ox, y, f, fp(color, alpha)); return w
+    f = _font(tf, size); w = mw(f, s); ox = {'left': 0, 'center': -w / 2, 'right': -w}[align]
+    if stroke: ds(c, s, x + ox, y, f, ink(stroke, stroke_col, alpha))
+    ds(c, s, x + ox, y, f, fp(color, alpha)); return w
 def wrap(words, tf, size, maxw):
     f = _font(tf, size); lines, cur = [], []
     for w in words:
@@ -86,12 +86,12 @@ def text_card(c, s, t, gold_words=(), bg=BLACK, size=78, color=WHITE, dur=3.0):
     y0 = H / 2 - (len(lines) - 1) * lh / 2 + size * .3; k = 0; cx = cy = None
     gw = {g.lower().strip('.,!?') for g in gold_words}
     for i, ln in enumerate(lines):
-        x = W / 2 - f.measureText(' '.join(ln)) / 2; y = y0 + i * lh
+        x = W / 2 - mw(f, ' '.join(ln)) / 2; y = y0 + i * lh
         for wd in ln:
             col_ = GOLD if wd.lower().strip('.,!?') in gw else color
             vis = wd[:max(0, min(len(wd), shown - k))]
-            if vis: c.drawString(vis, x, y, f, fp(col_)); cx, cy = x + f.measureText(vis) + 8, y
-            x += f.measureText(wd + ' '); k += len(wd) + 1
+            if vis: ds(c, vis, x, y, f, fp(col_)); cx, cy = x + mw(f, vis) + 8, y
+            x += mw(f, wd + ' '); k += len(wd) + 1
     if cx is None: cx, cy = W / 2 - f.measureText(' '.join(lines[0])) / 2, y0
     if shown < len(s) or int(t * 2.5) % 2 == 0: c.drawRect(skia.Rect(cx, cy - size * .78, cx + size * .45, cy + size * .08), fp(GOLD))
 
@@ -132,7 +132,7 @@ def counter(c, x, y, v0, v1, u, unit='$', loss=False, size=96, label=None, panel
     a down arrow. (x, y) = centre of the panel. u 0..1 counts with ease-out."""
     v = lerp(v0, v1, ease_out(min(max(u, 0), 1))); col = ORANGE if loss else GOLD
     groups = money_str(v, unit, decimals).split(','); fd = _font(F_COUNTER, size); fb = _font(F_LABEL, size * 1.12)
-    parts = ([('-', fb)] if loss else []) + ([(unit, fb)] if unit else [])
+    parts = ([('-', fb)] if loss else []) + ([(unit, _rf(fb) if unit == '₹' else fb)] if unit else [])
     for i, g in enumerate(groups): parts += [(g, fd)] + ([(',', fb)] if i < len(groups) - 1 else [])
     if suffix: parts.append((suffix, fb))
     gap = size * .06; tw = sum(f.measureText(t) for t, f in parts) + gap * (len(parts) - 1); aw = size * .7 if loss else 0

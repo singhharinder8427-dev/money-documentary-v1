@@ -1,10 +1,22 @@
-import math, random, os
+import math, random, os, re
 import numpy as np, skia, soundfile as sf
 
 W, H, FPS = 1920, 1080, 30
 from engine.core import FONT_DIR as FD
 FONT_HAND = skia.Typeface.MakeFromFile(FD + "CaveatBrush-Regular.ttf")
 KALAM = skia.Typeface.MakeFromFile(FD + "Kalam-Bold.ttf")
+_RUPEE = {}
+def _rf(f):
+    """Our locked fonts have no rupee sign (Hindi videos, owner 26 Nov 2026): draw just the sign with a system font of the same weight."""
+    w = f.getTypeface().fontStyle().weight()
+    if w not in _RUPEE: _RUPEE[w] = skia.FontMgr().matchFamilyStyleCharacter('', skia.FontStyle(w, 5, skia.FontStyle.kUpright_Slant), [], 0x20B9) or f.getTypeface()
+    return skia.Font(_RUPEE[w], f.getSize())
+def mw(f, s): return sum((_rf(f) if p == '₹' else f).measureText(p) for p in re.split('(₹)', s) if p)   # measureText that knows the rupee sign
+def ds(c, s, x, y, f, paint):
+    """c.drawString that also draws the rupee sign."""
+    if '₹' not in s: c.drawString(s, x, y, f, paint); return
+    for p in re.split('(₹)', s):
+        if p: ff = _rf(f) if p == '₹' else f; c.drawString(p, x, y, ff, paint); x += ff.measureText(p)
 MARKER = skia.Typeface.MakeFromFile(FD + "PermanentMarker-Regular.ttf")
 INK = (24, 22, 27); LW = 6.0
 GOLD = '#F2C14E'; RED = '#C8242C'; LIME = '#B8F04A'; CREAM = '#FFF6DC'
@@ -68,11 +80,11 @@ def poly(c, pts, fill, w=LW, v=INK):
     p.close(); shape(c, p, fill, w, v); return p
 def text_w(s, size, font=None): return skia.Font(font or KALAM, size).measureText(s)
 def label(c, s, x, y, size, color, font=None, align='left', stroke=0, stroke_col=INK, skew=-0.16, alpha=1.0, rot=0.0):
-    f = skia.Font(font or KALAM, size); w = f.measureText(s)
+    f = skia.Font(font or KALAM, size); w = mw(f, s)
     ox = -w / 2 if align == 'center' else -w if align == 'right' else 0
     c.save(); c.translate(x, y); c.rotate(rot); c.skew(skew, 0)
-    if stroke: c.drawString(s, ox, 0, f, ink(stroke, stroke_col, 255 * alpha))
-    c.drawString(s, ox, 0, f, fp(color, 255 * alpha)); c.restore(); return w
+    if stroke: ds(c, s, ox, 0, f, ink(stroke, stroke_col, 255 * alpha))
+    ds(c, s, ox, 0, f, fp(color, 255 * alpha)); c.restore(); return w
 
 # ---------------- lighting
 def night(c, lights, ambient='#4C5CA0'):
