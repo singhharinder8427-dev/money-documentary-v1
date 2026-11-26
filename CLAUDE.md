@@ -26,6 +26,22 @@ Skip binaries (images, fonts, audio, video). Then continue; do not summarise all
 1. **Script:** "Do you already have a script, should I research and write one, or do you want me to find the idea first?"
 2. **Length:** "How long should this video be?" (ask EVERY video; never assume 10 min).
 3. **Render:** "Render on your Windows PC or in the cloud?" (ask EVERY new project; asking is not consent to render, see 5).
+4. **Language:** "Should the audio be in Hindi or English?" (ask EVERY new project, at topic selection). English = the existing
+   pipeline (US audience, this channel). Hindi = the Hindi pipeline, for the owner's separate Hindi-only channel (rule below).
+
+**Hindi videos (standing rule, owner-set 26 Nov 2026):**
+- `script.json` gets `"lang": "hi"`. Every line has `say` (the spoken words in Devanagari, natural spoken Hindi, English
+  loanwords as people really say them) and `text` (the same line in **Hinglish, Roman script**). `text` drives the captions.
+- **All numbers on screen are in English digits and English format** ($1.7 trillion, 24 Nov, 45%) - in captions, cards,
+  counters, charts and tags. Never Devanagari digits. Cards, counters, chart labels and name tags stay in English.
+- **Captions are Hinglish** (Hindi words in Roman letters mixed with English, e.g. "Ek hi subah mein $1.7 trillion"),
+  never Devanagari script.
+- **Chapter pages and title cards are Hinglish too** (owner, 26 Nov 2026), not English. Numbers stay English digits.
+- Voices: narrator = the owner's ElevenLabs Hindi file (Kokoro `hm_omega` is only the placeholder); dialogue = Kokoro's
+  Hindi voices (`voices.py HINDI_VOICES`); pronunciations come from espeak-ng `hi`. Speech check = Whisper
+  (`D:\models\faster-whisper-large-v3-turbo`), because Parakeet is English only.
+- The search-demand rule applies to Hindi too: check what Indian viewers search (Hindi / Hinglish search terms) and write
+  the title, description and thumbnail text in Hinglish.
 **Search-demand topics (standing rule, owner-set 24 Nov 2026):** from now on every video is about what people are actively
 searching for. When finding or checking an idea, show the owner the search evidence first (Google Trends, YouTube search
 suggestions, recent news volume, competitor videos' views) and pick the topic and title wording people actually type.

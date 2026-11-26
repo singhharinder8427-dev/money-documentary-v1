@@ -38,6 +38,15 @@ fix them all, re-check the changed shots, then report.
   caption bar (bottom ~120 px) or at the frame edges after the camera zoom (check START and END frames).
 - Labels read in the right order ("down more than 5%", not "-5.0% MORE THAN"). No duplicate labels in one shot.
 - Typed cards finish typing by about half the line so the viewer can read them; the typing never trails the voice.
+- **Every caption, one by one** (owner, 26 Nov 2026, Hindi test): read `out/captions.srt` line by line next to the voice.
+  No caption may flash by too fast to read (short chunks like "nahi." / "banaya?" left alone for under ~1 s, or long
+  chunks on screen for too short a time); merge or re-split chunks so each one fits nicely and stays readable.
+- **Hindi videos: chapter pages / title cards in Hinglish (Roman script)**, not English, same as the captions
+  (numbers still English digits).
+
+## 5b. Typewriter sound matches the typing (owner, 26 Nov 2026)
+- The typewriter key sound must follow the card's text animation: one key per typed character at the same speed,
+  starting and stopping with the typing. Flag any card where the keys run faster (or longer) than the letters appear.
 
 ## 6. Repetition and immersion (the owner dislikes repeated backdrops)
 - Count shots on the plain framed navy backdrop; keep it for typed quote cards and a few big beats only. Documents go

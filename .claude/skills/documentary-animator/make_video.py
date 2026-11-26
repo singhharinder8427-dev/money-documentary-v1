@@ -9,12 +9,13 @@
 The video folder holds: script.json (documentary-script skill), narration.wav/mp3 (owner's ElevenLabs file, narrator
 lines only, in script order), shots.py (written per video from template/shots.py: def build(tl) -> list of shots)."""
 import os, sys, json, glob, pathlib, importlib.util
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent)); sys.stdout.reconfigure(encoding='utf-8', errors='replace')   # Hindi words in messages
 import numpy as np, soundfile as sf
 from engine import render, audio as A, timeline as T
 
 V = pathlib.Path.cwd(); OUT = V / 'out'; VO = V / 'voices'; OUT.mkdir(exist_ok=True); VO.mkdir(exist_ok=True)
-def script(): return json.load(open(V / 'script.json'))
+def script(): return json.load(open(V / 'script.json', encoding='utf-8'))
+def spoken(l): return l.get('say') or l['text']   # Hindi videos: 'say' = Devanagari for the voice, 'text' = Hinglish (Roman) caption
 def clips():
     c = json.load(open(VO / 'clips.json')) if (VO / 'clips.json').exists() else {}
     return {k: tuple(v) for k, v in c.items()}
@@ -29,16 +30,17 @@ def shot_list():
 
 def cmd_voices():
     from engine import voices as Vc
-    s = script(); res = clips(); narr = [(l['id'], l['text']) for l in s['lines'] if l.get('speaker', 'NARRATOR') == 'NARRATOR' and not l.get('silent')]
+    s = script(); Vc.LANG = s.get('lang', 'en'); res = clips()
+    narr = [(l['id'], spoken(l)) for l in s['lines'] if l.get('speaker', 'NARRATOR') == 'NARRATOR' and not l.get('silent')]
     nf = next(iter(glob.glob(str(V / 'narration.*'))), None)
     if nf: res.update(Vc.split_narration(nf, narr, str(VO)))
-    else: print('No narration.* yet - narrator lines use Kokoro placeholders (am_michael) until the ElevenLabs file arrives.')
+    else: print('No narration.* yet - narrator lines use Kokoro placeholders until the ElevenLabs file arrives.')
     for l in s['lines']:
         sp = l.get('speaker', 'NARRATOR').lower()
         if l.get('silent') or l['id'] in res: continue
         who = l.get('voice') or (sp if sp in Vc.CHARACTER_VOICES else 'retiree' if sp == 'narrator' else None)   # 'voice' = which cast voice a real person uses
         if who is None: print('unknown speaker', sp, '-> add it to CHARACTER_VOICES'); continue
-        res[l['id']] = Vc.character_line(l['text'], who, str(VO / f"{l['id']}.wav"))
+        res[l['id']] = Vc.character_line(spoken(l), who, str(VO / f"{l['id']}.wav"))
     json.dump(res, open(VO / 'clips.json', 'w'), indent=1); print(len(res), 'voice clips ready')
 
 def cmd_stills():
@@ -129,7 +131,7 @@ def cmd_qa():
 
 def cmd_check():
     from engine import voices as Vc
-    s = script(); txt = ' '.join(l['text'] for l in s['lines'] if not l.get('silent'))
+    s = script(); Vc.LANG = s.get('lang', 'en'); txt = ' '.join(spoken(l) for l in s['lines'] if not l.get('silent'))
     print('transcript match:', round(Vc.transcript_check(str(OUT / 'mix.wav'), txt), 3), '(aim > 0.9; the owner still watches once for timing)')
 
 if __name__ == '__main__':

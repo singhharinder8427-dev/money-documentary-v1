@@ -1,0 +1,97 @@
+{
+ "title": "50% in 45 Days",
+ "title_after": "n006",
+ "lang": "hi",
+ "lines": [
+  {
+   "id": "n001",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Boston, July 1920. Logon ki ek lambi line poore block tak faili hui hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S2"
+   ],
+   "shot_hint": "1920 street, medium shot travelling along the queue to SECURITIES EXCHANGE CO.",
+   "say": "बॉस्टन, जुलाई उन्नीस सौ बीस। लोगों की एक लंबी लाइन पूरे ब्लॉक तक फैली हुई है।"
+  },
+  {
+   "id": "n002",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Clerks. Factory workers. Gharon mein kaam karne wali auratein. Sabke haath mein cash hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1"
+   ],
+   "shot_hint": "close shots of hands holding bills in the queue",
+   "say": "क्लर्क। फैक्ट्री वर्कर। घरों में काम करने वाली औरतें। सबके हाथ में कैश है।"
+  },
+  {
+   "id": "n003",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Unse vaada kiya gaya hai: 45 din mein 50% munafa.",
+   "card": true,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S1",
+    "S2"
+   ],
+   "shot_hint": "text card + tear-off calendar 45 DAYS",
+   "say": "उनसे वादा किया गया है, पैंतालीस दिन में पचास परसेंट मुनाफ़ा।"
+  },
+  {
+   "id": "n004",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Jo aadmi unka paisa le raha hai, uska jail ka record hai. Us line mein kisi ko yeh pata nahi.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S5"
+   ],
+   "shot_hint": "Ponzi at his office window smiling down at the line",
+   "say": "जो आदमी उनका पैसा ले रहा है, उसका जेल का रिकॉर्ड है। उस लाइन में किसी को यह पता नहीं।"
+  },
+  {
+   "id": "n005",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Jald hi uska naam is scam ka doosra naam ban jayega. Aur yahi chaal aaj bhi aapke paison ke peeche hai.",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [
+    "S4"
+   ],
+   "shot_hint": "push-in on Ponzi, then phone glow",
+   "say": "जल्द ही उसका नाम इस स्कैम का दूसरा नाम बन जाएगा। और यही चाल आज भी आपके पैसों के पीछे है।"
+  },
+  {
+   "id": "n006",
+   "beat": "HOOK",
+   "chapter": null,
+   "speaker": "NARRATOR",
+   "text": "Toh straw hat wale ek chhote se aadmi ne poore shehar ko bewakoof kaise banaya?",
+   "card": false,
+   "counter": null,
+   "dramatised": false,
+   "sources": [],
+   "shot_hint": "Ponzi tips his boater",
+   "say": "तो स्ट्रॉ हैट वाले एक छोटे से आदमी ने पूरे शहर को बेवकूफ़ कैसे बनाया?"
+  }
+ ]
+}

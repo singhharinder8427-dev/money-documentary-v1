@@ -5,6 +5,8 @@ Setup once per machine (GitHub release URLs; Hugging Face is often blocked):
   R=https://github.com/k2-fsa/sherpa-onnx/releases/download
   curl -L -O $R/tts-models/kokoro-multi-lang-v1_0.tar.bz2 && tar xjf kokoro-multi-lang-v1_0.tar.bz2
   curl -L -O $R/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2 && tar xjf sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+Hindi videos also need: winget install eSpeak-NG.eSpeak-NG ; pip install faster-whisper ;
+  python -c "from faster_whisper import download_model as d; d('large-v3-turbo', output_dir='<models>/faster-whisper-large-v3-turbo')"
 Models folder: $DOCANIM_MODELS (default ~/models)."""
 import os, re, difflib, numpy as np, soundfile as sf
 MODELS = os.path.expanduser(os.environ.get('DOCANIM_MODELS', '~/models'))
@@ -20,6 +22,13 @@ CHARACTER_VOICES = {   # candidates until the test render; then locked
     'investor': ('af_bella', 1.0), 'saver': ('af_sarah', 1.0), 'grad': ('am_liam', 1.05), 'scammer': ('am_puck', 1.0),
     'agent': ('am_echo', 0.97), 'reporter': ('af_nicole', 1.0), 'retiree': ('am_michael', 0.92),
     'intel': ('am_michael', 0.97), 'reporter2': ('af_sky', 1.0), 'trump': ('am_adam', 0.9)}   # Part 2 candidates (23 Nov 2026)
+# Hindi videos (script.json "lang": "hi", owner 26 Nov 2026). Kokoro v1.0 has 4 Hindi voices (ids from the v1.0 voice
+# table; confirmed 26 Nov 2026: Whisper reads all 4, pitch f ~200 Hz / m ~135 Hz). Each English character voice maps to a Hindi one of the same gender unless
+# HINDI_VOICES names it. Narrator = ElevenLabs Hindi file; hm_omega is only the placeholder until it arrives.
+KOKORO_IDS.update({'hf_alpha': 31, 'hf_beta': 32, 'hm_omega': 33, 'hm_psi': 34})
+HINDI_VOICES = {'retiree': ('hm_omega', 1.0), 'reporter2': ('hf_beta', 1.0), 'analyst': ('hm_omega', 1.0)}
+LANG = 'en'   # set by make_video.py from script.json
+WHISPER = os.path.join(MODELS, 'faster-whisper-large-v3-turbo')   # Hindi speech-to-text (Parakeet is English only)
 LEXICON_EXTRA = 'lex_extra.txt'   # per-video extra pronunciations (written automatically by prepare_text)
 # Hand-checked pronunciations (Kokoro symbols, space-separated). Add names here when they come up.
 MANUAL_LEX = {'huang': 'h w ˈ ɑ ŋ', 'ceo': 'ˌ s i ˌ i ˈ O', 'jensen': 'ʤ ˈ ɛ n s ə n', "sec's": 'ˌ ɛ s ˌ i s ˈ i z', 'sec': 'ˌ ɛ s ˌ i s ˈ i', 'ponzi': 'p ˈ ɑ n z i', 'pulitzer': 'p ˈ ʊ l ɪ t s ə ɹ', 'gov': 'ɡ ˈ ʌ v', 'madoff': 'm ˈ A d ɔ f', 'nvidia': 'ɛ n v ˈ ɪ d i ə'}
@@ -63,24 +72,25 @@ def _known():
         for f in ('lexicon-us-en.txt',):
             for line in open(os.path.join(KOKORO, f), encoding='utf-8'): _LEXSET.add(line.split(' ', 1)[0].lower())
     return _LEXSET
-def _espeak_ipa(word):
+def _espeak_ipa(word, voice='en-us'):
     import subprocess, shutil
-    if not shutil.which('espeak-ng'): return None
-    ipa = subprocess.run(['espeak-ng', '-q', '--ipa=3', '-v', 'en-us', word], capture_output=True, text=True).stdout.strip()
+    exe = shutil.which('espeak-ng') or r'C:\Program Files\eSpeak NG\espeak-ng.exe'   # winget install does not always reach PATH
+    if not os.path.exists(exe) and not shutil.which('espeak-ng'): return None
+    ipa = subprocess.run([exe, '-q', '--ipa=3', '-b', '1', '-v', voice], input=word, capture_output=True, text=True, encoding='utf-8').stdout.strip()   # stdin: Windows argv mangles Devanagari
     ipa = ipa.replace('\u200d', '').replace('ː', '').replace('ɚ', 'əɹ').replace('ᵻ', 'ɪ').replace('tʃ', 'ʧ').replace('dʒ', 'ʤ').replace('_', '')
     toks = set(l.split(' ')[0] for l in open(os.path.join(KOKORO, 'tokens.txt'), encoding='utf-8') if l.strip())
     return ' '.join(ch for ch in ipa if ch in toks and not ch.isspace()) or None
 def prepare_text(text):
     """Make a line safe for Kokoro: spell numbers out, and add every word missing from its dictionary to
     lex_extra.txt (hand-checked MANUAL_LEX first, then espeak-ng). Without this Kokoro silently SKIPS unknown words."""
-    t = speakable(text).replace('"', ''); known = _known(); have = {}   # quotes glued to a word made Kokoro skip it ('"I)
+    t = speakable(text).replace('"', '').replace('।', '.'); known = _known(); have = {}   # quotes glued to a word made Kokoro skip it ('"I); Hindi full stop -> '.'
     if os.path.exists(LEXICON_EXTRA): have = {l.split(' ', 1)[0]: 1 for l in open(LEXICON_EXTRA, encoding='utf-8') if l.strip()}
     new = []
-    for w in re.findall(r"[A-Za-z][A-Za-z'’-]*", t):
+    for w in re.findall(r"[A-Za-z][A-Za-z'’-]*|[ऀ-ॣ०-ॿ]+", t):   # English words + Devanagari words
         for part in w.replace('’', "'").split('-'):
             k = part.lower()
             if not k or k in known or k in have: continue
-            p = MANUAL_LEX.get(k) or _espeak_ipa(part)
+            p = MANUAL_LEX.get(k) or _espeak_ipa(part, 'hi' if re.match(r'[ऀ-ॿ]', part) else 'en-us')
             if p: new.append(f'{k} {p}'); have[k] = 1
             else: print('NO PRONUNCIATION for', part, '- add it to MANUAL_LEX')
     if new:
@@ -97,13 +107,15 @@ def kokoro():
         # US dictionary only: the GB file overrides US words (non-rhotic 'part' -> 'pot')
         M = KOKORO; cfg = sherpa_onnx.OfflineTtsConfig(model=sherpa_onnx.OfflineTtsModelConfig(kokoro=sherpa_onnx.OfflineTtsKokoroModelConfig(
             model=f'{M}/model.onnx', voices=f'{M}/voices.bin', tokens=f'{M}/tokens.txt', data_dir=f'{M}/espeak-ng-data', dict_dir=f'{M}/dict',
-            lexicon=f'{LEXICON_EXTRA},{M}/lexicon-us-en.txt', lang='en-us'), num_threads=max(1, (os.cpu_count() or 2) - 1)))
+            lexicon=f'{LEXICON_EXTRA},{M}/lexicon-us-en.txt', lang='hi' if LANG == 'hi' else 'en-us'), num_threads=max(1, (os.cpu_count() or 2) - 1)))
         _TTS = sherpa_onnx.OfflineTts(cfg)
     return _TTS
 
 def character_line(text, who, out):
     """Synthesize one character line with that character's fixed Kokoro voice; trimmed; returns (path, seconds)."""
-    name, speed = CHARACTER_VOICES[who]; t = prepare_text(text); a = kokoro().generate(t, sid=KOKORO_IDS[name], speed=speed)
+    name, speed = CHARACTER_VOICES[who]
+    if LANG == 'hi': name, speed = HINDI_VOICES.get(who) or ('hf_alpha' if name.startswith(('af', 'bf')) else 'hm_psi', speed)
+    t = prepare_text(text); a = kokoro().generate(t, sid=KOKORO_IDS[name], speed=speed)
     s = np.array(a.samples, dtype=np.float32); idx = np.where(np.abs(s) > 0.012 * np.abs(s).max())[0]
     s = s[max(idx[0] - 300, 0): idx[-1] + 1500]; sf.write(out, s, a.sample_rate); return out, len(s) / a.sample_rate
 
@@ -120,6 +132,10 @@ def _mono16k(path):
     y, sr = sf.read(path); y = y.mean(1) if y.ndim > 1 else y; return resample_poly(y, 16000, sr).astype(np.float32) if sr != 16000 else y.astype(np.float32)
 def words_with_times(path, chunk=24.0):
     """Speech-to-text with word timings: [(word, start, end)]. Decodes in 24 s chunks with 1 s overlap."""
+    if LANG == 'hi':   # Whisper (faster-whisper) for Hindi
+        from faster_whisper import WhisperModel
+        segs, _ = WhisperModel(WHISPER, device='cpu', compute_type='int8').transcribe(_mono16k(path), language='hi', word_timestamps=True)   # array, not path: skips PyAV (version clash)
+        return [(w.word.strip(), w.start, w.end) for s in segs for w in s.words if w.word.strip()]
     y = _mono16k(path); out = []; step = int((chunk - 1) * 16000); L = int(chunk * 16000); i = 0
     while i < len(y):
         seg = y[i:i + L]; st = asr().create_stream(); st.accept_waveform(16000, seg); asr().decode_stream(st); r = st.result
@@ -136,7 +152,7 @@ def words_with_times(path, chunk=24.0):
     for w in out:
         if not ded or w[1] > ded[-1][1] + .05: ded.append(w)
     return [(w, a, b) for w, a, b in ded if w]
-def norm(s): return re.sub(r"[^a-z0-9$%']+", ' ', s.lower()).split()
+def norm(s): return re.sub(r"[^a-z0-9$%'ऀ-ॣ०-ॿ]+", ' ', s.lower()).split()   # keeps Devanagari, drops the danda
 
 def split_narration(narration_wav, lines, outdir):
     """Cut the owner's ElevenLabs narration (one file, narrator lines in script order) into one clip per line.
@@ -146,13 +162,18 @@ def split_narration(narration_wav, lines, outdir):
     ref, owner = [], []
     for k, (lid, txt) in enumerate(lines):
         for w in norm(txt): ref.append(w); owner.append(k)
-    sm = difflib.SequenceMatcher(None, ref, hyp, autojunk=False); hit = {}
+    sm = difflib.SequenceMatcher(None, ref, hyp, autojunk=False); hit = {}; matched = set()
     for a, b, n in sm.get_matching_blocks():
-        for j in range(n): hit.setdefault(owner[a + j], []).append(b + j)
+        for j in range(n): hit.setdefault(owner[a + j], []).append(b + j); matched.add(a + j)
     y, sr = sf.read(narration_wav); y = y.mean(1) if y.ndim > 1 else y; res, missing = {}, []
+    rng = {k: [min(v), max(v)] for k, v in hit.items()}; ks = sorted(rng)
+    for k, k2 in zip(ks, ks[1:]):   # unmatched heard words between two lines (e.g. Whisper writes 'Factory' in Latin) go to the line whose edge word is unmatched
+        if k2 == k + 1 and rng[k2][0] > rng[k][1] + 1:
+            if owner.index(k2) not in matched: rng[k2][0] = rng[k][1] + 1
+            elif len(owner) - 1 - owner[::-1].index(k) not in matched: rng[k][1] = rng[k2][0] - 1
     bounds = []
     for k in range(len(lines)):
-        if k in hit: bounds.append((W_[min(hit[k])][1], W_[max(hit[k])][2]))
+        if k in rng: bounds.append((W_[rng[k][0]][1], W_[rng[k][1]][2]))
         else: bounds.append(None); missing.append(lines[k][0])
     for k, (lid, _) in enumerate(lines):
         if bounds[k] is None: continue
